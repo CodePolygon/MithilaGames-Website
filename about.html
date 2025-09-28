@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | Mithila Games</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- Header -->
+  <header class="bg-gray-900 border-b border-gray-700">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-extrabold text-red-500 hover:text-red-400">MITHILA GAMES</a>
+      <a href="index.html" class="text-sm text-gray-400 hover:text-red-500">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-950 text-gray-200">
+    <div class="container mx-auto px-6">
+      <h2 id="about-title" class="text-4xl font-bold text-center text-red-500 mb-8">Loading...</h2>
+      <p id="about-description" class="text-lg text-center max-w-3xl mx-auto mb-12">Please wait...</p>
+
+      <div id="about-team" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Team members will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-700 py-6 text-center text-sm text-gray-500">
+    <p>© 2025 Mithila Games. All rights reserved.</p>
+    <p>
+      <a href="legal.html" class="hover:text-red-500">Terms of Use</a> |
+      <a href="legal.html#privacy" class="hover:text-red-500">Privacy Policy</a> |
+      <a href="legal.html#support" class="hover:text-red-500">Support</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch("data.json");
+        const data = await response.json();
+
+        const about = data.about;
+        if (about) {
+          document.getElementById("about-title").textContent = about.title;
+          document.getElementById("about-description").textContent = about.description;
+
+          const teamContainer = document.getElementById("about-team");
+          teamContainer.innerHTML = "";
+          about.team.forEach(member => {
+            teamContainer.insertAdjacentHTML("beforeend", `
+              <div class="bg-gray-900 rounded-xl p-6 text-center shadow-lg hover:shadow-red-600/30 transition">
+                <img src="${member.image}" alt="${member.name}" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-gray-700">
+                <h3 class="text-xl font-semibold text-white">${member.name}</h3>
+                <p class="text-red-400 text-sm font-medium">${member.role}</p>
+              </div>
+            `);
+          });
+        }
+      } catch (err) {
+        console.error("Error loading About page:", err);
+        document.getElementById("about-title").textContent = "Failed to load content";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Legal & Support | Mithila Games</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- Header -->
+  <header class="bg-gray-900 border-b border-gray-700">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-extrabold text-red-500 hover:text-red-400">MITHILA GAMES</a>
+      <a href="index.html" class="text-sm text-gray-400 hover:text-red-500">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <div class="container mx-auto px-6 mt-8">
+    <div class="flex space-x-4 border-b border-gray-700">
+      <button class="tab-btn text-gray-400 hover:text-red-500 py-2 px-4 border-b-2 border-transparent" data-tab="terms">Terms of Use</button>
+      <button class="tab-btn text-gray-400 hover:text-red-500 py-2 px-4 border-b-2 border-transparent" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn text-gray-400 hover:text-red-500 py-2 px-4 border-b-2 border-transparent" data-tab="support">Support</button>
+    </div>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="container mx-auto px-6 py-8">
+
+    <!-- Terms -->
+    <div id="terms" class="tab-content hidden">
+      <h1 class="text-3xl font-bold text-red-500 mb-4">Terms of Use</h1>
+      <p class="mb-4">These are the terms and conditions for using this website. Please read carefully before accessing or using our site.</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>You agree not to misuse the services.</li>
+        <li>All content is provided as-is without warranty.</li>
+        <li>We reserve the right to update these terms at any time.</li>
+      </ul>
+    </div>
+
+    <!-- Privacy -->
+    <div id="privacy" class="tab-content hidden">
+      <h1 class="text-3xl font-bold text-red-500 mb-4">Privacy Policy</h1>
+      <p class="mb-4">We respect your privacy and are committed to protecting your personal data. This policy explains what information we collect and how it is used.</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>We may collect basic usage information for site improvements.</li>
+        <li>We do not sell or share your personal data.</li>
+        <li>You can contact us for any privacy-related concerns.</li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div id="support" class="tab-content hidden">
+      <h1 class="text-3xl font-bold text-red-500 mb-4">Support</h1>
+      <p class="mb-4">Need help? Reach out using the options below.</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Email: <a href="mailto:support@example.com" class="text-red-500 hover:underline">support@example.com</a></li>
+        <li>Discord: <a href="#" class="text-red-500 hover:underline">Join our community</a></li>
+        <li>FAQ: <a href="#" class="text-red-500 hover:underline">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- JS for Tabs -->
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    function showTab(id) {
+      contents.forEach(c => c.classList.add('hidden'));
+      tabs.forEach(t => t.classList.remove('text-red-500','border-red-500'));
+      document.getElementById(id).classList.remove('hidden');
+      document.querySelector(`[data-tab="${id}"]`).classList.add('text-red-500','border-red-500');
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        showTab(tab.dataset.tab);
+      });
+    });
+
+    // Show Terms tab by default
+    showTab('terms');
+  </script>
+
+</body>
+</html>

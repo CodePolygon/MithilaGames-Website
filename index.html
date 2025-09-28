@@ -1,102 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Under Development</title>
-    <!-- Tailwind CSS CDN for easy styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom CSS to use the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-            /* Mithila art inspired background gradient and subtle pattern */
-            background-color: #fce883; /* Base yellow-ish color */
-            background-image:
-                radial-gradient(circle at top left, rgba(255, 99, 71, 0.3) 0%, transparent 50%), /* Tomato red */
-                radial-gradient(circle at bottom right, rgba(0, 128, 0, 0.3) 0%, transparent 50%), /* Green */
-                repeating-linear-gradient(45deg,
-                    rgba(0,0,0,0.05) 0px,
-                    rgba(0,0,0,0.05) 1px,
-                    transparent 1px,
-                    transparent 10px
-                ),
-                repeating-linear-gradient(-45deg,
-                    rgba(0,0,0,0.05) 0px,
-                    rgba(0,0,0,0.05) 1px,
-                    transparent 1px,
-                    transparent 10px
-                );
-            background-size: cover;
-            background-blend-mode: overlay; /* Blend the patterns and gradients */
-        }
-        .mithila-shadow {
-            /* Custom layered shadow/border for a Mithila feel */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
-                        0 0 0 4px #fdc500, /* Yellow inner border */
-                        0 0 0 8px #d62828; /* Red outer border */
-        }
-        .mithila-icon {
-            /* Stylized geometric pattern or a simple natural motif common in Mithila art */
-            width: 80px;
-            height: 80px;
-            fill: #d62828; /* Red color for inner elements */
-            stroke: #007bff; /* Blue outline for main shape */
-            stroke-width: 2;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mithila Games | Game Studio</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-8 md:p-12 rounded-xl text-center max-w-lg w-full transform transition-all duration-500 ease-in-out hover:scale-105 mithila-shadow">
-        <!-- Website Logo/Icon (Mithila-inspired geometric pattern) -->
-        <div class="mb-6">
-            <svg class="mx-auto mithila-icon" viewBox="0 0 100 100">
-                <!-- A simple stylized sun or flower motif using basic shapes and lines -->
-                <circle cx="50" cy="50" r="40" stroke="#007bff" stroke-width="3" fill="none"/>
-                <circle cx="50" cy="50" r="20" fill="#d62828"/>
-                <line x1="50" y1="10" x2="50" y2="30" stroke="#007bff" stroke-width="3"/>
-                <line x1="50" y1="70" x2="50" y2="90" stroke="#007bff" stroke-width="3"/>
-                <line x1="10" y1="50" x2="30" y2="50" stroke="#007bff" stroke-width="3"/>
-                <line x1="70" y1="50" x2="90" y2="50" stroke="#007bff" stroke-width="3"/>
-                <!-- Diagonal lines for more detail -->
-                <line x1="20" y1="20" x2="34" y2="34" stroke="#007bff" stroke-width="3"/>
-                <line x1="66" y1="66" x2="80" y2="80" stroke="#007bff" stroke-width="3"/>
-                <line x1="20" y1="80" x2="34" y2="66" stroke="#007bff" stroke-width="3"/>
-                <line x1="66" y1="34" x2="80" y2="20" stroke="#007bff" stroke-width="3"/>
-            </svg>
-        </div>
+<body class="bg-gray-900 text-white min-h-screen">
 
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-pulse">
-            कला का काम चल रहा है! <br class="sm:hidden">(Art in Progress!)
-        </h1>
-        <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-            हमारी वेबसाइट पर अभी विकास का कार्य चल रहा है। हम आपके लिए कुछ अद्भुत लाने के लिए कड़ी मेहनत कर रहे हैं!
-            <br>
-            (Our website is currently undergoing development. We are working hard to bring you something amazing!)
-        </p>
-        <p class="text-md md:text-lg text-gray-600 mb-8">
-            कृपया जल्द ही वापस आएं – हम आपके धैर्य की सराहना करते हैं!
-            <br>
-            (Please check back soon – we appreciate your patience!)
-        </p>
+<header class="bg-gray-900 border-b border-gray-700">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="text-2xl font-extrabold text-red-500 hover:text-red-400">MITHILA GAMES</a>
 
-        <!-- Optional: Social Media Links or Contact Info -->
-        <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-            <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-300 ease-in-out">
-                <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                हमसे संपर्क करें <br class="sm:hidden">(Contact Us - Coming Soon)
-            </a>
-            <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-full shadow-sm text-gray-700 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 transition duration-300 ease-in-out">
-                <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM7 9a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-                </svg>
-                और जानें <br class="sm:hidden">(Learn More - Coming Soon)
-            </a>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html" class="text-gray-400 hover:text-red-500">Home</a>
+      <a href="about.html" class="text-gray-400 hover:text-red-500">About</a>
+      <a href="#games" class="text-gray-400 hover:text-red-500">Games</a>
+      <a href="#news" class="text-gray-400 hover:text-red-500">News</a>
+      <a href="legal.html#support" class="text-gray-400 hover:text-red-500">Support</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-gray-400 hover:text-red-500 focus:outline-none">
+      <!-- Hamburger Icon -->
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="index.html" class="text-gray-400 hover:text-red-500">Home</a>
+      <a href="about.html" class="text-gray-400 hover:text-red-500">About</a>
+      <a href="#games" class="text-gray-400 hover:text-red-500">Games</a>
+      <a href="#news" class="text-gray-400 hover:text-red-500">News</a>
+      <a href="legal.html#support" class="text-gray-400 hover:text-red-500">Support</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main>
+<!-- Hero Section -->
+<section id="hero" class="h-[600px] md:h-[800px] flex items-center justify-center relative overflow-hidden">
+  <!-- Dynamic Background -->
+  <div id="hero-bg" class="absolute inset-0 bg-center bg-cover"></div>
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div class="z-10 text-center p-4 max-w-4xl mx-auto">
+    <h1 id="hero-title" class="text-5xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight leading-tight uppercase text-shadow-lg">
+      Loading...
+    </h1>
+    <p id="hero-tagline" class="text-xl sm:text-2xl text-gray-200 mb-8 font-light max-w-2xl mx-auto">
+      Please wait...
+    </p>
+    <a id="hero-button" href="#" target="_blank" 
+       class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider transition duration-300 transform hover:scale-105 shadow-2xl">
+       Loading...
+    </a>
+  </div>
+</section>
+
+    <!-- Games -->
+    <section id="games" class="py-20 lg:py-32 bg-gray-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">OUR LEGACY & FUTURE</h2>
+        <div id="games-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <p class="col-span-full text-center text-gray-400">Loading Games...</p>
         </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section id="news" class="py-20 lg:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">LATEST NEWS</h2>
+        <div id="news-container" class="max-w-4xl mx-auto space-y-8">
+          <p class="text-center text-gray-400">Loading News...</p>
+        </div>
+        <div class="text-center mt-12">
+          <button class="btn-outline">View All News</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-700 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <a href="#" class="footer-logo">MITHILA GAMES</a>
+      <div class="flex justify-center space-x-6 mb-8 text-gray-400">
+        <a href="#" class="hover-link">Terms of Use</a>
+        <span>|</span>
+        <a href="#" class="hover-link">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" class="hover-link">Support</a>
+      </div>
+      <p class="text-gray-500 text-sm mt-4">
+        © 2025 MITHILA GAMES, Inc. All Rights Reserved.
+      </p>
     </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
