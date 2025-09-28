@@ -11,11 +11,20 @@
     "description": "Mithila Games is a passionate indie studio dedicated to creating immersive and story-driven experiences for gamers around the world. Our mission is to combine creativity and technology to deliver unforgettable journeys.",
     "team": [
       {
-        "name": "anonymous",
-        "role": "Team Members",
+        "name": "Div",
+        "role": "Founder & Creative Director",
         "image": "images/team1.jpg"
+      },
+      {
+        "name": "gamified",
+        "role": "Lead Developer",
+        "image": "images/team2.jpg"
+      },
+      {
+        "name": "codepolygon",
+        "role": "Art Director",
+        "image": "images/team3.jpg"
       }
-      
     ]
   },
 
