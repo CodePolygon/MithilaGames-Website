@@ -1,10 +1,10 @@
 {
   "hero": {
-    "title": "Our Next Epic Journey",
-    "tagline": "Experience the next generation of narrative-driven, visually stunning adventures.",
-    "buttonText": "Watch What we Create",
-    "buttonLink": "https://www.youtube.com/@mithilagames", 
-    "backgroundImage": "#"
+    "backgroundImage": "images/hero-bg.jpg",
+    "title": "Welcome to Mithila Games",
+    "tagline": "Where stories come alive in every game.",
+    "buttonText": "Watch Now",
+    "buttonLink": "https://www.youtube.com/@mithilagames"
   },
     "about": {
     "title": "About Mithila Games",

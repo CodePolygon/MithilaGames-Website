@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   } catch (err) {
     console.error("Error loading data:", err);
-    document.getElementById("hero-title").textContent = "Failed to load content";
   }
 
   // --- Mobile Menu Toggle ---
@@ -96,3 +95,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+
