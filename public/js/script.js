@@ -515,3 +515,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+function handlePageTitleText() {
+    const pageTitles = document.querySelectorAll(".page-title h2");
+
+    pageTitles.forEach(title => {
+        if (window.innerWidth < 350) {
+            title.dataset.fulltext = title.dataset.fulltext || title.textContent; // store original text
+            title.textContent = "MG";
+        } else {
+            if (title.dataset.fulltext) {
+                title.textContent = title.dataset.fulltext;
+            }
+        }
+    });
+}
+
+// Run once on load
+handlePageTitleText();
+
+// Run whenever window is resized
+window.addEventListener("resize", handlePageTitleText);
+
+function handleCurrentPageTitleVisibility() {
+    const currentPageTitle = document.getElementById("current-page-title");
+
+    if (currentPageTitle) {
+        if (window.innerWidth < 350) {
+            currentPageTitle.style.display = "none";
+        } else {
+            currentPageTitle.style.display = "";
+        }
+    }
+}
+
+// Run once on load
+handleCurrentPageTitleVisibility();
+
+// Run on window resize
+window.addEventListener("resize", handleCurrentPageTitleVisibility);
+
+
