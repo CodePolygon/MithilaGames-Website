@@ -1,94 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mithila Games | Connect With Us</title>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="bg-gray-900 text-white min-h-screen">
-
-  <!-- Header -->
-  <header class="bg-gray-900 border-b border-gray-700">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-extrabold text-red-500 hover:text-red-400">MITHILA GAMES</a>
-      <a href="index.html" class="text-sm text-gray-400 hover:text-red-500">← Back to Home</a>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <section class="py-20 bg-gray-900 text-center">
-      <div class="container mx-auto px-6">
-        <h1 class="text-4xl font-bold text-white mb-6">Connect With Us</h1>
-        <p class="text-gray-400 max-w-2xl mx-auto mb-12">
-          Stay updated with our latest games, news, and community activities.  
-          Follow us on social media and be part of the Mithila Games journey.
-        </p>
-
-        <!-- Static Socials -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8">
-          <a href="https://twitter.com/mithilagames" target="_blank" 
-             class="flex flex-col items-center justify-center bg-gray-800 hover:bg-red-600 transition p-6 rounded-xl shadow-lg">
-            <i class="fab fa-twitter text-3xl mb-3"></i>
-            <span class="text-gray-200 font-semibold">mithilagames</span>
-          </a>
-
-          <a href="https://instagram.com/mithilagames" target="_blank" 
-             class="flex flex-col items-center justify-center bg-gray-800 hover:bg-red-600 transition p-6 rounded-xl shadow-lg">
-            <i class="fab fa-instagram text-3xl mb-3"></i>
-            <span class="text-gray-200 font-semibold">mithilagames</span>
-          </a>
-
-          <a href="https://youtube.com/@mithilagames" target="_blank" 
-             class="flex flex-col items-center justify-center bg-gray-800 hover:bg-red-600 transition p-6 rounded-xl shadow-lg">
-            <i class="fab fa-youtube text-3xl mb-3"></i>
-            <span class="text-gray-200 font-semibold">mithilagames</span>
-          </a>
-
-          <a href="https://discord.gg/KkhEJkyK" target="_blank" 
-             class="flex flex-col items-center justify-center bg-gray-800 hover:bg-red-600 transition p-6 rounded-xl shadow-lg">
-            <i class="fab fa-discord text-3xl mb-3"></i>
-            <span class="text-gray-200 font-semibold">mithilagames</span>
-          </a>
-
-          <a href="https://facebook.com/mithilagames" target="_blank" 
-             class="flex flex-col items-center justify-center bg-gray-800 hover:bg-red-600 transition p-6 rounded-xl shadow-lg">
-            <i class="fab fa-facebook text-3xl mb-3"></i>
-            <span class="text-gray-200 font-semibold">mithilagames</span>
-          </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mithila Games - Connect</title>
+        <link rel="icon" href="/public/assets/logo/favicon.svg" type="image/svg+xml">
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+        <link rel="stylesheet" href="public/css/style.css" />
+    </head>
+    <body>
+        <div class="background-shapes">
+            <div class="shape circle"></div>
+            <div class="shape square"></div>
+            <div class="shape triangle"></div>
+            <div class="shape rectangle"></div>
+            <div class="shape circle small"></div>
+            <div class="shape square small"></div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 border-t border-gray-700 py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <a href="#" class="footer-logo">MITHILA GAMES</a>
-      <div class="flex justify-center space-x-6 mb-8 text-gray-400">
-        <a href="legal.html#terms" class="hover-link">Terms of Use</a>
-        <span>|</span>
-        <a href="legal.html#privacy" class="hover-link">Privacy Policy</a>
-        <span>|</span>
-        <a href="legal.html#support" class="hover-link">Support</a>
-      </div>
-      <p class="text-gray-500 text-sm mt-4">
-        © 2025 MITHILA GAMES, Inc. All Rights Reserved.
-      </p>
-    </div>
-  </footer>
+        <nav class="sidebar">
+            <div class="sidebar-top">
+                <a href="home.html"><img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games Logo" class="logo"></a>
+            <div class="search-container">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" placeholder="Search..." id="search-input-sidebar">
+            </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="home.html" class="nav-link" data-page="Home"
+                            ><span class="material-symbols-outlined">home</span
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="games.html" class="nav-link" data-page="Games"
+                            ><span class="material-symbols-outlined"
+                                >stadia_controller</span
+                            >Games</a
+                        >
+                    </li>
+                    <li>
+                        <a href="store.html" class="nav-link" data-page="Store"
+                            ><span class="material-symbols-outlined">store</span
+                            >Store</a
+                        >
+                    </li>
+                    <li>
+                        <a href="news.html" class="nav-link" data-page="News"
+                            ><span class="material-symbols-outlined"
+                                >newspaper</span
+                            >News</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-bottom">
+                <ul class="nav-links">
+                    <li>
+                        <a
+                            href="connect.html"
+                            class="nav-link active"
+                            data-page="Connect"
+                            ><span class="material-symbols-outlined">hub</span
+                            >Connect</a
+                        >
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-link" data-page="About"
+                            ><span class="material-symbols-outlined">info</span
+                            >About</a
+                        >
+                    </li>
+                </ul>
+                <div class="social-link">
+                    <p>© mithilagames 2025, all right reserved</p>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-panel">
+                <button class="sidebar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="page-title">
+                    <h2>MITHILA GAMES</h2>
+                    <h2 id="current-page-title">Connect</h2>
+                </div>
+            </header>
+
+            <section id="connect" class="page-content active">
+                <div class="hero">
+                    <h1>Connect With Us</h1>
+                    <p>Follow @mithilagames on all platforms.</p>
+                    <div class="social-links-container">
+                        <a
+                            href="https://www.youtube.com/@mithilagames"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="youtube"
+                            >YouTube</a
+                        >
+                        <a
+                            href="https://www.instagram.com/mithilagames"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="instagram"
+                            >Instagram</a
+                        >
+                        <a
+                            href="https://x.com/mithilagames"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="x"
+                            >X.com</a
+                        >
+                        <a
+                            href="https://www.facebook.com/mithilagames"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="facebook"
+                            >Facebook</a
+                        >
+                        <a
+                            href="https://discord.gg/mithilagames"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="discord"
+                            >Discord</a
+                        >
+                        <a
+                            href="https://www.reddit.com/r/mithilagames/"
+                            target="_blank"
+                            class="social-link-item"
+                            data-platform="reddit"
+                            >Reddit</a
+                        >
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLScxfDsAnnoPtq8w5GdNVhzHdrxUqe1Py5c-AyfqCFbnNlOrlA/formResponse" method="POST" target="hidden_iframe">
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+                        <h2>Send us a message</h2>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="entry.1884408784" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="entry.1819151916" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="entry.195861844" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div id="form-status"></div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <script src="public/js/script.js"></script>
+
+
+        <a id="back-to-top" class="back-to-top-btn">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
 
 </body>
 </html>

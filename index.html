@@ -1,128 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mithila Games | Game Studio</title>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithila Games</title>
+    <link rel="icon" href="/public/assets/logo/favicon.svg" type="image/svg+xml">
+    <script>
+        window.location.href = "home.html";
+    </script>
 </head>
-<body class="bg-gray-900 text-white min-h-screen font-[Inter]">
+<body>
+    <a id="back-to-top" class="back-to-top-btn">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
 
-<!-- Header -->
-<header class="bg-gray-900 border-b border-gray-700">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <!-- Logo -->
-    <a href="index.html" class="text-2xl font-extrabold text-red-500 hover:text-red-400">MITHILA GAMES</a>
-
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html" class="text-gray-400 hover:text-red-500">Home</a>
-      <a href="about.html" class="text-gray-400 hover:text-red-500">About</a>
-
-      <a href="#games" class="text-gray-400 hover:text-red-500">Games</a>
-      <a href="#news" class="text-gray-400 hover:text-red-500">News</a>
-      <a href="legal.html#support" class="text-gray-400 hover:text-red-500">Support</a>
-      <a href="connect.html" class="text-gray-400 hover:text-red-500">Connect</a>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-gray-400 hover:text-red-500 focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-          d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
-    <nav class="flex flex-col space-y-2 p-4">
-      <a href="index.html" class="text-gray-400 hover:text-red-500">Home</a>
-      <a href="about.html" class="text-gray-400 hover:text-red-500">About</a>
-      <a href="#games" class="text-gray-400 hover:text-red-500">Games</a>
-      <a href="#news" class="text-gray-400 hover:text-red-500">News</a>
-      <a href="legal.html#support" class="text-gray-400 hover:text-red-500">Support</a>
-      <a href="connect.html" class="text-gray-400 hover:text-red-500">Connect</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Main -->
-<main>
-
-  <!-- Hero Section -->
-  <section id="hero" class="h-[600px] md:h-[800px] flex items-center justify-center relative overflow-hidden">
-    <div id="hero-bg" class="absolute inset-0 w-full h-full bg-center bg-cover"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="z-10 text-center p-4 max-w-4xl mx-auto">
-      <h1 id="hero-title" class="text-5xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight leading-tight uppercase">
-        Loading...
-      </h1>
-      <p id="hero-tagline" class="text-xl sm:text-2xl text-gray-200 mb-8 font-light max-w-2xl mx-auto">
-        Please wait...
-      </p>
-      <a id="hero-button" href="#" target="_blank" 
-         class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider transition duration-300 transform hover:scale-105 shadow-2xl">
-         Loading...
-      </a>
-    </div>
-  </section>
-
-  <!-- Games -->
-  <section id="games" class="py-20 lg:py-32 bg-gray-800">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title">OUR LEGACY & FUTURE</h2>
-      <div id="games-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <p class="col-span-full text-center text-gray-400">Loading Games...</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- News -->
-  <section id="news" class="py-20 lg:py-32">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title">LATEST NEWS</h2>
-      <div id="news-container" class="max-w-4xl mx-auto space-y-8">
-        <p class="text-center text-gray-400">Loading News...</p>
-      </div>
-      <div class="text-center mt-12">
-        <button class="btn-outline">View All News</button>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="bg-gray-900 border-t border-gray-700 py-12">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <a href="#" class="footer-logo">MITHILA GAMES</a>
-    <div class="flex justify-center space-x-6 mb-8 text-gray-400">
-      <a href="legal.html#terms" class="hover-link">Terms of Use</a>
-      <span>|</span>
-      <a href="legal.html#privacy" class="hover-link">Privacy Policy</a>
-      <span>|</span>
-      <a href="legal.html#support" class="hover-link">Support</a>
-    </div>
-    <p class="text-gray-500 text-sm mt-4">
-      © 2025 MITHILA GAMES, Inc. All Rights Reserved.
-    </p>
-  </div>
-</footer>
-
-
-
-
-
-<!-- Scripts -->
-<script src="script.js"></script>
 </body>
 </html>

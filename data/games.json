@@ -1,0 +1,68 @@
+[
+  {
+    "id": "game-01",
+    "name": "Wings of Paper",
+    "imageUrl": "content/wings_of_paper/cover_art_min.webp",
+    "description": [
+      "Fly Free in a Beautiful Low-Poly World! Take flight in this relaxing yet challenging endless flying game where you control a paper plane soaring through an open 3D environment. With smooth third-person controls and a visually stunning low-poly art style, your mission is simple — dodge obstacles, collect coins, and beat your high score!",
+      "Explore a Dynamic Environment by flying through forests filled with trees, natural obstacles, and surprises. The open world is filled with carefully placed objects to test your reflexes and flying skills. Gather coins scattered across the skies to unlock new paper plane designs and enhancements.",
+      "With calming visuals and satisfying gliding physics, it’s a game that’s both meditative and exciting — perfect for quick plays or long sessions. Download now and let your paper plane adventure take off!"
+    ],
+    "platforms": [
+      "Android"
+    ],
+    "releaseDate": "2025-12-25",
+    "developer": "Mithila Games",
+    "publisher": "Mithila Games",
+    "tags": ["Endless Runner", "Relaxing", "Stylized", "Casual", "Indie"],
+    "system_requirements": {
+      "os": "Android 10+",
+      "processor": "Snapdragon 660 or equivalent",
+      "memory": "4 GB RAM",
+      "graphics": "Adreno 512 or equivalent",
+      "storage": "200 MB available space"
+    },
+    "price": "Free",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "screenshots": [
+      "content/wings_of_paper/unnamed (1).webp",
+      "content/wings_of_paper/unnamed (2).webp",
+      "content/wings_of_paper/unnamed (3).webp",
+      "content/wings_of_paper/unnamed (4).webp",
+      "content/wings_of_paper/unnamed (5).webp"
+    ]
+  },
+  {
+    "id": "game-02",
+    "name": "PEAK The Mountain Adventure",
+    "imageUrl": "https://via.placeholder.com/400x600/4A2E3A/FFF?text=Aethelgard's+Echo",
+    "description": [
+      "A thrilling adventure in a far-off galaxy."
+    ],
+    "platforms": [
+      "PC",
+      "Android"
+    ],
+    "releaseDate": "2025-12-25",
+    "defaultLink": "https://play.google.com/store/apps/details?id=com.mithilagames.peak",
+    "video": "",
+    "screenshots": []
+  },
+  {
+    "id": "game-03",
+    "name": "Project X",
+    "imageUrl": "https://via.placeholder.com/400x600/3A4A3A/FFF?text=Project+Chimera",
+    "description": [
+      "Coming Soon"
+    ],
+    "platforms": [
+      "PC",
+      "Android"
+    ],
+    "releaseDate": "2025-12-25",
+    "defaultLink": "",
+    "video": "",
+    "screenshots": []
+  }
+]

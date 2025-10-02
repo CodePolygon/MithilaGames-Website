@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mithila Games - About</title>
+    <title>Mithila Games - Home</title>
     <link rel="icon" href="/public/assets/logo/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="public/css/style.css">
@@ -28,7 +28,7 @@
                 <input type="text" placeholder="Search...">
             </div>
             <ul class="nav-links">
-                <li><a href="home.html" class="nav-link" data-page="Home"><span class="material-symbols-outlined">home</span>Home</a></li>
+                <li><a href="home.html" class="nav-link active" data-page="Home"><span class="material-symbols-outlined">home</span>Home</a></li>
                 <li><a href="games.html" class="nav-link" data-page="Games"><span class="material-symbols-outlined">stadia_controller</span>Games</a></li>
                 <li><a href="store.html" class="nav-link" data-page="Store"><span class="material-symbols-outlined">store</span>Store</a></li>
                 <li><a href="news.html" class="nav-link" data-page="News"><span class="material-symbols-outlined">newspaper</span>News</a></li>
@@ -37,7 +37,7 @@
         <div class="sidebar-bottom">
             <ul class="nav-links">
                 <li><a href="connect.html" class="nav-link" data-page="Connect"><span class="material-symbols-outlined">hub</span>Connect</a></li>
-                <li><a href="about.html" class="nav-link active" data-page="About"><span class="material-symbols-outlined">info</span>About</a></li>
+                <li><a href="about.html" class="nav-link" data-page="About"><span class="material-symbols-outlined">info</span>About</a></li>
             </ul>
             <div class="social-link">
                 <p>© mithilagames 2025, all right reserved</p>
@@ -52,33 +52,20 @@
             </button>
             <div class="page-title">
                 <h2>MITHILA GAMES</h2>
-                <h2 id="current-page-title">About</h2>
+                <h2 id="current-page-title">Home</h2>
             </div>
         </header>
 
-        <section id="about" class="page-content active">
-             <div class="legal-content">
-                <h1>About Mithila Games</h1>
-                <p>Mithila Games is a creative game studio from India, inspired by the vibrant colors, stories, and spirit of Mithila’s artistic heritage. Just like the intricate patterns of Madhubani art, we love weaving detail, imagination, and life into everything we create.
-
-                    <br><br>
-We craft 3D story-driven and casual games for mobile and PC, designed to be easy to play, yet full of wonder. Whether it’s climbing a peak, exploring a magical world, or simply enjoying a mindful break, our games aim to spark joy and curiosity.
-
-At Mithila Games, every adventure is painted with fun, heart, and a touch of tradition—blending the local soul with a global spirit.
-
-                    <br><br>
-So step into our world, where culture meets play, and stories come alive in 3D!</p>
-
-                <h2>Terms and Conditions</h2>
-                <p>Not Available</p>
-
-                <h2>Copyright</h2>
-                <p>&copy; 2025 Mithila Games. All rights reserved.</p>
-
-                <p><a href="privacy.html">Privacy Policy</a></p>
-
-                <h2>Cookie Policy</h2>
-                <p>Our website uses cookies to enhance your experience. A cookie is a small text file stored on your computer or mobile device when you visit a website. We use cookies to remember your preferences and to help us understand how you use our site. By continuing to use our website, you consent to our use of cookies.</p>
+        <section id="home" class="page-content active">
+            <div class="home-hero">
+                <div class="hero-category" id="hero-games">
+                    <h2>Latest Games</h2>
+                    <div class="content-grid"></div>
+                </div>
+                <div class="hero-category" id="hero-news">
+                    <h2>Recent News</h2>
+                    <div class="content-grid"></div>
+                </div>
             </div>
         </section>
 
@@ -86,6 +73,16 @@ So step into our world, where culture meets play, and stories come alive in 3D!<
 
     <script src="public/js/script.js"></script>
 
+    <div id="cookie-popup">
+        <p>
+            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            <a href="privacy.html">Learn more</a>.
+        </p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept">Accept</button>
+            <button id="cookie-reject">Reject</button>
+        </div>
+    </div>
     <a id="back-to-top" class="back-to-top-btn">
         <span class="material-symbols-outlined">arrow_upward</span>
     </a>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "news-01",
+    "title": "Patch 0.2.2 for Wings of Paper",
+    "imageUrl": "content/wings_of_paper/unnamed (1).webp",
+    "date": "3 Jul 2025",
+    "author": "Mithila Games Staff",
+    "content": "Bug Fixed. Improved user Experience ",
+    "tags": ["Update", "Patch Notes", "Wings of Paper"],
+    "video": "",
+    "videoThumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg",
+    "screenshots": [
+      "content/wings_of_paper/unnamed (2).webp",
+      "content/wings_of_paper/unnamed (3).webp",
+      "content/wings_of_paper/unnamed (4).webp"
+    ]
+  }
+]

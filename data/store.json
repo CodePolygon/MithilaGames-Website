@@ -1,0 +1,29 @@
+[
+  {
+    "id": "store-01",
+    "name": "Mithila Games Hoodie",
+    "imageUrl": "https://via.placeholder.com/800x1200/555/FFF?text=Mithila+Hoodie",
+    "description": "A comfortable and stylish hoodie featuring the Mithila Games logo. Perfect for gamers and developers alike.",
+    "price": "49.99",
+    "category": "Merchandise",
+    "purchaseLink": "#",
+    "tags": ["Apparel", "Hoodie", "Merch"],
+    "screenshots": [
+      "https://via.placeholder.com/1920x1080/555/FFF?text=Hoodie+Front",
+      "https://via.placeholder.com/1920x1080/555/FFF?text=Hoodie+Back",
+      "https://via.placeholder.com/1920x1080/555/FFF?text=Hoodie+Close-up"
+    ]
+  },
+  {
+    "id": "store-02",
+    "name": "Cybernetic Dreams Poster",
+    "imageUrl": "https://via.placeholder.com/800x1200/666/FFF?text=Cybernetic+Poster",
+    "description": "A high-quality poster with artwork from our upcoming title, Cybernetic Dreams.",
+    "price": "19.99",
+    "category": "Posters",
+    "purchaseLink": "#",
+    "tags": ["Poster", "Artwork", "Cybernetic Dreams"],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoThumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg"
+  }
+]
