@@ -22,17 +22,5 @@
     "video": "",
     "videoThumbnail": "",
     "screenshots": []
-  },
-  {
-    "id": "news-03",
-    "title": "Project X: Unveiling the Cybernetic Future",
-    "imageUrl": "public/assets/images/project_x_hero.jpg",
-    "date": "5 Jan 2026",
-    "author": "Mithila Games Staff",
-    "content": "Get a first look at Project X, our upcoming sci-fi cybernetic stealth-action game. Explore neon-drenched futuristic research labs, hack into network terminals, and discover the secrets of a mega-corporation run by rogue AIs.",
-    "tags": ["Teaser", "Project X", "Sci-Fi"],
-    "video": "",
-    "videoThumbnail": "",
-    "screenshots": []
   }
 ]

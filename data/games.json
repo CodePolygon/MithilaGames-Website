@@ -48,21 +48,5 @@
     "defaultLink": "https://play.google.com/store/apps/details?id=com.mithilagames.peak",
     "video": "",
     "screenshots": []
-  },
-  {
-    "id": "game-03",
-    "name": "Project X",
-    "imageUrl": "https://via.placeholder.com/400x600/3A4A3A/FFF?text=Project+Chimera",
-    "description": [
-      "Coming Soon"
-    ],
-    "platforms": [
-      "PC",
-      "Android"
-    ],
-    "releaseDate": "2025-12-25",
-    "defaultLink": "",
-    "video": "",
-    "screenshots": []
   }
 ]
