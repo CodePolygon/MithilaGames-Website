@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090C" />
+      <stop offset="100%" stop-color="#151821" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" />
+  
+  <!-- Vinyl Record -->
+  <circle cx="300" cy="200" r="140" fill="#0C0E14" stroke="#232735" stroke-width="3"/>
+  <circle cx="300" cy="200" r="120" fill="none" stroke="#1B1F2B" stroke-width="1.5"/>
+  <circle cx="300" cy="200" r="100" fill="none" stroke="#1B1F2B" stroke-width="1.5"/>
+  <circle cx="300" cy="200" r="80" fill="none" stroke="#1B1F2B" stroke-width="1.5"/>
+  <circle cx="300" cy="200" r="50" fill="#E5A93C" stroke="#D45B38" stroke-width="3"/>
+  <circle cx="300" cy="200" r="12" fill="#08090C"/>
+  
+  <rect x="20" y="20" width="210" height="30" fill="#0F1117" stroke="#232735" stroke-width="1"/>
+  <text x="30" y="40" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E5A93C" font-weight="bold">ECHOES OF MITHILA</text>
+  <text x="560" y="380" font-family="'JetBrains Mono', monospace" font-size="11" fill="#B5B9C5" text-anchor="end">180G DOUBLE VINYL OST</text>
+</svg>

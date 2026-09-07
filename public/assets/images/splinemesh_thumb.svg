@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090C" />
+      <stop offset="100%" stop-color="#151821" />
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#232735" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" />
+  <rect width="600" height="400" fill="url(#grid)" opacity="0.6" />
+  
+  <!-- Spline Path -->
+  <path d="M 80 300 C 180 120, 240 340, 360 160 S 500 240, 520 100" fill="none" stroke="#E5A93C" stroke-width="6" stroke-linecap="round"/>
+  <!-- Cross ribs -->
+  <g stroke="#D45B38" stroke-width="2" opacity="0.8">
+    <line x1="80" y1="280" x2="80" y2="320"/>
+    <line x1="140" y1="200" x2="160" y2="240"/>
+    <line x1="210" y1="210" x2="230" y2="250"/>
+    <line x1="280" y1="280" x2="300" y2="240"/>
+    <line x1="360" y1="140" x2="360" y2="180"/>
+    <line x1="430" y1="180" x2="450" y2="220"/>
+    <line x1="520" y1="80" x2="520" y2="120"/>
+  </g>
+  
+  <!-- Metadata Overlay -->
+  <rect x="20" y="20" width="160" height="30" fill="#0F1117" stroke="#232735" stroke-width="1"/>
+  <text x="30" y="40" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E5A93C" font-weight="bold">SPLINEMESH 3D</text>
+  <text x="560" y="380" font-family="'JetBrains Mono', monospace" font-size="11" fill="#B5B9C5" text-anchor="end">GODOT 4.3 // GDEXTENSION</text>
+</svg>

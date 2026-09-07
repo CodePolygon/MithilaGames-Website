@@ -1,132 +1,724 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mithila Games - News</title>
-    <link rel="icon" href="/public/assets/logo/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <style>
-        html {
-            background-color: #0a0a0c;
-            visibility: hidden;
-            opacity: 0;
-        }
-    </style>
-    <link rel="stylesheet" href="public/css/style.css">
-</head>
-<body>    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <a href="home.html" class="logo-link">
-                <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games Logo" class="logo-img" width="220" height="50">
-            </a>
-            <nav class="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="home.html" class="nav-item">Blog</a></li>
-                    <li><a href="games.html" class="nav-item">Games</a></li>
-                    <li><a href="store.html" class="nav-item">Merchandise</a></li>
-                    <li><a href="about.html" class="nav-item">About</a></li>
-                    <li><a href="connect.html" class="nav-item">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-socials-menu">
-                <a href="https://x.com/mithilagames" target="_blank" class="header-social-icon-link" aria-label="X">
-                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-                <a href="https://youtube.com/@mithilagames" target="_blank" class="header-social-icon-link" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-                <a href="https://facebook.com/mithilagames" target="_blank" class="header-social-icon-link" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <a href="https://instagram.com/mithilagames" target="_blank" class="header-social-icon-link" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                </a>
-            </div>
-            <div class="header-actions">
-                <button class="hamburger-btn" aria-label="Toggle Menu">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
-        </div>
-    </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Updates // Mithila Games</title>
+  <meta name="description" content="Technical devlogs, engine updates, and releases from Mithila Games.">
+  <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
 
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-overlay"></div>
-    <div class="mobile-nav">
-        <div class="mobile-nav-header">
-            <a href="home.html" class="logo-link">
-                <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games Logo" class="logo-img" style="height: 32px;" width="32" height="32">
-            </a>
-            <button class="mobile-nav-close" aria-label="Close Menu">
-                <span class="material-symbols-outlined" style="margin-right: 0;">close</span>
-            </button>
-        </div>
-        <ul class="mobile-nav-list">
-            <li><a href="home.html" class="mobile-nav-item">Blog</a></li>
-            <li><a href="games.html" class="mobile-nav-item">Games</a></li>
-            <li><a href="store.html" class="mobile-nav-item">Merchandise</a></li>
-            <li><a href="about.html" class="mobile-nav-item">About</a></li>
-            <li><a href="connect.html" class="mobile-nav-item">Contact</a></li>
-        </ul>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#08090C',
+            surface: '#0F1117',
+            panel: '#151821',
+            borderwire: '#232735',
+            ochre: '#E5A93C',
+            terracotta: '#D45B38',
+            'slate-muted': '#B5B9C5',
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Work Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="public/css/theme.css">
+</head>
+<body class="bg-blueprint-grid min-h-screen flex flex-col antialiased text-slate-200">
+
+  <!-- RESPONSIVE HEADER WITH OFFICIAL BRAND LOGO & FLUID NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-borderwire">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="home.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto">
+      </a>
+
+      <!-- Desktop & Tablet Navigation (fluid responsive spacing: text-[11px] on md, text-xs on lg) -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-mono text-[11px] lg:text-xs uppercase tracking-wider shrink-0">
+        <a href="home.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">HOME</a>
+        <a href="games.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">GAMES</a>
+        <a href="store.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">SHOP</a>
+        <a href="news.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">NEWS</a>
+        <a href="about.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">ABOUT US</a>
+        <a href="connect.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">CONTACT</a>
+      </nav>
+
+      <!-- Right Header Actions (Responsive Subscribe Button & Mobile Toggle) -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <button 
+          type="button" 
+          onclick="openNewsletterModal()" 
+          class="px-2.5 sm:px-3 py-1.5 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-[11px] sm:text-xs tracking-wider uppercase transition-colors flex items-center gap-2 whitespace-nowrap"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-ochre status-dot-pulse shrink-0"></span>
+          <span class="hidden sm:inline font-semibold">SUBSCRIBE [FREE]</span>
+          <span class="sm:hidden font-semibold">SUBSCRIBE</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button 
+          id="mobile-menu-toggle" 
+          type="button" 
+          class="md:hidden p-1.5 sm:p-2 border border-borderwire bg-panel text-slate-muted hover:text-white transition-colors" 
+          aria-label="Open navigation menu"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
     </div>
 
+    <!-- Mobile Scrollable Tabs Ribbon (Smooth horizontal swipe on phones) -->
+    <div class="md:hidden border-t border-borderwire bg-surface/90 px-3 py-2 flex gap-1.5 overflow-x-auto no-scrollbar text-xs font-mono">
+      <a href="home.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">HOME</a>
+      <a href="games.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">GAMES</a>
+      <a href="store.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">SHOP</a>
+      <a href="news.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">NEWS</a>
+      <a href="about.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">ABOUT US</a>
+      <a href="connect.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">CONTACT</a>
+    </div>
+  </header>
 
-    <main class="main-content">
-        
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 z-50 hidden flex-col p-6 font-mono text-sm">
+    <div class="flex justify-between items-center pb-4 border-b border-borderwire">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
+      <button id="mobile-menu-close" class="p-2 text-slate-muted hover:text-white" aria-label="Close menu">✕</button>
+    </div>
+    <div class="flex flex-col gap-3 py-6">
+      <a href="home.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">HOME</a>
+      <a href="games.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">GAMES</a>
+      <a href="store.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">SHOP</a>
+      <a href="news.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">NEWS</a>
+      <a href="about.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">ABOUT US</a>
+      <a href="connect.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">CONTACT</a>
+      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="p-3 bg-panel border border-ochre text-ochre font-bold text-left mt-2 flex items-center justify-between">
+        <span>SUBSCRIBE [FREE]</span>
+        <span>→</span>
+      </button>
+    </div>
+  </div>
 
-        <section id="news" class="page-content active">
-            <div class="content-grid">
-                <!-- News items will be dynamically loaded here -->
-            </div>
-        </section>
-
-        <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <p>Mithila Games is an independent game studio inspired by the vibrant colors, intricate patterns, and storytelling traditions of Mithila art. We craft high-quality, story-driven, and casual gaming experiences for mobile and PC.</p>
-                <p class="footer-copyright">Copyright &copy; 2026 Mithila Games. All rights reserved.</p>
-            </div>
-            <div class="footer-right">
-                <div class="footer-nav-row">
-                    <a href="home.html">Blog</a>
-                    <span>|</span>
-                    <a href="games.html">Games</a>
-                    <span>|</span>
-                    <a href="store.html">Merchandise</a>
-                    <span>|</span>
-                    <a href="about.html">About</a>
-                </div>
-                <div class="footer-nav-row" style="font-size: 1.1rem; text-transform: none; letter-spacing: 0.5px;">
-                    <a href="connect.html">Contact Us</a>
-                </div>
-                <div class="footer-social-row">
-                    <a href="https://x.com/mithilagames" target="_blank" class="footer-social-circle" aria-label="X">
-                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://youtube.com/@mithilagames" target="_blank" class="footer-social-circle" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="https://facebook.com/mithilagames" target="_blank" class="footer-social-circle" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://instagram.com/mithilagames" target="_blank" class="footer-social-circle" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    </main>
-
-    <script src="public/js/script.js"></script>
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10">
     
-    <a id="back-to-top" class="back-to-top-btn">
-        <span class="material-symbols-outlined">arrow_upward</span>
-    </a>
+    <!-- Title & Subtitle -->
+    <div class="mb-10">
+      <div class="flex items-center gap-2 text-xs font-mono text-ochre mb-2">
+        <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
+        <span>STUDIO DISPATCH &amp; RELEASES</span>
+      </div>
+      <h1 class="font-syne font-bold text-3xl sm:text-4xl text-white">News &amp; Updates</h1>
+      <p class="font-sans text-sm text-slate-muted mt-2 max-w-2xl leading-relaxed">
+        Technical devlogs, engine tooling releases, CC0 shader distributions, and milestone reports directly from our studio.
+      </p>
+    </div>
 
+    <!-- Category Filter Bar -->
+    <div class="flex flex-wrap gap-2 mb-8 pb-4 border-b border-borderwire font-mono text-xs">
+      <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill px-3.5 py-1.5 bg-ochre text-void font-bold border border-ochre transition-colors">
+        ALL DISPATCHES
+      </button>
+      <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+        ENGINE &amp; DEVLOG
+      </button>
+      <button type="button" data-news-filter="OPEN SOURCE" onclick="filterNews('OPEN SOURCE')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+        OPEN SOURCE
+      </button>
+      <button type="button" data-news-filter="PLAYTEST" onclick="filterNews('PLAYTEST')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+        PLAYTEST
+      </button>
+      <button type="button" data-news-filter="TOOLS & TECH" onclick="filterNews('TOOLS & TECH')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+        TOOLS &amp; TECH
+      </button>
+    </div>
+
+    <!-- Dynamically Populated News Grid from newsData.js -->
+    <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Content populated by renderNews() -->
+    </div>
+
+    <!-- UPDATE LETTER PROMPT CARD -->
+    <div class="mt-14 bg-surface border border-ochre/40 p-6 sm:p-8 relative corner-brackets flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
+          <span>STAY IN THE LOOP</span>
+        </div>
+        <h2 class="font-syne font-bold text-xl sm:text-2xl text-white">Subscribe to News &amp; Update Letter</h2>
+        <p class="font-sans text-xs text-slate-300">Get periodic devlogs, early playtest keys, and tool releases straight to your inbox.</p>
+      </div>
+      <button 
+        type="button" 
+        onclick="openNewsletterModal()" 
+        class="px-6 py-3.5 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase font-bold tracking-wider transition-colors whitespace-nowrap"
+      >
+        SUBSCRIBE TO UPDATE LETTER →
+      </button>
+    </div>
+
+  </main>
+
+  <!-- EMAIL SUBSCRIPTION MODAL (UPDATE LETTER & NEWS) -->
+  <div id="newsletter-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsletterModal()">
+    <div class="bg-surface border border-ochre max-w-md w-full p-6 sm:p-7 relative corner-brackets shadow-2xl space-y-4" onclick="event.stopPropagation()">
+      
+      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
+            <span>MITHILA GAMES // UPDATE LETTER</span>
+          </div>
+          <h2 class="font-syne font-bold text-xl sm:text-2xl text-white mt-1">Subscribe to News &amp; Updates</h2>
+        </div>
+        <button type="button" onclick="closeNewsletterModal()" class="p-1 text-slate-muted hover:text-white text-lg" aria-label="Close modal">✕</button>
+      </div>
+
+      <p class="font-sans text-xs text-slate-300 leading-relaxed">
+        Stay connected with our studio. Receive our periodic update letters covering new game releases, devlogs, playtests, and open-source tools.
+      </p>
+
+      <!-- Benefits Checklist -->
+      <div class="p-3 bg-panel border border-borderwire space-y-2 text-xs font-mono text-slate-300">
+        <div class="flex items-center gap-2.5">
+          <span class="text-ochre font-bold">✓</span>
+          <span>Studio news &amp; game launch announcements</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="text-ochre font-bold">✓</span>
+          <span>Technical devlogs &amp; Godot engine tutorials</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="text-ochre font-bold">✓</span>
+          <span>Early playtest keys &amp; free CC0 tool releases</span>
+        </div>
+      </div>
+
+      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-3 font-mono text-xs">
+        <div class="space-y-1">
+          <label for="subscriber-email" class="text-slate-muted block text-[11px] font-semibold uppercase">YOUR EMAIL ADDRESS *</label>
+          <input 
+            type="email" 
+            id="subscriber-email" 
+            required 
+            placeholder="your.email@domain.com" 
+            class="w-full bg-void border border-borderwire px-3.5 py-2.5 text-white placeholder:text-slate-muted/40 focus:outline-none focus:border-ochre"
+          >
+        </div>
+
+        <button 
+          type="submit" 
+          id="subscriber-submit-btn" 
+          class="w-full py-3.5 bg-ochre hover:bg-[#f2b545] text-void uppercase font-bold tracking-wider transition-colors flex items-center justify-center gap-2"
+        >
+          <span>SUBSCRIBE TO UPDATE LETTER</span>
+          <span>→</span>
+        </button>
+
+        <div id="subscriber-status" class="hidden p-3 bg-void border border-ochre/40 text-ochre text-xs"></div>
+      </form>
+
+      <div class="text-[10px] font-mono text-slate-muted flex justify-between items-center pt-2 border-t border-borderwire/50">
+        <span>📬 ZERO SPAM // BI-WEEKLY DISPATCH</span>
+        <button type="button" onclick="closeNewsletterModal()" class="hover:text-white underline">CANCEL</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REUSABLE ARTICLE DETAIL MODAL WINDOW WITH DIRECT URL -->
+  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsModal()">
+    <div class="bg-surface border border-ochre max-w-2xl w-full p-6 sm:p-8 relative corner-brackets shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      
+      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-[11px] text-ochre mb-1">
+            <span id="modal-news-category" class="font-bold uppercase tracking-wider"></span>
+            <span>•</span>
+            <span id="modal-news-date" class="text-slate-muted"></span>
+          </div>
+          <h2 id="modal-news-title" class="font-syne font-bold text-2xl text-white leading-tight"></h2>
+        </div>
+        <button type="button" onclick="closeNewsModal()" class="p-1 text-slate-muted hover:text-white text-lg">✕</button>
+      </div>
+
+      <!-- Interactive Main Article Image with Zoom Action & Gallery -->
+      <div class="space-y-2">
+        <div id="modal-news-img-container" class="aspect-video w-full bg-void border border-borderwire overflow-hidden relative group cursor-zoom-in" onclick="openActiveNewsImageViewer()">
+          <img id="modal-news-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <span id="modal-news-badge" class="absolute top-3 right-3 px-2 py-0.5 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold"></span>
+          
+          <!-- Image Counter Badge -->
+          <span id="modal-news-img-counter" class="absolute top-3 left-3 px-2 py-0.5 bg-void/90 border border-borderwire text-slate-muted font-mono text-[10px] hidden"></span>
+          
+          <!-- Expand Prompt -->
+          <span class="absolute bottom-2 right-2 px-2.5 py-1 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
+            <span>EXPAND IMAGE</span>
+            <span class="text-xs">⤢</span>
+          </span>
+
+          <!-- Prev/Next Quick Navigation Overlay -->
+          <button 
+            type="button" 
+            id="modal-news-prev-btn" 
+            onclick="event.stopPropagation(); stepModalNewsImage(-1);" 
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            aria-label="Previous image"
+          >‹</button>
+          <button 
+            type="button" 
+            id="modal-news-next-btn" 
+            onclick="event.stopPropagation(); stepModalNewsImage(1);" 
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            aria-label="Next image"
+          >›</button>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div id="modal-news-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs font-mono text-slate-muted pb-2 border-b border-borderwire/60">
+        <div>AUTHOR: <span id="modal-news-author" class="text-white font-bold"></span></div>
+        <div id="modal-news-readtime" class="text-ochre"></div>
+      </div>
+
+      <div id="modal-news-content" class="font-sans text-sm text-slate-300 leading-relaxed space-y-4"></div>
+
+      <div class="pt-4 flex flex-wrap sm:flex-nowrap gap-2 border-t border-borderwire/60">
+        <button id="modal-news-share-btn" type="button" onclick="copyNewsUrl()" class="px-5 py-3 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-xs uppercase font-bold tracking-wider transition-colors whitespace-nowrap">
+          SHARE ARTICLE URL
+        </button>
+        <button type="button" onclick="closeNewsModal()" class="flex-grow px-5 py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase font-bold tracking-wider transition-colors">
+          CLOSE DISPATCH
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER WITH SOCIAL NETWORKS & QUICK NAVIGATION -->
+  <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs font-mono py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+      
+      <!-- Top Row: Brand, Copyright & Social Networks -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
+        <!-- Brand & Studio Copyright -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+          <a href="home.html" class="flex items-center gap-2">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
+          </a>
+          <span class="text-borderwire hidden sm:inline">|</span>
+          <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
+        </div>
+
+        <!-- Social Networks Link Panel -->
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] text-slate-muted uppercase tracking-wider mr-1 hidden sm:inline">CONNECT //</span>
+          <!-- X (formerly Twitter) -->
+          <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="GitHub" title="GitHub [Open Source Tools]">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Navigation Links & Update Letter Trigger -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px]">
+        <div class="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-slate-muted font-semibold">
+          <a href="home.html" class="hover:text-white transition-colors">HOME</a>
+          <a href="games.html" class="hover:text-white transition-colors">GAMES</a>
+          <a href="store.html" class="hover:text-white transition-colors">SHOP</a>
+          <a href="news.html" class="hover:text-white transition-colors">NEWS</a>
+          <a href="about.html" class="hover:text-white transition-colors">ABOUT US</a>
+          <a href="connect.html" class="hover:text-white transition-colors">CONTACT</a>
+        </div>
+        <div class="text-[10px] text-slate-muted/80 flex items-center gap-2">
+          <span>INDEPENDENT GAME STUDIO</span>
+          <span>•</span>
+          <button type="button" onclick="openNewsletterModal()" class="text-ochre hover:underline uppercase font-bold">SUBSCRIBE LETTER</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="public/js/core.js"></script>
+  <script src="public/js/data/newsData.js"></script>
+  <script>
+    let currentNewsFilter = 'all';
+
+    function filterNews(filter) {
+      currentNewsFilter = filter;
+      document.querySelectorAll('.news-filter-pill').forEach(btn => {
+        if (btn.getAttribute('data-news-filter') === filter) {
+          btn.className = 'news-filter-pill px-3.5 py-1.5 bg-ochre text-void font-bold border border-ochre transition-colors';
+        } else {
+          btn.className = 'news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors';
+        }
+      });
+      renderNews();
+    }
+
+    function renderNews() {
+      const container = document.getElementById('news-grid');
+      if (!container) return;
+
+      const data = window.NEWS_DATA || [];
+      const items = currentNewsFilter === 'all' 
+        ? data 
+        : data.filter(a => a.category === currentNewsFilter);
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-muted">
+            NO DISPATCHES FOUND UNDER THIS CATEGORY.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(article => `
+        <article 
+          onclick="openNewsModalById('${article.id}')"
+          class="bg-surface border border-borderwire overflow-hidden flex flex-col justify-between hover:border-ochre transition-all cursor-pointer corner-brackets group shadow-md"
+        >
+          <div>
+            <div class="aspect-video w-full bg-void border-b border-borderwire overflow-hidden relative">
+              <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-2 right-2 px-2 py-0.5 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold">
+                ${article.badge || 'UPDATE'}
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex justify-between items-center text-[10px] font-mono text-slate-muted">
+                <span class="text-ochre font-bold uppercase">${article.category}</span>
+                <span>${article.date}</span>
+              </div>
+              <h3 class="font-syne font-bold text-lg text-white group-hover:text-ochre transition-colors leading-snug">
+                ${article.title}
+              </h3>
+              <p class="font-sans text-xs text-slate-muted leading-relaxed">
+                ${article.summary}
+              </p>
+            </div>
+          </div>
+          <div class="p-5 pt-0 flex justify-between items-center text-xs font-mono">
+            <span class="text-slate-muted">${article.readTime}</span>
+            <span class="text-ochre font-bold group-hover:underline">READ DISPATCH →</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function openNewsModalById(id, updateUrl = true) {
+      if (!window.NEWS_DATA) return;
+      const article = window.NEWS_DATA.find(a => a.id === id);
+      if (article) {
+        openNewsModal(article, updateUrl);
+      }
+    }
+
+    // --- ACTIVE NEWS MODAL GALLERY CONTROLLER ---
+    window.activeNewsGallery = {
+      images: [],
+      currentIndex: 0,
+      title: ''
+    };
+
+    function setModalNewsImageIndex(index) {
+      const gallery = window.activeNewsGallery;
+      if (!gallery || !gallery.images || gallery.images.length === 0) return;
+
+      gallery.currentIndex = ((index % gallery.images.length) + gallery.images.length) % gallery.images.length;
+      const imgEl = document.getElementById('modal-news-img');
+      const counterEl = document.getElementById('modal-news-img-counter');
+      const galleryContainer = document.getElementById('modal-news-gallery');
+
+      if (imgEl) {
+        imgEl.src = gallery.images[gallery.currentIndex];
+      }
+      if (counterEl) {
+        counterEl.textContent = `${gallery.currentIndex + 1} / ${gallery.images.length}`;
+      }
+
+      if (galleryContainer) {
+        const thumbs = galleryContainer.querySelectorAll('[data-news-thumb-idx]');
+        thumbs.forEach((th, idx) => {
+          if (idx === gallery.currentIndex) {
+            th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-ochre scale-105 opacity-100 transition-all shadow-md';
+          } else {
+            th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-borderwire opacity-60 hover:opacity-100 transition-all';
+          }
+        });
+      }
+    }
+
+    function stepModalNewsImage(step) {
+      setModalNewsImageIndex(window.activeNewsGallery.currentIndex + step);
+    }
+
+    function openActiveNewsImageViewer() {
+      const gallery = window.activeNewsGallery;
+      if (!gallery || !gallery.images || gallery.images.length === 0) return;
+      if (typeof window.openImageViewer === 'function') {
+        window.openImageViewer(gallery.images, gallery.currentIndex, gallery.title);
+      }
+    }
+
+    function openNewsModal(article, updateUrl = true) {
+      const modal = document.getElementById('news-modal');
+      if (!modal) return;
+
+      // Extract images array with fallback to single image
+      let images = [];
+      if (article.images && Array.isArray(article.images) && article.images.length > 0) {
+        images = article.images.filter(Boolean);
+      } else if (article.image) {
+        images = [article.image];
+      }
+
+      window.activeNewsGallery = {
+        images: images,
+        currentIndex: 0,
+        title: article.title || 'Studio Dispatch'
+      };
+
+      document.getElementById('modal-news-title').textContent = article.title;
+      document.getElementById('modal-news-category').textContent = article.category;
+      document.getElementById('modal-news-date').textContent = article.date;
+      document.getElementById('modal-news-badge').textContent = article.badge || 'DISPATCH';
+      
+      const img = document.getElementById('modal-news-img');
+      if (img) {
+        img.src = images[0] || '';
+        img.alt = article.title;
+      }
+
+      const counterEl = document.getElementById('modal-news-img-counter');
+      const prevBtn = document.getElementById('modal-news-prev-btn');
+      const nextBtn = document.getElementById('modal-news-next-btn');
+      const galleryContainer = document.getElementById('modal-news-gallery');
+
+      if (counterEl) {
+        if (images.length > 1) {
+          counterEl.classList.remove('hidden');
+          counterEl.textContent = `1 / ${images.length}`;
+        } else {
+          counterEl.classList.add('hidden');
+        }
+      }
+
+      if (prevBtn && nextBtn) {
+        if (images.length > 1) {
+          prevBtn.classList.remove('hidden');
+          prevBtn.classList.add('flex');
+          nextBtn.classList.remove('hidden');
+          nextBtn.classList.add('flex');
+        } else {
+          prevBtn.classList.add('hidden');
+          prevBtn.classList.remove('flex');
+          nextBtn.classList.add('hidden');
+          nextBtn.classList.remove('flex');
+        }
+      }
+
+      if (galleryContainer) {
+        if (images.length > 1) {
+          galleryContainer.classList.remove('hidden');
+          galleryContainer.innerHTML = images.map((src, idx) => `
+            <button 
+              type="button" 
+              data-news-thumb-idx="${idx}"
+              onclick="setModalNewsImageIndex(${idx})"
+              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 transition-all ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100'}"
+              aria-label="Dispatch thumbnail ${idx + 1}"
+            >
+              <img src="${src}" alt="Gallery ${idx + 1}" class="w-full h-full object-cover">
+            </button>
+          `).join('');
+        } else {
+          galleryContainer.classList.add('hidden');
+          galleryContainer.innerHTML = '';
+        }
+      }
+
+      document.getElementById('modal-news-author').textContent = article.author;
+      document.getElementById('modal-news-readtime').textContent = article.readTime;
+      document.getElementById('modal-news-content').innerHTML = article.content;
+
+      if (updateUrl && article.id) {
+        const url = new URL(window.location);
+        url.searchParams.set('article', article.id);
+        window.history.pushState({ articleOpen: true, articleId: article.id }, '', url);
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNewsModal(updateUrl = true) {
+      const modal = document.getElementById('news-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+      if (updateUrl) {
+        const url = new URL(window.location);
+        if (url.searchParams.has('article')) {
+          url.searchParams.delete('article');
+          window.history.pushState({}, '', url.pathname + (url.search ? url.search : ''));
+        }
+      }
+    }
+
+    function copyNewsUrl() {
+      const currentUrl = window.location.href;
+      navigator.clipboard.writeText(currentUrl).then(() => {
+        const btn = document.getElementById('modal-news-share-btn');
+        if (btn) {
+          const orig = btn.textContent;
+          btn.textContent = 'COPIED!';
+          setTimeout(() => { btn.textContent = orig; }, 1500);
+        }
+      });
+    }
+
+    function checkNewsDeepLink() {
+      const params = new URLSearchParams(window.location.search);
+      const articleId = params.get('article');
+      if (articleId && window.NEWS_DATA) {
+        const item = window.NEWS_DATA.find(a => a.id === articleId);
+        if (item) {
+          setTimeout(() => openNewsModal(item, false), 150);
+        }
+      }
+    }
+
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('article')) {
+        checkNewsDeepLink();
+      } else {
+        closeNewsModal(false);
+      }
+    });
+
+    // --- EMAIL SUBSCRIPTION POPUP & GOOGLE FORM DISPATCH ---
+    function openNewsletterModal() {
+      const modal = document.getElementById('newsletter-modal');
+      const input = document.getElementById('subscriber-email');
+      const status = document.getElementById('subscriber-status');
+      if (status) status.classList.add('hidden');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+      if (input) setTimeout(() => input.focus(), 100);
+    }
+
+    function closeNewsletterModal() {
+      const modal = document.getElementById('newsletter-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function submitGoogleNewsletter(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('subscriber-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+      const status = document.getElementById('subscriber-status');
+      const btn = document.getElementById('subscriber-submit-btn');
+
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'SUBMITTING...';
+      if (status) {
+        status.classList.remove('hidden');
+        status.textContent = 'Subscribing to News & Update Letter...';
+      }
+
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScxfDsAnnoPtq8w5GdNVhzHdrxUqe1Py5c-AyfqCFbnNlOrlA/formResponse';
+      
+      const payload = new URLSearchParams();
+      payload.append('entry.1884408784', 'News & Updates Subscriber');
+      payload.append('entry.1819151916', email);
+      payload.append('entry.195861844', '[NEWSLETTER] Subscribed to Studio News & Update Letter.');
+
+      let completed = false;
+      const finalizeSuccess = () => {
+        if (completed) return;
+        completed = true;
+        if (status) {
+          status.classList.remove('hidden');
+          status.innerHTML = `<span class="text-emerald-400 font-bold">[SUCCESS]</span> ${email} is now subscribed to News & Updates!`;
+        }
+        btn.textContent = 'SUBSCRIBED';
+        if (emailInput) emailInput.value = '';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = 'SUBSCRIBE TO UPDATE LETTER';
+          closeNewsletterModal();
+        }, 1000);
+      };
+
+      try {
+        fetch(formUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload
+        }).then(finalizeSuccess).catch(finalizeSuccess);
+      } catch (err) {
+        finalizeSuccess();
+      }
+
+      setTimeout(finalizeSuccess, 1200);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        renderNews();
+        checkNewsDeepLink();
+      });
+    } else {
+      renderNews();
+      checkNewsDeepLink();
+    }
+  </script>
 </body>
 </html>

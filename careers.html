@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MITHILA GAMES // Careers & Engineering Requisitions</title>
+  <meta name="description" content="Open engineering and technical art positions at Mithila Games artisan interactive technology lab.">
+  <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#08090C',
+            surface: '#0F1117',
+            panel: '#151821',
+            'panel-elevated': '#1B1F2B',
+            borderwire: '#232735',
+            'borderwire-light': '#32384A',
+            ochre: '#E5A93C',
+            'ochre-dim': 'rgba(229, 169, 60, 0.15)',
+            terracotta: '#D45B38',
+            'slate-muted': '#B5B9C5',
+            'slate-dark': '#62687D',
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Work Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Industrial-Artisan Custom Theme Stylesheet -->
+  <link rel="stylesheet" href="public/css/theme.css">
+</head>
+<body class="bg-blueprint-grid min-h-screen flex flex-col antialiased text-slate-200">
+
+  <!-- ================= HEADER & TELEMETRY DESK ================= -->
+  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+    <div class="border-b border-borderwire/60 px-4 py-1.5 text-[11px] font-mono text-slate-muted flex justify-between items-center bg-void/60">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-ochre">
+          <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
+          SYS.NOMINAL // 60.0 FPS
+        </span>
+        <span class="hidden sm:inline text-borderwire">|</span>
+        <span class="hidden sm:inline">SECTOR: TALENT &amp; LAB REQUISITIONS</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span>STATUS: ACCEPTING TELEMETRY DOSSIERS</span>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="home.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 border border-ochre/80 bg-panel flex items-center justify-center relative corner-brackets group-hover:border-ochre transition-colors">
+          <svg class="w-5 h-5 text-ochre" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="2 17 12 22 22 17" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="2 12 12 17 22 12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-syne font-extrabold tracking-wider text-white text-lg block leading-none">MITHILA GAMES</span>
+          <span class="font-mono text-[10px] text-ochre uppercase tracking-widest block mt-0.5">INTERACTIVE TECH LAB</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-wider">
+        <a href="home.html" data-nav-link class="px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white hover:border-borderwire-light transition-colors">01 // HOME</a>
+        <a href="games.html" data-nav-link class="px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white hover:border-borderwire-light transition-colors">02 // GAMES</a>
+        <a href="store.html" data-nav-link class="px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white hover:border-borderwire-light transition-colors">03 // SHOP & TOOLS</a>
+        <a href="about.html" data-nav-link class="px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white hover:border-borderwire-light transition-colors">04 // STUDIO</a>
+        <a href="careers.html" data-nav-link class="px-3 py-1.5 border-b-2 border-ochre text-ochre font-semibold transition-colors">05 // CAREERS</a>
+        <a href="connect.html" data-nav-link class="px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white hover:border-borderwire-light transition-colors">06 // CONTACT</a>
+      </nav>
+
+      <!-- Cart Button & Mobile Hamburger -->
+      <div class="flex items-center gap-3">
+        <button type="button" data-open-cart class="flex items-center gap-2 px-3 py-1.5 border border-borderwire bg-panel hover:border-ochre/80 transition-colors group">
+          <svg class="w-4 h-4 text-ochre group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span class="font-mono text-xs uppercase tracking-wider text-slate-muted group-hover:text-white">
+            LOADOUT [<span data-cart-count class="text-ochre font-bold">0</span>]
+          </span>
+        </button>
+
+        <button id="mobile-menu-toggle" type="button" class="md:hidden p-2 border border-borderwire bg-panel text-slate-muted hover:text-white" aria-label="Open Navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Horizontal Scrollable Tab Ribbon -->
+    <div class="md:hidden border-t border-borderwire bg-panel/80 overflow-x-auto whitespace-nowrap px-4 py-2 text-xs font-mono scrollbar-none flex gap-2">
+      <a href="home.html" class="px-2.5 py-1 bg-surface border border-borderwire text-slate-muted">01 // HOME</a>
+      <a href="games.html" class="px-2.5 py-1 bg-surface border border-borderwire text-slate-muted">02 // GAMES</a>
+      <a href="store.html" class="px-2.5 py-1 bg-surface border border-borderwire text-slate-muted">03 // SHOP</a>
+      <a href="about.html" class="px-2.5 py-1 bg-surface border border-borderwire text-slate-muted">04 // STUDIO</a>
+      <a href="careers.html" class="px-2.5 py-1 bg-surface border border-ochre text-ochre font-semibold">05 // CAREERS</a>
+      <a href="connect.html" class="px-2.5 py-1 bg-surface border border-borderwire text-slate-muted">06 // CONTACT</a>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 z-50 hidden flex-col p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-6 border-b border-borderwire">
+      <span class="font-syne font-bold text-white text-lg">MITHILA GAMES // MENU</span>
+      <button id="mobile-menu-close" class="p-2 border border-borderwire text-slate-muted hover:text-white" aria-label="Close Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="flex flex-col gap-4 py-8 font-mono text-base">
+      <a href="home.html" class="p-3 border border-borderwire bg-surface text-slate-muted">01 // HOME</a>
+      <a href="games.html" class="p-3 border border-borderwire bg-surface text-slate-muted">02 // GAMES</a>
+      <a href="store.html" class="p-3 border border-borderwire bg-surface text-slate-muted">03 // SHOP & TOOLS</a>
+      <a href="about.html" class="p-3 border border-borderwire bg-surface text-slate-muted">04 // STUDIO</a>
+      <a href="careers.html" class="p-3 border border-ochre bg-surface text-ochre font-bold">05 // CAREERS</a>
+      <a href="connect.html" class="p-3 border border-borderwire bg-surface text-slate-muted">06 // CONTACT</a>
+    </div>
+  </div>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Section Header -->
+    <div class="mb-10 pb-6 border-b border-borderwire flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-widest text-ochre mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 bg-ochre status-dot-pulse"></span>
+          <span>OPEN REQUISITIONS // JOIN THE CRAFT</span>
+        </div>
+        <h1 class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white">
+          Careers & Engineering Desk
+        </h1>
+      </div>
+      <p class="font-sans text-sm text-slate-muted max-w-md leading-relaxed">
+        We are assembling an artisan team of systems programmers and technical artists committed to open-source game development and cultural mechanics.
+      </p>
+    </div>
+
+    <!-- Studio Culture Banner -->
+    <div class="mb-12 p-6 bg-surface border border-borderwire relative corner-brackets shadow-xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+        <div>
+          <span class="text-ochre block font-bold mb-1">ZERO CRUNCH PROTOCOL</span>
+          <p class="text-slate-muted leading-relaxed">We schedule sane release cycles. No death marches, no midnight sprints. Sustainable artisan craftsmanship.</p>
+        </div>
+        <div>
+          <span class="text-ochre block font-bold mb-1">REMOTE OR BIHAR/NCR LABS</span>
+          <p class="text-slate-muted leading-relaxed">Work remotely anywhere in India or join our physical development spaces in Bihar and the National Capital Region.</p>
+        </div>
+        <div>
+          <span class="text-ochre block font-bold mb-1">LINUX WORKSTATION GRANT</span>
+          <p class="text-slate-muted leading-relaxed">Every developer receives dedicated hardware allowances and native Linux / Steam Deck testing hardware.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPEN POSITIONS CARDS -->
+    <div class="space-y-8">
+      
+      <!-- ROLE 01: Gameplay Programmer -->
+      <div class="bg-surface border border-borderwire p-6 sm:p-8 relative corner-brackets hover:border-ochre/80 transition-all shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+          
+          <div class="space-y-4 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="px-2.5 py-1 bg-ochre/15 border border-ochre/40 text-ochre font-mono text-[10px] uppercase font-bold tracking-wider">
+                FULL-TIME // REMOTE (INDIA)
+              </span>
+              <span class="font-mono text-xs text-slate-muted">REQ CODE: MG-ENG-2026-01</span>
+            </div>
+
+            <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white">
+              Gameplay Programmer (Godot C# / C++ GDExtension)
+            </h2>
+
+            <p class="font-sans text-sm text-slate-muted leading-relaxed">
+              You will engineer the deterministic character physics, ritual interaction puzzles, and procedural combat mechanics for our flagship title, <em>The Chronicles of Mithilanchal</em>. You will work directly with Godot 4.3 Forward+ and custom C++ GDExtension pipelines.
+            </p>
+
+            <div class="space-y-2 pt-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block font-bold">CORE TECHNICAL CHECKLIST:</span>
+              <ul class="space-y-1.5 font-mono text-xs text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Deep experience writing deterministic 3D character controllers and state machines.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Proficiency in C++ (GDExtension) or modern high-performance C# without allocations in the inner loop.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Understanding of frame profiling on Steam Deck / low-spec AMD APUs using RenderDoc.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Passion for mechanics-first game design and Eastern Indian folklore.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 pt-2 font-mono text-[11px]">
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">GODOT 4.3</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">C++ GDEXTENSION</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">DETERMINISTIC PHYSICS</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">STEAM DECK PROFILING</span>
+            </div>
+          </div>
+
+          <!-- Direct Apply Action -->
+          <div class="lg:w-64 flex-shrink-0 p-5 bg-panel border border-borderwire flex flex-col justify-between space-y-4">
+            <div class="font-mono text-xs space-y-1 text-slate-muted">
+              <div>COMPENSATION: Competitive Base + Studio Revshare</div>
+              <div class="text-ochre">WORK MODEL: Remote First</div>
+            </div>
+            <a 
+              href="mailto:careers@mithilagames.com?subject=%5BAPPLICATION%5D%20Gameplay%20Programmer%20-%20%3CYour%20Name%3E&body=Callsign%20%2F%20Name%3A%0AProfile%20%2F%20GitHub%20%2F%20Portfolio%3A%0AExperience%20Summary%3A%0AWhy%20Mithila%20Games%3A" 
+              class="w-full py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase tracking-widest font-extrabold text-center transition-colors block"
+            >
+              TRANSMIT DOSSIER ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ROLE 02: Technical 3D Artist -->
+      <div class="bg-surface border border-borderwire p-6 sm:p-8 relative corner-brackets hover:border-ochre/80 transition-all shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+          
+          <div class="space-y-4 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="px-2.5 py-1 bg-ochre/15 border border-ochre/40 text-ochre font-mono text-[10px] uppercase font-bold tracking-wider">
+                FULL-TIME // HYBRID OR REMOTE
+              </span>
+              <span class="font-mono text-xs text-slate-muted">REQ CODE: MG-ART-2026-02</span>
+            </div>
+
+            <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white">
+              Technical 3D Artist (Blender bpy / Stylized GLSL Shaders)
+            </h2>
+
+            <p class="font-sans text-sm text-slate-muted leading-relaxed">
+              We need a technical visual visionary to translate intricate Madhubani geometry, terracotta relief sculpture, and atmospheric Indian wetlands into performant real-time 3D assets, custom shaders, and automated Blender geometry node pipelines.
+            </p>
+
+            <div class="space-y-2 pt-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block font-bold">CORE TECHNICAL CHECKLIST:</span>
+              <ul class="space-y-1.5 font-mono text-xs text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Mastery of Blender 4+ (procedural geometry nodes, rigging, Python bpy automation).</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Strong command of GLSL / Godot Visual & Code Shaders (crosshatch, post-processing).</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Deep appreciation for traditional folk art, stylized silhouettes, and low-drawcall modeling.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Experience optimizing vertex counts and UV Atlasing for handheld GPUs.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2 font-mono text-[11px]">
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">BLENDER BPY</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">GLSL SHADERS</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">MADHUBANI GEOMETRY</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">LOW-POLY OPTIMIZATION</span>
+            </div>
+          </div>
+
+          <div class="lg:w-64 flex-shrink-0 p-5 bg-panel border border-borderwire flex flex-col justify-between space-y-4">
+            <div class="font-mono text-xs space-y-1 text-slate-muted">
+              <div>COMPENSATION: Competitive Base + Studio Revshare</div>
+              <div class="text-ochre">PORTFOLIO REQUIRED: Artstation/GitHub</div>
+            </div>
+            <a 
+              href="mailto:careers@mithilagames.com?subject=%5BAPPLICATION%5D%20Technical%203D%20Artist%20-%20%3CYour%20Name%3E&body=Callsign%20%2F%20Name%3A%0APortfolio%20Link%3A%0AExperience%20with%20Shaders%20%26%20Blender%3A%0AWhy%20Mithila%20Games%3A" 
+              class="w-full py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase tracking-widest font-extrabold text-center transition-colors block"
+            >
+              TRANSMIT DOSSIER ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ROLE 03: Audio Systems Designer -->
+      <div class="bg-surface border border-borderwire p-6 sm:p-8 relative corner-brackets hover:border-ochre/80 transition-all shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+          
+          <div class="space-y-4 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="px-2.5 py-1 bg-ochre/15 border border-ochre/40 text-ochre font-mono text-[10px] uppercase font-bold tracking-wider">
+                CONTRACT TO PERM // REMOTE
+              </span>
+              <span class="font-mono text-xs text-slate-muted">REQ CODE: MG-SND-2026-03</span>
+            </div>
+
+            <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white">
+              Audio Systems Designer (FMOD / Procedural Indian Ragas)
+            </h2>
+
+            <p class="font-sans text-sm text-slate-muted leading-relaxed">
+              Design procedural, reactive musical scores and atmospheric soundscapes blending traditional Indian microtonal ragas with experimental modular synthesizers.
+            </p>
+
+            <div class="space-y-2 pt-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block font-bold">CORE TECHNICAL CHECKLIST:</span>
+              <ul class="space-y-1.5 font-mono text-xs text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Proficiency implementing interactive audio events in FMOD Core / Godot 4.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Deep knowledge of Indian classical music traditions, thaat systems, and acoustic microtones.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-ochre">▹</span>
+                  <span>Capability in foley recording and binaural ambient sound design for natural environments.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2 font-mono text-[11px]">
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">FMOD CORE</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">INDIAN CLASSICAL</span>
+              <span class="px-2.5 py-1 bg-panel border border-borderwire text-slate-300">MICROTONAL ACOUSTICS</span>
+            </div>
+          </div>
+
+          <div class="lg:w-64 flex-shrink-0 p-5 bg-panel border border-borderwire flex flex-col justify-between space-y-4">
+            <div class="font-mono text-xs space-y-1 text-slate-muted">
+              <div>COMPENSATION: Requisition Fee / Retainer</div>
+              <div class="text-ochre">REEL REQUIRED: Audio Demo Link</div>
+            </div>
+            <a 
+              href="mailto:careers@mithilagames.com?subject=%5BAPPLICATION%5D%20Audio%20Systems%20Designer%20-%20%3CYour%20Name%3E&body=Callsign%20%2F%20Name%3A%0AAudio%20Reel%20Link%3A%0ABackground%20in%20FMOD%20%2F%20Indian%20Classical%3A%0AWhy%20Mithila%20Games%3A" 
+              class="w-full py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase tracking-widest font-extrabold text-center transition-colors block"
+            >
+              TRANSMIT DOSSIER ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= STUDIO FOOTER ================= -->
+  <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs font-mono mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+        <div>&copy; 2026 MITHILA GAMES. ALL SYSTEM RIGHTS RESERVED. NO TRACKERS.</div>
+        <button id="back-to-top" class="hover:text-ochre transition-colors uppercase cursor-pointer">▲ ASCEND TO SURFACE</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="public/js/core.js"></script>
+</body>
+</html>
