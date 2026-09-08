@@ -7,7 +7,7 @@ window.NEWS_DATA = [
   {
       id: "news-blender-hair-cards-addon",
       title: "Introducing HairCards Suite: Automated Particle Hair to Card Mesh Converter",
-      date: "2026-03-05",
+      date: "2026-08-08",
       category: "BLENDER & PIPELINE",
       badge: "NEW RELEASE [Update]",
       image: "content/Haircards/banner.png",
@@ -39,7 +39,7 @@ window.NEWS_DATA = [
   {
       id: "blender-hair-cards-addon",
       title: "Introducing HairCards 3D: Automated Particle Hair to Card Mesh Converter",
-      date: "2026-03-05",
+      date: "2026-08-05",
       category: "BLENDER & PIPELINE",
       badge: "NEW RELEASE [Update]",
       image: "content/Haircards/banner.png",
