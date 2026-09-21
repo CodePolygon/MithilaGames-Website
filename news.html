@@ -3,9 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News &amp; Updates // Mithila Games</title>
-  <meta name="description" content="Technical devlogs, engine updates, and releases from Mithila Games.">
+  <title>News & Devlogs // Mithila Games</title>
+  <meta name="description" content="Official developer logs, game engine updates, playtest announcements, and studio releases from Mithila Games.">
+  <meta name="keywords" content="Mithila Games devlog, indie game devlog, Godot tutorials, game release news, Wings of Paper updates">
+  <meta name="author" content="Mithila Games">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mithilagames.com/news.html">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="public/assets/logo/logo_icon.svg">
+  <meta name="theme-color" content="#08090C">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="https://mithilagames.com/news.html">
+  <meta property="og:title" content="News & Devlogs // Mithila Games">
+  <meta property="og:description" content="Official developer logs, game engine updates, playtest announcements, and studio releases.">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+  <meta property="og:site_name" content="Mithila Games">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mithilagames">
+  <meta name="twitter:creator" content="@mithilagames">
+  <meta name="twitter:title" content="News & Devlogs // Mithila Games">
+  <meta name="twitter:description" content="Official developer logs, game engine updates, playtest announcements, and studio releases.">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Mithila Games Studio Devlogs",
+    "url": "https://mithilagames.com/news.html",
+    "description": "Technical devlogs, engine updates, and releases from Mithila Games.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mithila Games",
+      "url": "https://mithilagames.com"
+    }
+  }
+  </script>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,44 +73,42 @@
   </script>
   <link rel="stylesheet" href="public/css/theme.css">
 </head>
-<body class="bg-blueprint-grid min-h-screen flex flex-col antialiased text-slate-200">
+<body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void">
 
-  <!-- RESPONSIVE HEADER WITH OFFICIAL BRAND LOGO & FLUID NAVIGATION -->
-  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-borderwire">
-    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+  <!-- GAME HUD RESPONSIVE HEADER -->
+  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo -->
-      <a href="home.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto">
+      <!-- Brand Logo with Arcade Skew -->
+      <a href="home.html" class="flex items-center gap-3 shrink-0 group">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
 
-      <!-- Desktop & Tablet Navigation (fluid responsive spacing: text-[11px] on md, text-xs on lg) -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-mono text-[11px] lg:text-xs uppercase tracking-wider shrink-0">
-        <a href="home.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">HOME</a>
-        <a href="games.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">GAMES</a>
-        <a href="store.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">SHOP</a>
-        <a href="news.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">NEWS</a>
-        <a href="about.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">ABOUT US</a>
-        <a href="connect.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">CONTACT</a>
+      <!-- Desktop Game HUD Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
+        <a href="home.html" data-nav-link class="nav-game-tab">HOME</a>
+        <a href="games.html" data-nav-link class="nav-game-tab">GAMES</a>
+        <a href="store.html" data-nav-link class="nav-game-tab">SHOP</a>
+        <a href="news.html" data-nav-link class="nav-game-tab active-tab">NEWS</a>
+        <a href="about.html" data-nav-link class="nav-game-tab">ABOUT</a>
+        <a href="connect.html" data-nav-link class="nav-game-tab">CONTACT</a>
       </nav>
 
-      <!-- Right Header Actions (Responsive Subscribe Button & Mobile Toggle) -->
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
+      <div class="flex items-center gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="px-2.5 sm:px-3 py-1.5 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-[11px] sm:text-xs tracking-wider uppercase transition-colors flex items-center gap-2 whitespace-nowrap"
+          class="game-btn game-btn-ochre px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-ochre status-dot-pulse shrink-0"></span>
-          <span class="hidden sm:inline font-semibold">SUBSCRIBE [FREE]</span>
-          <span class="sm:hidden font-semibold">SUBSCRIBE</span>
+          <span>DISPATCH</span>
         </button>
 
         <!-- Mobile Hamburger Toggle -->
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-1.5 sm:p-2 border border-borderwire bg-panel text-slate-muted hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -78,34 +116,23 @@
       </div>
 
     </div>
-
-    <!-- Mobile Scrollable Tabs Ribbon (Smooth horizontal swipe on phones) -->
-    <div class="md:hidden border-t border-borderwire bg-surface/90 px-3 py-2 flex gap-1.5 overflow-x-auto no-scrollbar text-xs font-mono">
-      <a href="home.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">HOME</a>
-      <a href="games.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">GAMES</a>
-      <a href="store.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">SHOP</a>
-      <a href="news.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">NEWS</a>
-      <a href="about.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">ABOUT US</a>
-      <a href="connect.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">CONTACT</a>
-    </div>
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 z-50 hidden flex-col p-6 font-mono text-sm">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-muted hover:text-white" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
     </div>
-    <div class="flex flex-col gap-3 py-6">
-      <a href="home.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">HOME</a>
-      <a href="games.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">GAMES</a>
-      <a href="store.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">SHOP</a>
-      <a href="news.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">NEWS</a>
-      <a href="about.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">ABOUT US</a>
-      <a href="connect.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">CONTACT</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="p-3 bg-panel border border-ochre text-ochre font-bold text-left mt-2 flex items-center justify-between">
-        <span>SUBSCRIBE [FREE]</span>
-        <span>→</span>
+    <div class="flex flex-col gap-2 py-6 font-syne uppercase">
+      <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
+      <a href="games.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Games</a>
+      <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
+      <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
+      <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
+      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+        SUBSCRIBE TO DISPATCHES
       </button>
     </div>
   </div>
@@ -114,157 +141,155 @@
   <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10">
     
     <!-- Title & Subtitle -->
-    <div class="mb-10">
-      <div class="flex items-center gap-2 text-xs font-mono text-ochre mb-2">
-        <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-        <span>STUDIO DISPATCH &amp; RELEASES</span>
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-borderwire/80 pb-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="game-sticker sticker-lime">MISSION LOGBOOK</span>
+          <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// FIELD INTEL</span>
+        </div>
+        <h1 class="font-syne font-black italic text-3xl sm:text-4xl text-white uppercase tracking-tight">
+          <span class="brush-splash brush-splash-purple text-black font-black px-2.5 py-0.5 rounded">DEVLOGS</span> &amp; DISPATCHES
+        </h1>
       </div>
-      <h1 class="font-syne font-bold text-3xl sm:text-4xl text-white">News &amp; Updates</h1>
-      <p class="font-sans text-sm text-slate-muted mt-2 max-w-2xl leading-relaxed">
-        Technical devlogs, engine tooling releases, CC0 shader distributions, and milestone reports directly from our studio.
-      </p>
+      <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <span>SELECT LOG ENTRY TO EXPAND DOSSIER</span>
+      </div>
     </div>
 
-    <!-- Category Filter Bar -->
-    <div class="flex flex-wrap gap-2 mb-8 pb-4 border-b border-borderwire font-mono text-xs">
-      <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill px-3.5 py-1.5 bg-ochre text-void font-bold border border-ochre transition-colors">
-        ALL DISPATCHES
+    <!-- Category Filter Bar (Game HUD Skewed Tabs) -->
+    <div class="flex flex-wrap gap-2 mb-8 pb-4 border-b border-borderwire/80 text-xs font-syne uppercase">
+      <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill nav-game-tab active-tab cursor-pointer">
+        ALL UPDATES
       </button>
-      <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+      <button type="button" data-news-filter="BLENDER & PIPELINE" onclick="filterNews('BLENDER & PIPELINE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
+        BLENDER &amp; PIPELINE
+      </button>
+      <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
         ENGINE &amp; DEVLOG
       </button>
-      <button type="button" data-news-filter="OPEN SOURCE" onclick="filterNews('OPEN SOURCE')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
+      <button type="button" data-news-filter="OPEN SOURCE" onclick="filterNews('OPEN SOURCE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
         OPEN SOURCE
-      </button>
-      <button type="button" data-news-filter="PLAYTEST" onclick="filterNews('PLAYTEST')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
-        PLAYTEST
-      </button>
-      <button type="button" data-news-filter="TOOLS & TECH" onclick="filterNews('TOOLS & TECH')" class="news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors">
-        TOOLS &amp; TECH
       </button>
     </div>
 
     <!-- Dynamically Populated News Grid from newsData.js -->
-    <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Content populated by renderNews() -->
     </div>
 
     <!-- UPDATE LETTER PROMPT CARD -->
-    <div class="mt-14 bg-surface border border-ochre/40 p-6 sm:p-8 relative corner-brackets flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div class="mt-14 bg-surface border border-borderwire-light rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-xl">
       <div class="space-y-1.5">
-        <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-          <span>STAY IN THE LOOP</span>
-        </div>
-        <h2 class="font-syne font-bold text-xl sm:text-2xl text-white">Subscribe to News &amp; Update Letter</h2>
+        <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Stay In Touch</span>
+        <h2 class="font-syne font-bold text-xl sm:text-2xl text-white">Subscribe to News &amp; Updates</h2>
         <p class="font-sans text-xs text-slate-300">Get periodic devlogs, early playtest keys, and tool releases straight to your inbox.</p>
       </div>
       <button 
         type="button" 
         onclick="openNewsletterModal()" 
-        class="px-6 py-3.5 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase font-bold tracking-wider transition-colors whitespace-nowrap"
+        class="px-5 py-3 rounded-lg bg-ochre hover:bg-[#f2b545] text-void font-bold text-xs uppercase tracking-wider transition-colors whitespace-nowrap"
       >
-        SUBSCRIBE TO UPDATE LETTER →
+        Subscribe to Updates →
       </button>
     </div>
 
   </main>
 
   <!-- EMAIL SUBSCRIPTION MODAL (UPDATE LETTER & NEWS) -->
-  <div id="newsletter-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsletterModal()">
-    <div class="bg-surface border border-ochre max-w-md w-full p-6 sm:p-7 relative corner-brackets shadow-2xl space-y-4" onclick="event.stopPropagation()">
+  <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
+
       <div class="flex justify-between items-start pb-3 border-b border-borderwire">
         <div>
-          <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-            <span>MITHILA GAMES // UPDATE LETTER</span>
-          </div>
-          <h2 class="font-syne font-bold text-xl sm:text-2xl text-white mt-1">Subscribe to News &amp; Updates</h2>
+          <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
+          <h2 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase mt-0.5">Subscribe to Updates</h2>
         </div>
-        <button type="button" onclick="closeNewsletterModal()" class="p-1 text-slate-muted hover:text-white text-lg" aria-label="Close modal">✕</button>
+        <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
       </div>
 
       <p class="font-sans text-xs text-slate-300 leading-relaxed">
-        Stay connected with our studio. Receive our periodic update letters covering new game releases, devlogs, playtests, and open-source tools.
+        Stay connected with our studio. Receive updates covering game releases, devlogs, playtests, and open-source tools.
       </p>
 
-      <!-- Benefits Checklist -->
-      <div class="p-3 bg-panel border border-borderwire space-y-2 text-xs font-mono text-slate-300">
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Studio news &amp; game launch announcements</span>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Technical devlogs &amp; Godot engine tutorials</span>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Early playtest keys &amp; free CC0 tool releases</span>
-        </div>
-      </div>
-
-      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-3 font-mono text-xs">
-        <div class="space-y-1">
-          <label for="subscriber-email" class="text-slate-muted block text-[11px] font-semibold uppercase">YOUR EMAIL ADDRESS *</label>
+      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
+        <div>
+          <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
           <input 
             type="email" 
             id="subscriber-email" 
             required 
-            placeholder="your.email@domain.com" 
-            class="w-full bg-void border border-borderwire px-3.5 py-2.5 text-white placeholder:text-slate-muted/40 focus:outline-none focus:border-ochre"
+            placeholder="name@domain.com" 
+            class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
           >
         </div>
 
         <button 
           type="submit" 
           id="subscriber-submit-btn" 
-          class="w-full py-3.5 bg-ochre hover:bg-[#f2b545] text-void uppercase font-bold tracking-wider transition-colors flex items-center justify-center gap-2"
+          class="game-btn game-btn-ochre w-full py-3 text-void font-extrabold rounded-xl tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 text-xs"
         >
-          <span>SUBSCRIBE TO UPDATE LETTER</span>
-          <span>→</span>
+          <span>TRANSMIT SUBSCRIPTION →</span>
         </button>
 
-        <div id="subscriber-status" class="hidden p-3 bg-void border border-ochre/40 text-ochre text-xs"></div>
+        <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
       </form>
-
-      <div class="text-[10px] font-mono text-slate-muted flex justify-between items-center pt-2 border-t border-borderwire/50">
-        <span>📬 ZERO SPAM // BI-WEEKLY DISPATCH</span>
-        <button type="button" onclick="closeNewsletterModal()" class="hover:text-white underline">CANCEL</button>
-      </div>
-
     </div>
   </div>
 
   <!-- REUSABLE ARTICLE DETAIL MODAL WINDOW WITH DIRECT URL -->
-  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsModal()">
-    <div class="bg-surface border border-ochre max-w-2xl w-full p-6 sm:p-8 relative corner-brackets shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-purple/50 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
-      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
+
+      <div class="flex justify-between items-start pb-3 border-b border-borderwire/60">
         <div>
-          <div class="flex items-center gap-2 font-mono text-[11px] text-ochre mb-1">
+          <div class="flex items-center gap-2 text-xs text-ochre mb-1">
             <span id="modal-news-category" class="font-bold uppercase tracking-wider"></span>
             <span>•</span>
-            <span id="modal-news-date" class="text-slate-muted"></span>
+            <span id="modal-news-date" class="text-slate-400 font-mono"></span>
           </div>
-          <h2 id="modal-news-title" class="font-syne font-bold text-2xl text-white leading-tight"></h2>
+          <h2 id="modal-news-title" class="font-syne font-black italic text-2xl sm:text-3xl text-white leading-tight uppercase"></h2>
         </div>
-        <button type="button" onclick="closeNewsModal()" class="p-1 text-slate-muted hover:text-white text-lg">✕</button>
+        <button 
+          type="button" 
+          onclick="closeNewsModal()" 
+          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+          class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold"
+          aria-label="Close dialog"
+        >✕</button>
       </div>
 
       <!-- Interactive Main Article Image with Zoom Action & Gallery -->
       <div class="space-y-2">
-        <div id="modal-news-img-container" class="aspect-video w-full bg-void border border-borderwire overflow-hidden relative group cursor-zoom-in" onclick="openActiveNewsImageViewer()">
-          <img id="modal-news-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <span id="modal-news-badge" class="absolute top-3 right-3 px-2 py-0.5 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold"></span>
+        <div id="modal-news-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveNewsImageViewer()">
+          <!-- HUD Corners inside stage frame -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <img id="modal-news-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span id="modal-news-badge" class="absolute top-3 right-3 px-2.5 py-0.5 bg-void/85 backdrop-blur-sm border border-borderwire rounded text-ochre text-xs font-mono font-bold"></span>
           
           <!-- Image Counter Badge -->
-          <span id="modal-news-img-counter" class="absolute top-3 left-3 px-2 py-0.5 bg-void/90 border border-borderwire text-slate-muted font-mono text-[10px] hidden"></span>
+          <span id="modal-news-img-counter" class="absolute top-3 left-3 px-2.5 py-0.5 bg-void/85 backdrop-blur-sm border border-borderwire rounded text-slate-300 font-mono text-xs hidden"></span>
           
           <!-- Expand Prompt -->
-          <span class="absolute bottom-2 right-2 px-2.5 py-1 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
-            <span>EXPAND IMAGE</span>
+          <span class="absolute bottom-3 right-3 px-3 py-1 bg-void/90 backdrop-blur-sm border border-borderwire rounded text-slate-200 group-hover:text-white group-hover:border-ochre text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
+            <span>EXPAND DOSSIER</span>
             <span class="text-xs">⤢</span>
           </span>
 
@@ -273,14 +298,16 @@
             type="button" 
             id="modal-news-prev-btn" 
             onclick="event.stopPropagation(); stepModalNewsImage(-1);" 
-            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
             aria-label="Previous image"
           >‹</button>
           <button 
             type="button" 
             id="modal-news-next-btn" 
             onclick="event.stopPropagation(); stepModalNewsImage(1);" 
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
             aria-label="Next image"
           >›</button>
         </div>
@@ -289,19 +316,30 @@
         <div id="modal-news-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
       </div>
 
-      <div class="flex items-center justify-between text-xs font-mono text-slate-muted pb-2 border-b border-borderwire/60">
+      <div class="flex items-center justify-between text-xs text-slate-400 font-mono pb-2 border-b border-borderwire/60">
         <div>AUTHOR: <span id="modal-news-author" class="text-white font-bold"></span></div>
-        <div id="modal-news-readtime" class="text-ochre"></div>
+        <div id="modal-news-readtime" class="text-ochre font-bold"></div>
       </div>
 
-      <div id="modal-news-content" class="font-sans text-sm text-slate-300 leading-relaxed space-y-4"></div>
+      <div id="modal-news-content" class="font-sans text-sm text-slate-200 leading-relaxed space-y-4"></div>
 
-      <div class="pt-4 flex flex-wrap sm:flex-nowrap gap-2 border-t border-borderwire/60">
-        <button id="modal-news-share-btn" type="button" onclick="copyNewsUrl()" class="px-5 py-3 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-xs uppercase font-bold tracking-wider transition-colors whitespace-nowrap">
-          SHARE ARTICLE URL
+      <div class="pt-4 flex flex-wrap sm:flex-nowrap gap-3 border-t border-borderwire/60">
+        <button 
+          id="modal-news-share-btn" 
+          type="button" 
+          onclick="copyNewsUrl()" 
+          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+          class="game-btn game-btn-panel px-5 py-2.5 rounded-lg text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wide transition-colors whitespace-nowrap shadow-sm"
+        >
+          <span>COPY LINK</span>
         </button>
-        <button type="button" onclick="closeNewsModal()" class="flex-grow px-5 py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase font-bold tracking-wider transition-colors">
-          CLOSE DISPATCH
+        <button 
+          type="button" 
+          onclick="closeNewsModal()" 
+          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+          class="game-btn game-btn-ochre flex-grow px-5 py-2.5 rounded-lg text-void text-xs font-black uppercase tracking-wide transition-all shadow-md"
+        >
+          <span>CLOSE DOSSIER →</span>
         </button>
       </div>
 
@@ -379,9 +417,9 @@
       currentNewsFilter = filter;
       document.querySelectorAll('.news-filter-pill').forEach(btn => {
         if (btn.getAttribute('data-news-filter') === filter) {
-          btn.className = 'news-filter-pill px-3.5 py-1.5 bg-ochre text-void font-bold border border-ochre transition-colors';
+          btn.className = 'news-filter-pill nav-game-tab active-tab cursor-pointer';
         } else {
-          btn.className = 'news-filter-pill px-3.5 py-1.5 bg-panel border border-borderwire text-slate-muted hover:text-white transition-colors';
+          btn.className = 'news-filter-pill nav-game-tab cursor-pointer text-slate-300';
         }
       });
       renderNews();
@@ -398,8 +436,8 @@
 
       if (items.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-muted">
-            NO DISPATCHES FOUND UNDER THIS CATEGORY.
+          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-400">
+            NO DISPATCHES FOUND UNDER THIS LOGBOOK CATEGORY.
           </div>
         `;
         return;
@@ -408,31 +446,56 @@
       container.innerHTML = items.map(article => `
         <article 
           onclick="openNewsModalById('${article.id}')"
-          class="bg-surface border border-borderwire overflow-hidden flex flex-col justify-between hover:border-ochre transition-all cursor-pointer corner-brackets group shadow-md"
+          class="game-tilt-card group cursor-pointer"
         >
-          <div>
-            <div class="aspect-video w-full bg-void border-b border-borderwire overflow-hidden relative">
-              <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="absolute top-2 right-2 px-2 py-0.5 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold">
-                ${article.badge || 'UPDATE'}
+          <div class="game-tilt-inner bg-surface border-2 border-borderwire hover:border-purple rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(180,100,255,0.25)] bg-halftone-dots tape-top relative h-full">
+            <!-- Tactical HUD Reticle Corners -->
+            <div class="hud-corner hud-corner-tl"></div>
+            <div class="hud-corner hud-corner-tr"></div>
+            <div class="hud-corner hud-corner-bl"></div>
+            <div class="hud-corner hud-corner-br"></div>
+
+            <div>
+              <div class="aspect-video w-full bg-void rounded-xl overflow-hidden relative mb-4 border border-borderwire group-hover:border-purple/50 transition-colors">
+                <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent pointer-events-none"></div>
+                
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="game-sticker sticker-lime text-[10px] transform -rotate-1">
+                    ${article.badge || 'LOG UPDATE'}
+                  </span>
+                </div>
+
+                <div class="absolute bottom-2.5 right-2.5">
+                  <span class="px-2 py-0.5 rounded bg-void/90 backdrop-blur-md border border-borderwire text-[10px] font-mono font-bold text-slate-300">
+                    ${article.readTime}
+                  </span>
+                </div>
+              </div>
+
+              <div class="space-y-2.5">
+                <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+                  <span class="game-sticker sticker-purple text-[10px]">${article.category}</span>
+                  <span class="font-bold">${article.date}</span>
+                </div>
+
+                <h3 class="font-syne font-black italic text-xl text-white uppercase tracking-tight group-hover:text-purple transition-colors leading-snug">
+                  ${article.title}
+                </h3>
+
+                <p class="font-sans text-sm text-slate-200 leading-relaxed line-clamp-3">
+                  ${article.summary}
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-borderwire/60 flex justify-between items-center text-xs">
+              <span class="text-slate-400 font-mono text-[11px]">AUTHOR: <strong class="text-slate-200">${article.author || 'Mithila Games'}</strong></span>
+              <span class="game-btn game-btn-panel px-3.5 py-1.5 rounded-lg text-white font-bold text-xs uppercase flex items-center gap-1.5 group-hover:border-purple">
+                <span>OPEN INTEL</span>
+                <span>→</span>
               </span>
             </div>
-            <div class="p-5 space-y-2">
-              <div class="flex justify-between items-center text-[10px] font-mono text-slate-muted">
-                <span class="text-ochre font-bold uppercase">${article.category}</span>
-                <span>${article.date}</span>
-              </div>
-              <h3 class="font-syne font-bold text-lg text-white group-hover:text-ochre transition-colors leading-snug">
-                ${article.title}
-              </h3>
-              <p class="font-sans text-xs text-slate-muted leading-relaxed">
-                ${article.summary}
-              </p>
-            </div>
-          </div>
-          <div class="p-5 pt-0 flex justify-between items-center text-xs font-mono">
-            <span class="text-slate-muted">${article.readTime}</span>
-            <span class="text-ochre font-bold group-hover:underline">READ DISPATCH →</span>
           </div>
         </article>
       `).join('');
@@ -463,7 +526,14 @@
       const galleryContainer = document.getElementById('modal-news-gallery');
 
       if (imgEl) {
-        imgEl.src = gallery.images[gallery.currentIndex];
+        if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+        imgEl.classList.add('modal-image-swap');
+        setTimeout(() => {
+          imgEl.src = gallery.images[gallery.currentIndex];
+          imgEl.classList.remove('modal-image-swap');
+          imgEl.classList.add('modal-image-ready');
+          setTimeout(() => imgEl.classList.remove('modal-image-ready'), 220);
+        }, 90);
       }
       if (counterEl) {
         counterEl.textContent = `${gallery.currentIndex + 1} / ${gallery.images.length}`;
@@ -580,18 +650,12 @@
         window.history.pushState({ articleOpen: true, articleId: article.id }, '', url);
       }
 
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      window.showGameModal('news-modal');
     }
 
     function closeNewsModal(updateUrl = true) {
-      const modal = document.getElementById('news-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
+      window.hideGameModal('news-modal');
+
       if (updateUrl) {
         const url = new URL(window.location);
         if (url.searchParams.has('article')) {
@@ -635,24 +699,14 @@
 
     // --- EMAIL SUBSCRIPTION POPUP & GOOGLE FORM DISPATCH ---
     function openNewsletterModal() {
-      const modal = document.getElementById('newsletter-modal');
-      const input = document.getElementById('subscriber-email');
-      const status = document.getElementById('subscriber-status');
-      if (status) status.classList.add('hidden');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
+      if (typeof window.openNewsletterModal === 'function') {
+        window.openNewsletterModal();
       }
-      if (input) setTimeout(() => input.focus(), 100);
     }
 
     function closeNewsletterModal() {
-      const modal = document.getElementById('newsletter-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
+      if (typeof window.closeNewsletterModal === 'function') {
+        window.closeNewsletterModal();
       }
     }
 

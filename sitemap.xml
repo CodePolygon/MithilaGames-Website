@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home / Landing Page -->
+  <url>
+    <loc>https://mithilagames.com/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/public/assets/images/wings_paper_hero.jpg</image:loc>
+      <image:title>Mithila Games Studio Showcase</image:title>
+      <image:caption>Independent Game Studio and Creative Tech Lab</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Games Catalog -->
+  <url>
+    <loc>https://mithilagames.com/games.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/wings_of_paper/cover_art.webp</image:loc>
+      <image:title>Wings of Paper - Arcade 3D Glider Game</image:title>
+      <image:caption>Take flight in a peaceful low-poly 3D world by Mithila Games</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Store / Asset Bazaar -->
+  <url>
+    <loc>https://mithilagames.com/store.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Studio News & Devlogs -->
+  <url>
+    <loc>https://mithilagames.com/news.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Us & Manifesto -->
+  <url>
+    <loc>https://mithilagames.com/about.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Relay -->
+  <url>
+    <loc>https://mithilagames.com/connect.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Studio Careers -->
+  <url>
+    <loc>https://mithilagames.com/careers.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://mithilagames.com/privacy.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

@@ -3,9 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mithila Games</title>
-  <meta name="description" content="Independent game studio and technology lab focused on open-source pipelines and mechanics-first engineering.">
+  <title>Mithila Games | Independent Game Studio & Creative Lab</title>
+  <meta name="description" content="Mithila Games is an independent game development studio and technology lab creating mechanics-first video games and open-source development tools. Creators of Wings of Paper.">
+  <meta name="keywords" content="Mithila Games, Wings of Paper, indie game studio, Godot 4 games, Android games, PC games, game development, low poly 3D, open source game tools">
+  <meta name="author" content="Mithila Games">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mithilagames.com/">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="public/assets/logo/logo_icon.svg">
+  <meta name="theme-color" content="#08090C">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mithilagames.com/">
+  <meta property="og:title" content="Mithila Games | Independent Game Studio & Creative Lab">
+  <meta property="og:description" content="Independent game studio and technology lab creating mechanics-first video games and open-source game tools. Creators of Wings of Paper.">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+  <meta property="og:site_name" content="Mithila Games">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mithilagames">
+  <meta name="twitter:creator" content="@mithilagames">
+  <meta name="twitter:title" content="Mithila Games | Independent Game Studio & Creative Lab">
+  <meta name="twitter:description" content="Independent game studio and technology lab creating mechanics-first video games and open-source game tools. Creators of Wings of Paper.">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Results & Knowledge Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mithilagames.com/#organization",
+        "name": "Mithila Games",
+        "url": "https://mithilagames.com",
+        "logo": "https://mithilagames.com/public/assets/logo/logo_wide.svg",
+        "description": "Independent game development studio and creative tech lab.",
+        "sameAs": [
+          "https://instagram.com/mithilagames",
+          "https://facebook.com/mithilagames"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mithilagames.com/#website",
+        "url": "https://mithilagames.com",
+        "name": "Mithila Games",
+        "publisher": {
+          "@id": "https://mithilagames.com/#organization"
+        }
+      },
+      {
+        "@type": "VideoGame",
+        "name": "Wings of Paper",
+        "description": "A relaxing yet challenging endless flying game where you control an origami plane soaring through an open low-poly 3D world.",
+        "genre": ["Arcade", "Flight Simulation", "Low-Poly 3D"],
+        "gamePlatform": ["Android", "PC"],
+        "operatingSystem": "Android 10+, Windows, Linux",
+        "applicationCategory": "Game",
+        "image": "https://mithilagames.com/content/wings_of_paper/cover_art.webp",
+        "author": {
+          "@id": "https://mithilagames.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,44 +107,42 @@
   </script>
   <link rel="stylesheet" href="public/css/theme.css">
 </head>
-<body class="bg-blueprint-grid min-h-screen flex flex-col antialiased text-slate-200">
+<body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void">
 
-  <!-- RESPONSIVE HEADER WITH OFFICIAL BRAND LOGO & FLUID NAVIGATION -->
-  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-borderwire">
-    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+  <!-- GAME HUD RESPONSIVE HEADER -->
+  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo -->
-      <a href="home.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto">
+      <!-- Brand Logo with Arcade Skew -->
+      <a href="home.html" class="flex items-center gap-3 shrink-0 group">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
 
-      <!-- Desktop & Tablet Navigation (fluid responsive spacing: text-[11px] on md, text-xs on lg) -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-mono text-[11px] lg:text-xs uppercase tracking-wider shrink-0">
-        <a href="home.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">HOME</a>
-        <a href="games.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">GAMES</a>
-        <a href="store.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">SHOP</a>
-        <a href="news.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">NEWS</a>
-        <a href="about.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">ABOUT US</a>
-        <a href="connect.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">CONTACT</a>
+      <!-- Desktop Game HUD Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
+        <a href="home.html" data-nav-link class="nav-game-tab">HOME</a>
+        <a href="games.html" data-nav-link class="nav-game-tab">GAMES</a>
+        <a href="store.html" data-nav-link class="nav-game-tab">SHOP</a>
+        <a href="news.html" data-nav-link class="nav-game-tab">NEWS</a>
+        <a href="about.html" data-nav-link class="nav-game-tab">ABOUT</a>
+        <a href="connect.html" data-nav-link class="nav-game-tab">CONTACT</a>
       </nav>
 
-      <!-- Right Header Actions (Responsive Subscribe Button & Mobile Toggle) -->
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
+      <div class="flex items-center gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="px-2.5 sm:px-3 py-1.5 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-[11px] sm:text-xs tracking-wider uppercase transition-colors flex items-center gap-2 whitespace-nowrap"
+          class="game-btn game-btn-ochre px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-ochre status-dot-pulse shrink-0"></span>
-          <span class="hidden sm:inline font-semibold">SUBSCRIBE [FREE]</span>
-          <span class="sm:hidden font-semibold">SUBSCRIBE</span>
+          <span>DISPATCH</span>
         </button>
 
         <!-- Mobile Hamburger Toggle -->
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-1.5 sm:p-2 border border-borderwire bg-panel text-slate-muted hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -78,34 +150,23 @@
       </div>
 
     </div>
-
-    <!-- Mobile Scrollable Tabs Ribbon (Smooth horizontal swipe on phones) -->
-    <div class="md:hidden border-t border-borderwire bg-surface/90 px-3 py-2 flex gap-1.5 overflow-x-auto no-scrollbar text-xs font-mono">
-      <a href="home.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">HOME</a>
-      <a href="games.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">GAMES</a>
-      <a href="store.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">SHOP</a>
-      <a href="news.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">NEWS</a>
-      <a href="about.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">ABOUT US</a>
-      <a href="connect.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">CONTACT</a>
-    </div>
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 z-50 hidden flex-col p-6 font-mono text-sm">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-muted hover:text-white" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
     </div>
-    <div class="flex flex-col gap-3 py-6">
-      <a href="home.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">HOME</a>
-      <a href="games.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">GAMES</a>
-      <a href="store.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">SHOP</a>
-      <a href="news.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">NEWS</a>
-      <a href="about.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">ABOUT US</a>
-      <a href="connect.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">CONTACT</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="p-3 bg-panel border border-ochre text-ochre font-bold text-left mt-2 flex items-center justify-between">
-        <span>SUBSCRIBE [FREE]</span>
-        <span>→</span>
+    <div class="flex flex-col gap-2 py-6 font-syne uppercase">
+      <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
+      <a href="games.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Games</a>
+      <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
+      <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
+      <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
+      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+        SUBSCRIBE TO DISPATCHES
       </button>
     </div>
   </div>
@@ -113,36 +174,41 @@
   <!-- MAIN CONTENT -->
   <main class="flex-grow">
     
-    <!-- INTERACTIVE HERO CAROUSEL: RECENT RELEASES (GAMES & PRODUCTS) -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-10">
+    <!-- FEATURED SHOWCASE HERO WITH ASYMMETRIC GAME CUT & 3D TILT -->
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-12 overflow-visible">
       
-      <!-- Top controls & ticker -->
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 mb-4 border-b border-borderwire gap-3 font-mono text-xs">
-        <div class="flex items-center gap-3">
-          <span class="w-2.5 h-2.5 bg-ochre status-dot-pulse rounded-full"></span>
-          <span class="text-white font-bold tracking-wider uppercase">FEATURED DEPLOYMENTS</span>
-          <span class="text-slate-muted hidden sm:inline">// RECENT TITLES &amp; DEV ASSETS</span>
+      <!-- Top HUD controls & stage indicator -->
+      <div class="flex justify-between items-center pb-3 mb-6 border-b border-borderwire/80">
+        <div class="flex items-center gap-2.5">
+          <span class="game-sticker sticker-lime transform -rotate-1">STAGE SELECTION</span>
+          <span class="text-xs font-syne text-slate-400 uppercase italic tracking-wider hidden sm:inline">// PLAYABLE BUILDS &amp; TOOLS</span>
         </div>
         
-        <!-- Navigation Arrows and Counter -->
-        <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
-          <div class="text-slate-muted">
-            <span id="hero-current-idx" class="text-ochre font-bold">01</span> / <span id="hero-total-count" class="text-slate-muted">05</span>
+        <!-- Navigation Gamepad/Arrow Buttons and Counter -->
+        <div class="flex items-center gap-3">
+          <div class="text-xs text-slate-400 font-mono flex items-center gap-1">
+            <span id="hero-current-idx" class="text-lime-400 font-bold text-sm">01</span>
+            <span>/</span>
+            <span id="hero-total-count" class="text-slate-500">05</span>
           </div>
-          <div class="flex gap-1.5">
+          <div class="flex items-center gap-1.5">
             <button 
               type="button" 
               onclick="prevHeroSlide()" 
-              class="w-8 h-8 bg-surface border border-borderwire hover:border-ochre text-slate-muted hover:text-white flex items-center justify-center transition-colors" 
-              aria-label="Previous slide"
+              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+              class="game-btn game-btn-panel w-9 h-9 rounded-lg flex items-center justify-center text-slate-200 hover:text-white text-base cursor-pointer" 
+              aria-label="Previous slide [←]"
+              title="Previous [Left Arrow]"
             >
               ←
             </button>
             <button 
               type="button" 
               onclick="nextHeroSlide()" 
-              class="w-8 h-8 bg-surface border border-borderwire hover:border-ochre text-slate-muted hover:text-white flex items-center justify-center transition-colors" 
-              aria-label="Next slide"
+              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+              class="game-btn game-btn-panel w-9 h-9 rounded-lg flex items-center justify-center text-slate-200 hover:text-white text-base cursor-pointer" 
+              aria-label="Next slide [→]"
+              title="Next [Right Arrow]"
             >
               →
             </button>
@@ -150,132 +216,128 @@
         </div>
       </div>
 
-      <!-- Hero Main Slide Card -->
-      <div id="hero-slide-container" class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-surface border border-borderwire p-6 sm:p-8 relative corner-brackets shadow-2xl transition-all duration-300">
-        <!-- Injected dynamically by renderHeroSlide() -->
+      <!-- Hero Main Slide Card (with 3D physics interaction container) -->
+      <div class="game-tilt-card my-2 overflow-visible">
+        <div id="hero-slide-container" class="game-tilt-inner relative bg-surface border-2 border-borderwire hover:border-lime/60 rounded-2xl p-6 sm:p-10 shadow-2xl transition-all duration-300 bg-halftone-dots grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-visible">
+          <!-- Injected dynamically by renderHeroSlide() -->
+        </div>
       </div>
 
       <!-- Slide Pagination Indicator Dots -->
-      <div id="hero-dots-container" class="flex justify-center items-center gap-2 pt-4">
+      <div id="hero-dots-container" class="flex justify-center items-center gap-2 pt-6">
         <!-- Rendered dynamically -->
       </div>
 
     </section>
 
-    <!-- LATEST DISPATCH & DEVLOG SECTION -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-14">
-      <div class="flex items-center justify-between pb-3 mb-6 border-b border-borderwire">
-        <div class="flex items-center gap-2 font-mono text-xs">
-          <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-          <span class="text-white font-bold tracking-wider uppercase">LATEST DISPATCH &amp; DEVLOG</span>
-          <span class="text-slate-muted hidden sm:inline">// RECENT ENGINE UPGRADES &amp; RELEASES</span>
+    <!-- LATEST DEVLOG & NEWS SECTION (DIEGETIC SCRAPBOOK/LOGBOOK STYLE) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="flex items-center justify-between pb-3 mb-6 border-b border-borderwire/80">
+        <div class="flex items-center gap-3">
+          <h2 class="font-syne font-black text-xl sm:text-2xl text-white uppercase italic tracking-tight">
+            <span class="brush-splash brush-splash-purple text-black font-black px-2.5 py-0.5 rounded">DEVLOGS</span> &amp; DISPATCHES
+          </h2>
         </div>
-        <a href="news.html" class="font-mono text-xs text-ochre hover:text-white uppercase tracking-wider flex items-center gap-1 transition-colors">
-          <span>VIEW ALL UPDATES</span>
+        <a href="news.html" class="game-btn game-btn-panel px-3 py-1.5 rounded-lg text-xs font-syne uppercase tracking-wider font-bold flex items-center gap-1 transition-colors">
+          <span>VIEW ALL LOGS</span>
           <span>→</span>
         </a>
       </div>
 
       <!-- Latest News Feature Card -->
-      <div id="latest-news-container">
-        <!-- Injected dynamically from window.NEWS_DATA[0] -->
+      <div class="game-tilt-card">
+        <div id="latest-news-container" class="game-tilt-inner">
+          <!-- Injected dynamically from window.NEWS_DATA[0] -->
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- EMAIL SUBSCRIPTION MODAL (UPDATE LETTER & NEWS) -->
-  <div id="newsletter-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsletterModal()">
-    <div class="bg-surface border border-ochre max-w-md w-full p-6 sm:p-7 relative corner-brackets shadow-2xl space-y-4" onclick="event.stopPropagation()">
+  <!-- EMAIL SUBSCRIPTION MODAL -->
+  <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
       <div class="flex justify-between items-start pb-3 border-b border-borderwire">
         <div>
-          <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-            <span>MITHILA GAMES // UPDATE LETTER</span>
-          </div>
-          <h2 class="font-syne font-bold text-xl sm:text-2xl text-white mt-1">Subscribe to News &amp; Updates</h2>
+          <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
+          <h2 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase mt-0.5">Subscribe to Updates</h2>
         </div>
-        <button type="button" onclick="closeNewsletterModal()" class="p-1 text-slate-muted hover:text-white text-lg" aria-label="Close modal">✕</button>
+        <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
       </div>
 
       <p class="font-sans text-xs text-slate-300 leading-relaxed">
-        Stay connected with our studio. Receive our periodic update letters covering new game releases, devlogs, playtests, and open-source tools.
+        Stay connected with our studio. Receive updates on new game releases, devlogs, and free open-source tools.
       </p>
 
-      <!-- Benefits Checklist -->
-      <div class="p-3 bg-panel border border-borderwire space-y-2 text-xs font-mono text-slate-300">
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Studio news &amp; game launch announcements</span>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Technical devlogs &amp; Godot engine tutorials</span>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <span class="text-ochre font-bold">✓</span>
-          <span>Early playtest keys &amp; free CC0 tool releases</span>
-        </div>
-      </div>
-
-      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-3 font-mono text-xs">
-        <div class="space-y-1">
-          <label for="subscriber-email" class="text-slate-muted block text-[11px] font-semibold uppercase">YOUR EMAIL ADDRESS *</label>
+      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
+        <div>
+          <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
           <input 
             type="email" 
             id="subscriber-email" 
             required 
-            placeholder="your.email@domain.com" 
-            class="w-full bg-void border border-borderwire px-3.5 py-2.5 text-white placeholder:text-slate-muted/40 focus:outline-none focus:border-ochre"
+            placeholder="name@domain.com" 
+            class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
           >
         </div>
 
         <button 
           type="submit" 
           id="subscriber-submit-btn" 
-          class="w-full py-3.5 bg-ochre hover:bg-[#f2b545] text-void uppercase font-bold tracking-wider transition-colors flex items-center justify-center gap-2"
+          class="game-btn game-btn-ochre w-full py-3 text-void font-extrabold rounded-xl tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 text-xs"
         >
-          <span>SUBSCRIBE TO UPDATE LETTER</span>
-          <span>→</span>
+          <span>TRANSMIT SUBSCRIPTION →</span>
         </button>
 
-        <div id="subscriber-status" class="hidden p-3 bg-void border border-ochre/40 text-ochre text-xs"></div>
+        <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
       </form>
-
-      <div class="text-[10px] font-mono text-slate-muted flex justify-between items-center pt-2 border-t border-borderwire/50">
-        <span>📬 ZERO SPAM // BI-WEEKLY DISPATCH.</span>
-        <button type="button" onclick="closeNewsletterModal()" class="hover:text-white underline">CANCEL</button>
-      </div>
-
     </div>
   </div>
 
   <!-- REUSABLE PRODUCT DETAIL & DOWNLOAD MODAL WINDOW -->
-  <div id="product-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeProductModal()">
-    <div class="bg-surface border border-ochre max-w-xl w-full p-6 relative corner-brackets shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeProductModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
       <div class="flex justify-between items-start pb-3 border-b border-borderwire">
         <div>
-          <span id="modal-item-category" class="font-mono text-[10px] text-ochre uppercase font-bold tracking-wider"></span>
-          <h2 id="modal-item-title" class="font-syne font-bold text-2xl text-white"></h2>
+          <span id="modal-item-category" class="game-sticker sticker-lime text-[10px] mb-1"></span>
+          <h2 id="modal-item-title" class="font-syne font-black italic text-2xl sm:text-3xl text-white uppercase mt-1"></h2>
         </div>
         <div class="flex items-center gap-3">
-          <span id="modal-item-price" class="font-mono text-sm font-bold text-white"></span>
-          <button type="button" onclick="closeProductModal()" class="p-1 text-slate-muted hover:text-white text-lg">✕</button>
+          <span id="modal-item-price" class="game-sticker sticker-ochre text-xs"></span>
+          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
         </div>
       </div>
 
       <!-- Interactive Main Image with Zoom Action & Multi-Image Gallery -->
       <div class="space-y-2">
-        <div id="modal-item-img-container" class="aspect-video w-full bg-void border border-borderwire overflow-hidden relative group cursor-zoom-in" onclick="openActiveItemImageViewer()">
-          <img id="modal-item-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div id="modal-item-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveItemImageViewer()">
+          <!-- HUD Corners inside stage frame -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <img id="modal-item-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           
           <!-- Image Counter Badge -->
-          <span id="modal-item-img-counter" class="absolute top-2 left-2 px-2 py-0.5 bg-void/90 border border-borderwire text-slate-muted font-mono text-[10px] hidden"></span>
+          <span id="modal-item-img-counter" class="absolute top-2 left-2 px-2.5 py-1 bg-void/85 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden"></span>
           
           <!-- Expand Prompt -->
-          <span class="absolute bottom-2 right-2 px-2.5 py-1 bg-void/90 border border-ochre text-ochre font-mono text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
+          <span class="absolute bottom-2 right-2 px-3 py-1.5 bg-void/90 backdrop-blur-md rounded-lg border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
             <span>EXPAND IMAGE</span>
             <span class="text-xs">⤢</span>
           </span>
@@ -285,14 +347,16 @@
             type="button" 
             id="modal-item-prev-btn" 
             onclick="event.stopPropagation(); stepModalItemImage(-1);" 
-            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
             aria-label="Previous image"
           >‹</button>
           <button 
             type="button" 
             id="modal-item-next-btn" 
             onclick="event.stopPropagation(); stepModalItemImage(1);" 
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-void/85 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-mono font-bold transition-colors shadow-md"
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
             aria-label="Next image"
           >›</button>
         </div>
@@ -301,19 +365,19 @@
         <div id="modal-item-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
       </div>
 
-      <p id="modal-item-desc" class="font-sans text-sm text-slate-300 leading-relaxed"></p>
+      <p id="modal-item-desc" class="font-sans text-sm text-slate-200 leading-relaxed"></p>
 
-      <div id="modal-item-specs" class="p-3 bg-panel border border-borderwire space-y-1"></div>
+      <div id="modal-item-specs" class="p-4 bg-panel/70 border border-borderwire rounded-xl space-y-2"></div>
 
-      <div class="pt-2 flex flex-wrap sm:flex-nowrap gap-2">
-        <a id="modal-item-download" href="#" class="flex-grow py-3 px-4 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase tracking-widest font-extrabold text-center transition-colors">
-          DOWNLOAD NOW
+      <div class="pt-3 flex flex-wrap sm:flex-nowrap gap-3">
+        <a id="modal-item-download" href="#" target="_blank" class="game-btn game-btn-lime flex-grow py-3 px-5 rounded-xl text-void font-black text-xs uppercase tracking-wider text-center transition-all shadow-md flex items-center justify-center gap-2">
+          <span>DOWNLOAD PRODUCT →</span>
         </a>
-        <button id="modal-share-btn" type="button" onclick="copyItemUrl()" class="px-4 py-3 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-xs uppercase font-bold tracking-wider transition-colors whitespace-nowrap">
-          SHARE URL
+        <button id="modal-share-btn" type="button" onclick="copyItemUrl()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel px-4 py-3 rounded-xl text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap shadow-sm">
+          <span>SHARE LINK</span>
         </button>
-        <button type="button" onclick="closeProductModal()" class="px-4 py-3 bg-panel border border-borderwire text-slate-muted hover:text-white font-mono text-xs uppercase">
-          CLOSE
+        <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel px-4 py-3 rounded-xl text-slate-400 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm">
+          <span>CLOSE</span>
         </button>
       </div>
 
@@ -337,44 +401,44 @@
 
         <!-- Social Networks Link Panel -->
         <div class="flex items-center gap-2">
-          <span class="text-[10px] text-slate-muted uppercase tracking-wider mr-1 hidden sm:inline">CONNECT //</span>
+          <span class="text-xs text-slate-400 mr-2 hidden sm:inline">Follow Us</span>
           <!-- X (formerly Twitter) -->
-          <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
+          <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
           <!-- YouTube -->
-          <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
+          <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
           <!-- Instagram -->
-          <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
+          <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
           <!-- GitHub -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="GitHub" title="GitHub [Open Source Tools]">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="GitHub" title="GitHub [Open Source Tools]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           </a>
           <!-- Facebook -->
-          <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
+          <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
       </div>
 
       <!-- Bottom Row: Navigation Links & Update Letter Trigger -->
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px]">
-        <div class="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-slate-muted font-semibold">
-          <a href="home.html" class="hover:text-white transition-colors">HOME</a>
-          <a href="games.html" class="hover:text-white transition-colors">GAMES</a>
-          <a href="store.html" class="hover:text-white transition-colors">SHOP</a>
-          <a href="news.html" class="hover:text-white transition-colors">NEWS</a>
-          <a href="about.html" class="hover:text-white transition-colors">ABOUT US</a>
-          <a href="connect.html" class="hover:text-white transition-colors">CONTACT</a>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+        <div class="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-slate-400 font-medium">
+          <a href="home.html" class="hover:text-white transition-colors">Home</a>
+          <a href="games.html" class="hover:text-white transition-colors">Games</a>
+          <a href="store.html" class="hover:text-white transition-colors">Shop</a>
+          <a href="news.html" class="hover:text-white transition-colors">News</a>
+          <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+          <a href="connect.html" class="hover:text-white transition-colors">Contact</a>
         </div>
-        <div class="text-[10px] text-slate-muted/80 flex items-center gap-2">
-          <span>INDEPENDENT GAME STUDIO</span>
+        <div class="text-xs text-slate-500 flex items-center gap-2">
+          <span>Independent Game Studio</span>
           <span>•</span>
-          <button type="button" onclick="openNewsletterModal()" class="text-ochre hover:underline uppercase font-bold">SUBSCRIBE LETTER</button>
+          <button type="button" onclick="openNewsletterModal()" class="text-ochre hover:underline font-medium">Subscribe</button>
         </div>
       </div>
 
@@ -418,6 +482,8 @@
       startHeroAutoplay();
     }
 
+    let isHeroTransitioning = false;
+
     function renderHeroDots() {
       const dotsContainer = document.getElementById('hero-dots-container');
       if (!dotsContainer) return;
@@ -425,125 +491,171 @@
         <button 
           type="button" 
           onclick="goToHeroSlide(${idx})" 
-          class="hero-dot w-6 h-1.5 transition-all ${idx === currentHeroIdx ? 'bg-ochre' : 'bg-panel border border-borderwire hover:border-ochre'}"
+          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+          class="hero-dot w-6 h-1.5 rounded-full transition-all cursor-pointer ${idx === currentHeroIdx ? 'bg-ochre shadow-[0_0_10px_rgba(229,169,60,0.8)] scale-105' : 'bg-panel border border-borderwire hover:border-slate-400'}"
           aria-label="Slide ${idx + 1}"
         ></button>
       `).join('');
     }
 
-    function renderHeroSlide(idx) {
-      if (heroItems.length === 0) return;
-      currentHeroIdx = (idx + heroItems.length) % heroItems.length;
+    function generateHeroSlideMarkup(item, idx) {
+      const isFree = (item.price || '').toLowerCase().includes('free');
+      const isGame = item.itemType === 'GAME';
 
-      const item = heroItems[currentHeroIdx];
+      return `
+        <!-- Left: Information & Game Actions -->
+        <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            
+            <!-- Diegetic Stickers & Meta Badges -->
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="game-sticker ${isGame ? 'sticker-lime' : 'sticker-purple'}">
+                ${isGame ? 'PLAYABLE TITLE' : 'PRODUCTION ADDON'}
+              </span>
+              <span class="game-sticker sticker-ochre">
+                ${item.price}
+              </span>
+              <span class="px-2.5 py-1 rounded bg-panel border border-borderwire text-xs font-mono text-slate-300 font-bold uppercase tracking-wider">
+                ${item.badge || item.platform || 'GODOT 4'}
+              </span>
+            </div>
+
+            <!-- High-Energy Slanted Game Title -->
+            <h1 class="font-syne font-black italic text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none uppercase drop-shadow-md">
+              ${item.title}
+            </h1>
+
+            <!-- Description -->
+            <p class="font-sans text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl">
+              ${item.fullDesc || item.shortDesc}
+            </p>
+
+          </div>
+
+          <!-- Tactile Arcade Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            ${item.downloadUrl ? `
+              <a 
+                href="${item.downloadUrl}" 
+                target="_blank"
+                class="game-btn game-btn-lime px-6 py-3 rounded-lg text-void font-black text-sm uppercase flex items-center gap-2 shadow-md"
+              >
+                <span>${isGame ? 'PLAY GAME' : 'DOWNLOAD'} →</span>
+              </a>
+            ` : ''}
+            <button 
+              type="button" 
+              onclick='openHeroModal(${idx})' 
+              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+              class="game-btn game-btn-panel px-5 py-3 rounded-lg text-white font-bold text-sm uppercase flex items-center gap-2 shadow-sm"
+            >
+              <span>INSPECT DETAILS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Visual Preview with Taped Stage Frame & HUD Corner Reticles -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+          <div 
+            onclick='openHeroModal(${idx})'
+            class="relative tape-top group cursor-pointer"
+          >
+            <!-- Inner Image Container with HUD Corners & Holographic Stage Frame -->
+            <div class="rounded-xl overflow-hidden border-2 border-borderwire group-hover:border-lime bg-void aspect-video relative flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:shadow-[0_0_30px_rgba(187,244,81,0.3)]">
+              <!-- Tactical HUD Reticle Corners -->
+              <div class="hud-corner hud-corner-tl"></div>
+              <div class="hud-corner hud-corner-tr"></div>
+              <div class="hud-corner hud-corner-bl"></div>
+              <div class="hud-corner hud-corner-br"></div>
+
+              <img 
+                src="${item.image}" 
+                alt="${item.title}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-void/85 via-transparent to-transparent pointer-events-none"></div>
+              
+              <!-- Telemetry Badge (Top Right) -->
+              <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-void/90 backdrop-blur-md border border-borderwire text-[10px] font-mono text-lime-400 flex items-center gap-1.5 shadow-sm pointer-events-none">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
+                <span>STAGE FEED // 60 FPS</span>
+              </div>
+
+              <!-- Interactive Center Inspect Overlay on Hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-void/30 backdrop-blur-[2px]">
+                <div class="px-4 py-2 rounded-xl bg-void/90 border border-lime text-lime font-syne font-bold text-xs uppercase tracking-wider shadow-2xl transform scale-95 group-hover:scale-100 transition-transform duration-300 flex items-center gap-2">
+                  <span>INSPECT STAGE ARCHIVE</span>
+                  <span>⤢</span>
+                </div>
+              </div>
+
+              <!-- Bottom Bar with Stickers & Expand CTA -->
+              <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center text-xs">
+                <span class="game-sticker sticker-lime text-[10px] transform -rotate-1">
+                  ${item.category || item.categoryLabel || 'STAGE VIEW'}
+                </span>
+                <span class="px-2.5 py-1 rounded bg-void/90 backdrop-blur-md border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime font-mono text-[11px] flex items-center gap-1.5 transition-colors">
+                  <span>EXPAND ⤢</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderHeroSlide(idx, direction = 1) {
+      if (heroItems.length === 0) return;
+      const targetIdx = (idx + heroItems.length) % heroItems.length;
       const container = document.getElementById('hero-slide-container');
+      if (!container) return;
+
+      if (isHeroTransitioning) return;
+
+      const item = heroItems[targetIdx];
+      currentHeroIdx = targetIdx;
+
       const idxElem = document.getElementById('hero-current-idx');
       if (idxElem) idxElem.textContent = String(currentHeroIdx + 1).padStart(2, '0');
 
       // Update dot styles
       document.querySelectorAll('.hero-dot').forEach((d, i) => {
         if (i === currentHeroIdx) {
-          d.className = 'hero-dot w-6 h-1.5 transition-all bg-ochre';
+          d.className = 'hero-dot w-6 h-1.5 rounded-full transition-all bg-ochre shadow-[0_0_10px_rgba(229,169,60,0.8)] scale-105';
         } else {
-          d.className = 'hero-dot w-6 h-1.5 transition-all bg-panel border border-borderwire hover:border-ochre';
+          d.className = 'hero-dot w-6 h-1.5 rounded-full transition-all bg-panel border border-borderwire hover:border-slate-400';
         }
       });
 
-      const isFree = (item.price || '').toLowerCase().includes('free');
-      const isGame = item.itemType === 'GAME';
-
-      if (container) {
-        container.innerHTML = `
-          <!-- Left: Information & Specs -->
-          <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
-            <div class="space-y-4">
-              
-              <!-- Badges -->
-              <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-                <span class="px-2 py-0.5 ${isGame ? 'bg-ochre/20 text-ochre border border-ochre/40' : 'bg-emerald-950/40 text-emerald-400 border border-emerald-500/40'} font-semibold">
-                  ${item.itemType}: ${item.tagline}
-                </span>
-                <span class="px-2 py-0.5 bg-panel border border-borderwire text-slate-300">
-                  ${item.badge || item.platform || 'NATIVE'}
-                </span>
-                <span class="px-2 py-0.5 bg-panel border border-borderwire ${isFree ? 'text-emerald-400 font-bold' : 'text-ochre font-bold'}">
-                  ${item.price}
-                </span>
-              </div>
-
-              <!-- Title -->
-              <h1 class="font-syne font-extrabold text-2xl sm:text-4xl text-white leading-tight">
-                ${item.title}
-              </h1>
-
-              <!-- Description -->
-              <p class="font-sans text-sm sm:text-base text-slate-muted leading-relaxed">
-                ${item.fullDesc || item.shortDesc}
-              </p>
-
-              <!-- Specs Highlights -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-mono text-xs">
-                ${(item.specs || []).slice(0, 4).map(s => `
-                  <div class="p-2 bg-panel border border-borderwire/70">
-                    <span class="text-slate-muted text-[10px] block">${s.label}</span>
-                    <span class="text-white font-semibold text-xs">${s.value}</span>
-                  </div>
-                `).join('')}
-              </div>
-
-            </div>
-
-            <!-- Actions -->
-            <div class="space-y-3 pt-2">
-              <div class="flex flex-wrap gap-3">
-                <button 
-                  type="button" 
-                  onclick='openHeroModal(${currentHeroIdx})' 
-                  class="px-5 py-3 bg-ochre hover:bg-[#f2b545] text-void font-mono text-xs uppercase tracking-wider font-bold transition-colors flex items-center gap-2"
-                >
-                  <span>VIEW DETAILS &amp; GET</span>
-                  <span>↗</span>
-                </button>
-                <a 
-                  href="${isGame ? 'games.html' : 'store.html'}" 
-                  class="px-5 py-3 bg-panel border border-borderwire hover:border-ochre text-white font-mono text-xs uppercase tracking-wider font-semibold transition-colors"
-                >
-                  EXPLORE ALL ${isGame ? 'GAMES' : 'SHOP'} →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Visual Preview with Zoom Interaction -->
-          <div class="lg:col-span-6 flex flex-col justify-center">
-            <div 
-              onclick='openHeroModal(${currentHeroIdx})'
-              class="bg-void border border-borderwire overflow-hidden flex flex-col relative group cursor-pointer"
-            >
-              <div class="px-4 py-2 bg-panel border-b border-borderwire flex justify-between items-center text-[11px] font-mono">
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full ${isGame ? 'bg-ochre' : 'bg-emerald-400'} animate-pulse"></span>
-                  <span class="text-white font-bold">${item.category || item.categoryLabel || 'ASSET PREVIEW'}</span>
-                </div>
-                <div class="text-ochre font-bold">${item.price}</div>
-              </div>
-
-              <div class="relative aspect-video w-full scanlines flex items-center justify-center overflow-hidden bg-[#07080b]">
-                <img 
-                  src="${item.image}" 
-                  alt="${item.title}" 
-                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                >
-                <div class="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent pointer-events-none"></div>
-                <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center pointer-events-none font-mono text-[11px] text-white bg-void/85 border border-borderwire px-3 py-2">
-                  <span class="text-ochre font-bold uppercase">CLICK TO OPEN WINDOW</span>
-                  <span class="text-slate-muted">DOWNLOAD AVAILABLE</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
+      // If initial render, inject immediately
+      if (container.children.length === 0) {
+        container.innerHTML = generateHeroSlideMarkup(item, currentHeroIdx);
+        return;
       }
+
+      // Smooth Directional Exit Transition
+      isHeroTransitioning = true;
+      const exitClass = direction >= 0 ? 'hero-slide-exit-next' : 'hero-slide-exit-prev';
+      const enterClass = direction >= 0 ? 'hero-slide-enter-next' : 'hero-slide-enter-prev';
+
+      container.classList.add(exitClass);
+
+      setTimeout(() => {
+        container.innerHTML = generateHeroSlideMarkup(item, currentHeroIdx);
+        container.classList.remove(exitClass);
+        container.classList.add(enterClass);
+
+        // Force browser layout reflow
+        void container.offsetWidth;
+
+        container.classList.remove(enterClass);
+        container.classList.add('hero-slide-active');
+
+        setTimeout(() => {
+          container.classList.remove('hero-slide-active');
+          isHeroTransitioning = false;
+        }, 260);
+      }, 150);
     }
 
     function openHeroModal(idx) {
@@ -553,24 +665,34 @@
     }
 
     function nextHeroSlide() {
-      renderHeroSlide(currentHeroIdx + 1);
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+      renderHeroSlide(currentHeroIdx + 1, 1);
       restartHeroAutoplay();
     }
 
     function prevHeroSlide() {
-      renderHeroSlide(currentHeroIdx - 1);
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+      renderHeroSlide(currentHeroIdx - 1, -1);
       restartHeroAutoplay();
     }
 
+    window.stepHeroSlide = function(dir) {
+      if (dir > 0) nextHeroSlide();
+      else prevHeroSlide();
+    };
+
     function goToHeroSlide(idx) {
-      renderHeroSlide(idx);
+      if (idx === currentHeroIdx) return;
+      const dir = idx > currentHeroIdx ? 1 : -1;
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+      renderHeroSlide(idx, dir);
       restartHeroAutoplay();
     }
 
     function startHeroAutoplay() {
       stopHeroAutoplay();
       autoSlideTimer = setInterval(() => {
-        renderHeroSlide(currentHeroIdx + 1);
+        renderHeroSlide(currentHeroIdx + 1, 1);
       }, 7000);
     }
 
@@ -582,26 +704,15 @@
       startHeroAutoplay();
     }
 
-    // --- EMAIL SUBSCRIPTION POPUP & GOOGLE FORM DISPATCH ---
     function openNewsletterModal() {
-      const modal = document.getElementById('newsletter-modal');
-      const input = document.getElementById('subscriber-email');
-      const status = document.getElementById('subscriber-status');
-      if (status) status.classList.add('hidden');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
+      if (typeof window.openNewsletterModal === 'function') {
+        window.openNewsletterModal();
       }
-      if (input) setTimeout(() => input.focus(), 100);
     }
 
     function closeNewsletterModal() {
-      const modal = document.getElementById('newsletter-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
+      if (typeof window.closeNewsletterModal === 'function') {
+        window.closeNewsletterModal();
       }
     }
 
@@ -615,20 +726,16 @@
       if (!email) return;
 
       btn.disabled = true;
-      btn.textContent = 'SUBMITTING...';
+      btn.textContent = 'Subscribing...';
       if (status) {
         status.classList.remove('hidden');
-        status.textContent = 'Subscribing to News & Update Letter...';
+        status.textContent = 'Subscribing to Updates...';
       }
 
       // Studio Google Form Response Endpoint
       const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScxfDsAnnoPtq8w5GdNVhzHdrxUqe1Py5c-AyfqCFbnNlOrlA/formResponse';
       
       const payload = new URLSearchParams();
-      // Required Google Form Fields:
-      // entry.1884408784: Name
-      // entry.1819151916: Email
-      // entry.195861844: Message
       payload.append('entry.1884408784', 'News & Updates Subscriber');
       payload.append('entry.1819151916', email);
       payload.append('entry.195861844', '[NEWSLETTER] Subscribed to Studio News & Update Letter.');
@@ -641,13 +748,13 @@
           status.classList.remove('hidden');
           status.innerHTML = `<span class="text-emerald-400 font-bold">[SUCCESS]</span> ${email} is now subscribed to News & Updates!`;
         }
-        btn.textContent = 'SUBSCRIBED';
+        btn.textContent = 'Subscribed!';
         if (emailInput) emailInput.value = '';
         setTimeout(() => {
           btn.disabled = false;
-          btn.textContent = 'SUBSCRIBE TO UPDATE LETTER';
+          btn.textContent = 'Subscribe';
           closeNewsletterModal();
-        }, 1000);
+        }, 1200);
       };
 
       try {
@@ -661,57 +768,65 @@
         finalizeSuccess();
       }
 
-      // Safety fallback: guaranteed to close modal even if network/CORS hangs
       setTimeout(finalizeSuccess, 1200);
     }
 
-    // --- LATEST DISPATCH & DEVLOG RENDERING ---
+    // --- LATEST DEVLOG RENDERING ---
     function initLatestNews() {
       const container = document.getElementById('latest-news-container');
       if (!container || !window.NEWS_DATA || window.NEWS_DATA.length === 0) return;
 
       const latest = window.NEWS_DATA[0];
       container.innerHTML = `
-        <article class="bg-surface border border-borderwire p-6 sm:p-8 corner-brackets relative hover:border-ochre/70 transition-all duration-200">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <article class="bg-surface border border-borderwire rounded-2xl p-6 sm:p-8 hover:border-ochre/40 transition-all duration-200 bg-halftone-dots">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div class="lg:col-span-8 space-y-4">
-              <div class="flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                <span class="px-2 py-0.5 bg-ochre/15 text-ochre border border-ochre/40 font-bold uppercase tracking-wider">
-                  ${latest.badge || 'LATEST UPDATE'}
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="game-sticker sticker-lime">
+                  ${latest.badge || 'LATEST DISPATCH'}
                 </span>
-                <span class="px-2 py-0.5 bg-panel border border-borderwire text-slate-muted uppercase">
+                <span class="game-sticker sticker-purple">
                   ${latest.category}
                 </span>
-                <span class="text-slate-muted">
+                <span class="text-xs font-mono text-slate-400 font-bold">
                   ${latest.date} // ${latest.readTime}
                 </span>
               </div>
 
-              <h3 class="font-syne font-bold text-xl sm:text-2xl text-white">
-                <a href="news.html?article=${latest.id}" class="hover:text-ochre transition-colors">
+              <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white uppercase tracking-tight hover:text-ochre transition-colors">
+                <a href="news.html?article=${latest.id}">
                   ${latest.title}
                 </a>
               </h3>
 
-              <p class="font-sans text-sm text-slate-muted leading-relaxed">
+              <p class="font-sans text-sm text-slate-200 leading-relaxed">
                 ${latest.summary}
               </p>
 
-              <div class="pt-2 flex flex-wrap items-center gap-4 font-mono text-xs">
-                <a href="news.html?article=${latest.id}" class="px-5 py-2.5 bg-ochre hover:bg-[#f2b545] text-void font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-2">
-                  <span>READ FULL DISPATCH</span>
+              <div class="pt-2 flex flex-wrap items-center gap-4">
+                <a href="news.html?article=${latest.id}" class="game-btn game-btn-ochre px-5 py-2.5 rounded-lg text-void font-black text-xs uppercase flex items-center gap-2">
+                  <span>READ MISSION LOG</span>
                   <span>→</span>
                 </a>
-                <span class="text-slate-muted text-[11px]">AUTHOR: ${latest.author}</span>
+                <span class="text-slate-400 text-xs font-mono">AUTHOR: <strong class="text-slate-200">${latest.author}</strong></span>
               </div>
             </div>
 
-            <div class="lg:col-span-4">
-              <a href="news.html?article=${latest.id}" class="block bg-void border border-borderwire overflow-hidden group">
-                <div class="aspect-video relative overflow-hidden bg-void">
-                  <img src="${latest.image}" alt="${latest.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                  <div class="absolute inset-0 bg-void/30 group-hover:bg-transparent transition-colors"></div>
+            <div class="lg:col-span-5">
+              <a href="news.html?article=${latest.id}" class="relative tape-top group block">
+                <div class="rounded-xl overflow-hidden border-2 border-borderwire group-hover:border-ochre aspect-video shadow-xl relative transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(229,169,60,0.25)]">
+                  <!-- Tactical HUD Reticle Corners -->
+                  <div class="hud-corner hud-corner-tl"></div>
+                  <div class="hud-corner hud-corner-tr"></div>
+                  <div class="hud-corner hud-corner-bl"></div>
+                  <div class="hud-corner hud-corner-br"></div>
+
+                  <img src="${latest.image}" alt="${latest.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-void/70 via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-2.5 right-2.5">
+                    <span class="game-sticker sticker-ochre text-[10px]">INTEL FILE</span>
+                  </div>
                 </div>
               </a>
             </div>
@@ -730,15 +845,6 @@
       if (heroContainer) {
         heroContainer.addEventListener('mouseenter', stopHeroAutoplay);
         heroContainer.addEventListener('mouseleave', startHeroAutoplay);
-      }
-
-      // Show subscription popup ONLY when first time site opens
-      const hasSeenPopup = localStorage.getItem('mg_dispatch_seen');
-      if (!hasSeenPopup) {
-        setTimeout(() => {
-          openNewsletterModal();
-          localStorage.setItem('mg_dispatch_seen', 'true');
-        }, 900);
       }
     }
 

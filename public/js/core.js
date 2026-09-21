@@ -21,11 +21,8 @@
         
         <!-- Top Navigation Header -->
         <div class="px-4 sm:px-6 py-4 border-b border-borderwire bg-surface/90 flex items-center justify-between gap-4 shrink-0" onclick="event.stopPropagation()">
-          <div class="flex items-center gap-3 font-mono text-xs overflow-hidden">
-            <div class="flex items-center gap-2 text-ochre font-bold shrink-0">
-              <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-              <span class="uppercase tracking-wider">IMAGE VIEWER</span>
-            </div>
+          <div class="flex items-center gap-3 text-xs overflow-hidden">
+            <span class="text-xs font-semibold text-ochre">Preview</span>
             <span class="text-borderwire hidden sm:inline">|</span>
             <span id="iv-title" class="text-white truncate font-medium"></span>
           </div>
@@ -126,38 +123,30 @@
     window.imageViewerState.title = title || 'Media Showcase';
 
     window.updateImageViewerDOM();
-
-    const modal = document.getElementById('image-viewer-modal');
-    if (modal) {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
+    window.showGameModal('image-viewer-modal');
   };
 
   window.closeImageViewer = function () {
-    const modal = document.getElementById('image-viewer-modal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      // Only restore scroll if other modals are not open
-      const prodModal = document.getElementById('product-modal');
-      const newsModal = document.getElementById('news-modal');
-      const subModal = document.getElementById('newsletter-modal');
-      const isAnyModalOpen = (prodModal && !prodModal.classList.contains('hidden')) ||
-                             (newsModal && !newsModal.classList.contains('hidden')) ||
-                             (subModal && !subModal.classList.contains('hidden'));
-      if (!isAnyModalOpen) {
-        document.body.style.overflow = '';
-      }
-    }
+    window.hideGameModal('image-viewer-modal');
   };
 
   window.setImageViewerIndex = function (index) {
     const total = window.imageViewerState.images.length;
     if (total === 0) return;
     window.imageViewerState.currentIndex = ((index % total) + total) % total;
-    window.updateImageViewerDOM();
+    const img = document.getElementById('iv-main-img');
+    if (img) {
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+      img.classList.add('modal-image-swap');
+      setTimeout(() => {
+        window.updateImageViewerDOM();
+        img.classList.remove('modal-image-swap');
+        img.classList.add('modal-image-ready');
+        setTimeout(() => img.classList.remove('modal-image-ready'), 220);
+      }, 90);
+    } else {
+      window.updateImageViewerDOM();
+    }
   };
 
   window.nextImageViewer = function () {
@@ -218,6 +207,74 @@
     }
   };
 
+  // --- UNIFIED GAME SUB WINDOW / MODAL TRANSITIONS & SOUND ENGINE ---
+  window.showGameModal = function (modalOrId, callback) {
+    const modal = typeof modalOrId === 'string' ? document.getElementById(modalOrId) : modalOrId;
+    if (!modal) return;
+
+    modal.classList.add('game-modal-backdrop');
+    if (modal.id !== 'image-viewer-modal') {
+      const dialog = modal.querySelector('.game-modal-dialog') || modal.firstElementChild;
+      if (dialog && !dialog.classList.contains('game-modal-dialog')) {
+        dialog.classList.add('game-modal-dialog');
+      }
+    }
+
+    if (modal._closeTimer) {
+      clearTimeout(modal._closeTimer);
+      modal._closeTimer = null;
+    }
+
+    modal.classList.remove('is-closing');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+
+    // Force browser reflow so CSS transitions trigger cleanly
+    void modal.offsetWidth;
+
+    modal.classList.add('is-open');
+
+    if (typeof window.playGameSfx === 'function') {
+      window.playGameSfx('modal-open');
+    }
+
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
+  window.hideGameModal = function (modalOrId, callback) {
+    const modal = typeof modalOrId === 'string' ? document.getElementById(modalOrId) : modalOrId;
+    if (!modal || modal.classList.contains('hidden')) return;
+
+    if (typeof window.playGameSfx === 'function') {
+      window.playGameSfx('modal-close');
+    }
+
+    modal.classList.remove('is-open');
+    modal.classList.add('is-closing');
+
+    if (modal._closeTimer) clearTimeout(modal._closeTimer);
+
+    modal._closeTimer = setTimeout(() => {
+      modal.classList.remove('is-closing');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal._closeTimer = null;
+
+      // Only restore scroll if no other modal is currently open
+      const otherOpen = document.querySelector('.game-modal-backdrop.is-open:not(.hidden)');
+      if (!otherOpen) {
+        document.body.style.overflow = '';
+      }
+
+      if (typeof callback === 'function') {
+        callback();
+      }
+    }, 220);
+  };
+
   // --- ACTIVE PRODUCT MODAL GALLERY CONTROLLER ---
   window.activeModalItemGallery = {
     images: [],
@@ -235,7 +292,14 @@
     const galleryContainer = document.getElementById('modal-item-gallery');
 
     if (imgEl) {
-      imgEl.src = gallery.images[gallery.currentIndex];
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
+      imgEl.classList.add('modal-image-swap');
+      setTimeout(() => {
+        imgEl.src = gallery.images[gallery.currentIndex];
+        imgEl.classList.remove('modal-image-swap');
+        imgEl.classList.add('modal-image-ready');
+        setTimeout(() => imgEl.classList.remove('modal-image-ready'), 220);
+      }, 90);
     }
     if (counterEl) {
       counterEl.textContent = `${gallery.currentIndex + 1} / ${gallery.images.length}`;
@@ -331,7 +395,8 @@
             type="button" 
             data-thumb-idx="${idx}"
             onclick="setModalItemImageIndex(${idx})"
-            class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 transition-all ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100'}"
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 transition-all cursor-pointer ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100 hover:border-slate-400'}"
             aria-label="Thumbnail ${idx + 1}"
           >
             <img src="${src}" alt="Gallery ${idx + 1}" class="w-full h-full object-cover">
@@ -364,7 +429,7 @@
 
     if (downloadBtn) {
       downloadBtn.href = item.downloadUrl || '#';
-      downloadBtn.textContent = item.downloadText || 'DOWNLOAD PRODUCT';
+      downloadBtn.textContent = (item.downloadText || 'DOWNLOAD PRODUCT') + ' →';
       if (item.downloadUrl && item.downloadUrl.startsWith('http')) {
         downloadBtn.target = '_blank';
       } else {
@@ -379,18 +444,11 @@
       window.history.pushState({ modalOpen: true, itemId: item.id }, '', url);
     }
 
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
+    window.showGameModal(modal);
   };
 
   window.closeProductModal = function (updateUrl = true) {
-    const modal = document.getElementById('product-modal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
+    window.hideGameModal('product-modal');
 
     if (updateUrl) {
       const url = new URL(window.location);
@@ -440,68 +498,50 @@
     if (document.getElementById('newsletter-modal')) return;
 
     const modalHtml = `
-      <div id="newsletter-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeNewsletterModal()">
-        <div class="bg-surface border border-ochre max-w-md w-full p-6 sm:p-7 relative corner-brackets shadow-2xl space-y-4" onclick="event.stopPropagation()">
+      <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
+        <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
           
+          <!-- Tactical HUD Corners -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+
           <div class="flex justify-between items-start pb-3 border-b border-borderwire">
             <div>
-              <div class="flex items-center gap-2 font-mono text-[10px] text-ochre uppercase font-bold tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-ochre status-dot-pulse"></span>
-                <span>MITHILA GAMES // UPDATE LETTER</span>
-              </div>
-              <h2 class="font-syne font-bold text-xl sm:text-2xl text-white mt-1">Subscribe to News &amp; Updates</h2>
+              <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
+              <h2 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase mt-0.5">Subscribe to Updates</h2>
             </div>
-            <button type="button" onclick="closeNewsletterModal()" class="p-1 text-slate-muted hover:text-white text-lg" aria-label="Close modal">✕</button>
+            <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
           </div>
 
           <p class="font-sans text-xs text-slate-300 leading-relaxed">
-            Stay connected with our studio. Receive our periodic update letters covering new game releases, devlogs, playtests, and open-source tools.
+            Stay connected with our studio. Receive updates on new game releases, devlogs, and free open-source tools.
           </p>
 
-          <div class="p-3 bg-panel border border-borderwire space-y-2 text-xs font-mono text-slate-300">
-            <div class="flex items-center gap-2.5">
-              <span class="text-ochre font-bold">✓</span>
-              <span>Studio news &amp; game launch announcements</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <span class="text-ochre font-bold">✓</span>
-              <span>Technical devlogs &amp; Godot engine tutorials</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <span class="text-ochre font-bold">✓</span>
-              <span>Early playtest keys &amp; free CC0 tool releases</span>
-            </div>
-          </div>
-
-          <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-3 font-mono text-xs">
-            <div class="space-y-1">
-              <label for="subscriber-email" class="text-slate-muted block text-[11px] font-semibold uppercase">YOUR EMAIL ADDRESS *</label>
+          <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
+            <div>
+              <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
               <input 
                 type="email" 
                 id="subscriber-email" 
                 required 
-                placeholder="your.email@domain.com" 
-                class="w-full bg-void border border-borderwire px-3.5 py-2.5 text-white placeholder:text-slate-muted/40 focus:outline-none focus:border-ochre"
+                placeholder="name@domain.com" 
+                class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
               >
             </div>
 
             <button 
               type="submit" 
               id="subscriber-submit-btn" 
-              class="w-full py-3.5 bg-ochre hover:bg-[#f2b545] text-void uppercase font-bold tracking-wider transition-colors flex items-center justify-center gap-2"
+              class="game-btn game-btn-ochre w-full py-3 text-void font-extrabold rounded-xl tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 text-xs"
             >
-              <span>SUBSCRIBE TO UPDATE LETTER</span>
-              <span>→</span>
+              <span>TRANSMIT SUBSCRIPTION →</span>
             </button>
 
-            <div id="subscriber-status" class="hidden p-3 bg-void border border-ochre/40 text-ochre text-xs"></div>
+            <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
           </form>
-
-          <div class="text-[10px] font-mono text-slate-muted flex justify-between items-center pt-2 border-t border-borderwire/50">
-            <span>📬 ZERO SPAM // BI-WEEKLY DISPATCH</span>
-            <button type="button" onclick="closeNewsletterModal()" class="hover:text-white underline">CANCEL</button>
-          </div>
-
         </div>
       </div>
     `;
@@ -512,25 +552,16 @@
 
   window.openNewsletterModal = function () {
     window.ensureNewsletterModal();
-    const modal = document.getElementById('newsletter-modal');
     const input = document.getElementById('subscriber-email');
     const status = document.getElementById('subscriber-status');
     if (status) status.classList.add('hidden');
-    if (modal) {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-    if (input) setTimeout(() => input.focus(), 100);
+    window.showGameModal('newsletter-modal', () => {
+      if (input) setTimeout(() => input.focus(), 120);
+    });
   };
 
   window.closeNewsletterModal = function () {
-    const modal = document.getElementById('newsletter-modal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
+    window.hideGameModal('newsletter-modal');
   };
 
   window.submitGoogleNewsletter = function (e) {
@@ -605,16 +636,17 @@
     const currentPath = window.location.pathname.split('/').pop() || 'home.html';
     const isHome = currentPath === '' || currentPath === 'index.html' || currentPath === 'home.html';
 
-    // 1. Desktop Tabs
-    document.querySelectorAll('[data-nav-link]').forEach((link) => {
+    // 1. Desktop & Tablet Nav Links (Game HUD styling)
+    document.querySelectorAll('nav a[data-nav-link]').forEach((link) => {
       const href = link.getAttribute('href');
       const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
+      link.classList.add('nav-game-tab');
       if (match) {
-        link.classList.add('text-ochre', 'border-ochre', 'font-bold');
-        link.classList.remove('text-slate-muted', 'border-transparent');
+        link.classList.add('active-tab');
+        link.classList.remove('text-slate-muted');
       } else {
-        link.classList.remove('text-ochre', 'border-ochre', 'font-bold');
-        link.classList.add('text-slate-muted', 'border-transparent');
+        link.classList.remove('active-tab');
+        link.classList.add('text-slate-muted');
       }
     });
 
@@ -623,9 +655,9 @@
       const href = link.getAttribute('href');
       const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
       if (match) {
-        link.className = 'px-3 py-1 bg-ochre/15 border border-ochre text-ochre font-bold whitespace-nowrap text-xs transition-colors';
+        link.className = 'px-3 py-1 bg-lime-400 text-void font-extrabold whitespace-nowrap text-xs shadow-md rounded-lg transform -rotate-1';
       } else {
-        link.className = 'px-3 py-1 bg-surface border border-borderwire text-slate-muted hover:text-white whitespace-nowrap text-xs transition-colors';
+        link.className = 'px-3 py-1 bg-surface border border-borderwire text-slate-muted hover:text-white whitespace-nowrap text-xs transition-colors rounded-lg';
       }
     });
 
@@ -634,9 +666,9 @@
       const href = link.getAttribute('href');
       const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
       if (match) {
-        link.className = 'p-3 bg-surface border border-ochre text-ochre font-bold transition-colors';
+        link.className = 'p-3 bg-lime-400 text-void font-extrabold rounded-xl shadow-md';
       } else {
-        link.className = 'p-3 bg-surface border border-borderwire text-slate-muted hover:text-white transition-colors';
+        link.className = 'p-3 bg-surface border border-borderwire text-slate-muted hover:text-white rounded-xl transition-colors';
       }
     });
 
@@ -653,5 +685,250 @@
     // Pre-cache image viewer and check deep linking on load
     window.ensureImageViewer();
     window.checkDeepLinkItem();
+
+    // Initialize Game UI Engine
+    initCardTiltPhysics();
+    initGameKeyboardBindings();
+    initSfxBindings();
+    updateSfxButtonUI();
   });
+
+  // =========================================================================
+  // KINETIC GAME UI CONTROLLER (3D TILT PHYSICS, AUDIO SYNTH & HOTKEYS)
+  // =========================================================================
+  let audioCtx = null;
+  let isMuted = false;
+
+  function getAudioContext() {
+    if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  window.playGameSfx = function (type) {
+    if (isMuted) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      const now = ctx.currentTime;
+      if (type === 'hover') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(540, now);
+        osc.frequency.exponentialRampToValueAtTime(780, now + 0.04);
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+        osc.start(now);
+        osc.stop(now + 0.04);
+      } else if (type === 'click') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(820, now);
+        osc.frequency.exponentialRampToValueAtTime(260, now + 0.06);
+        gain.gain.setValueAtTime(0.22, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+        osc.start(now);
+        osc.stop(now + 0.06);
+      } else if (type === 'modal-open') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(640, now + 0.08);
+        gain.gain.setValueAtTime(0.16, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      } else if (type === 'modal-close') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, now);
+        osc.frequency.exponentialRampToValueAtTime(240, now + 0.07);
+        gain.gain.setValueAtTime(0.14, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.07);
+        osc.start(now);
+        osc.stop(now + 0.07);
+      }
+    } catch (e) {
+      // Audio policy safe
+    }
+  };
+
+  window.toggleGameSfx = function () {
+    isMuted = !isMuted;
+    localStorage.setItem('game_sfx_muted', isMuted);
+    updateSfxButtonUI();
+    if (!isMuted) window.playGameSfx('click');
+  };
+
+  function updateSfxButtonUI() {
+    const btn = document.getElementById('sfx-toggle-btn');
+    if (btn) {
+      btn.innerHTML = isMuted 
+        ? `<span class="opacity-60 text-xs">🔇 SFX OFF</span>`
+        : `<span class="text-lime-400 font-bold text-xs">🔊 SFX ON</span>`;
+    }
+  }
+
+  function initCardTiltPhysics() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    let activeCard = null;
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let currentRotX = 0;
+    let currentRotY = 0;
+    let targetTranslateY = 0;
+    let currentTranslateY = 0;
+    let targetScale = 1.0;
+    let currentScale = 1.0;
+    let isHovered = false;
+    let animId = null;
+
+    function updateTilt() {
+      if (!activeCard) return;
+
+      // Smooth dampening / spring interpolation (0.10 factor for buttery glide)
+      currentRotX += (targetRotX - currentRotX) * 0.10;
+      currentRotY += (targetRotY - currentRotY) * 0.10;
+      currentTranslateY += (targetTranslateY - currentTranslateY) * 0.10;
+      currentScale += (targetScale - currentScale) * 0.10;
+
+      activeCard.style.transform = `perspective(900px) rotateX(${currentRotX.toFixed(3)}deg) rotateY(${currentRotY.toFixed(3)}deg) translateY(${currentTranslateY.toFixed(3)}px) scale(${currentScale.toFixed(4)})`;
+
+      const diffX = Math.abs(targetRotX - currentRotX);
+      const diffY = Math.abs(targetRotY - currentRotY);
+      const diffYPos = Math.abs(targetTranslateY - currentTranslateY);
+      const diffScale = Math.abs(targetScale - currentScale);
+
+      if (isHovered || diffX > 0.01 || diffY > 0.01 || diffYPos > 0.05 || diffScale > 0.001) {
+        animId = requestAnimationFrame(updateTilt);
+      } else {
+        activeCard.style.transform = '';
+        activeCard.style.removeProperty('--glare-opacity');
+        activeCard = null;
+        animId = null;
+      }
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.game-tilt-card, .studio-card');
+      if (!card) {
+        if (activeCard && isHovered) {
+          isHovered = false;
+          targetRotX = 0;
+          targetRotY = 0;
+          targetTranslateY = 0;
+          targetScale = 1.0;
+          activeCard.style.setProperty('--glare-opacity', '0');
+        }
+        return;
+      }
+
+      if (activeCard !== card) {
+        if (activeCard) {
+          activeCard.style.transform = '';
+          activeCard.style.removeProperty('--glare-opacity');
+        }
+        activeCard = card;
+        currentRotX = 0;
+        currentRotY = 0;
+        currentTranslateY = 0;
+        currentScale = 1.0;
+      }
+
+      isHovered = true;
+      targetTranslateY = -4;
+      targetScale = 1.015;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      targetRotX = -(y / (rect.height / 2)) * 6.0;
+      targetRotY = (x / (rect.width / 2)) * 6.0;
+
+      // Dynamic holographic specular sheen tracking
+      const pctX = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+      const pctY = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+      card.style.setProperty('--glare-x', `${pctX}%`);
+      card.style.setProperty('--glare-y', `${pctY}%`);
+      card.style.setProperty('--glare-opacity', '1');
+
+      if (!animId) {
+        animId = requestAnimationFrame(updateTilt);
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const card = e.target.closest('.game-tilt-card, .studio-card');
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+        isHovered = false;
+        targetRotX = 0;
+        targetRotY = 0;
+        targetTranslateY = 0;
+        targetScale = 1.0;
+        card.style.setProperty('--glare-opacity', '0');
+        if (!animId) {
+          animId = requestAnimationFrame(updateTilt);
+        }
+      }
+    });
+  }
+
+  function initGameKeyboardBindings() {
+    window.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+
+      if (e.key === 'Escape') {
+        if (typeof window.closeNewsModal === 'function') window.closeNewsModal();
+        if (typeof window.closeNewsletterModal === 'function') window.closeNewsletterModal();
+        if (typeof window.closeProductModal === 'function') window.closeProductModal();
+        if (typeof window.closeImageViewer === 'function') window.closeImageViewer();
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+      } else if (e.key === 'm' || e.key === 'M') {
+        window.toggleGameSfx();
+      } else if (e.key === 'ArrowLeft') {
+        if (typeof window.stepHeroSlide === 'function') window.stepHeroSlide(-1);
+        if (typeof window.stepModalNewsImage === 'function') window.stepModalNewsImage(-1);
+        if (typeof window.stepImageViewer === 'function') window.stepImageViewer(-1);
+      } else if (e.key === 'ArrowRight') {
+        if (typeof window.stepHeroSlide === 'function') window.stepHeroSlide(1);
+        if (typeof window.stepModalNewsImage === 'function') window.stepModalNewsImage(1);
+        if (typeof window.stepImageViewer === 'function') window.stepImageViewer(1);
+      } else if (e.key === '1') {
+        window.location.href = 'home.html';
+      } else if (e.key === '2') {
+        window.location.href = 'games.html';
+      } else if (e.key === '3') {
+        window.location.href = 'store.html';
+      } else if (e.key === '4') {
+        window.location.href = 'news.html';
+      } else if (e.key === '5') {
+        window.location.href = 'about.html';
+      } else if (e.key === '6') {
+        window.location.href = 'connect.html';
+      }
+    });
+  }
+
+  function initSfxBindings() {
+    document.addEventListener('mouseenter', (e) => {
+      if (e.target.closest('button, a, .game-btn, .studio-card, .news-filter-pill, .shop-filter-pill')) {
+        window.playGameSfx('hover');
+      }
+    }, true);
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('button, a, .game-btn, .news-filter-pill, .shop-filter-pill')) {
+        window.playGameSfx('click');
+      }
+    }, true);
+  }
 })();

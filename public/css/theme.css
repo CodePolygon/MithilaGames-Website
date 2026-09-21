@@ -1,107 +1,442 @@
 /* ==========================================================================
-   MITHILA GAMES // INDUSTRIAL-ARTISAN DESIGN SYSTEM & THEME
-   Visual Identity: Void Black, Charcoal, Border Wire, Ochre & Terracotta
+   MITHILA GAMES // MODERN INDIE STUDIO THEME
+   Visual Identity: Deep Space, Charcoal, Subtle Borders, Warm Ochre
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap');
 
 :root {
-  --color-void: #08090c;
-  --color-surface: #0f1117;
-  --color-panel: #151821;
-  --color-panel-elevated: #1b1f2b;
-  --color-borderwire: #232735;
-  --color-borderwire-light: #32384a;
+  --color-void: #090a0f;
+  --color-surface: #10121a;
+  --color-panel: #161924;
+  --color-panel-elevated: #1c202e;
+  --color-borderwire: rgba(255, 255, 255, 0.10);
+  --color-borderwire-light: rgba(255, 255, 255, 0.18);
   --color-ochre: #e5a93c;
   --color-ochre-dim: rgba(229, 169, 60, 0.15);
   --color-ochre-glow: rgba(229, 169, 60, 0.35);
+  --color-lime: #a3e635;
+  --color-lime-glow: rgba(163, 230, 53, 0.35);
+  --color-purple: #8b5cf6;
   --color-terracotta: #d45b38;
-  --color-terracotta-dim: rgba(212, 91, 56, 0.18);
-  --color-slate-muted: #b5b9c5;
-  --color-slate-dark: #62687d;
+  --color-slate-muted: #9aa0b2;
+  --color-slate-dark: #585e72;
 }
 
 /* Base resets & typography */
 html {
   background-color: var(--color-void);
-  color: #f0f2f8;
+  color: #f1f3f9;
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 32px Blueprint Background Grid */
-.bg-blueprint-grid {
+/* Ambient Halftone & Game Graphic Textures */
+.bg-blueprint-grid,
+.bg-blueprint-grid-dense {
   background-color: var(--color-void);
-  background-image: 
-    linear-gradient(to right, rgba(35, 39, 53, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(35, 39, 53, 0.35) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: center center;
+  background-image: radial-gradient(circle at 50% 0%, rgba(229, 169, 60, 0.05) 0%, transparent 60%);
+  background-repeat: no-repeat;
 }
 
-.bg-blueprint-grid-dense {
-  background-color: var(--color-surface);
-  background-image: 
-    linear-gradient(to right, rgba(35, 39, 53, 0.45) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(35, 39, 53, 0.45) 1px, transparent 1px);
+.bg-halftone-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
   background-size: 16px 16px;
 }
 
-/* Vignette overlay */
-.radial-vignette {
-  background: radial-gradient(circle at 50% 20%, rgba(229, 169, 60, 0.04) 0%, transparent 70%);
+.bg-halftone-ochre {
+  background-image: radial-gradient(rgba(229, 169, 60, 0.15) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
 }
 
-/* Tactile Border Wire */
-.border-wire {
-  border: 1px solid var(--color-borderwire);
+/* Asymmetric / Diagonal Game Angular Cuts */
+.clip-diagonal-hero {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+@media (max-width: 768px) {
+  .clip-diagonal-hero {
+    clip-path: polygon(0 0, 100% 0, 100% 97%, 0 100%);
+  }
 }
 
-.border-wire-light {
-  border: 1px solid var(--color-borderwire-light);
+.clip-chamfer {
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
 }
 
-.border-wire-t {
-  border-top: 1px solid var(--color-borderwire);
+.clip-tag-slant {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
 }
 
-.border-wire-b {
-  border-bottom: 1px solid var(--color-borderwire);
-}
-
-.border-wire-l {
-  border-left: 1px solid var(--color-borderwire);
-}
-
-.border-wire-r {
-  border-right: 1px solid var(--color-borderwire);
-}
-
-/* Corner bracket accents */
-.corner-brackets {
+/* Highlighter Brush Splash Accents (#DRIVE Rally aesthetic) */
+.brush-splash {
   position: relative;
+  display: inline-block;
+  z-index: 1;
+  color: #000000 !important;
+  font-weight: 900 !important;
 }
-.corner-brackets::before,
-.corner-brackets::after {
+.brush-splash *,
+.brush-splash span {
+  color: #000000 !important;
+}
+.brush-splash::before {
   content: '';
   position: absolute;
-  width: 8px;
-  height: 8px;
+  inset: -2px -10px;
+  background: var(--color-lime);
+  transform: rotate(-1.5deg) skewX(-7deg);
+  border-radius: 9999px 6px 9999px 4px;
+  z-index: -1;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.7);
+}
+
+.brush-splash-ochre::before {
+  background: var(--color-ochre);
+}
+
+.brush-splash-ochre,
+.brush-splash-ochre *,
+.brush-splash-ochre span {
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.brush-splash-purple::before {
+  background: #c084fc;
+}
+
+.brush-splash-lime::before {
+  background: var(--color-lime);
+}
+
+.brush-splash-lime,
+.brush-splash-lime *,
+.brush-splash-lime span {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+/* Game HUD Navigation Tabs */
+.nav-game-tab {
+  position: relative;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: skewX(-6deg);
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.nav-game-tab:hover {
+  transform: skewX(-6deg) scale(1.06) translateY(-1px);
+  color: #fff;
+}
+.nav-game-tab.active-tab {
+  color: #090a0f !important;
+  background: var(--color-lime);
+  border-radius: 9999px 6px 9999px 4px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.85);
+  transform: skewX(-6deg) rotate(-1deg) scale(1.04);
+}
+
+/* Tactile Game Drop-Shadows & Button Presses */
+.game-btn {
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  box-shadow: 3px 3px 0 #000;
+  transform: translate(0, 0);
+  font-style: italic;
+}
+.game-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
+}
+.game-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+.game-btn-ochre {
+  background: var(--color-ochre) !important;
+  color: #ffffff !important;
+  box-shadow: 4px 4px 0 #000;
+  font-weight: 800;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.game-btn-ochre *,
+.game-btn-ochre span {
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.game-btn-ochre:hover {
+  background: #f2b545 !important;
+  color: #ffffff !important;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.game-btn-lime {
+  background: var(--color-lime);
+  color: #000000 !important;
+  box-shadow: 4px 4px 0 #000;
+  font-weight: 800;
+}
+.game-btn-lime *,
+.game-btn-lime span {
+  color: #000000 !important;
+}
+.game-btn-lime:hover {
+  background: #bbf451;
+  color: #000000 !important;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.game-btn-panel {
+  background: var(--color-panel);
+  color: #ffffff;
+  border: 1px solid var(--color-borderwire);
+  box-shadow: 3px 3px 0 #000;
+}
+.game-btn-panel:hover {
+  border-color: var(--color-ochre);
+  color: var(--color-ochre);
+  box-shadow: 5px 5px 0 #000;
+}
+
+/* HUD Controller / Keyboard Shortcut Key Indicators */
+.hud-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-ochre);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* Scrapbook & Diegetic Game Stickers with High-Contrast Black Text */
+.game-sticker {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.75);
+  transform: rotate(-2deg);
+  transition: transform 0.15s ease;
+  color: #000000 !important;
+}
+.game-sticker *,
+.game-sticker span {
+  color: #000000 !important;
+}
+.game-sticker:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+.sticker-lime {
+  background: var(--color-lime) !important;
+  color: #000000 !important;
+}
+.sticker-ochre {
+  background: var(--color-ochre) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.sticker-purple {
+  background: #c084fc !important;
+  color: #000000 !important;
+}
+
+/* Black text on lime green and purple backgrounds */
+.bg-lime,
+.bg-lime-400,
+.sticker-lime,
+.brush-splash-lime,
+.game-btn-lime {
+  color: #000000 !important;
+  font-weight: 800;
+}
+.bg-lime *,
+.bg-lime-400 *,
+.sticker-lime *,
+.brush-splash-lime *,
+.game-btn-lime * {
+  color: #000000 !important;
+}
+
+/* White text on yellow / ochre backgrounds */
+.bg-ochre,
+.bg-yellow-400,
+.bg-yellow-500,
+.bg-amber-400,
+.bg-amber-500,
+.sticker-ochre,
+.brush-splash-ochre,
+.game-btn-ochre {
+  color: #ffffff !important;
+  font-weight: 800;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.bg-ochre *,
+.bg-yellow-400 *,
+.bg-yellow-500 *,
+.bg-amber-400 *,
+.bg-amber-500 *,
+.sticker-ochre *,
+.brush-splash-ochre *,
+.game-btn-ochre * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.hover\:bg-ochre:hover,
+.hover\:bg-\[\#f2b545\]:hover {
+  color: #ffffff !important;
+}
+.hover\:bg-ochre:hover *,
+.hover\:bg-\[\#f2b545\]:hover * {
+  color: #ffffff !important;
+}
+.hover\:bg-lime:hover,
+.hover\:bg-\[\#bbf451\]:hover {
+  color: #000000 !important;
+}
+.hover\:bg-lime:hover *,
+.hover\:bg-\[\#bbf451\]:hover * {
+  color: #000000 !important;
+}
+
+/* Taped Edge Effect for Diegetic Cards */
+.tape-top {
+  position: relative;
+}
+.tape-top::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 72px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(3px);
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 20;
   pointer-events: none;
 }
-.corner-brackets::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--color-ochre);
-  border-left: 2px solid var(--color-ochre);
+
+/* 3D Interactive Card Physics & Dynamic Holographic Sheen */
+.game-tilt-card,
+.studio-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: visible;
 }
-.corner-brackets::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--color-ochre);
-  border-right: 2px solid var(--color-ochre);
+.game-tilt-inner {
+  position: relative;
+  transition: box-shadow 0.3s ease, border-color 0.25s ease;
+  will-change: transform;
+  overflow: visible;
+}
+.game-tilt-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 450px at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 35%,
+    transparent 70%
+  );
+  opacity: var(--glare-opacity, 0);
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Tactical HUD Corner Reticles */
+.hud-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 12;
+}
+.hud-corner-tl {
+  top: 6px;
+  left: 6px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+.hud-corner-tr {
+  top: 6px;
+  right: 6px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+.hud-corner-bl {
+  bottom: 6px;
+  left: 6px;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+.hud-corner-br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+.group:hover .hud-corner,
+.game-tilt-card:hover .hud-corner {
+  color: var(--color-lime);
+  filter: drop-shadow(0 0 4px rgba(187, 244, 81, 0.8));
+  transform: scale(1.15);
+}
+
+/* Carousel Slide Transition Effects */
+.hero-slide-exit-next {
+  opacity: 0 !important;
+  transform: translateX(-18px) scale(0.985) !important;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1), transform 0.15s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+.hero-slide-exit-prev {
+  opacity: 0 !important;
+  transform: translateX(18px) scale(0.985) !important;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1), transform 0.15s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+.hero-slide-enter-next {
+  opacity: 0 !important;
+  transform: translateX(18px) scale(0.985) !important;
+}
+.hero-slide-enter-prev {
+  opacity: 0 !important;
+  transform: translateX(-18px) scale(0.985) !important;
+}
+.hero-slide-active {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Custom scrollbar */
@@ -111,17 +446,16 @@ html {
 }
 ::-webkit-scrollbar-track {
   background: var(--color-void);
-  border-left: 1px solid var(--color-borderwire);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2230;
-  border: 1px solid var(--color-borderwire);
+  background: #1c202e;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-ochre);
 }
 
-/* Hide scrollbar for clean horizontal mobile ribbon */
+/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -130,70 +464,122 @@ html {
   scrollbar-width: none;
 }
 
-/* Marquee / Infinite Tech Conveyor Rail */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* Selection */
+::selection {
+  background: var(--color-lime);
+  color: #090a0f;
 }
 
+/* Studio card hover transitions with tactile game depth */
+.studio-card {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--color-borderwire);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+.studio-card:hover {
+  border-color: rgba(229, 169, 60, 0.5);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 169, 60, 0.08);
+}
+
+/* Sub Window & Game Modal Transitions */
+.game-modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.24s ease;
+}
+.game-modal-backdrop.is-open {
+  opacity: 1;
+}
+.game-modal-backdrop.is-closing {
+  opacity: 0;
+  transition: opacity 0.18s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.game-modal-dialog {
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 35px rgba(229, 169, 60, 0.1);
+  position: relative;
+}
+.game-modal-backdrop.is-open .game-modal-dialog {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.game-modal-backdrop.is-closing .game-modal-dialog {
+  opacity: 0;
+  transform: scale(0.94) translateY(16px);
+  transition: transform 0.18s cubic-bezier(0.4, 0, 1, 1), opacity 0.18s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Modal Stage Preview Image Crossfade */
+.modal-image-swap {
+  opacity: 0 !important;
+  transform: scale(0.98) !important;
+  transition: opacity 0.14s ease-out, transform 0.14s ease-out !important;
+}
+.modal-image-ready {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Telemetry Header Bar for Sub Windows */
+.hud-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+/* Seamless Tech Stack Conveyor Marquee */
+.marquee-rail,
 .marquee-track {
   display: flex;
-  width: max-content;
-  animation: marquee-scroll 32s linear infinite;
+  overflow: hidden;
+  user-select: none;
+  gap: 0.75rem;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 36px, black calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 36px, black calc(100% - 36px), transparent);
 }
 
-.marquee-track:hover {
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.75rem;
+  animation: techStackMarquee 26s linear infinite;
+  will-change: transform;
+}
+
+.marquee-rail:hover .marquee-group,
+.marquee-track:hover .marquee-group {
   animation-play-state: paused;
 }
 
-/* Glowing Ochre Pulse */
-@keyframes ochre-pulse {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 10px rgba(229, 169, 60, 0.7);
+@keyframes techStackMarquee {
+  0% {
+    transform: translateX(0);
   }
-  50% {
-    opacity: 0.4;
-    box-shadow: 0 0 2px rgba(229, 169, 60, 0.2);
+  100% {
+    transform: translateX(calc(-100% - 0.75rem));
   }
 }
 
-.status-dot-pulse {
-  animation: ochre-pulse 2.2s infinite ease-in-out;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-group {
+    animation-play-state: paused;
+  }
 }
 
-/* Scanline Effect */
-.scanlines {
-  position: relative;
-  overflow: hidden;
-}
-.scanlines::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-  z-index: 2;
-  background-size: 100% 3px, 4px 100%;
-  pointer-events: none;
-}
 
-/* Terminal Cursor */
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-.cursor-blink {
-  animation: blink 1s infinite;
-}
-
-/* Selection */
-::selection {
-  background: #e5a93c;
-  color: #08090c;
-}

@@ -1,0 +1,16 @@
+# ==============================================================================
+# MITHILA GAMES // SEARCH ENGINE CRAWLER DIRECTIVES
+# Website: https://mithilagames.com
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap Location for Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex
+Sitemap: https://mithilagames.com/sitemap.xml
+
+# Crawl-delay optimization for heavy bots
+Crawl-delay: 1
+
+# Host definition
+Host: mithilagames.com

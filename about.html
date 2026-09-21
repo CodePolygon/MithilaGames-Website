@@ -3,9 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us // Mithila Games</title>
-  <meta name="description" content="Independent game studio rooted in stylized art and mechanics-first engineering.">
+  <title>About Us // Independent Game Studio | Mithila Games</title>
+  <meta name="description" content="Discover the story, mission, and philosophy behind Mithila Games — an independent game studio blending rich cultural art with mechanics-first game engineering.">
+  <meta name="keywords" content="About Mithila Games, indie game studio, game development company, Godot game creators, Wings of Paper developer">
+  <meta name="author" content="Mithila Games">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mithilagames.com/about.html">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="public/assets/logo/logo_icon.svg">
+  <meta name="theme-color" content="#08090C">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mithilagames.com/about.html">
+  <meta property="og:title" content="About Us // Independent Game Studio | Mithila Games">
+  <meta property="og:description" content="Independent game studio rooted in stylized art and mechanics-first engineering.">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/project_x_hero.jpg">
+  <meta property="og:site_name" content="Mithila Games">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mithilagames">
+  <meta name="twitter:creator" content="@mithilagames">
+  <meta name="twitter:title" content="About Us // Independent Game Studio | Mithila Games">
+  <meta name="twitter:description" content="Independent game studio rooted in stylized art and mechanics-first engineering.">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/project_x_hero.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Mithila Games",
+    "url": "https://mithilagames.com/about.html",
+    "description": "Information on the background, mission, and team of Mithila Games.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mithila Games",
+      "url": "https://mithilagames.com",
+      "logo": "https://mithilagames.com/public/assets/logo/logo_wide.svg"
+    }
+  }
+  </script>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,44 +74,42 @@
   </script>
   <link rel="stylesheet" href="public/css/theme.css">
 </head>
-<body class="bg-blueprint-grid min-h-screen flex flex-col antialiased text-slate-200">
+<body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void">
 
-  <!-- RESPONSIVE HEADER WITH OFFICIAL BRAND LOGO & FLUID NAVIGATION -->
-  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-borderwire">
-    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+  <!-- GAME HUD RESPONSIVE HEADER -->
+  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo -->
-      <a href="home.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto">
+      <!-- Brand Logo with Arcade Skew -->
+      <a href="home.html" class="flex items-center gap-3 shrink-0 group">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
 
-      <!-- Desktop & Tablet Navigation (fluid responsive spacing: text-[11px] on md, text-xs on lg) -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-mono text-[11px] lg:text-xs uppercase tracking-wider shrink-0">
-        <a href="home.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">HOME</a>
-        <a href="games.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">GAMES</a>
-        <a href="store.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">SHOP</a>
-        <a href="news.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">NEWS</a>
-        <a href="about.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">ABOUT US</a>
-        <a href="connect.html" data-nav-link class="px-2.5 lg:px-3 py-1.5 border-b-2 border-transparent text-slate-muted hover:text-white transition-colors whitespace-nowrap">CONTACT</a>
+      <!-- Desktop Game HUD Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
+        <a href="home.html" data-nav-link class="nav-game-tab">HOME</a>
+        <a href="games.html" data-nav-link class="nav-game-tab">GAMES</a>
+        <a href="store.html" data-nav-link class="nav-game-tab">SHOP</a>
+        <a href="news.html" data-nav-link class="nav-game-tab">NEWS</a>
+        <a href="about.html" data-nav-link class="nav-game-tab active-tab">ABOUT</a>
+        <a href="connect.html" data-nav-link class="nav-game-tab">CONTACT</a>
       </nav>
 
-      <!-- Right Header Actions (Responsive Subscribe Button & Mobile Toggle) -->
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
+      <div class="flex items-center gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="px-2.5 sm:px-3 py-1.5 bg-panel border border-borderwire hover:border-ochre text-ochre font-mono text-[11px] sm:text-xs tracking-wider uppercase transition-colors flex items-center gap-2 whitespace-nowrap"
+          class="game-btn game-btn-ochre px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-ochre status-dot-pulse shrink-0"></span>
-          <span class="hidden sm:inline font-semibold">SUBSCRIBE [FREE]</span>
-          <span class="sm:hidden font-semibold">SUBSCRIBE</span>
+          <span>DISPATCH</span>
         </button>
 
         <!-- Mobile Hamburger Toggle -->
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-1.5 sm:p-2 border border-borderwire bg-panel text-slate-muted hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -78,117 +117,138 @@
       </div>
 
     </div>
-
-    <!-- Mobile Scrollable Tabs Ribbon (Smooth horizontal swipe on phones) -->
-    <div class="md:hidden border-t border-borderwire bg-surface/90 px-3 py-2 flex gap-1.5 overflow-x-auto no-scrollbar text-xs font-mono">
-      <a href="home.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">HOME</a>
-      <a href="games.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">GAMES</a>
-      <a href="store.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">SHOP</a>
-      <a href="news.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">NEWS</a>
-      <a href="about.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">ABOUT US</a>
-      <a href="connect.html" data-mobile-ribbon-link class="px-3 py-1 bg-surface border border-borderwire text-slate-muted whitespace-nowrap">CONTACT</a>
-    </div>
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 z-50 hidden flex-col p-6 font-mono text-sm">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-muted hover:text-white" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
     </div>
-    <div class="flex flex-col gap-3 py-6">
-      <a href="home.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">HOME</a>
-      <a href="games.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">GAMES</a>
-      <a href="store.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">SHOP</a>
-      <a href="news.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">NEWS</a>
-      <a href="about.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">ABOUT US</a>
-      <a href="connect.html" data-mobile-drawer-link class="p-3 bg-surface border border-borderwire text-slate-muted">CONTACT</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="p-3 bg-panel border border-ochre text-ochre font-bold text-left mt-2 flex items-center justify-between">
-        <span>SUBSCRIBE [FREE]</span>
-        <span>→</span>
+    <div class="flex flex-col gap-2 py-6 font-syne uppercase">
+      <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
+      <a href="games.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Games</a>
+      <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
+      <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
+      <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
+      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+        SUBSCRIBE TO DISPATCHES
       </button>
     </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10">
+  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full">
     
-    <div class="mb-10">
-      <h1 class="font-syne font-bold text-3xl sm:text-4xl text-white">Studio Manifesto</h1>
-      <p class="font-sans text-sm text-slate-muted mt-2 max-w-2xl leading-relaxed">
-        Mithila Games is an independent game studio building intrative experiences.
-      </p>
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-borderwire/80 pb-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="game-sticker sticker-lime">STUDIO MANIFESTO</span>
+          <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// ORIGIN &amp; ETHOS</span>
+        </div>
+        <h1 class="font-syne font-black italic text-3xl sm:text-4xl text-white uppercase tracking-tight">
+          ABOUT <span class="brush-splash brush-splash-ochre text-white font-black px-2.5 py-0.5 rounded">MITHILA GAMES</span>
+        </h1>
+      </div>
+      <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <span class="game-sticker sticker-purple text-[10px]">EST. 2024</span>
+        <span>INDEPENDENT GAME STUDIO</span>
+      </div>
     </div>
 
-    <!-- 3-Column Manifesto -->
+    <!-- 3-Column Manifesto with 3D Card Tilt & Game HUD Badges -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       
       <!-- Pillar 1 -->
-      <div class="bg-surface border border-borderwire p-6 relative corner-brackets flex flex-col justify-between">
-        <div class="space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="font-mono text-xs text-ochre font-bold">01 // AUTONOMY</span>
-            <span class="w-6 h-6 bg-panel border border-borderwire flex items-center justify-center font-mono text-xs text-ochre">01</span>
+      <div class="game-tilt-card group">
+        <div class="game-tilt-inner bg-surface border-2 border-borderwire hover:border-lime rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(187,244,81,0.25)] bg-halftone-dots tape-top relative h-full">
+          <!-- Tactical HUD Corners -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <div class="space-y-3">
+            <span class="game-sticker sticker-lime text-[11px]">
+              01 // AUTONOMY
+            </span>
+            <h2 class="font-syne font-black italic text-xl text-white uppercase tracking-tight">Autonomous Technology</h2>
+            <p class="font-sans text-sm text-slate-200 leading-relaxed">
+              Toolchain independence. Bespoke pipelines built on open-source foundations without proprietary engine lock-in or runtime fees.
+            </p>
           </div>
-          <h2 class="font-syne font-bold text-xl text-white">Autonomous Technology</h2>
-          <p class="font-sans text-xs text-slate-muted leading-relaxed">
-            Toolchain independence. Bespoke pipelines is mostly built on open-source foundations without proprietary engine lock-in or runtime fees.
-          </p>
         </div>
       </div>
 
       <!-- Pillar 2 -->
-      <div class="bg-surface border border-borderwire p-6 relative corner-brackets flex flex-col justify-between">
-        <div class="space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="font-mono text-xs text-ochre font-bold">02 // ART &amp; CRAFT</span>
-            <span class="w-6 h-6 bg-panel border border-borderwire flex items-center justify-center font-mono text-xs text-ochre">02</span>
+      <div class="game-tilt-card group">
+        <div class="game-tilt-inner bg-surface border-2 border-borderwire hover:border-ochre rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(229,169,60,0.25)] bg-halftone-dots tape-top relative h-full">
+          <!-- Tactical HUD Corners -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <div class="space-y-3">
+            <span class="game-sticker sticker-ochre text-[11px]">
+              02 // CRAFT
+            </span>
+            <h2 class="font-syne font-black italic text-xl text-white uppercase tracking-tight">Stylized Art &amp; Design</h2>
+            <p class="font-sans text-sm text-slate-200 leading-relaxed">
+              Handcrafted visual direction, custom real-time shaders, and tight mechanics-first loops designed for responsive, satisfying play.
+            </p>
           </div>
-          <h2 class="font-syne font-bold text-xl text-white">Stylized Art &amp; Design</h2>
-          <p class="font-sans text-xs text-slate-muted leading-relaxed">
-            Handcrafted visual direction, custom real-time shaders, and tight mechanics-first game loops designed for responsive, satisfying play.
-          </p>
         </div>
       </div>
 
       <!-- Pillar 3 -->
-      <div class="bg-surface border border-borderwire p-6 relative corner-brackets flex flex-col justify-between">
-        <div class="space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="font-mono text-xs text-ochre font-bold">03 // TRUST</span>
-            <span class="w-6 h-6 bg-panel border border-borderwire flex items-center justify-center font-mono text-xs text-ochre">03</span>
+      <div class="game-tilt-card group">
+        <div class="game-tilt-inner bg-surface border-2 border-borderwire hover:border-purple rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(180,100,255,0.25)] bg-halftone-dots tape-top relative h-full">
+          <!-- Tactical HUD Corners -->
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <div class="space-y-3">
+            <span class="game-sticker sticker-purple text-[11px]">
+              03 // COMMUNITY
+            </span>
+            <h2 class="font-syne font-black italic text-xl text-white uppercase tracking-tight">Player Trust</h2>
+            <p class="font-sans text-sm text-slate-200 leading-relaxed">
+              Zero dark patterns, zero invasive telemetry, and respectful player-first design. We listen directly to community feedback.
+            </p>
           </div>
-          <h2 class="font-syne font-bold text-xl text-white">Trust</h2>
-          <p class="font-sans text-xs text-slate-muted leading-relaxed">
-            We are ready short things out as soon as possible.
-          </p>
         </div>
       </div>
 
     </div>
 
     <!-- Studio Profile & Leadership -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-surface border border-borderwire p-6 sm:p-8 relative corner-brackets">
-      <div class="md:col-span-7 space-y-3">
-        <div class="font-mono text-xs text-ochre uppercase font-bold">STUDIO PROFILE</div>
-        <h3 class="font-syne font-bold text-2xl text-white">Independent Game Development</h3>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-surface border border-borderwire rounded-2xl p-6 sm:p-8 shadow-sm">
+      <div class="md:col-span-7 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-panel border border-borderwire text-ochre text-xs font-medium uppercase tracking-wider">Studio Profile</div>
+        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white">Independent Game Development</h2>
         <p class="font-sans text-sm text-slate-muted leading-relaxed">
           Mithila Games crafts story-driven and arcade titles for mobile and PC. We combine bespoke engine tooling with creative independence to deliver games with zero telemetry, instant boot times, and focused gameplay.
         </p>
-        <div class="pt-3 border-t border-borderwire/60">
-          <div class="text-[11px] font-mono text-ochre font-bold mb-1">PIPELINE: GODOT 4 // VULKAN // LINUX NATIVE</div>
-          <div class="text-xs font-sans text-slate-muted">Engineered exclusively on libre and open-source foundations.</div>
+        <div class="pt-4 border-t border-borderwire/60 flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-muted font-medium">Pipeline Foundations:</span>
+          <span class="px-2.5 py-1 rounded-lg bg-panel border border-borderwire text-slate-300 font-mono">Godot 4.3</span>
+          <span class="px-2.5 py-1 rounded-lg bg-panel border border-borderwire text-slate-300 font-mono">Vulkan 1.3</span>
+          <span class="px-2.5 py-1 rounded-lg bg-panel border border-borderwire text-slate-300 font-mono">Linux Native</span>
         </div>
       </div>
 
-      <div class="md:col-span-5 p-5 bg-panel border border-borderwire flex flex-col justify-between">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-10 h-10 bg-surface border border-ochre flex items-center justify-center font-syne font-bold text-ochre">
-            DIV
+      <div class="md:col-span-5 p-6 bg-panel border border-borderwire rounded-xl flex flex-col justify-between">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 rounded-full bg-surface border border-ochre/40 flex items-center justify-center font-syne font-bold text-ochre text-base shrink-0">
+            DP
           </div>
           <div>
             <div class="font-syne font-bold text-white text-base">Divyanshu Priyadarshi</div>
-            <div class="font-mono text-xs text-ochre">Founder &amp; Creative Director</div>
+            <div class="text-xs text-ochre font-medium">Founder &amp; Creative Director</div>
           </div>
         </div>
         <p class="font-sans text-xs text-slate-muted leading-relaxed">
@@ -197,81 +257,85 @@
       </div>
     </div>
 
-    <!-- OPEN SOURCE TECH STACK CONVEYOR RAIL (PAUSES ON HOVER) -->
-    <div class="mt-12 bg-surface border border-borderwire py-5 overflow-hidden corner-brackets">
-      <div class="px-6 mb-3 flex justify-between items-center text-[11px] font-mono text-slate-muted uppercase">
-        <span class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-white font-bold">STUDIO OPEN SOURCE TECH STACK &amp; PRODUCTION RAILS</span>
+    <!-- OPEN SOURCE TECH STACK CONVEYOR RAIL -->
+    <div class="mt-12 bg-surface border border-borderwire rounded-2xl p-6 overflow-hidden shadow-sm">
+      <div class="mb-4 flex justify-between items-center text-xs text-slate-muted">
+        <span class="flex items-center gap-2 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="text-white">Studio Open Source Tech Stack</span>
         </span>
-        <span class="text-ochre font-bold">[PAUSES ON HOVER]</span>
+        <span class="text-slate-muted text-[11px]">Hover to pause</span>
       </div>
       
       <!-- Seamless infinite loop conveyor track -->
-      <div class="marquee-track flex gap-4 py-2">
+      <div class="marquee-track flex gap-3 py-1 overflow-hidden select-none">
         
         <!-- Stream Set A -->
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">G4</span> Godot 4.3 Forward+
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">BL</span> Blender 4.2 LTS
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">VK</span> Vulkan 1.3 Native
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">GL</span> GLSL Compute Shaders
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">C++</span> GDExtension Architecture
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">LX</span> Debian GNU/Linux Native
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">PY</span> Python 3 Pipelines
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">AS</span> LibreSprite / Aseprite
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">AU</span> Ardour / Audacity FOSS Audio
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">DK</span> Steam Deck 60 FPS Profile
+        <div class="marquee-group flex shrink-0 items-center gap-3">
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">G4</span> Godot 4.3 Forward+
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">BL</span> Blender 4.2 LTS
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">VK</span> Vulkan 1.3 Native
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">GL</span> GLSL Compute Shaders
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">C++</span> GDExtension Architecture
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">LX</span> Debian GNU/Linux Native
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">PY</span> Python 3 Pipelines
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">AS</span> LibreSprite / Aseprite
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">AU</span> Ardour / Audacity FOSS Audio
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">DK</span> Steam Deck 60 FPS Profile
+          </div>
         </div>
 
         <!-- Stream Set B (Exact duplicate for seamless looping) -->
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">G4</span> Godot 4.3 Forward+
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">BL</span> Blender 4.2 LTS
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">VK</span> Vulkan 1.3 Native
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">GL</span> GLSL Compute Shaders
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">C++</span> GDExtension Architecture
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">LX</span> Debian GNU/Linux Native
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">PY</span> Python 3 Pipelines
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">AS</span> LibreSprite / Aseprite
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">AU</span> Ardour / Audacity FOSS Audio
-        </div>
-        <div class="px-4 py-2 bg-panel border border-borderwire font-mono text-xs text-white flex items-center gap-2.5 whitespace-nowrap shadow-sm hover:border-ochre transition-colors">
-          <span class="text-ochre font-bold">DK</span> Steam Deck 60 FPS Profile
+        <div class="marquee-group flex shrink-0 items-center gap-3" aria-hidden="true">
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">G4</span> Godot 4.3 Forward+
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">BL</span> Blender 4.2 LTS
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">VK</span> Vulkan 1.3 Native
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">GL</span> GLSL Compute Shaders
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">C++</span> GDExtension Architecture
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">LX</span> Debian GNU/Linux Native
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">PY</span> Python 3 Pipelines
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">AS</span> LibreSprite / Aseprite
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">AU</span> Ardour / Audacity FOSS Audio
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-panel border border-borderwire text-xs text-slate-200 flex items-center gap-2 whitespace-nowrap shadow-sm hover:border-ochre/40 transition-colors">
+            <span class="text-ochre font-mono font-bold text-[11px]">DK</span> Steam Deck 60 FPS Profile
+          </div>
         </div>
 
       </div>
@@ -279,61 +343,99 @@
 
   </main>
 
-  <!-- FOOTER WITH SOCIAL NETWORKS & QUICK NAVIGATION -->
-  <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs font-mono py-8 mt-12">
+  <!-- EMAIL SUBSCRIPTION MODAL -->
+  <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+      
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
+
+      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
+        <div>
+          <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
+          <h2 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase mt-0.5">Subscribe to Updates</h2>
+        </div>
+        <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
+      </div>
+
+      <p class="font-sans text-xs text-slate-300 leading-relaxed">
+        Stay connected with our studio. Receive updates on new game releases, devlogs, and free open-source tools.
+      </p>
+
+      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
+        <div>
+          <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
+          <input 
+            type="email" 
+            id="subscriber-email" 
+            required 
+            placeholder="name@domain.com" 
+            class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
+          >
+        </div>
+
+        <button 
+          type="submit" 
+          id="subscriber-submit-btn" 
+          class="game-btn game-btn-ochre w-full py-3 text-void font-extrabold rounded-xl tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 text-xs"
+        >
+          <span>TRANSMIT SUBSCRIPTION →</span>
+        </button>
+
+        <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CLEAN MODERN FOOTER -->
+  <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs py-8 mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
       
       <!-- Top Row: Brand, Copyright & Social Networks -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
-        <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="home.html" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
-          <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
+          <span class="text-xs text-slate-muted">&copy; 2026 Mithila Games. All rights reserved.</span>
         </div>
 
         <!-- Social Networks Link Panel -->
         <div class="flex items-center gap-2">
-          <span class="text-[10px] text-slate-muted uppercase tracking-wider mr-1 hidden sm:inline">CONNECT //</span>
-          <!-- X (formerly Twitter) -->
-          <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <!-- YouTube -->
-          <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
-          <!-- Instagram -->
-          <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
-          <!-- GitHub -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="GitHub" title="GitHub [Open Source Tools]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-panel border border-borderwire hover:border-ochre text-slate-muted hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
       </div>
 
       <!-- Bottom Row: Navigation Links & Update Letter Trigger -->
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px]">
-        <div class="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-slate-muted font-semibold">
-          <a href="home.html" class="hover:text-white transition-colors">HOME</a>
-          <a href="games.html" class="hover:text-white transition-colors">GAMES</a>
-          <a href="store.html" class="hover:text-white transition-colors">SHOP</a>
-          <a href="news.html" class="hover:text-white transition-colors">NEWS</a>
-          <a href="about.html" class="hover:text-white transition-colors">ABOUT US</a>
-          <a href="connect.html" class="hover:text-white transition-colors">CONTACT</a>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
+        <div class="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-slate-muted font-medium">
+          <a href="home.html" class="hover:text-white transition-colors">Home</a>
+          <a href="games.html" class="hover:text-white transition-colors">Games</a>
+          <a href="store.html" class="hover:text-white transition-colors">Shop</a>
+          <a href="news.html" class="hover:text-white transition-colors">News</a>
+          <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+          <a href="connect.html" class="hover:text-white transition-colors">Contact</a>
         </div>
-        <div class="text-[10px] text-slate-muted/80 flex items-center gap-2">
-          <span>INDEPENDENT GAME STUDIO</span>
+        <div class="text-slate-muted/80 flex items-center gap-2">
+          <span>Independent Game Studio</span>
           <span>•</span>
-          <button type="button" onclick="openNewsletterModal()" class="text-ochre hover:underline uppercase font-bold">SUBSCRIBE LETTER</button>
+          <button type="button" onclick="openNewsletterModal()" class="text-ochre hover:underline font-semibold">Subscribe Newsletter</button>
         </div>
       </div>
 

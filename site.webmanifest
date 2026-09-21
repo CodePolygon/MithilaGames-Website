@@ -1,0 +1,26 @@
+{
+  "name": "Mithila Games",
+  "short_name": "MithilaGames",
+  "description": "Independent game development studio and technology lab focused on open-source pipelines and mechanics-first engineering.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090C",
+  "theme_color": "#E5A93C",
+  "icons": [
+    {
+      "src": "/public/assets/logo/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/public/assets/logo/logo_icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/public/assets/logo/logo_icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
