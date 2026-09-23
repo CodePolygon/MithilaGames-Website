@@ -29,7 +29,7 @@ window.GAMES_DATA = [
       { label: "PUBLISHER", value: "Mithila Games" }
     ],
     downloadText: "DOWNLOAD ON GOOGLE PLAY ↗",
-    downloadUrl: "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape"
+    downloadUrl: "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpaper"
   },
 
 ];
