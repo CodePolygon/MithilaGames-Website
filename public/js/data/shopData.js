@@ -31,14 +31,15 @@ window.SHOP_DATA = [
   
 
   {
-    id: "haircards",
-    title: "Vertex-Shadow-Painter-for-Blender",
+    id: "VertShade",
+    title: "VertShade",
     category: "tools",
     categoryLabel: "Blender addons",
     price: "FREE",
     image: "content/Vertex-Shadow-Painter-for-Blender/banner.png",
     images: [
       "content/Vertex-Shadow-Painter-for-Blender/banner.png",
+      "content/Vertex-Shadow-Painter-for-Blender/img4.png",
       "content/Vertex-Shadow-Painter-for-Blender/img3.png",
       "content/Vertex-Shadow-Painter-for-Blender/img1.png",
       "content/Vertex-Shadow-Painter-for-Blender/img2.png"
@@ -51,7 +52,7 @@ window.SHOP_DATA = [
       { label: "COMPATIBILITY", value: "Blender x.x" },  
       { label: "INCLUDES", value: "Demo project, Documentation, Addon" }
     ],
-    downloadText: "Buy [Free]",
+    downloadText: "Buy [Free][open-source]",
     downloadUrl: "https://mithilagames.itch.io/haircards-blender-particle-hair-to-cards"
   } 
 ];
