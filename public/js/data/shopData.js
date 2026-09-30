@@ -53,6 +53,6 @@ window.SHOP_DATA = [
       { label: "INCLUDES", value: "Demo project, Documentation, Addon" }
     ],
     downloadText: "Buy [Free][open-source]",
-    downloadUrl: "https://mithilagames.itch.io/haircards-blender-particle-hair-to-cards"
+    downloadUrl: "https://mithilagames.itch.io/vertshade"
   } 
 ];
