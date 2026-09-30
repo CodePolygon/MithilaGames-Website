@@ -26,5 +26,32 @@ window.SHOP_DATA = [
     ],
     downloadText: "Buy [Free]",
     downloadUrl: "https://mithilagames.itch.io/haircards-blender-particle-hair-to-cards"
-  }
+  },
+
+  
+
+  {
+    id: "haircards",
+    title: "Vertex-Shadow-Painter-for-Blender",
+    category: "tools",
+    categoryLabel: "Blender addons",
+    price: "FREE",
+    image: "content/Vertex-Shadow-Painter-for-Blender/banner.png",
+    images: [
+      "content/Vertex-Shadow-Painter-for-Blender/banner.png",
+      "content/Vertex-Shadow-Painter-for-Blender/img3.png",
+      "content/Vertex-Shadow-Painter-for-Blender/img1.png",
+      "content/Vertex-Shadow-Painter-for-Blender/img2.png"
+    ],
+    badge: "Addon",
+    shortDesc: "It helps to add shadows/AO baked on to mesh with vertex colour",
+    fullDesc: "This addon helps in baking shadown and AO on to meshes directly with vertex colour. this gives full conttroll of the shadows and AO in the hand of the artist , the main use of this in games. ",
+    specs: [
+      { label: "LANGUAGE LAYER", value: "Python" },
+      { label: "COMPATIBILITY", value: "Blender x.x" },  
+      { label: "INCLUDES", value: "Demo project, Documentation, Addon" }
+    ],
+    downloadText: "Buy [Free]",
+    downloadUrl: "https://mithilagames.itch.io/haircards-blender-particle-hair-to-cards"
+  } 
 ];
