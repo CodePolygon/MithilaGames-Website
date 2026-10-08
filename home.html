@@ -129,11 +129,11 @@
       </nav>
 
       <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
-      <div class="flex items-center gap-2.5 shrink-0">
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="game-btn game-btn-ochre px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
+          class="game-btn game-btn-ochre px-3 sm:px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
           <span>DISPATCH</span>
         </button>
@@ -142,7 +142,7 @@
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -153,10 +153,10 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
-    <div class="flex justify-between items-center pb-4 border-b border-borderwire">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
+    <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
       <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
@@ -164,8 +164,10 @@
       <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
       <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
       <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="careers.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Careers</a>
+      <a href="privacy.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Privacy</a>
       <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+      <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); else document.getElementById('mobile-menu').classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
         SUBSCRIBE TO DISPATCHES
       </button>
     </div>
@@ -175,7 +177,7 @@
   <main class="flex-grow">
     
     <!-- FEATURED SHOWCASE HERO WITH ASYMMETRIC GAME CUT & 3D TILT -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-12 overflow-visible">
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-4 sm:pt-8 pb-12 overflow-visible">
       
       <!-- Top HUD controls & stage indicator -->
       <div class="flex justify-between items-center pb-3 mb-6 border-b border-borderwire/80">
@@ -218,7 +220,7 @@
 
       <!-- Hero Main Slide Card (with 3D physics interaction container) -->
       <div class="game-tilt-card my-2 overflow-visible">
-        <div id="hero-slide-container" class="game-tilt-inner relative bg-surface border-2 border-borderwire hover:border-lime/60 rounded-2xl p-6 sm:p-10 shadow-2xl transition-all duration-300 bg-halftone-dots grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-visible">
+        <div id="hero-slide-container" class="game-tilt-inner relative bg-surface border-2 border-borderwire hover:border-lime/60 rounded-2xl p-4 sm:p-8 lg:p-10 shadow-2xl transition-all duration-300 bg-halftone-dots grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center overflow-visible">
           <!-- Injected dynamically by renderHeroSlide() -->
         </div>
       </div>
@@ -302,8 +304,8 @@
   </div>
 
   <!-- REUSABLE PRODUCT DETAIL & DOWNLOAD MODAL WINDOW -->
-  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeProductModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeProductModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
       <!-- Tactical HUD Corners -->
       <div class="hud-corner hud-corner-tl"></div>
@@ -314,11 +316,11 @@
       <div class="flex justify-between items-start pb-3 border-b border-borderwire">
         <div>
           <span id="modal-item-category" class="game-sticker sticker-lime text-[10px] mb-1"></span>
-          <h2 id="modal-item-title" class="font-syne font-black italic text-2xl sm:text-3xl text-white uppercase mt-1"></h2>
+          <h2 id="modal-item-title" class="font-syne font-black italic text-xl sm:text-3xl text-white uppercase mt-1"></h2>
         </div>
         <div class="flex items-center gap-3">
           <span id="modal-item-price" class="game-sticker sticker-ochre text-xs"></span>
-          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
+          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="min-w-[40px] min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
         </div>
       </div>
 
@@ -433,6 +435,8 @@
           <a href="store.html" class="hover:text-white transition-colors">Shop</a>
           <a href="news.html" class="hover:text-white transition-colors">News</a>
           <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+          <a href="careers.html" class="hover:text-white transition-colors">Careers</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
           <a href="connect.html" class="hover:text-white transition-colors">Contact</a>
         </div>
         <div class="text-xs text-slate-500 flex items-center gap-2">
@@ -521,24 +525,24 @@
             </div>
 
             <!-- High-Energy Slanted Game Title -->
-            <h1 class="font-syne font-black italic text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none uppercase drop-shadow-md">
+            <h1 class="font-syne font-black italic text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight uppercase drop-shadow-md">
               ${item.title}
             </h1>
 
             <!-- Description -->
-            <p class="font-sans text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl">
+            <p class="font-sans text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-xl">
               ${item.fullDesc || item.shortDesc}
             </p>
 
           </div>
 
           <!-- Tactile Arcade Action Buttons -->
-          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
             ${item.downloadUrl ? `
               <a 
                 href="${item.downloadUrl}" 
                 target="_blank"
-                class="game-btn game-btn-lime px-6 py-3 rounded-lg text-void font-black text-sm uppercase flex items-center gap-2 shadow-md"
+                class="game-btn game-btn-lime px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-void font-black text-xs sm:text-sm uppercase flex items-center gap-2 shadow-md"
               >
                 <span>${isGame ? 'PLAY GAME' : 'DOWNLOAD'} →</span>
               </a>
@@ -547,7 +551,7 @@
               type="button" 
               onclick='openHeroModal(${idx})' 
               onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-              class="game-btn game-btn-panel px-5 py-3 rounded-lg text-white font-bold text-sm uppercase flex items-center gap-2 shadow-sm"
+              class="game-btn game-btn-panel px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg text-white font-bold text-xs sm:text-sm uppercase flex items-center gap-2 shadow-sm"
             >
               <span>INSPECT DETAILS</span>
             </button>
@@ -845,6 +849,9 @@
       if (heroContainer) {
         heroContainer.addEventListener('mouseenter', stopHeroAutoplay);
         heroContainer.addEventListener('mouseleave', startHeroAutoplay);
+        if (typeof window.addSwipeListener === 'function') {
+          window.addSwipeListener(heroContainer, nextHeroSlide, prevHeroSlide);
+        }
       }
     }
 

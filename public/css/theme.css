@@ -33,6 +33,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari auto-zoom prevention: ensure inputs have at least 16px font-size on mobile */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* Ambient Halftone & Game Graphic Textures */
 .bg-blueprint-grid,
 .bg-blueprint-grid-dense {
@@ -582,4 +595,114 @@ html {
   }
 }
 
+/* ==========================================================================
+   MOBILE & SMALL SCREEN RESPONSIVENESS ENHANCEMENTS
+   ========================================================================== */
 
+/* Mobile Menu Drawer Slide & Smooth Backdrop */
+#mobile-menu {
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 2rem));
+}
+
+/* Horizontal Filter Bar Touch Scroll Utility */
+.mobile-tab-scroll {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-x;
+  box-sizing: border-box;
+}
+.mobile-tab-scroll::-webkit-scrollbar {
+  display: none;
+}
+.mobile-tab-scroll > * {
+  flex-shrink: 0;
+}
+
+/* Safe Area Utilities for Notched Devices (e.g. iPhone, Modern Androids) */
+.safe-pt {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+.safe-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Small screen adjustments for phones (< 640px) */
+@media (max-width: 640px) {
+  .game-modal-dialog {
+    max-height: calc(92dvh) !important;
+    margin: 0.5rem auto;
+    width: calc(100vw - 1rem) !important;
+  }
+  
+  /* Ensure brush splash backgrounds have padding so text doesn't overflow */
+  .brush-splash {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  /* Prevent tight titles from clipping italicized ascenders / descenders */
+  .font-syne {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Ensure card inner containers prevent unwanted overflow */
+  .game-tilt-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Ultra-small screen adjustments for compact phones (< 480px, e.g. iPhone SE, 320px) */
+@media (max-width: 480px) {
+  .game-sticker {
+    font-size: 10px;
+    padding: 2.5px 6px;
+    letter-spacing: 0.02em;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .hud-corner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .game-btn {
+    touch-action: manipulation;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .game-modal-dialog {
+    padding: 1rem !important;
+    max-height: calc(94dvh) !important;
+    width: calc(100vw - 0.75rem) !important;
+  }
+
+  /* Avoid title clipping on ultra narrow viewports */
+  h1, h2, h3, h4 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Tape top scaling on ultra narrow screens */
+  .tape-top::before {
+    width: 54px;
+    height: 14px;
+    top: -7px;
+  }
+}

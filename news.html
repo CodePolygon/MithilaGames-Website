@@ -95,11 +95,11 @@
       </nav>
 
       <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
-      <div class="flex items-center gap-2.5 shrink-0">
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="game-btn game-btn-ochre px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
+          class="game-btn game-btn-ochre px-3 sm:px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
           <span>DISPATCH</span>
         </button>
@@ -108,7 +108,7 @@
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -119,10 +119,10 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
-    <div class="flex justify-between items-center pb-4 border-b border-borderwire">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
+    <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
       <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
@@ -130,25 +130,28 @@
       <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
       <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
       <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="careers.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Careers</a>
+      <a href="privacy.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Privacy</a>
       <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+      <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); else document.getElementById('mobile-menu').classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
         SUBSCRIBE TO DISPATCHES
       </button>
     </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10">
+  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full min-w-0">
     
     <!-- Title & Subtitle -->
     <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-borderwire/80 pb-4">
       <div>
-        <div class="flex items-center gap-2 mb-2">
-          <span class="game-sticker sticker-lime">MISSION LOGBOOK</span>
-          <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// FIELD INTEL</span>
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+          <span class="game-sticker sticker-lime shrink-0">MISSION LOGBOOK</span>
+          <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">// FIELD INTEL</span>
         </div>
-        <h1 class="font-syne font-black italic text-3xl sm:text-4xl text-white uppercase tracking-tight">
-          <span class="brush-splash brush-splash-purple text-black font-black px-2.5 py-0.5 rounded">DEVLOGS</span> &amp; DISPATCHES
+        <h1 class="font-syne font-black italic text-2xl sm:text-4xl text-white uppercase tracking-tight flex flex-wrap items-baseline gap-2">
+          <span class="brush-splash brush-splash-purple text-black font-black px-2.5 py-0.5 rounded shrink-0">DEVLOGS</span>
+          <span class="shrink-0">&amp; DISPATCHES</span>
         </h1>
       </div>
       <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
@@ -157,19 +160,21 @@
     </div>
 
     <!-- Category Filter Bar (Game HUD Skewed Tabs) -->
-    <div class="flex flex-wrap gap-2 mb-8 pb-4 border-b border-borderwire/80 text-xs font-syne uppercase">
-      <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill nav-game-tab active-tab cursor-pointer">
-        ALL UPDATES
-      </button>
-      <button type="button" data-news-filter="BLENDER & PIPELINE" onclick="filterNews('BLENDER & PIPELINE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
-        BLENDER &amp; PIPELINE
-      </button>
-      <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
-        ENGINE &amp; DEVLOG
-      </button>
-      <button type="button" data-news-filter="OPEN SOURCE" onclick="filterNews('OPEN SOURCE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300">
-        OPEN SOURCE
-      </button>
+    <div class="w-full min-w-0 mb-8 pb-4 border-b border-borderwire/80 overflow-hidden">
+      <div class="mobile-tab-scroll gap-2 text-xs font-syne uppercase py-1">
+        <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill nav-game-tab active-tab cursor-pointer shrink-0">
+          ALL UPDATES
+        </button>
+        <button type="button" data-news-filter="BLENDER & PIPELINE" onclick="filterNews('BLENDER & PIPELINE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          BLENDER &amp; PIPELINE
+        </button>
+        <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          ENGINE &amp; DEVLOG
+        </button>
+        <button type="button" data-news-filter="OPEN SOURCE" onclick="filterNews('OPEN SOURCE')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          OPEN SOURCE
+        </button>
+      </div>
     </div>
 
     <!-- Dynamically Populated News Grid from newsData.js -->
@@ -244,8 +249,8 @@
   </div>
 
   <!-- REUSABLE ARTICLE DETAIL MODAL WINDOW WITH DIRECT URL -->
-  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-purple/50 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeNewsModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-purple/50 rounded-2xl max-w-2xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
       
       <!-- Tactical HUD Corners -->
       <div class="hud-corner hud-corner-tl"></div>
@@ -261,13 +266,13 @@
             <span>•</span>
             <span id="modal-news-date" class="text-slate-400 font-mono"></span>
           </div>
-          <h2 id="modal-news-title" class="font-syne font-black italic text-2xl sm:text-3xl text-white leading-tight uppercase"></h2>
+          <h2 id="modal-news-title" class="font-syne font-black italic text-xl sm:text-3xl text-white leading-tight uppercase"></h2>
         </div>
         <button 
           type="button" 
           onclick="closeNewsModal()" 
           onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-          class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold"
+          class="min-w-[40px] min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold"
           aria-label="Close dialog"
         >✕</button>
       </div>
@@ -395,6 +400,8 @@
           <a href="store.html" class="hover:text-white transition-colors">SHOP</a>
           <a href="news.html" class="hover:text-white transition-colors">NEWS</a>
           <a href="about.html" class="hover:text-white transition-colors">ABOUT US</a>
+          <a href="careers.html" class="hover:text-white transition-colors">CAREERS</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">PRIVACY</a>
           <a href="connect.html" class="hover:text-white transition-colors">CONTACT</a>
         </div>
         <div class="text-[10px] text-slate-muted/80 flex items-center gap-2">
@@ -417,9 +424,9 @@
       currentNewsFilter = filter;
       document.querySelectorAll('.news-filter-pill').forEach(btn => {
         if (btn.getAttribute('data-news-filter') === filter) {
-          btn.className = 'news-filter-pill nav-game-tab active-tab cursor-pointer';
+          btn.className = 'news-filter-pill nav-game-tab active-tab cursor-pointer shrink-0';
         } else {
-          btn.className = 'news-filter-pill nav-game-tab cursor-pointer text-slate-300';
+          btn.className = 'news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0';
         }
       });
       renderNews();
@@ -648,6 +655,12 @@
         const url = new URL(window.location);
         url.searchParams.set('article', article.id);
         window.history.pushState({ articleOpen: true, articleId: article.id }, '', url);
+      }
+
+      const newsImgContainer = document.getElementById('modal-news-img-container');
+      if (newsImgContainer && !newsImgContainer._hasSwipe && typeof window.addSwipeListener === 'function') {
+        newsImgContainer._hasSwipe = true;
+        window.addSwipeListener(newsImgContainer, () => stepModalNewsImage(1), () => stepModalNewsImage(-1));
       }
 
       window.showGameModal('news-modal');

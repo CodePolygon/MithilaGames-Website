@@ -85,11 +85,11 @@
       </nav>
 
       <!-- Right Header HUD Actions (Newsletter & Mobile Menu) -->
-      <div class="flex items-center gap-2.5 shrink-0">
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <button 
           type="button" 
           onclick="openNewsletterModal()" 
-          class="game-btn game-btn-ochre px-3.5 py-1.5 rounded-lg text-xs uppercase font-extrabold flex items-center gap-1.5 shadow-sm"
+          class="game-btn game-btn-ochre px-3 sm:px-4 py-1.5 rounded-lg text-xs uppercase font-extrabold shadow-sm"
         >
           <span>DISPATCH</span>
         </button>
@@ -98,7 +98,7 @@
         <button 
           id="mobile-menu-toggle" 
           type="button" 
-          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors" 
+          class="md:hidden p-2 rounded-lg border border-borderwire bg-panel text-slate-300 hover:text-white transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" 
           aria-label="Open navigation menu"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -109,10 +109,10 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm">
-    <div class="flex justify-between items-center pb-4 border-b border-borderwire">
+  <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
+    <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
-      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-lg" aria-label="Close menu">✕</button>
+      <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
       <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
@@ -120,15 +120,17 @@
       <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
       <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
       <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
+      <a href="careers.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Careers</a>
+      <a href="privacy.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Privacy</a>
       <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
-      <button onclick="mobileMenu.classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
+      <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); else document.getElementById('mobile-menu').classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
         SUBSCRIBE TO DISPATCHES
       </button>
     </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full">
+  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
     
     <!-- Section Header -->
     <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-borderwire/80 pb-4">
@@ -137,7 +139,7 @@
           <span class="game-sticker sticker-lime">CREW RECRUITMENT</span>
           <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// OPEN POSITIONS</span>
         </div>
-        <h1 class="font-syne font-black italic text-3xl sm:text-4xl text-white uppercase tracking-tight">
+        <h1 class="font-syne font-black italic text-2xl sm:text-4xl text-white uppercase tracking-tight">
           JOIN <span class="brush-splash brush-splash-lime text-black font-black px-2.5 py-0.5 rounded">MITHILA GAMES</span>
         </h1>
       </div>
@@ -481,6 +483,8 @@
           <a href="store.html" class="hover:text-white transition-colors">Shop</a>
           <a href="news.html" class="hover:text-white transition-colors">News</a>
           <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+          <a href="careers.html" class="hover:text-white transition-colors">Careers</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
           <a href="connect.html" class="hover:text-white transition-colors">Contact</a>
         </div>
         <div class="text-slate-muted/80 flex items-center gap-2">

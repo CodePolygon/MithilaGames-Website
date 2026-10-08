@@ -80,7 +80,7 @@
         <!-- Bottom Bar: Thumbnails & Keyboard Guide -->
         <div class="px-4 sm:px-6 py-3 border-t border-borderwire bg-surface/90 shrink-0 space-y-2" onclick="event.stopPropagation()">
           <div id="iv-thumbnails" class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar py-1"></div>
-          <div class="flex justify-between items-center text-[10px] font-mono text-slate-muted">
+          <div class="flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-slate-muted gap-1 text-center sm:text-left">
             <span class="hidden sm:inline">NAVIGATE: [← / →] ARROW KEYS</span>
             <span class="sm:hidden">SWIPE OR USE ARROWS</span>
             <span>CLICK OUTSIDE OR PRESS [ESC] TO DISMISS</span>
@@ -91,6 +91,12 @@
     `;
 
     document.body.insertAdjacentHTML('beforeend', viewerHtml);
+
+    // Touch swipe support for mobile
+    const stage = document.getElementById('iv-main-img');
+    if (stage && typeof window.addSwipeListener === 'function') {
+      window.addSwipeListener(document.getElementById('image-viewer-modal'), window.nextImageViewer, window.prevImageViewer);
+    }
 
     // Keyboard support: Escape, Left Arrow, Right Arrow
     window.addEventListener('keydown', (e) => {
@@ -416,9 +422,9 @@
     if (specs) {
       if (item.specs && item.specs.length > 0) {
         specs.innerHTML = item.specs.map(s => `
-          <div class="flex justify-between py-1 border-b border-borderwire/60 text-xs font-mono">
-            <span class="text-slate-muted">${s.label}:</span>
-            <span class="text-white font-semibold">${s.value}</span>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline py-1.5 border-b border-borderwire/60 text-xs font-mono gap-0.5 sm:gap-4">
+            <span class="text-slate-muted shrink-0">${s.label}:</span>
+            <span class="text-white font-semibold sm:text-right break-words">${s.value}</span>
           </div>
         `).join('');
         specs.classList.remove('hidden');
@@ -429,7 +435,8 @@
 
     if (downloadBtn) {
       downloadBtn.href = item.downloadUrl || '#';
-      downloadBtn.textContent = (item.downloadText || 'DOWNLOAD PRODUCT') + ' →';
+      const labelText = item.downloadText || 'DOWNLOAD PRODUCT';
+      downloadBtn.innerHTML = `<span>${labelText}</span> <span class="text-xs">→</span>`;
       if (item.downloadUrl && item.downloadUrl.startsWith('http')) {
         downloadBtn.target = '_blank';
       } else {
@@ -442,6 +449,12 @@
       const url = new URL(window.location);
       url.searchParams.set('item', item.id);
       window.history.pushState({ modalOpen: true, itemId: item.id }, '', url);
+    }
+
+    const itemImgContainer = document.getElementById('modal-item-img-container');
+    if (itemImgContainer && !itemImgContainer._hasSwipe && typeof window.addSwipeListener === 'function') {
+      itemImgContainer._hasSwipe = true;
+      window.addSwipeListener(itemImgContainer, () => window.stepModalItemImage(1), () => window.stepModalItemImage(-1));
     }
 
     window.showGameModal(modal);
@@ -618,6 +631,58 @@
     setTimeout(finalizeSuccess, 1200);
   };
 
+  // --- MOBILE TOUCH GESTURE DETECTOR ---
+  window.addSwipeListener = function (element, onSwipeLeft, onSwipeRight, threshold = 40) {
+    if (!element) return;
+    let startX = 0;
+    let startY = 0;
+    let isTouch = false;
+
+    element.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isTouch = true;
+    }, { passive: true });
+
+    element.addEventListener('touchend', (e) => {
+      if (!isTouch || e.changedTouches.length !== 1) return;
+      isTouch = false;
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = endX - startX;
+      const diffY = endY - startY;
+
+      // Only trigger if horizontal swipe exceeds threshold and is significantly greater than vertical movement
+      if (Math.abs(diffX) > threshold && Math.abs(diffX) > Math.abs(diffY) * 1.25) {
+        if (diffX < 0 && typeof onSwipeLeft === 'function') {
+          onSwipeLeft();
+        } else if (diffX > 0 && typeof onSwipeRight === 'function') {
+          onSwipeRight();
+        }
+      }
+    }, { passive: true });
+  };
+
+  // --- MOBILE MENU CONTROLLER WITH SCROLL LOCK ---
+  window.openMobileMenu = function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    if (typeof window.playGameSfx === 'function') window.playGameSfx('modal-open');
+  };
+
+  window.closeMobileMenu = function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu || mobileMenu.classList.contains('hidden')) return;
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    document.body.style.overflow = '';
+    if (typeof window.playGameSfx === 'function') window.playGameSfx('modal-close');
+  };
+
   // --- INITIALIZE NAVIGATION LISTENERS ---
   document.addEventListener('DOMContentLoaded', function () {
     // Mobile Menu Toggle
@@ -625,12 +690,39 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-menu-close');
 
-    if (mobileToggle && mobileMenu) {
-      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.openMobileMenu();
+      });
     }
-    if (mobileClose && mobileMenu) {
-      mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    if (mobileClose) {
+      mobileClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.closeMobileMenu();
+      });
     }
+
+    // Dismiss mobile drawer when clicking backdrop or on any navigation link
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+          window.closeMobileMenu();
+        }
+      });
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          window.closeMobileMenu();
+        });
+      });
+    }
+
+    // Dismiss mobile menu on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        window.closeMobileMenu();
+      }
+    });
 
     // Active Tab Highlighting for Desktop, Ribbon, and Mobile Drawer
     const currentPath = window.location.pathname.split('/').pop() || 'home.html';
@@ -775,7 +867,7 @@
   }
 
   function initCardTiltPhysics() {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768) return;
 
     let activeCard = null;
     let targetRotX = 0;
@@ -816,6 +908,9 @@
     }
 
     document.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(hover: none)').matches)) {
+        return;
+      }
       const card = e.target.closest('.game-tilt-card, .studio-card');
       if (!card) {
         if (activeCard && isHovered) {
