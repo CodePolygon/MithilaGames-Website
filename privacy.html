@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Mithila Games</title>
-  <meta name="description" content="Privacy Policy for Mithila Games and its distributed games, applications, and web services.">
+  <meta name="description" content="Universal Privacy Policy for Mithila Games and its distributed games, mobile applications, plugins, developer tools, and web services.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mithilagames.com/privacy.html">
   <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mithilagames.com/privacy.html">
   <meta property="og:title" content="Privacy Policy | Mithila Games">
-  <meta property="og:description" content="Privacy Policy for Mithila Games and its distributed titles including Wings of Paper.">
+  <meta property="og:description" content="Universal Privacy Policy for Mithila Games and its distributed titles, software tools, and online platforms.">
   <meta property="og:site_name" content="Mithila Games">
 
   <!-- Tailwind CSS via CDN -->
@@ -102,7 +102,8 @@
       <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
       <a href="about.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">About</a>
       <a href="careers.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Careers</a>
-      <a href="privacy.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Privacy</a>
+      <a href="privacy.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-ochre/40 text-ochre font-bold">Privacy</a>
+      <a href="terms.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Terms of Service</a>
       <a href="connect.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Contact</a>
       <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); else document.getElementById('mobile-menu').classList.add('hidden'); openNewsletterModal();" class="game-btn game-btn-lime p-3 rounded-xl text-void font-extrabold text-center mt-2 shadow-md">
         SUBSCRIBE TO DISPATCHES
@@ -113,85 +114,350 @@
   <!-- MAIN CONTENT -->
   <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
     
-    <!-- Title Section -->
+    <!-- Title Section & Legal Switcher Tabs -->
     <div class="mb-8 border-b border-borderwire/80 pb-6">
-      <div class="flex items-center gap-2 mb-2">
-        <span class="game-sticker sticker-lime">LEGAL COMPLIANCE</span>
-        <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// DATA PROTECTION</span>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="game-sticker sticker-lime">LEGAL COMPLIANCE</span>
+          <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// DATA PROTECTION & PRIVACY</span>
+        </div>
+
+        <!-- Document Switcher -->
+        <div class="inline-flex items-center p-1 rounded-xl bg-panel border border-borderwire text-xs font-mono">
+          <span class="px-3 py-1.5 rounded-lg bg-ochre text-void font-bold">PRIVACY POLICY</span>
+          <a href="terms.html" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-colors">TERMS & EULA</a>
+        </div>
       </div>
+
       <h1 class="font-syne font-black italic text-2xl sm:text-4xl text-white uppercase tracking-tight">
         PRIVACY <span class="brush-splash brush-splash-ochre text-white font-black px-2.5 py-0.5 rounded">POLICY</span>
       </h1>
       <p class="text-xs text-slate-400 font-mono mt-3">
-        EFFECTIVE DATE: <span class="text-slate-200 font-bold">MAY 26, 2025</span> // VERSION 1.2
+        EFFECTIVE DATE: <span class="text-slate-200 font-bold">OCTOBER 26, 2026</span> // UNIVERSAL STUDIO FRAMEWORK // VERSION 2.0
       </p>
     </div>
 
+    <!-- Quick Index Links -->
+    <nav aria-label="Privacy policy table of contents" class="mb-8 p-4 rounded-xl bg-panel/60 border border-borderwire text-xs font-mono">
+      <div class="text-ochre uppercase font-bold tracking-wider mb-2">// QUICK SECTION INDEX</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-slate-400">
+        <a href="#priv-scope" class="hover:text-white hover:underline">1. Scope & Applicability</a>
+        <a href="#priv-data" class="hover:text-white hover:underline">2. Information We Collect</a>
+        <a href="#priv-permissions" class="hover:text-white hover:underline">3. Device Permissions</a>
+        <a href="#priv-thirdparty" class="hover:text-white hover:underline">4. SDKs, Analytics & Ads</a>
+        <a href="#priv-children" class="hover:text-white hover:underline">5. Children's Privacy (COPPA)</a>
+        <a href="#priv-retention" class="hover:text-white hover:underline">6. Retention & Data Erasure</a>
+        <a href="#priv-security" class="hover:text-white hover:underline">7. Security Architecture</a>
+        <a href="#priv-gdpr" class="hover:text-white hover:underline">8. European GDPR & UK Rights</a>
+        <a href="#priv-ccpa" class="hover:text-white hover:underline">9. California CCPA / CPRA</a>
+        <a href="#priv-india" class="hover:text-white hover:underline">10. India DPDP Act 2023</a>
+        <a href="#priv-optout" class="hover:text-white hover:underline">11. Opt-Out & User Controls</a>
+        <a href="#priv-contact" class="hover:text-white hover:underline">12. Studio Contact & Inquiries</a>
+      </div>
+    </nav>
+
     <!-- Legal Policy Content Card -->
-    <article class="bg-surface border border-borderwire rounded-2xl p-4 sm:p-8 space-y-6 text-sm text-slate-300 leading-relaxed font-sans shadow-xl">
+    <article class="bg-surface border border-borderwire rounded-2xl p-4 sm:p-8 space-y-8 text-sm text-slate-300 leading-relaxed font-sans shadow-xl">
       
-      <div class="p-4 rounded-xl bg-panel/70 border border-borderwire text-xs font-mono text-slate-300">
-        This Privacy Policy applies to the <strong class="text-white">Wings of Paper</strong> game and associated interactive products (the "Application") developed by <strong class="text-white">Mithila Games</strong> ("Service Provider", "we", "us"). The application is provided as a Free service intended for use "AS IS".
+      <!-- Studio Universal Applicability Header Box -->
+      <div class="p-4 sm:p-5 rounded-xl bg-panel/80 border border-borderwire space-y-2">
+        <div class="flex items-center gap-2 text-xs font-mono text-ochre font-bold uppercase tracking-wider">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Comprehensive Privacy Architecture
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300">
+          This Privacy Policy governs the processing of personal information and telemetry across all games, mobile applications, PC and console software, creator plugins (including Blender add-ons such as Vertex Shadow Painter and Haircards), web platforms, and digital services developed, published, or operated by <strong class="text-white font-semibold">Mithila Games</strong> ("Mithila Games", "Studio", "we", "us", "our"). We are committed to transparency, data minimization, and safeguarding the digital rights of our players and creators worldwide.
+        </p>
       </div>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">1. Information Collection and Use</h2>
-        <p>The Application collects information automatically when you download and play it. This may include:</p>
-        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-xs sm:text-sm font-mono">
-          <li>Your device's Internet Protocol (IP) address</li>
-          <li>In-game progression telemetry, session duration, and timestamps</li>
-          <li>Operating system version and device hardware architecture</li>
-          <li>Crash diagnostics and error logs for optimization</li>
-        </ul>
-        <p class="text-xs text-slate-400">
-          The Application does <strong class="text-white">not</strong> request or collect precise GPS geographical location data from your mobile device.
-        </p>
-      </section>
-
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">2. Third-Party Services</h2>
-        <p>Only aggregated, anonymized telemetry is periodically transmitted to trusted external services to assist us in diagnosing runtime performance and optimizing gameplay systems.</p>
-        <p>The Application may interface with third-party software development kits (SDKs) that maintain their own privacy policies:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-          <div class="p-3 rounded-lg bg-panel border border-borderwire flex items-center justify-between">
-            <span class="font-mono text-xs text-white">Google AdMob</span>
-            <span class="text-[10px] text-ochre uppercase font-mono">Ad Delivery & Analytics</span>
+      <!-- Section 1: Scope & Applicability -->
+      <section id="priv-scope" class="space-y-3 pt-2">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>1. Scope & Universal Applicability</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 01</span>
+        </h2>
+        <p>This Privacy Policy applies universally to any user or visitor ("you", "player") who downloads, installs, plays, browses, or interacts with:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <span class="text-white font-bold uppercase">Mobile & Handheld Titles</span>
+            <p class="text-slate-400 font-sans">Games and apps published on Google Play Store, Apple App Store, and other authorized mobile marketplaces (including Wings of Paper, Peak, Project X, and future releases).</p>
           </div>
-          <div class="p-3 rounded-lg bg-panel border border-borderwire flex items-center justify-between">
-            <span class="font-mono text-xs text-white">Godot Engine Runtime</span>
-            <span class="text-[10px] text-lime-400 uppercase font-mono">Core Game Framework</span>
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <span class="text-white font-bold uppercase">PC, Console & Web Software</span>
+            <p class="text-slate-400 font-sans">Titles and interactive software distributed via Steam, Epic Games Store, itch.io, native installers (Windows, macOS, Linux), and HTML5 browser builds.</p>
+          </div>
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <span class="text-white font-bold uppercase">Developer Tools & Addons</span>
+            <p class="text-slate-400 font-sans">Software utilities, 3D artist plugins (e.g., Blender addons), shader packs, and toolsets released directly or via developer asset portals.</p>
+          </div>
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <span class="text-white font-bold uppercase">Studio Web Properties</span>
+            <p class="text-slate-400 font-sans">Our official domain <span class="text-ochre">https://mithilagames.com</span>, community dispatch subscription forms, newsletters, and studio support channels.</p>
           </div>
         </div>
       </section>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">3. Data Retention and Deletion</h2>
-        <p>We retain gameplay analytics data for as long as you maintain the application on your device and for a reasonable period thereafter. If you wish to request the deletion of any user-submitted feedback or diagnostic data, please contact us directly at <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline font-mono">helpmithilagames@gmail.com</a>.</p>
+      <!-- Section 2: Information We Collect -->
+      <section id="priv-data" class="space-y-4">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>2. Categories of Information We Collect</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 02</span>
+        </h2>
+        <p>We adhere strictly to the principle of <strong class="text-white">data minimization</strong>. We only collect information that is strictly necessary to run, optimize, secure, and deliver our games and services.</p>
+
+        <div class="space-y-3">
+          <div class="p-3.5 rounded-lg bg-panel border border-borderwire space-y-1.5">
+            <div class="text-xs font-mono font-bold text-white uppercase flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-ochre"></span>
+              A. Automatically Collected Telemetry & Diagnostics
+            </div>
+            <p class="text-xs text-slate-300">When you run our games or software, technical performance metrics are gathered to ensure optimal frame rates, detect crashes, and balance levels:</p>
+            <ul class="list-disc pl-5 space-y-1 text-xs text-slate-400 font-mono">
+              <li>Device model, hardware architecture (CPU/GPU specs, RAM capacity, screen resolution).</li>
+              <li>Operating system name and version (Android, iOS, Windows, macOS, Linux).</li>
+              <li>Runtime engine diagnostics, error logs, and stack traces generated during software anomalies.</li>
+              <li>Anonymized gameplay progression (levels completed, stage durations, achievements unlocked).</li>
+              <li>Truncated or anonymized Internet Protocol (IP) address used to infer coarse regional location (country or city level) for CDN routing and server matchmaking.</li>
+            </ul>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-panel border border-borderwire space-y-1.5">
+            <div class="text-xs font-mono font-bold text-white uppercase flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              B. Device Identifiers & Advertising Tokens
+            </div>
+            <p class="text-xs text-slate-300">Depending on platform configurations and user consent:</p>
+            <ul class="list-disc pl-5 space-y-1 text-xs text-slate-400 font-mono">
+              <li>Resettable mobile advertising identifiers (such as Google Advertising ID / AAID on Android or Apple Identifier for Advertisers / IDFA on iOS). On iOS, IDFA is only accessed if you grant explicit permission through Apple's App Tracking Transparency (ATT) prompt.</li>
+              <li>Randomly generated application install instance IDs (UUIDs) used to manage local save files, sync settings, or manage game session states without linking to your real-world identity.</li>
+            </ul>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-panel border border-borderwire space-y-1.5">
+            <div class="text-xs font-mono font-bold text-white uppercase flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              C. User-Provided Information
+            </div>
+            <p class="text-xs text-slate-300">Information you voluntarily communicate to us:</p>
+            <ul class="list-disc pl-5 space-y-1 text-xs text-slate-400 font-mono">
+              <li><strong class="text-slate-200">Customer Support Inquiries:</strong> Your email address and message contents when submitting feedback, reporting bugs, or contacting <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline">helpmithilagames@gmail.com</a>.</li>
+              <li><strong class="text-slate-200">Newsletter Dispatches:</strong> Your email address if you voluntarily subscribe to studio updates or devlogs via our website dispatches. You can unsubscribe at any time via the link in each email.</li>
+              <li><strong class="text-slate-200">User Display Names:</strong> Public player nicknames or multiplayer handles created inside games supporting leaderboards or multiplayer.</li>
+            </ul>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-panel border border-borderwire space-y-1.5">
+            <div class="text-xs font-mono font-bold text-white uppercase flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+              D. In-App Purchases & Financial Information
+            </div>
+            <p class="text-xs text-slate-300">
+              When you purchase a game, DLC, or virtual item, transactions are processed exclusively by authorized digital storefront operators (Google Play Billing, Apple StoreKit, Steam Microtransactions). <strong class="text-white">Mithila Games does NOT collect, store, or have access to your credit card numbers, bank accounts, or billing addresses.</strong> We receive only anonymized confirmation tokens or receipt IDs to unlock your purchased content.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">4. Children's Privacy</h2>
-        <p>Mithila Games does not knowingly solicit or collect personally identifiable information from children under the age of 13. If we discover that personal data from a child under 13 has been collected without verifiable parental consent, we take immediate measures to delete that information from our servers.</p>
-        <p>Parents and guardians may contact us at <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline font-mono">helpmithilagames@gmail.com</a> with any inquiries.</p>
+      <!-- Section 3: Device Permissions -->
+      <section id="priv-permissions" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>3. Device Permissions & System Access</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 03</span>
+        </h2>
+        <p>Our applications may request standard operating system permissions to enable specific game functions. These permissions can be reviewed and revoked at any time via your device's system settings:</p>
+        <div class="space-y-2 text-xs font-mono">
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <span class="text-white font-bold">INTERNET & NETWORK STATE</span>
+            <span class="text-slate-400 font-sans text-[11px]">Enables multiplayer connectivity, cloud save syncing, asset streaming, and ad serving.</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <span class="text-white font-bold">LOCAL STORAGE / SAVE DIRECTORY</span>
+            <span class="text-slate-400 font-sans text-[11px]">Allows the game or tool to read and write local game saves, custom mods, and player preferences.</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <span class="text-white font-bold">HAPTICS & VIBRATION</span>
+            <span class="text-slate-400 font-sans text-[11px]">Delivers tactile gamepad or touch feedback during gameplay action.</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <span class="text-white font-bold">NOTIFICATIONS (OPTIONAL)</span>
+            <span class="text-slate-400 font-sans text-[11px]">Delivers gameplay alerts, energy replenishment, or studio updates (only with player consent).</span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400">
+          <strong class="text-slate-200">Note:</strong> Our games do <strong class="text-white">not</strong> access your fine GPS location, microphone, camera, or personal contacts without explicit contextual user action and system authorization.
+        </p>
       </section>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">5. Security Standards</h2>
-        <p>We implement physical, electronic, and procedural industry safeguards to protect all telemetry and communication transmitted through our games and website infrastructure.</p>
+      <!-- Section 4: SDKs, Analytics & Third Parties -->
+      <section id="priv-thirdparty" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>4. Third-Party SDKs, Analytics & Advertising</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 04</span>
+        </h2>
+        <p>To support game infrastructure, cross-platform distribution, and sustainable development of free-to-play titles, we integrate with industry-standard third-party Software Development Kits (SDKs). These third parties process data under their respective privacy policies:</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-white font-bold">Google AdMob / Ad Manager</span>
+              <span class="text-[10px] text-ochre uppercase">Ad Serving</span>
+            </div>
+            <p class="text-slate-400 font-sans text-[11px]">Serves rewarded videos, interstitial banners, and contextual advertisements. Complies with Google Families Policy in children's applications.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-white font-bold">Firebase & Google Analytics</span>
+              <span class="text-[10px] text-lime-400 uppercase">Diagnostics</span>
+            </div>
+            <p class="text-slate-400 font-sans text-[11px]">Aggregates anonymous crash reports, app stability metrics, and device hardware distributions to help optimize game performance.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-white font-bold">Platform Game Services</span>
+              <span class="text-[10px] text-purple-400 uppercase">Social & Saves</span>
+            </div>
+            <p class="text-slate-400 font-sans text-[11px]">Google Play Games Services, Apple Game Center, and Steamworks for player achievements, global leaderboards, and cloud save synchronization.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-panel border border-borderwire space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-white font-bold">Game Engine Frameworks</span>
+              <span class="text-[10px] text-cyan-400 uppercase">Runtime Engine</span>
+            </div>
+            <p class="text-slate-400 font-sans text-[11px]">Core rendering and physics runtimes including Godot Engine, Unity, and Blender APIs. Pure runtime frameworks do not collect personal identifiers.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">6. Opt-Out & Uninstallation</h2>
-        <p>You can cease all data processing by the Application at any time by uninstalling the app using standard removal controls available on your device operating system or digital storefront.</p>
+      <!-- Section 5: Children's Privacy -->
+      <section id="priv-children" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>5. Children's Privacy & Family Compliance (COPPA & GDPR-K)</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 05</span>
+        </h2>
+        <div class="p-4 rounded-xl bg-panel/70 border border-borderwire space-y-2 text-xs sm:text-sm">
+          <p>Protecting the privacy of young players is of paramount importance to Mithila Games. We strictly comply with the <strong class="text-white">Children's Online Privacy Protection Act (COPPA)</strong> in the United States, <strong class="text-white">GDPR-K</strong> in the European Union, the <strong class="text-white">Google Play Families Policy</strong>, and the <strong class="text-white">Apple App Store Kids Category</strong> guidelines.</p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-slate-400 font-mono">
+            <li>We do not knowingly collect, harvest, or request personally identifiable information (PII) from children under the age of 13 (or under 16 in certain European jurisdictions).</li>
+            <li>In games specifically designated for children or family audiences, behavioral advertising and interest-based profiling are completely disabled; only contextual, age-appropriate ads from family-certified ad networks are served.</li>
+            <li>If a parent or guardian discovers that a child has provided us with personal information without verifiable parental consent, please contact us immediately at <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline">helpmithilagames@gmail.com</a>. We will promptly delete such records from our systems.</li>
+          </ul>
+        </div>
       </section>
 
-      <section class="space-y-3">
-        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2">7. Contact the Studio</h2>
-        <p>If you have any questions, feedback, or legal inquiries concerning this Privacy Policy, please reach out to our team:</p>
-        <div class="p-4 rounded-xl bg-panel border border-borderwire font-mono text-xs space-y-1">
-          <div><span class="text-slate-muted">STUDIO:</span> <strong class="text-white">Mithila Games</strong></div>
-          <div><span class="text-slate-muted">SUPPORT:</span> <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline">helpmithilagames@gmail.com</a></div>
-          <div><span class="text-slate-muted">GENERAL:</span> <a href="mailto:contactmithilagames@gmail.com" class="text-ochre hover:underline">contactmithilagames@gmail.com</a></div>
+      <!-- Section 6: Data Retention & Deletion -->
+      <section id="priv-retention" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>6. Data Retention, Storage & Account Deletion</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 06</span>
+        </h2>
+        <p>We retain gameplay analytics and diagnostic logs only for as long as necessary to analyze game stability, optimize gameplay systems, and resolve technical issues. Support email communications are retained for customer service records and deleted periodically.</p>
+        <div class="p-3.5 rounded-lg bg-panel border border-borderwire space-y-2 text-xs">
+          <div class="text-slate-200 font-bold uppercase font-mono">// HOW TO REQUEST DATA OR ACCOUNT DELETION:</div>
+          <p class="text-slate-300">
+            You have the right to request the permanent erasure of any personal information or telemetry associated with your device or email address. To initiate a deletion request, email <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline font-mono">helpmithilagames@gmail.com</a> with the subject line <span class="font-mono text-slate-200">"Data Deletion Request"</span> and include your platform/game title. We will process and confirm your request within 30 days without charge.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: Security Architecture -->
+      <section id="priv-security" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>7. Security Architecture & Safeguards</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 07</span>
+        </h2>
+        <p>We deploy robust administrative, technical, and physical security measures to protect your information against unauthorized access, loss, misuse, or alteration. All client-server communications across our websites and web-connected games utilize modern TLS/HTTPS encryption protocols. Access to telemetry repositories and developer accounts is strictly restricted through multi-factor authentication (MFA) and least-privilege security policies.</p>
+      </section>
+
+      <!-- Section 8: European GDPR & UK Rights -->
+      <section id="priv-gdpr" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>8. European Union (GDPR) & UK Data Rights</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 08</span>
+        </h2>
+        <p>If you are a resident of the European Economic Area (EEA) or the United Kingdom, you are entitled to specific statutory rights under the General Data Protection Regulation (GDPR / UK GDPR):</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right of Access:</strong> Request a copy of data we hold about you.</div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right to Rectification:</strong> Request correction of inaccurate data.</div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right to Erasure:</strong> "Right to be Forgotten" - request deletion of your data.</div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right to Restriction:</strong> Request limitation of data processing.</div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right to Data Portability:</strong> Receive your data in a portable format.</div>
+          <div class="p-2.5 rounded-lg bg-panel border border-borderwire"><strong class="text-white">Right to Withdraw Consent:</strong> Revoke consent at any time without penalty.</div>
+        </div>
+        <p class="text-xs text-slate-400">
+          Our lawful bases for processing include: (a) your consent, (b) performance of a contract (providing you with the game and its features), and (c) our legitimate business interests in optimizing gameplay stability and preventing fraud.
+        </p>
+      </section>
+
+      <!-- Section 9: California CCPA / CPRA -->
+      <section id="priv-ccpa" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>9. California Privacy Disclosures (CCPA & CPRA)</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 09</span>
+        </h2>
+        <div class="p-4 rounded-xl bg-panel/70 border border-borderwire space-y-2 text-xs sm:text-sm">
+          <p>Under the California Consumer Privacy Act, as amended by the California Privacy Rights Act (CPRA), California residents have specific privacy protections:</p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-slate-400 font-mono">
+            <li><strong class="text-slate-200">No Sale of Personal Information:</strong> Mithila Games does <strong class="text-white">not</strong> sell your personal information to third parties in exchange for monetary compensation.</li>
+            <li><strong class="text-slate-200">Right to Know & Delete:</strong> You may request disclosure of the categories of personal information collected and request its deletion.</li>
+            <li><strong class="text-slate-200">Non-Discrimination:</strong> We will never discriminate against you (by denying services, changing game mechanics, or altering product quality) for exercising your privacy rights.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 10: India DPDP Act 2023 -->
+      <section id="priv-india" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>10. India Digital Personal Data Protection Act (DPDP Act 2023)</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 10</span>
+        </h2>
+        <p>In alignment with India's Digital Personal Data Protection Act, 2023, Mithila Games operates as a responsible Data Fiduciary:</p>
+        <ul class="list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-300">
+          <li>Personal digital data is collected solely for specified lawful purposes with transparent notice or lawful consent.</li>
+          <li>Data Principals in India retain the right to access summaries of digital personal data, the right to correction and erasure, and the right to nominate a representative in the event of incapacity.</li>
+          <li>For grievance redressal concerning personal data processing in India, please contact our Data Grievance channel at <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline font-mono">helpmithilagames@gmail.com</a>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 11: Opt-Out & User Controls -->
+      <section id="priv-optout" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>11. How to Control Your Data & Opt Out</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 11</span>
+        </h2>
+        <p>You have full autonomy over how your devices share information with games and third-party advertising partners:</p>
+        <div class="space-y-2 text-xs font-mono">
+          <div class="p-3 rounded-lg bg-panel border border-borderwire">
+            <span class="text-white font-bold block mb-1">Android Devices:</span>
+            <span class="text-slate-400 font-sans">Open <strong class="text-slate-200">Settings → Google → Ads</strong> and tap <strong class="text-slate-200">"Delete advertising ID"</strong> or <strong class="text-slate-200">"Reset advertising ID"</strong> to clear past ad engagement histories.</span>
+          </div>
+          <div class="p-3 rounded-lg bg-panel border border-borderwire">
+            <span class="text-white font-bold block mb-1">Apple iOS / iPadOS Devices:</span>
+            <span class="text-slate-400 font-sans">Open <strong class="text-slate-200">Settings → Privacy & Security → Tracking</strong> and toggle off tracking permissions globally or for specific Mithila Games titles.</span>
+          </div>
+          <div class="p-3 rounded-lg bg-panel border border-borderwire">
+            <span class="text-white font-bold block mb-1">Complete Data Cessation:</span>
+            <span class="text-slate-400 font-sans">You can immediately stop all active data collection from any application by uninstalling it from your mobile device, console, or computer using the standard OS removal controls.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 12: Studio Contact & DPO -->
+      <section id="priv-contact" class="space-y-3">
+        <h2 class="font-syne font-bold text-lg sm:text-xl text-white border-b border-borderwire/60 pb-2 flex items-center justify-between">
+          <span>12. Policy Updates & Studio Contact</span>
+          <span class="text-xs font-mono text-slate-500 font-normal">SEC 12</span>
+        </h2>
+        <p>We may update this Privacy Policy from time to time to adapt to new legal mandates, evolving game architectures, or updated platform storefront rules. When significant revisions are posted, we will update the version number and Effective Date at the top of this document.</p>
+        
+        <div class="mt-4 p-4 rounded-xl bg-panel border border-borderwire font-mono text-xs space-y-2">
+          <div class="text-slate-200 font-bold uppercase tracking-wider">// PRIVACY & DATA PROTECTION INQUIRIES:</div>
+          <div><span class="text-slate-muted">STUDIO ENTITY:</span> <strong class="text-white">Mithila Games</strong></div>
+          <div><span class="text-slate-muted">DATA PRIVACY DESK:</span> <a href="mailto:helpmithilagames@gmail.com" class="text-ochre hover:underline">helpmithilagames@gmail.com</a></div>
+          <div><span class="text-slate-muted">STUDIO CONTACT:</span> <a href="mailto:contactmithilagames@gmail.com" class="text-ochre hover:underline">contactmithilagames@gmail.com</a></div>
+          <div><span class="text-slate-muted">OFFICIAL WEBSITE:</span> <a href="https://mithilagames.com" class="text-ochre hover:underline">https://mithilagames.com</a></div>
         </div>
       </section>
 
@@ -288,6 +554,7 @@
           <a href="about.html" class="hover:text-white transition-colors">About Us</a>
           <a href="careers.html" class="hover:text-white transition-colors">Careers</a>
           <a href="privacy.html" class="text-ochre font-bold">Privacy</a>
+          <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
           <a href="connect.html" class="hover:text-white transition-colors">Contact</a>
         </div>
         <div class="text-xs text-slate-500 flex items-center gap-2">

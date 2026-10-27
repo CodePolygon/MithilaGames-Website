@@ -71,9 +71,17 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://mithilagames.com/privacy.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Terms of Service & EULA -->
+  <url>
+    <loc>https://mithilagames.com/terms.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
 </urlset>
