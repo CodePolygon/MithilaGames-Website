@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
+<html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mithila Games | Building Interactive Experiences &amp; Games</title>
-  <meta name="description" content="Mithila Games is an independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of Wings of Paper.">
-  <meta name="keywords" content="Mithila Games, interactive experiences, indie game studio, Wings of Paper, Godot 4 games, Android games, PC games, game development, real-time 3D, mechanics first">
+  <meta name="description" content="Mithila Games is an independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
+  <meta name="keywords" content="Mithila Games, interactive experiences, indie game studio, T R L, Wings of Paper, 3D parkour games, Android games, PC games, game development, real-time 3D, mechanics first">
   <meta name="author" content="Mithila Games">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://mithilagames.com/">
@@ -18,8 +18,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mithilagames.com/">
   <meta property="og:title" content="Mithila Games | Building Interactive Experiences &amp; Games">
-  <meta property="og:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of Wings of Paper.">
-  <meta property="og:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+  <meta property="og:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
+  <meta property="og:image" content="https://mithilagames.com/content/t-r-l/cover.png">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="og:locale" content="en_US">
 
@@ -28,8 +28,8 @@
   <meta name="twitter:site" content="@mithilagames">
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Mithila Games | Building Interactive Experiences &amp; Games">
-  <meta name="twitter:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of Wings of Paper.">
-  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/wings_paper_hero.jpg">
+  <meta name="twitter:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
+  <meta name="twitter:image" content="https://mithilagames.com/content/t-r-l/cover.png">
 
   <!-- Schema.org JSON-LD Structured Data for Google Rich Results & Knowledge Graph -->
   <script type="application/ld+json">
@@ -55,6 +55,26 @@
         "name": "Mithila Games",
         "publisher": {
           "@id": "https://mithilagames.com/#organization"
+        }
+      },
+      {
+        "@type": "VideoGame",
+        "name": "T R L",
+        "description": "Just a non-ordinary 3D parkour game. Fast momentum physics, precision wall-running, and acrobatic obstacle courses playable in browser.",
+        "genre": ["3D Platformer", "Parkour", "Arcade"],
+        "gamePlatform": ["Web Browser (HTML5)", "PC"],
+        "operatingSystem": "Web, Windows, Linux",
+        "applicationCategory": "Game",
+        "image": "https://mithilagames.com/content/t-r-l/cover.png",
+        "author": {
+          "@id": "https://mithilagames.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://mithilagames.itch.io/t-r-l"
         }
       },
       {
@@ -106,11 +126,25 @@
     }
   </script>
   <link rel="stylesheet" href="public/css/theme.css">
-</head>
-<body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void">
 
-  <!-- GAME HUD RESPONSIVE HEADER -->
-  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+  <style>
+    /* Smooth Scroll-Triggered Animation Styles */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void relative">
+
+  <!-- GAME HUD RESPONSIVE HEADER (ORIGINAL TOP PANEL PRESERVED) -->
+  <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-borderwire">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand Logo with Arcade Skew -->
@@ -120,7 +154,7 @@
 
       <!-- Desktop Game HUD Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
-        <a href="home.html" data-nav-link class="nav-game-tab">HOME</a>
+        <a href="home.html" data-nav-link class="nav-game-tab active-tab">HOME</a>
         <a href="games.html" data-nav-link class="nav-game-tab">GAMES</a>
         <a href="store.html" data-nav-link class="nav-game-tab">SHOP</a>
         <a href="news.html" data-nav-link class="nav-game-tab">NEWS</a>
@@ -174,220 +208,228 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="flex-grow">
-    
-    <!-- FEATURED SHOWCASE HERO WITH ASYMMETRIC GAME CUT & 3D TILT -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-4 sm:pt-8 pb-12 overflow-visible">
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-grow w-full">
+
+    <!-- ================================================================= -->
+    <!-- SECTION 1: HERO - FULL-PAGE COVER BILLBOARD (PROPERLY POSITIONED) -->
+    <!-- ================================================================= -->
+    <section class="relative w-full h-[calc(100vh-4rem)] min-h-[580px] max-h-[960px] flex flex-col justify-between overflow-hidden bg-void select-none">
       
-      <!-- Top HUD controls & stage indicator -->
-      <div class="flex justify-between items-center pb-3 mb-6 border-b border-borderwire/80">
-        <div class="flex items-center gap-2.5">
-          <span class="game-sticker sticker-lime transform -rotate-1">STAGE SELECTION</span>
-          <span class="text-xs font-syne text-slate-400 uppercase italic tracking-wider hidden sm:inline">// PLAYABLE BUILDS &amp; INTERACTIVE EXPERIENCES</span>
-        </div>
+      <!-- Full-Bleed Artwork Background (Covering the entire page cleanly) -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="content/t-r-l/cover.png" 
+          alt="T R L // 3D Parkour Game" 
+          class="w-full h-full object-cover object-center scale-100"
+        >
+        <!-- Balanced Vignette Gradients for High Legibility -->
+        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-void/30"></div>
+        <div class="absolute inset-0 bg-radial-vignette opacity-60"></div>
+      </div>
+
+
+      <!-- Center Billboard: Clean, Iconic, High-Impact -->
+      <div class="relative z-10 max-w-3xl mx-auto px-4 text-center my-auto space-y-4">
         
-        <!-- Navigation Gamepad/Arrow Buttons and Counter -->
-        <div class="flex items-center gap-3">
-          <div class="text-xs text-slate-400 font-mono flex items-center gap-1">
-            <span id="hero-current-idx" class="text-lime-400 font-bold text-sm">01</span>
-            <span>/</span>
-            <span id="hero-total-count" class="text-slate-500">05</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <button 
-              type="button" 
-              onclick="prevHeroSlide()" 
-              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-              class="game-btn game-btn-panel w-9 h-9 rounded-lg flex items-center justify-center text-slate-200 hover:text-white text-base cursor-pointer" 
-              aria-label="Previous slide [←]"
-              title="Previous [Left Arrow]"
-            >
-              ←
-            </button>
-            <button 
-              type="button" 
-              onclick="nextHeroSlide()" 
-              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-              class="game-btn game-btn-panel w-9 h-9 rounded-lg flex items-center justify-center text-slate-200 hover:text-white text-base cursor-pointer" 
-              aria-label="Next slide [→]"
-              title="Next [Right Arrow]"
-            >
-              →
-            </button>
-          </div>
+        <h1 class="font-syne font-black italic text-6xl sm:text-8xl lg:text-9xl text-white tracking-tighter uppercase leading-none drop-shadow-[0_10px_35px_rgba(0,0,0,0.95)]">
+          T R L
+        </h1>
+
+        <p class="font-syne font-bold text-sm sm:text-lg text-ochre uppercase tracking-widest">
+          JUST A NON-ORDINARY 3D PARKOUR GAME
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <a 
+            href="https://mithilagames.itch.io/t-r-l" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="game-btn game-btn-ochre px-8 py-3.5 rounded-xl text-void font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 shadow-xl"
+          >
+            <span>PLAY FREE ON ITCH.IO</span>
+            <span>↗</span>
+          </a>
+
+          <a 
+            href="games.html?item=game-t-r-l" 
+            class="px-6 py-3.5 rounded-xl bg-surface/90 hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md transition-colors"
+          >
+            <span>OVERVIEW →</span>
+          </a>
         </div>
+
       </div>
 
-      <!-- Hero Main Slide Card (with 3D physics interaction container) -->
-      <div class="game-tilt-card my-2 overflow-visible">
-        <div id="hero-slide-container" class="game-tilt-inner relative bg-surface border-2 border-borderwire hover:border-lime/60 rounded-2xl p-4 sm:p-8 lg:p-10 shadow-2xl transition-all duration-300 bg-halftone-dots grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center overflow-visible">
-          <!-- Injected dynamically by renderHeroSlide() -->
-        </div>
-      </div>
-
-      <!-- Slide Pagination Indicator Dots -->
-      <div id="hero-dots-container" class="flex justify-center items-center gap-2 pt-6">
-        <!-- Rendered dynamically -->
+      <!-- Bottom Jump Indicator: Seamlessly Anchors the Hero -->
+      <div class="relative z-10 pb-6 text-center">
+        <a href="#what-we-do" class="inline-flex flex-col items-center gap-1 text-[11px] font-mono uppercase text-slate-400 hover:text-ochre transition-colors group">
+          <span>WHAT WE DO</span>
+          <span class="text-sm font-bold group-hover:translate-y-1 transition-transform">↓</span>
+        </a>
       </div>
 
     </section>
 
-    <!-- LATEST DEVLOG & NEWS SECTION (DIEGETIC SCRAPBOOK/LOGBOOK STYLE) -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-      <div class="flex items-center justify-between pb-3 mb-6 border-b border-borderwire/80">
-        <div class="flex items-center gap-3">
-          <h2 class="font-syne font-black text-xl sm:text-2xl text-white uppercase italic tracking-tight">
-            <span class="brush-splash brush-splash-purple text-black font-black px-2.5 py-0.5 rounded">DEVLOGS</span> &amp; DISPATCHES
+    <!-- ================================================================= -->
+    <!-- SECTION 2: WHAT WE DO (REDESIGNED PROPERLY, CLEAN, NO CLIPPING)    -->
+    <!-- ================================================================= -->
+    <section id="what-we-do" class="bg-surface border-y border-borderwire py-20 sm:py-24 relative z-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-14">
+        
+        <!-- Section Header -->
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4 scroll-reveal">
+          <span class="text-ochre font-mono text-xs uppercase font-extrabold tracking-widest">
+            [ WHAT WE DO ]
+          </span>
+          <h2 class="font-syne font-black italic text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight">
+            BUILDING INTERACTIVE EXPERIENCES.
+          </h2>
+          <p class="font-sans text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            We craft mechanics-first video games and real-time interactive worlds engineered for kinetic physics, tight input response, and pure player agency.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECTION 3: GAMES CATALOG - CLEAN RESPONSIVE INDIE GRID            -->
+    <!-- ================================================================= -->
+    <section class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
+      
+      <!-- Section Header -->
+      <div class="flex items-end justify-between pb-6 border-b border-borderwire">
+        <div>
+          <span class="text-ochre font-mono text-xs uppercase font-extrabold tracking-widest">
+            [ PLAYABLE BUILDS ]
+          </span>
+          <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase mt-1">
+            GAMES CATALOG
           </h2>
         </div>
-        <a href="news.html" class="game-btn game-btn-panel px-3 py-1.5 rounded-lg text-xs font-syne uppercase tracking-wider font-bold flex items-center gap-1 transition-colors">
-          <span>VIEW ALL LOGS</span>
+        <a href="games.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors">
+          <span>All Games</span>
           <span>→</span>
         </a>
       </div>
 
-      <!-- Latest News Feature Card -->
-      <div class="game-tilt-card">
-        <div id="latest-news-container" class="game-tilt-inner">
-          <!-- Injected dynamically from window.NEWS_DATA[0] -->
-        </div>
+      <!-- Responsive 2-Column Game Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- CARD 1: T R L -->
+        <article class="bg-surface border border-borderwire hover:border-ochre rounded-2xl overflow-hidden transition-all duration-300 group flex flex-col justify-between shadow-xl">
+          <!-- Widescreen Artwork Container -->
+          <div class="relative w-full aspect-video overflow-hidden bg-void">
+            <img 
+              src="content/t-r-l/cover.png" 
+              alt="T R L Game" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+            <!-- Status Badges -->
+            <div class="absolute top-4 left-4 flex items-center gap-2">
+              <span class="game-sticker sticker-lime text-[10px]">NEW RELEASE</span>
+              <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
+            </div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 sm:p-8 flex flex-col justify-between flex-grow space-y-5">
+            <div class="space-y-2">
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white tracking-tight uppercase group-hover:text-ochre transition-colors">
+                  T R L
+                </h3>
+                <span class="font-mono text-xs text-slate-400 font-semibold uppercase">01 // BROWSER &amp; PC</span>
+              </div>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Fast-paced 3D momentum parkour. Fluid wall-runs and obstacle courses.
+              </p>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a 
+                href="https://mithilagames.itch.io/t-r-l" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="game-btn game-btn-ochre px-5 py-2.5 rounded-xl text-void font-extrabold text-xs uppercase flex items-center gap-2 shadow-md"
+              >
+                <span>PLAY ON ITCH.IO</span>
+                <span>↗</span>
+              </a>
+              <a 
+                href="games.html?item=game-t-r-l" 
+                class="px-4 py-2.5 rounded-xl bg-panel hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs uppercase transition-colors"
+              >
+                <span>OVERVIEW →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2: WINGS OF PAPER -->
+        <article class="bg-surface border border-borderwire hover:border-lime rounded-2xl overflow-hidden transition-all duration-300 group flex flex-col justify-between shadow-xl">
+          <!-- Widescreen Artwork Container -->
+          <div class="relative w-full aspect-video overflow-hidden bg-void">
+            <img 
+              src="content/wings_of_paper/cover_art.webp" 
+              alt="Wings of Paper" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+            <!-- Status Badges -->
+            <div class="absolute top-4 left-4 flex items-center gap-2">
+              <span class="game-sticker sticker-purple text-[10px]">FEATURED</span>
+              <span class="game-sticker sticker-lime text-[10px]">FREE TO PLAY</span>
+            </div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 sm:p-8 flex flex-col justify-between flex-grow space-y-5">
+            <div class="space-y-2">
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+                  WINGS OF PAPER
+                </h3>
+                <span class="font-mono text-xs text-slate-400 font-semibold uppercase">02 // MOBILE &amp; ANDROID</span>
+              </div>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Relaxing endless flight simulation. Soar an origami plane through a low-poly world.
+              </p>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="game-btn game-btn-lime px-5 py-2.5 rounded-xl text-void font-extrabold text-xs uppercase flex items-center gap-2 shadow-md"
+              >
+                <span>GET ON GOOGLE PLAY</span>
+                <span>↗</span>
+              </a>
+              <a 
+                href="games.html?item=wings_of_paper" 
+                class="px-4 py-2.5 rounded-xl bg-panel hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs uppercase transition-colors"
+              >
+                <span>OVERVIEW →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
+
     </section>
+
 
   </main>
 
-  <!-- EMAIL SUBSCRIPTION MODAL -->
-  <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
-      
-      <!-- Tactical HUD Corners -->
-      <div class="hud-corner hud-corner-tl"></div>
-      <div class="hud-corner hud-corner-tr"></div>
-      <div class="hud-corner hud-corner-bl"></div>
-      <div class="hud-corner hud-corner-br"></div>
-
-      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
-        <div>
-          <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
-          <h2 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase mt-0.5">Subscribe to Updates</h2>
-        </div>
-        <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
-      </div>
-
-      <p class="font-sans text-xs text-slate-300 leading-relaxed">
-        Stay connected with our studio. Receive updates on new interactive experiences, game releases, devlogs, and creative tools.
-      </p>
-
-      <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
-        <div>
-          <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
-          <input 
-            type="email" 
-            id="subscriber-email" 
-            required 
-            placeholder="name@domain.com" 
-            class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
-          >
-        </div>
-
-        <button 
-          type="submit" 
-          id="subscriber-submit-btn" 
-          class="game-btn game-btn-ochre w-full py-3 text-void font-extrabold rounded-xl tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 text-xs"
-        >
-          <span>TRANSMIT SUBSCRIPTION →</span>
-        </button>
-
-        <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
-      </form>
-    </div>
-  </div>
-
-  <!-- REUSABLE PRODUCT DETAIL & DOWNLOAD MODAL WINDOW -->
-  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeProductModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
-      
-      <!-- Tactical HUD Corners -->
-      <div class="hud-corner hud-corner-tl"></div>
-      <div class="hud-corner hud-corner-tr"></div>
-      <div class="hud-corner hud-corner-bl"></div>
-      <div class="hud-corner hud-corner-br"></div>
-
-      <div class="flex justify-between items-start pb-3 border-b border-borderwire">
-        <div>
-          <span id="modal-item-category" class="game-sticker sticker-lime text-[10px] mb-1"></span>
-          <h2 id="modal-item-title" class="font-syne font-black italic text-xl sm:text-3xl text-white uppercase mt-1"></h2>
-        </div>
-        <div class="flex items-center gap-3">
-          <span id="modal-item-price" class="game-sticker sticker-ochre text-xs"></span>
-          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="min-w-[40px] min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
-        </div>
-      </div>
-
-      <!-- Interactive Main Image with Zoom Action & Multi-Image Gallery -->
-      <div class="space-y-2">
-        <div id="modal-item-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveItemImageViewer()">
-          <!-- HUD Corners inside stage frame -->
-          <div class="hud-corner hud-corner-tl"></div>
-          <div class="hud-corner hud-corner-tr"></div>
-          <div class="hud-corner hud-corner-bl"></div>
-          <div class="hud-corner hud-corner-br"></div>
-
-          <img id="modal-item-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          
-          <!-- Image Counter Badge -->
-          <span id="modal-item-img-counter" class="absolute top-2 left-2 px-2.5 py-1 bg-void/85 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden"></span>
-          
-          <!-- Expand Prompt -->
-          <span class="absolute bottom-2 right-2 px-3 py-1.5 bg-void/90 backdrop-blur-md rounded-lg border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
-            <span>EXPAND IMAGE</span>
-            <span class="text-xs">⤢</span>
-          </span>
-
-          <!-- Prev/Next Quick Navigation Overlay -->
-          <button 
-            type="button" 
-            id="modal-item-prev-btn" 
-            onclick="event.stopPropagation(); stepModalItemImage(-1);" 
-            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Previous image"
-          >‹</button>
-          <button 
-            type="button" 
-            id="modal-item-next-btn" 
-            onclick="event.stopPropagation(); stepModalItemImage(1);" 
-            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Next image"
-          >›</button>
-        </div>
-
-        <!-- Thumbnail Strip -->
-        <div id="modal-item-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
-      </div>
-
-      <p id="modal-item-desc" class="font-sans text-sm text-slate-200 leading-relaxed"></p>
-
-      <div id="modal-item-specs" class="p-4 bg-panel/70 border border-borderwire rounded-xl space-y-2"></div>
-
-      <div class="pt-3 flex flex-wrap sm:flex-nowrap gap-3">
-        <a id="modal-item-download" href="#" target="_blank" class="game-btn game-btn-lime flex-grow py-3 px-5 rounded-xl text-void font-black text-xs uppercase tracking-wider text-center transition-all shadow-md flex items-center justify-center gap-2">
-          <span>DOWNLOAD PRODUCT →</span>
-        </a>
-        <button id="modal-share-btn" type="button" onclick="copyItemUrl()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel px-4 py-3 rounded-xl text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap shadow-sm">
-          <span>SHARE LINK</span>
-        </button>
-        <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel px-4 py-3 rounded-xl text-slate-400 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm">
-          <span>CLOSE</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER WITH SOCIAL NETWORKS & QUICK NAVIGATION -->
+  <!-- FOOTER (ORIGINAL BOTTOM PANEL PRESERVED) -->
   <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs font-mono py-8 mt-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
       
@@ -457,410 +499,23 @@
   <script src="public/js/data/shopData.js"></script>
   <script src="public/js/data/newsData.js"></script>
   <script>
-    // --- HERO CAROUSEL: RECENT GAMES & PRODUCTS ---
-    let heroItems = [];
-    let currentHeroIdx = 0;
-    let autoSlideTimer = null;
+    // --- SCROLL REVEAL OBSERVER ---
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
 
-    function initHeroData() {
-      const recentGames = (window.GAMES_DATA || []).slice(0, 3).map(g => ({
-        ...g,
-        itemType: 'GAME',
-        tagline: g.engine || 'GODOT 4'
-      }));
-
-      const recentShop = (window.SHOP_DATA || []).slice(0, 3).map(p => ({
-        ...p,
-        itemType: 'PRODUCT',
-        tagline: p.categoryLabel || 'DEV ASSET'
-      }));
-
-      // Combine items for carousel
-      heroItems = [...recentGames, ...recentShop];
-      
-      const totalCountElem = document.getElementById('hero-total-count');
-      if (totalCountElem) {
-        totalCountElem.textContent = String(heroItems.length).padStart(2, '0');
-      }
-
-      renderHeroDots();
-      renderHeroSlide(0);
-      startHeroAutoplay();
-    }
-
-    let isHeroTransitioning = false;
-
-    function renderHeroDots() {
-      const dotsContainer = document.getElementById('hero-dots-container');
-      if (!dotsContainer) return;
-      dotsContainer.innerHTML = heroItems.map((_, idx) => `
-        <button 
-          type="button" 
-          onclick="goToHeroSlide(${idx})" 
-          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-          class="hero-dot w-6 h-1.5 rounded-full transition-all cursor-pointer ${idx === currentHeroIdx ? 'bg-ochre shadow-[0_0_10px_rgba(229,169,60,0.8)] scale-105' : 'bg-panel border border-borderwire hover:border-slate-400'}"
-          aria-label="Slide ${idx + 1}"
-        ></button>
-      `).join('');
-    }
-
-    function generateHeroSlideMarkup(item, idx) {
-      const isFree = (item.price || '').toLowerCase().includes('free');
-      const isGame = item.itemType === 'GAME';
-
-      return `
-        <!-- Left: Information & Game Actions -->
-        <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            
-            <!-- Diegetic Stickers & Meta Badges -->
-            <div class="flex flex-wrap items-center gap-2.5">
-              <span class="game-sticker ${isGame ? 'sticker-lime' : 'sticker-purple'}">
-                ${isGame ? 'PLAYABLE TITLE' : 'PRODUCTION ADDON'}
-              </span>
-              <span class="game-sticker sticker-ochre">
-                ${item.price}
-              </span>
-              <span class="px-2.5 py-1 rounded bg-panel border border-borderwire text-xs font-mono text-slate-300 font-bold uppercase tracking-wider">
-                ${item.badge || item.platform || 'GODOT 4'}
-              </span>
-            </div>
-
-            <!-- High-Energy Slanted Game Title -->
-            <h1 class="font-syne font-black italic text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight uppercase drop-shadow-md">
-              ${item.title}
-            </h1>
-
-            <!-- Description -->
-            <p class="font-sans text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-xl">
-              ${item.fullDesc || item.shortDesc}
-            </p>
-
-          </div>
-
-          <!-- Tactile Arcade Action Buttons -->
-          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
-            ${item.downloadUrl ? `
-              <a 
-                href="${item.downloadUrl}" 
-                target="_blank"
-                class="game-btn game-btn-lime px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-void font-black text-xs sm:text-sm uppercase flex items-center gap-2 shadow-md"
-              >
-                <span>${isGame ? 'PLAY GAME' : 'DOWNLOAD'} →</span>
-              </a>
-            ` : ''}
-            <button 
-              type="button" 
-              onclick='openHeroModal(${idx})' 
-              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-              class="game-btn game-btn-panel px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg text-white font-bold text-xs sm:text-sm uppercase flex items-center gap-2 shadow-sm"
-            >
-              <span>INSPECT DETAILS</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right: Visual Preview with Taped Stage Frame & HUD Corner Reticles -->
-        <div class="lg:col-span-6 flex flex-col justify-center">
-          <div 
-            onclick='openHeroModal(${idx})'
-            class="relative tape-top group cursor-pointer"
-          >
-            <!-- Inner Image Container with HUD Corners & Holographic Stage Frame -->
-            <div class="rounded-xl overflow-hidden border-2 border-borderwire group-hover:border-lime bg-void aspect-video relative flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:shadow-[0_0_30px_rgba(187,244,81,0.3)]">
-              <!-- Tactical HUD Reticle Corners -->
-              <div class="hud-corner hud-corner-tl"></div>
-              <div class="hud-corner hud-corner-tr"></div>
-              <div class="hud-corner hud-corner-bl"></div>
-              <div class="hud-corner hud-corner-br"></div>
-
-              <img 
-                src="${item.image}" 
-                alt="${item.title}" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              >
-              <div class="absolute inset-0 bg-gradient-to-t from-void/85 via-transparent to-transparent pointer-events-none"></div>
-              
-              <!-- Telemetry Badge (Top Right) -->
-              <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-void/90 backdrop-blur-md border border-borderwire text-[10px] font-mono text-lime-400 flex items-center gap-1.5 shadow-sm pointer-events-none">
-                <span class="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
-                <span>STAGE FEED // 60 FPS</span>
-              </div>
-
-              <!-- Interactive Center Inspect Overlay on Hover -->
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-void/30 backdrop-blur-[2px]">
-                <div class="px-4 py-2 rounded-xl bg-void/90 border border-lime text-lime font-syne font-bold text-xs uppercase tracking-wider shadow-2xl transform scale-95 group-hover:scale-100 transition-transform duration-300 flex items-center gap-2">
-                  <span>INSPECT STAGE ARCHIVE</span>
-                  <span>⤢</span>
-                </div>
-              </div>
-
-              <!-- Bottom Bar with Stickers & Expand CTA -->
-              <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center text-xs">
-                <span class="game-sticker sticker-lime text-[10px] transform -rotate-1">
-                  ${item.category || item.categoryLabel || 'STAGE VIEW'}
-                </span>
-                <span class="px-2.5 py-1 rounded bg-void/90 backdrop-blur-md border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime font-mono text-[11px] flex items-center gap-1.5 transition-colors">
-                  <span>EXPAND ⤢</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderHeroSlide(idx, direction = 1) {
-      if (heroItems.length === 0) return;
-      const targetIdx = (idx + heroItems.length) % heroItems.length;
-      const container = document.getElementById('hero-slide-container');
-      if (!container) return;
-
-      if (isHeroTransitioning) return;
-
-      const item = heroItems[targetIdx];
-      currentHeroIdx = targetIdx;
-
-      const idxElem = document.getElementById('hero-current-idx');
-      if (idxElem) idxElem.textContent = String(currentHeroIdx + 1).padStart(2, '0');
-
-      // Update dot styles
-      document.querySelectorAll('.hero-dot').forEach((d, i) => {
-        if (i === currentHeroIdx) {
-          d.className = 'hero-dot w-6 h-1.5 rounded-full transition-all bg-ochre shadow-[0_0_10px_rgba(229,169,60,0.8)] scale-105';
-        } else {
-          d.className = 'hero-dot w-6 h-1.5 rounded-full transition-all bg-panel border border-borderwire hover:border-slate-400';
-        }
-      });
-
-      // If initial render, inject immediately
-      if (container.children.length === 0) {
-        container.innerHTML = generateHeroSlideMarkup(item, currentHeroIdx);
-        return;
-      }
-
-      // Smooth Directional Exit Transition
-      isHeroTransitioning = true;
-      const exitClass = direction >= 0 ? 'hero-slide-exit-next' : 'hero-slide-exit-prev';
-      const enterClass = direction >= 0 ? 'hero-slide-enter-next' : 'hero-slide-enter-prev';
-
-      container.classList.add(exitClass);
-
-      setTimeout(() => {
-        container.innerHTML = generateHeroSlideMarkup(item, currentHeroIdx);
-        container.classList.remove(exitClass);
-        container.classList.add(enterClass);
-
-        // Force browser layout reflow
-        void container.offsetWidth;
-
-        container.classList.remove(enterClass);
-        container.classList.add('hero-slide-active');
-
-        setTimeout(() => {
-          container.classList.remove('hero-slide-active');
-          isHeroTransitioning = false;
-        }, 260);
-      }, 150);
-    }
-
-    function openHeroModal(idx) {
-      if (heroItems[idx]) {
-        openProductModal(heroItems[idx]);
-      }
-    }
-
-    function nextHeroSlide() {
-      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
-      renderHeroSlide(currentHeroIdx + 1, 1);
-      restartHeroAutoplay();
-    }
-
-    function prevHeroSlide() {
-      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
-      renderHeroSlide(currentHeroIdx - 1, -1);
-      restartHeroAutoplay();
-    }
-
-    window.stepHeroSlide = function(dir) {
-      if (dir > 0) nextHeroSlide();
-      else prevHeroSlide();
-    };
-
-    function goToHeroSlide(idx) {
-      if (idx === currentHeroIdx) return;
-      const dir = idx > currentHeroIdx ? 1 : -1;
-      if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
-      renderHeroSlide(idx, dir);
-      restartHeroAutoplay();
-    }
-
-    function startHeroAutoplay() {
-      stopHeroAutoplay();
-      autoSlideTimer = setInterval(() => {
-        renderHeroSlide(currentHeroIdx + 1, 1);
-      }, 7000);
-    }
-
-    function stopHeroAutoplay() {
-      if (autoSlideTimer) clearInterval(autoSlideTimer);
-    }
-
-    function restartHeroAutoplay() {
-      startHeroAutoplay();
-    }
-
-    function openNewsletterModal() {
-      if (typeof window.openNewsletterModal === 'function') {
-        window.openNewsletterModal();
-      }
-    }
-
-    function closeNewsletterModal() {
-      if (typeof window.closeNewsletterModal === 'function') {
-        window.closeNewsletterModal();
-      }
-    }
-
-    function submitGoogleNewsletter(e) {
-      e.preventDefault();
-      const emailInput = document.getElementById('subscriber-email');
-      const email = emailInput ? emailInput.value.trim() : '';
-      const status = document.getElementById('subscriber-status');
-      const btn = document.getElementById('subscriber-submit-btn');
-
-      if (!email) return;
-
-      btn.disabled = true;
-      btn.textContent = 'Subscribing...';
-      if (status) {
-        status.classList.remove('hidden');
-        status.textContent = 'Subscribing to Updates...';
-      }
-
-      // Studio Google Form Response Endpoint
-      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScxfDsAnnoPtq8w5GdNVhzHdrxUqe1Py5c-AyfqCFbnNlOrlA/formResponse';
-      
-      const payload = new URLSearchParams();
-      payload.append('entry.1884408784', 'News & Updates Subscriber');
-      payload.append('entry.1819151916', email);
-      payload.append('entry.195861844', '[NEWSLETTER] Subscribed to Studio News & Update Letter.');
-
-      let completed = false;
-      const finalizeSuccess = () => {
-        if (completed) return;
-        completed = true;
-        if (status) {
-          status.classList.remove('hidden');
-          status.innerHTML = `<span class="text-emerald-400 font-bold">[SUCCESS]</span> ${email} is now subscribed to News & Updates!`;
-        }
-        btn.textContent = 'Subscribed!';
-        if (emailInput) emailInput.value = '';
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = 'Subscribe';
-          closeNewsletterModal();
-        }, 1200);
-      };
-
-      try {
-        fetch(formUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload
-        }).then(finalizeSuccess).catch(finalizeSuccess);
-      } catch (err) {
-        finalizeSuccess();
-      }
-
-      setTimeout(finalizeSuccess, 1200);
-    }
-
-    // --- LATEST DEVLOG RENDERING ---
-    function initLatestNews() {
-      const container = document.getElementById('latest-news-container');
-      if (!container || !window.NEWS_DATA || window.NEWS_DATA.length === 0) return;
-
-      const latest = window.NEWS_DATA[0];
-      container.innerHTML = `
-        <article class="bg-surface border border-borderwire rounded-2xl p-6 sm:p-8 hover:border-ochre/40 transition-all duration-200 bg-halftone-dots">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div class="lg:col-span-7 space-y-4">
-              <div class="flex flex-wrap items-center gap-2.5">
-                <span class="game-sticker sticker-lime">
-                  ${latest.badge || 'LATEST DISPATCH'}
-                </span>
-                <span class="game-sticker sticker-purple">
-                  ${latest.category}
-                </span>
-                <span class="text-xs font-mono text-slate-400 font-bold">
-                  ${latest.date} // ${latest.readTime}
-                </span>
-              </div>
-
-              <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white uppercase tracking-tight hover:text-ochre transition-colors">
-                <a href="news.html?article=${latest.id}">
-                  ${latest.title}
-                </a>
-              </h3>
-
-              <p class="font-sans text-sm text-slate-200 leading-relaxed">
-                ${latest.summary}
-              </p>
-
-              <div class="pt-2 flex flex-wrap items-center gap-4">
-                <a href="news.html?article=${latest.id}" class="game-btn game-btn-ochre px-5 py-2.5 rounded-lg text-void font-black text-xs uppercase flex items-center gap-2">
-                  <span>READ MISSION LOG</span>
-                  <span>→</span>
-                </a>
-                <span class="text-slate-400 text-xs font-mono">AUTHOR: <strong class="text-slate-200">${latest.author}</strong></span>
-              </div>
-            </div>
-
-            <div class="lg:col-span-5">
-              <a href="news.html?article=${latest.id}" class="relative tape-top group block">
-                <div class="rounded-xl overflow-hidden border-2 border-borderwire group-hover:border-ochre aspect-video shadow-xl relative transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(229,169,60,0.25)]">
-                  <!-- Tactical HUD Reticle Corners -->
-                  <div class="hud-corner hud-corner-tl"></div>
-                  <div class="hud-corner hud-corner-tr"></div>
-                  <div class="hud-corner hud-corner-bl"></div>
-                  <div class="hud-corner hud-corner-br"></div>
-
-                  <img src="${latest.image}" alt="${latest.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-void/70 via-transparent to-transparent pointer-events-none"></div>
-                  <div class="absolute bottom-2.5 right-2.5">
-                    <span class="game-sticker sticker-ochre text-[10px]">INTEL FILE</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-          </div>
-        </article>
-      `;
-    }
-
-    function initHomePage() {
-      initHeroData();
-      initLatestNews();
-
-      // Pause hero autoplay when hovering over hero container
-      const heroContainer = document.getElementById('hero-slide-container');
-      if (heroContainer) {
-        heroContainer.addEventListener('mouseenter', stopHeroAutoplay);
-        heroContainer.addEventListener('mouseleave', startHeroAutoplay);
-        if (typeof window.addSwipeListener === 'function') {
-          window.addSwipeListener(heroContainer, nextHeroSlide, prevHeroSlide);
-        }
-      }
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHomePage);
+      document.addEventListener('DOMContentLoaded', initScrollAnimations);
     } else {
-      initHomePage();
+      initScrollAnimations();
     }
   </script>
 </body>
