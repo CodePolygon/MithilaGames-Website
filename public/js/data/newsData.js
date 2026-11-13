@@ -8,7 +8,7 @@ window.NEWS_DATA = [
       id: "news-blender-hair-cards-addon",
       title: "Introducing HairCards Suite: Automated Particle Hair to Card Mesh Converter",
       date: "2026-08-08",
-      category: "BLENDER & PIPELINE",
+      category: "BLENDER & 3D",
       badge: "NEW RELEASE [Update]",
       image: "content/Haircards/banner.png",
       images: [
@@ -20,7 +20,7 @@ window.NEWS_DATA = [
       readTime: "3 MIN READ",
       summary: "A powerful, multi-edition Blender addon designed to automatically convert heavy particle hair systems into optimized, game-ready card meshes with built-in texture baking and advanced LOD controls.",
       content: `
-        <p class="mb-4">We are thrilled to officially launch the <strong>HairCards Suite</strong>—a custom Blender addon built by Mithila Games to solve one of the most stubborn bottlenecks in real-time character pipelines: translating complex particle hair into low-poly, game-ready card meshes for engines like Godot, Unity, and Unreal Engine.</p>
+        <p class="mb-4">We are thrilled to officially launch the <strong>HairCards Suite</strong>—a custom Blender addon built by Mithila Games to solve one of the most stubborn bottlenecks in real-time character workflows: translating complex particle hair into low-poly, game-ready card meshes for engines like Godot, Unity, and Unreal Engine.</p>
         
         <p class="mb-4">Available in three tailored editions—<strong>Free</strong>, <strong>Base</strong>, and <strong>Full</strong>—this tool eliminates tedious manual placement while giving you precise control over your hair workflows, texture generation, and optimization.</p>
 
@@ -40,7 +40,7 @@ window.NEWS_DATA = [
       id: "blender-hair-cards-addon",
       title: "Introducing HairCards 3D: Automated Particle Hair to Card Mesh Converter",
       date: "2026-08-05",
-      category: "BLENDER & PIPELINE",
+      category: "BLENDER & 3D",
       badge: "NEW RELEASE [Update]",
       image: "content/Haircards/banner.png",
       images: [
@@ -52,7 +52,7 @@ window.NEWS_DATA = [
       readTime: "3 MIN READ",
       summary: "A custom Blender addon designed to automatically convert heavy particle hair systems into optimized, game-ready card meshes for real-time engines.",
       content: `
-        <p class="mb-4">We are excited to release soon our custom Blender addon built to solve one of the most stubborn bottlenecks in real-time character pipelines: translating complex particle hair into low-poly, engine-friendly card meshes. This tool automates the tedious manual placement of hair cards while retaining the stylistic silhouette of your high-poly grooms.</p>
+        <p class="mb-4">We are excited to release soon our custom Blender addon built to solve one of the most stubborn bottlenecks in real-time character workflows: translating complex particle hair into low-poly, engine-friendly card meshes. This tool automates the tedious manual placement of hair cards while retaining the stylistic silhouette of your high-poly grooms.</p>
         
         <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Key Addon Features:</h4>
         <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">

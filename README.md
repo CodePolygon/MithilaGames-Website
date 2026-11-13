@@ -1,6 +1,6 @@
-# Mithila Games Website Prototype
+# Mithila Games Website
 
-This is a functional, responsive website prototype for a fictional game company, "Mithila Games".
+Official web presence for **Mithila Games** — an independent creative studio building immersive interactive experiences, mechanics-first video games, and real-time development tools.
 
 It features a modern design with a collapsible sidebar, dynamic content loading from JSON files, and a background with subtle animations.
 

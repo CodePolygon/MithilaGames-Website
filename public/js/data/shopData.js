@@ -52,7 +52,7 @@ window.SHOP_DATA = [
       { label: "COMPATIBILITY", value: "Blender x.x" },  
       { label: "INCLUDES", value: "Demo project, Documentation, Addon" }
     ],
-    downloadText: "Buy [Free][open-source]",
+    downloadText: "Download [Free]",
     downloadUrl: "https://mithilagames.itch.io/vertshade"
   } 
 ];

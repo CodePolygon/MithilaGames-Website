@@ -530,7 +530,7 @@
           </div>
 
           <p class="font-sans text-xs text-slate-300 leading-relaxed">
-            Stay connected with our studio. Receive updates on new game releases, devlogs, and free open-source tools.
+            Stay connected with our studio. Receive updates on new interactive experiences, game releases, devlogs, and creative tools.
           </p>
 
           <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
