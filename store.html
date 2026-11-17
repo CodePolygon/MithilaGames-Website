@@ -169,8 +169,8 @@
         <button type="button" data-filter="tools" onclick="filterBazaar('tools')" class="filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
           DEV TOOLS &amp; ADDONS
         </button>
-        <button type="button" data-filter="shaders" onclick="filterBazaar('shaders')" class="filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
-          SHADERS &amp; 3D
+        <button type="button" data-filter="3d" onclick="filterBazaar('3d')" class="filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          3D &amp; ASSETS
         </button>
         <button type="button" data-filter="merch" onclick="filterBazaar('merch')" class="filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
           MERCH &amp; MEDIA
@@ -395,7 +395,22 @@
 
       const filtered = currentFilter === 'all' 
         ? window.SHOP_DATA 
-        : window.SHOP_DATA.filter(item => item.category === currentFilter);
+        : window.SHOP_DATA.filter(item => {
+            if (!item || !item.category) return false;
+            const itemCat = String(item.category).trim().toLowerCase();
+            const filter = String(currentFilter).trim().toLowerCase();
+
+            if (filter === '3d' || filter === 'assets' || filter === 'shaders') {
+              return ['3d', 'assets', '3d kits', '3d models', '3d assets', 'shaders', '3d kit', 'asset'].includes(itemCat);
+            }
+            if (filter === 'tools') {
+              return ['tools', 'tool', 'addons', 'addon', 'plugins', 'plugin', 'dev tools'].includes(itemCat);
+            }
+            if (filter === 'merch') {
+              return ['merch', 'merchandise', 'media', 'apparel'].includes(itemCat);
+            }
+            return itemCat === filter;
+          });
 
       if (filtered.length === 0) {
         container.innerHTML = `
@@ -453,7 +468,7 @@
               </div>
 
               <div class="p-4 sm:p-6 pt-0 flex justify-between items-center text-xs gap-2">
-                <span class="text-slate-400 font-mono text-[11px] truncate">SPEC: ${item.category}</span>
+                <span class="text-slate-400 font-mono text-[11px] truncate">SPEC: ${item.categoryLabel || item.category}</span>
                 <span class="game-btn game-btn-panel px-3 sm:px-3.5 py-1.5 rounded-lg text-white font-bold text-xs uppercase flex items-center gap-1.5 group-hover:border-lime shrink-0">
                   <span>LOAD SPECS</span>
                   <span>→</span>
@@ -468,7 +483,10 @@
     function filterBazaar(category) {
       currentFilter = category;
       document.querySelectorAll('.filter-pill').forEach((p) => {
-        if (p.getAttribute('data-filter') === category) {
+        const filterAttr = p.getAttribute('data-filter');
+        const isMatch = filterAttr === category || 
+          (['3d', 'assets', 'shaders'].includes(category) && ['3d', 'assets', 'shaders'].includes(filterAttr));
+        if (isMatch) {
           p.className = 'filter-pill nav-game-tab active-tab cursor-pointer shrink-0';
         } else {
           p.className = 'filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0';

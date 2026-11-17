@@ -415,7 +415,7 @@
     }
 
     if (title) title.textContent = item.title || '';
-    if (category) category.textContent = item.category || item.categoryLabel || 'ASSET';
+    if (category) category.textContent = item.categoryLabel || item.category || 'ASSET';
     if (price) price.textContent = item.price || 'FREE';
     if (desc) desc.textContent = item.fullDesc || item.shortDesc || item.description || '';
     
