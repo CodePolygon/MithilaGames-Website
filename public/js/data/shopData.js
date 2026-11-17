@@ -134,5 +134,33 @@ window.SHOP_DATA = [
     ],
     downloadText: "Download [Free]",
     downloadUrl: "https://mithilagames.itch.io/vertshade"
-  } 
+  },
+
+  {
+    id: "low-poly-environment-pack",
+    title: "Low Poly Environment Pack",
+    category: "3d",
+    categoryLabel: "3D Kits & Assets",
+    price: "FREE",
+    image: "content/lowpoly_environment/cover.png",
+    images: [
+      "content/lowpoly_environment/cover.png",
+      "content/lowpoly_environment/screen1.png",
+      "content/lowpoly_environment/screen2.png",
+      "content/lowpoly_environment/screen3.png",
+      "content/lowpoly_environment/screen4.png"
+    ],
+    badge: "Game Ready",
+    shortDesc: "Stylized 3D low-poly environment assets and modular outdoor terrain for Godot, Unity, and Unreal Engine.",
+    fullDesc: "Create beautiful, lightweight game worlds with this Low Poly Environment Pack, perfect for indie developers, mobile games, and stylized 3D projects. Designed with clean geometry and optimized performance for modular outdoor scenes.",
+    specs: [
+      { label: "FORMAT", value: ".FBX, .GLB, .OBJ" },
+      { label: "ENGINE COMPATIBILITY", value: "Godot, Unity, Unreal Engine" },
+      { label: "STYLE", value: "Stylized Low-Poly 3D" },
+      { label: "INCLUDES", value: "Modular Terrain, Nature, Clean Meshes & Prefabs" },
+      { label: "PUBLISHER", value: "3DsDiv / Mithila Games" }
+    ],
+    downloadText: "Download [Free]",
+    downloadUrl: "https://3dsdiv.itch.io/low-poly-environment-pack"
+  }
 ];

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mithila Games | Building Interactive Experiences &amp; Games</title>
-  <meta name="description" content="Mithila Games is an independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
-  <meta name="keywords" content="Mithila Games, interactive experiences, indie game studio, T R L, Wings of Paper, 3D parkour games, Android games, PC games, game development, real-time 3D, mechanics first">
+  <title>Mithila Games | Building Interactive Experiences, Games &amp; 3D Tools</title>
+  <meta name="description" content="Mithila Games is an independent studio crafting mechanics-first video games, interactive experiences, Blender addons, and 3D pipeline tools. Creators of T R L, Wings of Paper, aam chor, DepthDrive, Haircards, and more.">
+  <meta name="keywords" content="Mithila Games, indie game studio, T R L, Wings of Paper, aam chor, DepthDrive, Bullet Balast, WhaDark, Haircards, VertShade, Low Poly Environment Pack, 3D parkour games, Godot games, Blender addons, game development">
   <meta name="author" content="Mithila Games">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://mithilagames.com/">
@@ -17,8 +17,8 @@
   <!-- Open Graph / Facebook / Discord -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mithilagames.com/">
-  <meta property="og:title" content="Mithila Games | Building Interactive Experiences &amp; Games">
-  <meta property="og:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
+  <meta property="og:title" content="Mithila Games | Interactive Experiences, Games &amp; 3D Tools">
+  <meta property="og:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Explore all 10 games, addons, and 3D kits.">
   <meta property="og:image" content="https://mithilagames.com/content/t-r-l/cover.png">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="og:locale" content="en_US">
@@ -27,8 +27,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mithilagames">
   <meta name="twitter:creator" content="@mithilagames">
-  <meta name="twitter:title" content="Mithila Games | Building Interactive Experiences &amp; Games">
-  <meta name="twitter:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Creators of T R L and Wings of Paper.">
+  <meta name="twitter:title" content="Mithila Games | Interactive Experiences, Games &amp; 3D Tools">
+  <meta name="twitter:description" content="Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools. Explore all 10 games, addons, and 3D kits.">
   <meta name="twitter:image" content="https://mithilagames.com/content/t-r-l/cover.png">
 
   <!-- Schema.org JSON-LD Structured Data for Google Rich Results & Knowledge Graph -->
@@ -44,8 +44,11 @@
         "logo": "https://mithilagames.com/public/assets/logo/logo_wide.svg",
         "description": "Independent studio building immersive interactive experiences, mechanics-first video games, and real-time development tools.",
         "sameAs": [
+          "https://x.com/mithilagames",
+          "https://youtube.com/@mithilagames",
           "https://instagram.com/mithilagames",
-          "https://facebook.com/mithilagames"
+          "https://facebook.com/mithilagames",
+          "https://mithilagames.itch.io"
         ]
       },
       {
@@ -94,7 +97,7 @@
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape"
+          "url": "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpaper"
         }
       }
     ]
@@ -114,6 +117,7 @@
             borderwire: '#232735',
             ochre: '#E5A93C',
             terracotta: '#D45B38',
+            lime: '#BBF451',
             'slate-muted': '#B5B9C5',
           },
           fontFamily: {
@@ -128,23 +132,85 @@
   <link rel="stylesheet" href="public/css/theme.css">
 
   <style>
-    /* Smooth Scroll-Triggered Animation Styles */
+    /* Sleek Keyframe Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 6px rgba(187, 244, 81, 0.4)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(187, 244, 81, 0.8)); }
+    }
+    @keyframes subtleGlowOchre {
+      0%, 100% { box-shadow: 0 0 15px rgba(229, 169, 60, 0.1); }
+      50% { box-shadow: 0 0 30px rgba(229, 169, 60, 0.3); }
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 2.5s ease-in-out infinite;
+    }
+
+    /* Modern Glass Card with Smooth Hover Elevation & Glow */
+    .studio-card {
+      background: rgba(15, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .studio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(229, 169, 60, 0.6);
+      box-shadow: 0 20px 45px -15px rgba(229, 169, 60, 0.22);
+    }
+    .studio-card-lime:hover {
+      border-color: rgba(187, 244, 81, 0.6);
+      box-shadow: 0 20px 45px -15px rgba(187, 244, 81, 0.22);
+    }
+    .studio-card-purple:hover {
+      border-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 20px 45px -15px rgba(168, 85, 247, 0.22);
+    }
+
+    /* Image Zoom on Card Hover */
+    .studio-card img {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .studio-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Carousel Edge Gradient Mask - Softly fades left and right boundaries so cards never have harsh cutoffs */
+    .carousel-fade-mask {
+      mask-image: linear-gradient(to right, transparent 0%, black 48px, black calc(100% - 48px), transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 48px, black calc(100% - 48px), transparent 100%);
+    }
+
+    /* Staggered Scroll-Triggered Fade-In Animations */
     .scroll-reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
     .scroll-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
   </style>
 </head>
 <body class="bg-void min-h-screen flex flex-col antialiased text-slate-200 selection:bg-ochre selection:text-void relative">
 
-  <!-- GAME HUD RESPONSIVE HEADER (ORIGINAL TOP PANEL PRESERVED) -->
-  <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-borderwire">
+  <!-- GAME HUD RESPONSIVE HEADER -->
+  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand Logo with Arcade Skew -->
@@ -186,7 +252,7 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Navigation Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
       <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
@@ -212,60 +278,39 @@
   <main class="flex-grow w-full">
 
     <!-- ================================================================= -->
-    <!-- SECTION 1: HERO - FULL-PAGE COVER BILLBOARD (PROPERLY POSITIONED) -->
+    <!-- HERO SECTION: MITHILA GAMES & STUDIO TAGLINE                      -->
     <!-- ================================================================= -->
-    <section class="relative w-full h-[calc(100vh-4rem)] min-h-[580px] max-h-[960px] flex flex-col justify-between overflow-hidden bg-void select-none">
+    <section class="relative w-full h-[calc(100vh-4rem)] min-h-[520px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-void select-none">
       
-      <!-- Full-Bleed Artwork Background (Covering the entire page cleanly) -->
+      <!-- Studio Atmospheric Backdrop -->
       <div class="absolute inset-0 z-0">
         <img 
-          src="content/t-r-l/cover.png" 
-          alt="T R L // 3D Parkour Game" 
+          src="public/assets/images/wings_paper_hero.jpg" 
+          alt="Mithila Games" 
           class="w-full h-full object-cover object-center scale-100"
         >
-        <!-- Balanced Vignette Gradients for High Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-void/30"></div>
-        <div class="absolute inset-0 bg-radial-vignette opacity-60"></div>
+        <!-- Gradients for High Legibility -->
+        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/55 to-void/30"></div>
+        <div class="absolute inset-0 bg-radial-vignette opacity-70"></div>
       </div>
 
-
-      <!-- Center Billboard: Clean, Iconic, High-Impact -->
-      <div class="relative z-10 max-w-3xl mx-auto px-4 text-center my-auto space-y-4">
+      <!-- Center Billboard: Clean, Iconic, Minimal -->
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center my-auto space-y-4">
         
-        <h1 class="font-syne font-black italic text-6xl sm:text-8xl lg:text-9xl text-white tracking-tighter uppercase leading-none drop-shadow-[0_10px_35px_rgba(0,0,0,0.95)]">
-          T R L
+        <h1 class="font-syne font-black italic text-6xl sm:text-8xl lg:text-9xl text-white tracking-tighter uppercase leading-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)]">
+          MITHILA GAMES
         </h1>
 
-        <p class="font-syne font-bold text-sm sm:text-lg text-ochre uppercase tracking-widest">
-          JUST A NON-ORDINARY 3D PARKOUR GAME
+        <p class="font-syne font-bold text-sm sm:text-lg md:text-xl text-ochre uppercase tracking-widest max-w-xl mx-auto drop-shadow-md">
+          BUILDING INTERACTIVE EXPERIENCES
         </p>
-
-        <!-- CTA Buttons -->
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
-          <a 
-            href="https://mithilagames.itch.io/t-r-l" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="game-btn game-btn-ochre px-8 py-3.5 rounded-xl text-void font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 shadow-xl"
-          >
-            <span>PLAY FREE ON ITCH.IO</span>
-            <span>↗</span>
-          </a>
-
-          <a 
-            href="games.html?item=game-t-r-l" 
-            class="px-6 py-3.5 rounded-xl bg-surface/90 hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md transition-colors"
-          >
-            <span>OVERVIEW →</span>
-          </a>
-        </div>
 
       </div>
 
-      <!-- Bottom Jump Indicator: Seamlessly Anchors the Hero -->
+      <!-- Bottom Jump Indicator -->
       <div class="relative z-10 pb-6 text-center">
-        <a href="#what-we-do" class="inline-flex flex-col items-center gap-1 text-[11px] font-mono uppercase text-slate-400 hover:text-ochre transition-colors group">
-          <span>WHAT WE DO</span>
+        <a href="#games" class="inline-flex flex-col items-center gap-1.5 text-xs font-mono uppercase text-slate-400 hover:text-ochre transition-colors group">
+          <span>EXPLORE PRODUCTIONS</span>
           <span class="text-sm font-bold group-hover:translate-y-1 transition-transform">↓</span>
         </a>
       </div>
@@ -273,169 +318,581 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 2: WHAT WE DO (REDESIGNED PROPERLY, CLEAN, NO CLIPPING)    -->
+    <!-- SECTION 1: GAMES CATALOG - PLAYABLE BUILDS                        -->
     <!-- ================================================================= -->
-    <section id="what-we-do" class="bg-surface border-y border-borderwire py-20 sm:py-24 relative z-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-14">
-        
-        <!-- Section Header -->
-        <div class="max-w-4xl mx-auto px-4 text-center space-y-4 scroll-reveal">
-          <span class="text-ochre font-mono text-xs uppercase font-extrabold tracking-widest">
-            [ WHAT WE DO ]
-          </span>
-          <h2 class="font-syne font-black italic text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight">
-            BUILDING INTERACTIVE EXPERIENCES.
+    <section id="games" class="py-16 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-borderwire">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="game-sticker sticker-lime text-[10px]">PRODUCTION HANGAR</span>
+            <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// PLAYABLE BUILDS</span>
+          </div>
+          <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase flex items-baseline gap-2">
+            <span class="brush-splash brush-splash-ochre px-2 py-0.5 rounded text-white font-black">GAMES</span>
+            <span>CATALOG</span>
           </h2>
-          <p class="font-sans text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            We craft mechanics-first video games and real-time interactive worlds engineered for kinetic physics, tight input response, and pure player agency.
-          </p>
         </div>
 
+        <!-- Scroll Controls & View All Link -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2" onmouseenter="pauseGamesScroll()" onmouseleave="resumeGamesScroll(1000)">
+            <button 
+              type="button" 
+              onclick="scrollTrack('games-scroll-track', -1)" 
+              class="w-10 h-10 rounded-xl bg-panel/90 hover:bg-surface border border-borderwire hover:border-lime active:scale-90 text-slate-300 hover:text-lime flex items-center justify-center transition-all duration-200 cursor-pointer select-none shadow-md"
+              aria-label="Previous game"
+              title="Previous Game [←]"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button 
+              type="button" 
+              onclick="scrollTrack('games-scroll-track', 1)" 
+              class="w-10 h-10 rounded-xl bg-panel/90 hover:bg-surface border border-borderwire hover:border-lime active:scale-90 text-slate-300 hover:text-lime flex items-center justify-center transition-all duration-200 cursor-pointer select-none shadow-md"
+              aria-label="Next game"
+              title="Next Game [→]"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <a href="games.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors group">
+            <span>VIEW ALL 6</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Single Scrollable Row for All 6 Games -->
+      <div 
+        id="games-scroll-track" 
+        class="flex gap-5 sm:gap-6 overflow-x-auto pb-4 pt-1 no-scrollbar select-none will-change-scroll"
+        style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;"
+      >
+        
+        <!-- GAME 1: T R L -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[0])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img 
+                src="content/t-r-l/cover.png" 
+                alt="T R L 3D Parkour" 
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-lime text-[10px]">NEW RELEASE</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-lime">
+                  GODOT 4
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">HTML5 / PC</span>
+                <span>// 3D PARKOUR</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+                T R L
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Fast-paced 3D momentum parkour. Leap through acrobatic obstacle courses with kinetic physics and fluid wall-runs.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
+          </div>
+        </article>
+
+        <!-- GAME 2: WINGS OF PAPER -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[1])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img 
+                src="public/assets/images/wings_paper_hero.jpg" 
+                alt="Wings of Paper" 
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-purple text-[10px]">FEATURED</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-ochre">
+                  GODOT 4
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">ANDROID / PC</span>
+                <span>// ARCADE GLIDER</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+                WINGS OF PAPER
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Relaxing endless flight simulation. Soar an origami plane through a serene 3D low-poly world with aerodynamic lift mechanics.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-lime text-[10px]">FREE TO PLAY</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">GET GAME →</span>
+          </div>
+        </article>
+
+        <!-- GAME 3: aam chor -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[2])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img src="content/aam_chor/cover.png" alt="aam chor" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-lime text-[10px]">PLAY IN BROWSER</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-slate-300">
+                  GAME JAM
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">HTML5 / WIN / LINUX</span>
+                <span>// SURVIVAL</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
+                aam chor
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Survival horror game jam prototype. Gather mangoes with your flashlight before battery dies and the hounds hunt.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
+          </div>
+        </article>
+
+        <!-- GAME 4: DepthDrive -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[3])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img src="content/depth_drive/cover.png" alt="DepthDrive" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-ochre text-[10px]">ANDROID BUILD</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-slate-300">
+                  EARLY DEV
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">MOBILE SIMULATOR</span>
+                <span>// RELAXING</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
+                DepthDrive
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                A cozy casual driving prototype exploring relaxing roads, physics-based vehicle tuning, and low-poly atmosphere.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">GET APK →</span>
+          </div>
+        </article>
+
+        <!-- GAME 5: Bullet Balast -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[4])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img src="content/bullet_balast/cover.png" alt="Bullet Balast" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-lime text-[10px]">PLAY IN BROWSER</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-slate-300">
+                  HYPERCASUAL
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">HTML5 / MOBILE WEB</span>
+                <span>// ARCADE</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
+                Bullet Balast
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Endless loop reflex arcade game with responsive keyboard and touch controls made for Godot India Game Jam.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
+          </div>
+        </article>
+
+        <!-- GAME 6: WhaDark -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA[5])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img src="content/whadark/cover.png" alt="WhaDark" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-ochre text-[10px]">DOWNLOADABLE</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-slate-300">
+                  VINTAGE BUILD
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-2">
+              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">LINUX / ANDROID</span>
+                <span>// 2D PLATFORMER</span>
+              </div>
+              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
+                WhaDark
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Challenging 2D vertical summit platformer adventure testing reflex precision and perilous platform leaps.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">DOWNLOAD →</span>
+          </div>
+        </article>
+
+      </div>
+
     </section>
 
+<!-- ================================================================= -->
+    <!-- SECTION 2: 3D PIPELINE TOOLS & ASSET KITS (MIDDLE TIER - 4 CARDS)  -->
     <!-- ================================================================= -->
-    <!-- SECTION 3: GAMES CATALOG - CLEAN RESPONSIVE INDIE GRID            -->
-    <!-- ================================================================= -->
-    <section class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
-      
-      <!-- Section Header -->
-      <div class="flex items-end justify-between pb-6 border-b border-borderwire">
-        <div>
-          <span class="text-ochre font-mono text-xs uppercase font-extrabold tracking-widest">
-            [ PLAYABLE BUILDS ]
-          </span>
-          <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase mt-1">
-            GAMES CATALOG
-          </h2>
-        </div>
-        <a href="games.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors">
-          <span>All Games</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      <!-- Responsive 2-Column Game Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    <section id="tools-assets" class="py-16 sm:py-20 bg-surface/40 border-y border-borderwire relative z-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
         
-        <!-- CARD 1: T R L -->
-        <article class="bg-surface border border-borderwire hover:border-ochre rounded-2xl overflow-hidden transition-all duration-300 group flex flex-col justify-between shadow-xl">
-          <!-- Widescreen Artwork Container -->
-          <div class="relative w-full aspect-video overflow-hidden bg-void">
-            <img 
-              src="content/t-r-l/cover.png" 
-              alt="T R L Game" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            >
-            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
-            <!-- Status Badges -->
-            <div class="absolute top-4 left-4 flex items-center gap-2">
-              <span class="game-sticker sticker-lime text-[10px]">NEW RELEASE</span>
-              <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-borderwire">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="game-sticker sticker-purple text-[10px]">CREATIVE PIPELINE</span>
+              <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// 3D KITS &amp; ADDONS</span>
             </div>
+            <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase">
+              TOOLS &amp; <span class="text-ochre">3D ASSETS</span>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-slate-400 mt-1 max-w-lg">
+              Procedural Blender tools, vertex shader bakers, and stylized low-poly kits engineered to speed up game development.
+            </p>
           </div>
 
-          <!-- Card Content Body -->
-          <div class="p-6 sm:p-8 flex flex-col justify-between flex-grow space-y-5">
-            <div class="space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white tracking-tight uppercase group-hover:text-ochre transition-colors">
-                  T R L
-                </h3>
-                <span class="font-mono text-xs text-slate-400 font-semibold uppercase">01 // BROWSER &amp; PC</span>
+          <div class="flex items-center gap-3">
+            <div class="flex lg:hidden items-center gap-1.5">
+              <button 
+                type="button" 
+                onclick="scrollTrack('tools-scroll-track', -1)" 
+                class="w-9 h-9 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-300 hover:text-white flex items-center justify-center transition-colors font-bold text-lg cursor-pointer select-none"
+                aria-label="Scroll left"
+              >‹</button>
+              <button 
+                type="button" 
+                onclick="scrollTrack('tools-scroll-track', 1)" 
+                class="w-9 h-9 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-300 hover:text-white flex items-center justify-center transition-colors font-bold text-lg cursor-pointer select-none"
+                aria-label="Scroll right"
+              >›</button>
+            </div>
+            <a href="store.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors group">
+              <span>VISIT BAZAAR STORE</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Single Row: Scrollable on mobile, 4-col on desktop (Hidden Scrollbar) -->
+        <div 
+          id="tools-scroll-track" 
+          class="flex lg:grid lg:grid-cols-4 gap-5 sm:gap-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 pt-1 scroll-smooth no-scrollbar select-none"
+          style="scrollbar-width: none; -ms-overflow-style: none;"
+        >
+          
+          <!-- ITEM 1: Haircards -->
+          <div 
+            onclick="openProductModal(window.SHOP_DATA[0])"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+          >
+            <div>
+              <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
+                <img src="content/Haircards/banner.png" alt="Haircards Addon" class="w-full h-full object-cover">
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="game-sticker sticker-purple text-[9px]">BLENDER ADDON</span>
+                </div>
+                <div class="absolute bottom-2.5 right-2.5">
+                  <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">PYTHON</span>
+                </div>
               </div>
-              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Fast-paced 3D momentum parkour. Fluid wall-runs and obstacle courses.
-              </p>
-            </div>
-
-            <!-- Action CTAs -->
-            <div class="pt-2 flex flex-wrap items-center gap-3">
-              <a 
-                href="https://mithilagames.itch.io/t-r-l" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="game-btn game-btn-ochre px-5 py-2.5 rounded-xl text-void font-extrabold text-xs uppercase flex items-center gap-2 shadow-md"
-              >
-                <span>PLAY ON ITCH.IO</span>
-                <span>↗</span>
-              </a>
-              <a 
-                href="games.html?item=game-t-r-l" 
-                class="px-4 py-2.5 rounded-xl bg-panel hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs uppercase transition-colors"
-              >
-                <span>OVERVIEW →</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- CARD 2: WINGS OF PAPER -->
-        <article class="bg-surface border border-borderwire hover:border-lime rounded-2xl overflow-hidden transition-all duration-300 group flex flex-col justify-between shadow-xl">
-          <!-- Widescreen Artwork Container -->
-          <div class="relative w-full aspect-video overflow-hidden bg-void">
-            <img 
-              src="content/wings_of_paper/cover_art.webp" 
-              alt="Wings of Paper" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            >
-            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
-            <!-- Status Badges -->
-            <div class="absolute top-4 left-4 flex items-center gap-2">
-              <span class="game-sticker sticker-purple text-[10px]">FEATURED</span>
-              <span class="game-sticker sticker-lime text-[10px]">FREE TO PLAY</span>
-            </div>
-          </div>
-
-          <!-- Card Content Body -->
-          <div class="p-6 sm:p-8 flex flex-col justify-between flex-grow space-y-5">
-            <div class="space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <h3 class="font-syne font-black italic text-2xl sm:text-3xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
-                  WINGS OF PAPER
+              <div class="p-5 space-y-2">
+                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // ADDON</span>
+                <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
+                  Haircards
                 </h3>
-                <span class="font-mono text-xs text-slate-400 font-semibold uppercase">02 // MOBILE &amp; ANDROID</span>
+                <p class="font-sans text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  Fast procedural hair card generator converting Blender particle systems directly into game-ready card meshes.
+                </p>
               </div>
-              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Relaxing endless flight simulation. Soar an origami plane through a low-poly world.
-              </p>
             </div>
-
-            <!-- Action CTAs -->
-            <div class="pt-2 flex flex-wrap items-center gap-3">
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpape" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="game-btn game-btn-lime px-5 py-2.5 rounded-xl text-void font-extrabold text-xs uppercase flex items-center gap-2 shadow-md"
-              >
-                <span>GET ON GOOGLE PLAY</span>
-                <span>↗</span>
-              </a>
-              <a 
-                href="games.html?item=wings_of_paper" 
-                class="px-4 py-2.5 rounded-xl bg-panel hover:bg-surface border border-borderwire hover:border-slate-300 text-white font-syne font-bold text-xs uppercase transition-colors"
-              >
-                <span>OVERVIEW →</span>
-              </a>
+            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+              <span class="game-sticker sticker-lime text-[10px]">FREE</span>
+              <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
             </div>
           </div>
-        </article>
+
+          <!-- ITEM 2: Lowpoly Character -->
+          <div 
+            onclick="openProductModal(window.SHOP_DATA[1])"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+          >
+            <div>
+              <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
+                <img src="content/3D_models/lowpoly-characters/thumbnail.png" alt="Lowpoly Character" class="w-full h-full object-cover">
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="game-sticker sticker-ochre text-[9px]">3D MODEL</span>
+                </div>
+                <div class="absolute bottom-2.5 right-2.5">
+                  <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">RIGGED</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-2">
+                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // CHARACTERS</span>
+                <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
+                  Lowpoly Character
+                </h3>
+                <p class="font-sans text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  Versatile pack of 4 rigged, game-ready low-poly casual characters suitable for prototyping and mobile engines.
+                </p>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+              <span class="game-sticker sticker-lime text-[10px]">FREE</span>
+              <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
+            </div>
+          </div>
+
+          <!-- ITEM 3: VertShade -->
+          <div 
+            onclick="openProductModal(window.SHOP_DATA[2])"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+          >
+            <div>
+              <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
+                <img src="content/Vertex-Shadow-Painter-for-Blender/banner.png" alt="VertShade" class="w-full h-full object-cover">
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="game-sticker sticker-purple text-[9px]">BLENDER ADDON</span>
+                </div>
+                <div class="absolute bottom-2.5 right-2.5">
+                  <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">AO BAKE</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-2">
+                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // SHADING</span>
+                <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
+                  VertShade
+                </h3>
+                <p class="font-sans text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  Bakes contact shadows and ambient occlusion directly into 3D mesh vertex colors for ultra-fast mobile rendering.
+                </p>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+              <span class="game-sticker sticker-lime text-[10px]">FREE</span>
+              <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
+            </div>
+          </div>
+
+          <!-- ITEM 4: Low Poly Environment Pack -->
+          <div 
+            onclick="openProductModal(window.SHOP_DATA[3])"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+          >
+            <div>
+              <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
+                <img src="content/lowpoly_environment/cover.png" alt="Low Poly Environment Pack" class="w-full h-full object-cover">
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="game-sticker sticker-ochre text-[9px]">3D ASSET KIT</span>
+                </div>
+                <div class="absolute bottom-2.5 right-2.5">
+                  <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">MODULAR</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-2">
+                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // TERRAIN</span>
+                <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
+                  Environment Pack
+                </h3>
+                <p class="font-sans text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  Stylized 3D low-poly outdoor terrain, nature assets, clean meshes, and prefabs for Godot, Unity, and Unreal.
+                </p>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+              <span class="game-sticker sticker-lime text-[10px]">FREE</span>
+              <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
+            </div>
+          </div>
+
+        </div>
 
       </div>
-
     </section>
 
 
   </main>
 
-  <!-- FOOTER (ORIGINAL BOTTOM PANEL PRESERVED) -->
+  <!-- REUSABLE PRODUCT DETAIL & DOWNLOAD MODAL WINDOW -->
+  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeProductModal()">
+    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+      
+      <!-- Tactical HUD Corners -->
+      <div class="hud-corner hud-corner-tl"></div>
+      <div class="hud-corner hud-corner-tr"></div>
+      <div class="hud-corner hud-corner-bl"></div>
+      <div class="hud-corner hud-corner-br"></div>
+
+      <div class="flex items-start justify-between gap-3 pb-3 border-b border-borderwire">
+        <div class="min-w-0 flex-1">
+          <span id="modal-item-category" class="game-sticker sticker-lime text-[10px] mb-1 inline-block max-w-full truncate"></span>
+          <h2 id="modal-item-title" class="font-syne font-black italic text-lg sm:text-2xl lg:text-3xl text-white uppercase mt-1 break-words"></h2>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <span id="modal-item-price" class="game-sticker sticker-ochre text-xs shrink-0"></span>
+          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold shrink-0" aria-label="Close modal">✕</button>
+        </div>
+      </div>
+
+      <!-- Interactive Main Image with Zoom Action & Multi-Image Gallery -->
+      <div class="space-y-2">
+        <div id="modal-item-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveItemImageViewer()">
+          <div class="hud-corner hud-corner-tl"></div>
+          <div class="hud-corner hud-corner-tr"></div>
+          <div class="hud-corner hud-corner-bl"></div>
+          <div class="hud-corner hud-corner-br"></div>
+
+          <img id="modal-item-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          
+          <span id="modal-item-img-counter" class="absolute top-2 left-2 px-2.5 py-1 bg-void/85 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden"></span>
+          
+          <span class="absolute bottom-2 right-2 px-3 py-1.5 bg-void/90 backdrop-blur-md rounded-lg border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
+            <span>EXPAND IMAGE</span>
+            <span class="text-xs">⤢</span>
+          </span>
+
+          <button 
+            type="button" 
+            id="modal-item-prev-btn" 
+            onclick="event.stopPropagation(); stepModalItemImage(-1);" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
+            aria-label="Previous image"
+          >‹</button>
+          <button 
+            type="button" 
+            id="modal-item-next-btn" 
+            onclick="event.stopPropagation(); stepModalItemImage(1);" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
+            aria-label="Next image"
+          >›</button>
+        </div>
+
+        <div id="modal-item-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
+      </div>
+
+      <p id="modal-item-desc" class="font-sans text-sm text-slate-200 leading-relaxed"></p>
+
+      <div id="modal-item-specs" class="p-4 bg-panel/70 border border-borderwire rounded-xl space-y-2"></div>
+
+      <div class="pt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
+        <a id="modal-item-download" href="#" target="_blank" class="game-btn game-btn-lime w-full sm:flex-1 py-3 px-4 rounded-xl text-void font-black text-xs uppercase tracking-wider text-center transition-all shadow-md flex items-center justify-center gap-2">
+          <span>LAUNCH BUILD →</span>
+        </a>
+        <div class="grid grid-cols-2 gap-2 sm:flex sm:gap-3 shrink-0">
+          <button id="modal-share-btn" type="button" onclick="copyItemUrl()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full sm:w-auto px-4 py-3 rounded-xl text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap shadow-sm text-center">
+            <span>SHARE LINK</span>
+          </button>
+          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full sm:w-auto px-4 py-3 rounded-xl text-slate-400 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm text-center">
+            <span>CLOSE</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="border-t border-borderwire bg-surface text-slate-muted text-xs font-mono py-8 mt-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
       
       <!-- Top Row: Brand, Copyright & Social Networks -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
-        <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="home.html" class="flex items-center gap-2">
             <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
@@ -447,23 +904,18 @@
         <!-- Social Networks Link Panel -->
         <div class="flex items-center gap-2">
           <span class="text-xs text-slate-400 mr-2 hidden sm:inline">Follow Us</span>
-          <!-- X (formerly Twitter) -->
           <a href="https://x.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="X / Twitter" title="X / Twitter [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <!-- YouTube -->
           <a href="https://youtube.com/@mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="YouTube" title="YouTube [@mithilagames]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
-          <!-- Instagram -->
           <a href="https://instagram.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="Instagram" title="Instagram [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
-          <!-- GitHub -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="GitHub" title="GitHub [Studio Tools & Addons]">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <a href="https://mithilagames.itch.io" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors font-bold text-[11px]" aria-label="itch.io" title="itch.io [MithilaGames]">
+            <span>itch</span>
           </a>
-          <!-- Facebook -->
           <a href="https://facebook.com/mithilagames" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-ochre flex items-center justify-center transition-colors" aria-label="Facebook" title="Facebook [@mithilagames]">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
@@ -499,7 +951,7 @@
   <script src="public/js/data/shopData.js"></script>
   <script src="public/js/data/newsData.js"></script>
   <script>
-    // --- SCROLL REVEAL OBSERVER ---
+    // --- SCROLL REVEAL OBSERVER WITH STAGGER ---
     function initScrollAnimations() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -512,11 +964,172 @@
       document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initScrollAnimations);
-    } else {
-      initScrollAnimations();
+    // --- HIGH-PERFORMANCE DELTA-TIME INFINITE AUTO-SCROLL & STEP CONTROLLER ---
+    let gamesScrollPos = 0;
+    let isGamesPaused = false;
+    let isManualInteracting = false;
+    let gamesPauseTimer = null;
+    let originalCardCount = 6;
+    let gamesStepSize = 374;
+    let gamesLoopDistance = 2244;
+    let lastFrameTime = performance.now();
+    const scrollSpeedPixelsPerSecond = 46; // Buttery-smooth, steady 46px/sec speed
+
+    function updateGamesMetrics() {
+      const track = document.getElementById('games-scroll-track');
+      if (!track) return;
+      const firstCard = track.querySelector('article');
+      if (!firstCard) return;
+      const cardRect = firstCard.getBoundingClientRect();
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+      gamesStepSize = cardRect.width + gap;
+      gamesLoopDistance = gamesStepSize * originalCardCount;
     }
+
+    window.pauseGamesScroll = function() {
+      if (gamesPauseTimer) clearTimeout(gamesPauseTimer);
+      isGamesPaused = true;
+    };
+
+    window.resumeGamesScroll = function(delayMs = 0) {
+      if (gamesPauseTimer) clearTimeout(gamesPauseTimer);
+      if (delayMs > 0) {
+        gamesPauseTimer = setTimeout(() => {
+          const track = document.getElementById('games-scroll-track');
+          if (track) gamesScrollPos = track.scrollLeft;
+          lastFrameTime = performance.now();
+          isGamesPaused = false;
+        }, delayMs);
+      } else {
+        const track = document.getElementById('games-scroll-track');
+        if (track) gamesScrollPos = track.scrollLeft;
+        lastFrameTime = performance.now();
+        isGamesPaused = false;
+      }
+    };
+
+    window.scrollTrack = function(trackId, direction) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+
+      if (trackId === 'games-scroll-track') {
+        window.pauseGamesScroll();
+        isManualInteracting = true;
+
+        let currentScroll = track.scrollLeft;
+
+        // Backward seamless wrap
+        if (direction < 0 && (currentScroll - gamesStepSize) < 0 && gamesLoopDistance > 0) {
+          track.scrollLeft += gamesLoopDistance;
+          currentScroll = track.scrollLeft;
+        }
+
+        const targetScroll = currentScroll + (direction * gamesStepSize);
+        track.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        gamesScrollPos = targetScroll;
+
+        setTimeout(() => {
+          if (gamesLoopDistance > 0 && track.scrollLeft >= gamesLoopDistance) {
+            track.scrollLeft -= gamesLoopDistance;
+          }
+          gamesScrollPos = track.scrollLeft;
+          isManualInteracting = false;
+        }, 450);
+
+        window.resumeGamesScroll(4000);
+
+      } else {
+        const card = track.querySelector('article, div');
+        const step = card ? card.offsetWidth + 24 : 374;
+        track.scrollBy({ left: direction * step, behavior: 'smooth' });
+      }
+    };
+
+    function initSmoothInfiniteScroll(trackId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+
+      const originalCards = Array.from(track.children);
+      originalCardCount = originalCards.length;
+      if (originalCardCount === 0) return;
+
+      // Duplicate exactly once for seamless infinite wrap
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+
+      // Compute metrics ONCE to avoid layout thrashing during requestAnimationFrame
+      updateGamesMetrics();
+      window.addEventListener('resize', updateGamesMetrics);
+
+      gamesScrollPos = track.scrollLeft;
+      lastFrameTime = performance.now();
+
+      function renderFrame(now) {
+        // Delta time in seconds (clamped to 0.1s to prevent skips on background tabs)
+        const dt = Math.min((now - lastFrameTime) / 1000, 0.1);
+        lastFrameTime = now;
+
+        const modal = document.getElementById('product-modal');
+        const modalOpen = modal && !modal.classList.contains('hidden');
+
+        if (!isGamesPaused && !modalOpen && !isManualInteracting) {
+          if (gamesLoopDistance > 0) {
+            gamesScrollPos += scrollSpeedPixelsPerSecond * dt;
+            if (gamesScrollPos >= gamesLoopDistance) {
+              gamesScrollPos -= gamesLoopDistance;
+            }
+            track.scrollLeft = gamesScrollPos;
+          }
+        }
+        requestAnimationFrame(renderFrame);
+      }
+
+      // Sync user manual touch/mouse scroll with zero hitch
+      track.addEventListener('scroll', () => {
+        if (isManualInteracting) {
+          if (gamesLoopDistance > 0) {
+            if (track.scrollLeft >= gamesLoopDistance * 1.5) {
+              track.scrollLeft -= gamesLoopDistance;
+            } else if (track.scrollLeft <= 5) {
+              track.scrollLeft += gamesLoopDistance;
+            }
+          }
+          gamesScrollPos = track.scrollLeft;
+        }
+      }, { passive: true });
+
+      // Pause triggers
+      track.addEventListener('mouseenter', () => { window.pauseGamesScroll(); });
+      track.addEventListener('mouseleave', () => { 
+        gamesScrollPos = track.scrollLeft;
+        window.resumeGamesScroll(350); 
+      });
+      track.addEventListener('touchstart', () => { 
+        isManualInteracting = true;
+        window.pauseGamesScroll(); 
+      }, { passive: true });
+      track.addEventListener('touchend', () => { 
+        isManualInteracting = false;
+        gamesScrollPos = track.scrollLeft;
+        window.resumeGamesScroll(2500); 
+      });
+      track.addEventListener('focusin', () => { window.pauseGamesScroll(); });
+      track.addEventListener('focusout', () => { 
+        gamesScrollPos = track.scrollLeft;
+        window.resumeGamesScroll(800); 
+      });
+
+      requestAnimationFrame(renderFrame);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollAnimations();
+      // Start continuous smooth infinite auto-scroll on Games Catalog
+      initSmoothInfiniteScroll('games-scroll-track', 0.75);
+    });
   </script>
 </body>
 </html>

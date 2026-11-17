@@ -41,7 +41,7 @@ window.GAMES_DATA = [
     title: "Wings of Paper",
     category: "ARCADE GLIDER // SHIPPED",
     price: "FREE",
-    image: "content/wings_of_paper/cover_art.webp",
+    image: "public/assets/images/wings_paper_hero.jpg",
     images: [
       "content/wings_of_paper/unnamed (1).webp",
       "content/wings_of_paper/unnamed (2).webp",
@@ -63,4 +63,127 @@ window.GAMES_DATA = [
     downloadUrl: "https://play.google.com/store/apps/details?id=com.mithilagames.wingsofpaper"
   },
 
+  {
+    id: "game-aam-chor",
+    title: "aam chor",
+    category: "3D SURVIVAL HORROR // GAME JAM",
+    price: "FREE",
+    image: "content/aam_chor/cover.png",
+    images: [
+      "content/aam_chor/cover.png",
+      "content/aam_chor/banner.png",
+      "content/aam_chor/screen1.png",
+      "content/aam_chor/screen2.png",
+      "content/aam_chor/screen3.png",
+      "content/aam_chor/screen4.png"
+    ],
+    badge: "PLAY IN BROWSER",
+    platform: "HTML5 / WINDOWS / LINUX",
+    engine: "GODOT",
+    genre: "SURVIVAL HORROR / ACTION",
+    statusText: "GAME JAM BUILD",
+    shortDesc: "The struggle of an aam chor boy trying to collect mangoes in a pitch-black hungry forest before battery drains and the pack hunts.",
+    fullDesc: "You wake up in a pitch-black forest with nothing but a flashlight and a single directive: Collect the mangoes. Created for the Godot India Community Summer Game Jam, featuring independent dual-wield hand interaction, dynamic horror intensity, roguelike wave upgrades, and reactive audio.",
+    specs: [
+      { label: "PLATFORMS", value: "HTML5 (Browser) / Windows / Linux" },
+      { label: "ENGINE", value: "Godot" },
+      { label: "GENRE", value: "Survival Horror / Action" },
+      { label: "CONTROLS", value: "WASD / Mouse / Shift" },
+      { label: "EVENT", value: "Godot India Community Summer Game Jam" },
+      { label: "CREATOR", value: "3DsDiv / Mithila Games" }
+    ],
+    downloadText: "PLAY ON ITCH.IO ↗",
+    downloadUrl: "https://3dsdiv.itch.io/aam-chor"
+  },
+
+  {
+    id: "game-depth-drive",
+    title: "DepthDrive [early development]",
+    category: "CASUAL DRIVING // PROTOTYPE",
+    price: "FREE",
+    image: "content/depth_drive/cover.png",
+    images: [
+      "content/depth_drive/cover.png",
+      "content/depth_drive/banner.png",
+      "content/depth_drive/screen1.png",
+      "content/depth_drive/screen2.png",
+      "content/depth_drive/screen3.png"
+    ],
+    badge: "ANDROID BUILD",
+    platform: "ANDROID",
+    engine: "GODOT",
+    genre: "CASUAL DRIVING SIM",
+    statusText: "EARLY DEV",
+    shortDesc: "A cozy casual driving game built for mobile, exploring tranquil roads, vehicle physics, and relaxed cruising.",
+    fullDesc: "DepthDrive is an early-development cozy casual driving project exploring atmosphere, physics, and smooth vehicle navigation on mobile platforms.",
+    specs: [
+      { label: "PLATFORMS", value: "Android" },
+      { label: "ENGINE", value: "Godot" },
+      { label: "GENRE", value: "Casual Driving Simulator" },
+      { label: "STATUS", value: "Early Development Prototype" },
+      { label: "PUBLISHER", value: "Mithila Games" }
+    ],
+    downloadText: "DOWNLOAD ON ITCH.IO ↗",
+    downloadUrl: "https://mithilagames.itch.io/depthdriveearly-devlopment"
+  },
+
+  {
+    id: "game-bullet-balast",
+    title: "Bullet Balast - Endless level loop",
+    category: "HYPERCASUAL // PLAYABLE BUILD",
+    price: "FREE",
+    image: "content/bullet_balast/cover.png",
+    images: [
+      "content/bullet_balast/cover.png",
+      "content/bullet_balast/screen1.png"
+    ],
+    badge: "PLAY IN BROWSER",
+    platform: "HTML5 / WEB / MOBILE",
+    engine: "GODOT",
+    genre: "HYPERCASUAL / ARCADE",
+    statusText: "PLAYABLE",
+    shortDesc: "A fast hypercasual reflex game with an endless loop of possibilities. Playable directly in browser with keyboard or touch joystick.",
+    fullDesc: "Bullet Balast is an endless loop hypercasual arcade game developed for the Godot India Community Game Jam. Dodge, steer, and survive through endless procedural waves with responsive keyboard or touch controls.",
+    specs: [
+      { label: "PLATFORMS", value: "HTML5 (Browser) / Mobile Web" },
+      { label: "ENGINE", value: "Godot" },
+      { label: "GENRE", value: "Hypercasual Arcade" },
+      { label: "CONTROLS", value: "A/D, Arrows, or Touch Joystick" },
+      { label: "EVENT", value: "Godot India Community Game Jam" },
+      { label: "PUBLISHER", value: "CodePolygon / Mithila Games" }
+    ],
+    downloadText: "PLAY ON ITCH.IO ↗",
+    downloadUrl: "https://codepolygon.itch.io/bullet-balast"
+  },
+
+  {
+    id: "game-whadark",
+    title: "WhaDark",
+    category: "2D PLATFORMER // ADVENTURE",
+    price: "FREE",
+    image: "content/whadark/cover.png",
+    images: [
+      "content/whadark/cover.png",
+      "content/whadark/screen1.png",
+      "content/whadark/screen2.png"
+    ],
+    badge: "DOWNLOADABLE",
+    platform: "LINUX / ANDROID",
+    engine: "GODOT",
+    genre: "2D PLATFORMER / ADVENTURE",
+    statusText: "EARLY BUILD",
+    shortDesc: "Challenging 2D vertical platformer adventure. Leap between hazardous ledges, dodge obstacles, and try to reach the summit.",
+    fullDesc: "WhaDark is an indie 2D platforming adventure where precision jumping and timing are key to climbing higher. Test your reflexes and reach the summit.",
+    specs: [
+      { label: "PLATFORMS", value: "Linux / Android" },
+      { label: "ENGINE", value: "Godot" },
+      { label: "GENRE", value: "2D Platformer / Adventure" },
+      { label: "PACKAGE SIZE", value: "~25 MB" },
+      { label: "PUBLISHER", value: "3dDiv / Mithila Games" }
+    ],
+    downloadText: "DOWNLOAD ON ITCH.IO ↗",
+    downloadUrl: "https://divto.itch.io/whadark"
+  }
+
 ];
+
