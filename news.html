@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
 <head>
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,7 +24,7 @@
   <link rel="canonical" href="https://mithilagames.com/news.html">
   <link rel="manifest" href="site.webmanifest">
   <link rel="icon" href="public/assets/logo/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="public/assets/logo/logo_icon.svg">
+  <link rel="apple-touch-icon" href="public/assets/logo/apple-touch-icon.png">
   <meta name="theme-color" content="#08090C">
 
   <!-- Open Graph / Facebook / Discord -->
@@ -88,13 +93,13 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand Logo with Arcade Skew -->
-      <a href="home.html" class="flex items-center gap-3 shrink-0 group">
+      <a href="/" class="flex items-center gap-3 shrink-0 group">
         <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
 
       <!-- Desktop Game HUD Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
-        <a href="home.html" data-nav-link class="nav-game-tab">HOME</a>
+        <a href="/" data-nav-link class="nav-game-tab">HOME</a>
         <a href="games.html" data-nav-link class="nav-game-tab">GAMES</a>
         <a href="store.html" data-nav-link class="nav-game-tab">SHOP</a>
         <a href="news.html" data-nav-link class="nav-game-tab active-tab">NEWS</a>
@@ -133,7 +138,7 @@
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
-      <a href="home.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
+      <a href="/" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Home</a>
       <a href="games.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Games</a>
       <a href="store.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">Shop</a>
       <a href="news.html" data-mobile-drawer-link class="p-3 rounded-lg bg-surface border border-borderwire text-slate-200 font-bold">News</a>
@@ -168,48 +173,26 @@
       </div>
     </div>
 
-    <!-- Interactive Search Bar & Most-Searched Quick Tags -->
-    <div class="mb-8 space-y-4">
-      <div class="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-        <div class="relative flex-1">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-          <input 
-            type="text" 
-            id="news-search-input" 
-            placeholder="Search 44+ articles: GTA 6, anti-cheat, hacks, Godot, Blender scale fix, stutter, FPS..." 
-            class="w-full bg-surface border border-borderwire focus:border-ochre rounded-xl pl-10 pr-10 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none transition-all shadow-inner font-sans"
-            oninput="handleNewsSearch(this.value)"
-          >
-          <button 
-            type="button" 
-            id="news-search-clear" 
-            onclick="clearNewsSearch()" 
-            class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white hidden cursor-pointer"
-            title="Clear search"
-          >✕</button>
+    <!-- Clean Modern Search Bar -->
+    <div class="mb-8">
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
-        <div class="flex items-center justify-between sm:justify-end gap-2 px-1">
-          <span id="news-result-count" class="text-xs font-mono text-ochre font-bold tracking-wide">44 DISPATCHES</span>
-        </div>
-      </div>
-
-      <!-- Most Searched Quick Filter Chips -->
-      <div class="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
-        <span class="text-slate-400 font-bold uppercase text-[10px] tracking-wider shrink-0 flex items-center gap-1">
-          <span class="text-ochre">⚡</span> MOST SEARCHED:
-        </span>
-        <button type="button" onclick="quickSearchTopic('gta 6')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">GTA 6</button>
-        <button type="button" onclick="quickSearchTopic('anti-cheat')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Anti-Cheat &amp; Hacks</button>
-        <button type="button" onclick="quickSearchTopic('stutter')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Fix Stutter</button>
-        <button type="button" onclick="quickSearchTopic('blender scale')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Blender 100x Scale</button>
-        <button type="button" onclick="quickSearchTopic('steam deck')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Steam Deck Verified</button>
-        <button type="button" onclick="quickSearchTopic('draw calls')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Draw Calls &amp; LOD</button>
-        <button type="button" onclick="quickSearchTopic('godot')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Godot 4.3</button>
-        <button type="button" onclick="quickSearchTopic('save system')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Save Systems</button>
-        <button type="button" onclick="quickSearchTopic('shaders')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Custom Shaders</button>
-        <button type="button" onclick="quickSearchTopic('physics tunneling')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Physics Tunneling</button>
+        <input 
+          type="text" 
+          id="news-search-input" 
+          placeholder="Search articles, devlogs, and guides..." 
+          class="w-full bg-surface border border-borderwire focus:border-ochre rounded-xl pl-11 pr-10 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none transition-all shadow-inner font-sans"
+          oninput="handleNewsSearch(this.value)"
+        >
+        <button 
+          type="button" 
+          id="news-search-clear" 
+          onclick="clearNewsSearch()" 
+          class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-white hidden cursor-pointer"
+          title="Clear search"
+        >✕</button>
       </div>
     </div>
 
@@ -237,8 +220,8 @@
       </div>
     </div>
 
-    <!-- Dynamically Populated News Grid from newsData.js -->
-    <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Dynamically Populated News Portal Layout from newsData.js -->
+    <div id="news-grid" class="w-full min-w-0 space-y-10">
       <!-- Content populated by renderNews() -->
     </div>
 
@@ -326,13 +309,6 @@
             <span class="hidden sm:inline">BACK TO NEWS</span>
             <span class="sm:hidden">BACK</span>
           </button>
-          
-          <div class="h-4 w-[1px] bg-borderwire hidden md:block"></div>
-          
-          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-slate-muted">
-            <span class="w-2 h-2 rounded-full bg-ochre animate-pulse"></span>
-            <span>MITHILA GAMES // STUDIO DEVLOG ARTICLE</span>
-          </div>
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
@@ -373,7 +349,7 @@
             <span id="modal-news-readtime" class="text-ochre font-semibold"></span>
           </div>
 
-          <h1 id="modal-news-title" class="font-syne font-black italic text-3xl sm:text-5xl lg:text-6xl text-white leading-tight uppercase tracking-tight"></h1>
+          <h2 id="modal-news-title" class="font-syne font-black italic text-3xl sm:text-5xl lg:text-6xl text-white leading-tight uppercase tracking-tight"></h2>
 
           <div class="flex items-center gap-3 pt-2 text-xs font-mono text-slate-muted">
             <div class="w-9 h-9 rounded-full bg-panel border border-borderwire flex items-center justify-center text-ochre font-bold text-sm shadow-md">
@@ -520,7 +496,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
         <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-          <a href="home.html" class="flex items-center gap-2">
+          <a href="/" class="flex items-center gap-2">
             <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
@@ -556,7 +532,7 @@
       <!-- Bottom Row: Navigation Links & Update Letter Trigger -->
       <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px]">
         <div class="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-slate-muted font-semibold">
-          <a href="home.html" class="hover:text-white transition-colors">HOME</a>
+          <a href="/" class="hover:text-white transition-colors">HOME</a>
           <a href="games.html" class="hover:text-white transition-colors">GAMES</a>
           <a href="store.html" class="hover:text-white transition-colors">SHOP</a>
           <a href="news.html" class="hover:text-white transition-colors">NEWS</a>
@@ -630,6 +606,22 @@
       }
     }
 
+    function formatNewsRelativeDate(dateStr) {
+      if (!dateStr) return 'Recent';
+      try {
+        const now = new Date('2026-11-20T14:00:00Z');
+        const d = new Date(dateStr);
+        const diffHours = Math.round((now - d) / (1000 * 60 * 60));
+        if (diffHours >= 0 && diffHours < 24) return `${Math.max(1, diffHours)} hrs ago`;
+        if (diffHours >= 24 && diffHours < 48) return 'Yesterday';
+        if (diffHours >= 48 && diffHours < 168) return `${Math.round(diffHours / 24)} days ago`;
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${d.getDate()} ${months[d.getMonth()]}`;
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
     function renderNews() {
       const container = document.getElementById('news-grid');
       if (!container) return;
@@ -665,8 +657,8 @@
 
       if (items.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-400 space-y-4">
-            <p>NO DISPATCHES FOUND MATCHING YOUR CURRENT SEARCH OR CATEGORY FILTER.</p>
+          <div class="py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-400 space-y-4 rounded-2xl bg-surface/50">
+            <p class="text-sm">NO DISPATCHES FOUND MATCHING YOUR CURRENT SEARCH OR CATEGORY FILTER.</p>
             <button type="button" onclick="filterNews('all'); clearNewsSearch();" class="game-btn game-btn-ochre px-4 py-2 rounded-lg text-void font-extrabold uppercase text-xs">
               CLEAR FILTERS &amp; VIEW ALL
             </button>
@@ -675,62 +667,309 @@
         return;
       }
 
-      container.innerHTML = items.map(article => `
-        <article 
-          onclick="openNewsModalById('${article.id}')"
-          class="game-tilt-card group cursor-pointer"
-        >
-          <div class="game-tilt-inner bg-surface border-2 border-borderwire hover:border-purple rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(180,100,255,0.25)] bg-halftone-dots tape-top relative h-full">
-            <!-- Tactical HUD Reticle Corners -->
-            <div class="hud-corner hud-corner-tl"></div>
-            <div class="hud-corner hud-corner-tr"></div>
-            <div class="hud-corner hud-corner-bl"></div>
-            <div class="hud-corner hud-corner-br"></div>
+      // If we have at least 6 items, build the multi-tiered editorial news portal layout
+      if (items.length >= 6) {
+        const lead = items[0];
+        const secondary = items[1];
+        const cardFour = items.slice(2, 6);
+        const wireItems = items.slice(6, 10);
+        const remaining = items.slice(10);
 
-            <div>
-              <div class="aspect-video w-full bg-void rounded-xl overflow-hidden relative mb-4 border border-borderwire group-hover:border-purple/50 transition-colors">
-                <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent pointer-events-none"></div>
-                
-                <div class="absolute top-2.5 left-2.5">
-                  <span class="game-sticker sticker-lime text-[10px] transform -rotate-1">
-                    ${article.badge || 'LOG UPDATE'}
-                  </span>
-                </div>
-
-                <div class="absolute bottom-2.5 right-2.5">
-                  <span class="px-2 py-0.5 rounded bg-void/90 backdrop-blur-md border border-borderwire text-[10px] font-mono font-bold text-slate-300">
-                    ${article.readTime}
-                  </span>
-                </div>
-              </div>
-
-              <div class="space-y-2.5">
-                <div class="flex justify-between items-center text-xs font-mono text-slate-400">
-                  <span class="game-sticker sticker-purple text-[10px]">${article.category}</span>
-                  <span class="font-bold">${article.date}</span>
-                </div>
-
-                <h3 class="font-syne font-black italic text-xl text-white uppercase tracking-tight group-hover:text-purple transition-colors leading-snug">
-                  ${article.title}
-                </h3>
-
-                <p class="font-sans text-sm text-slate-200 leading-relaxed line-clamp-3">
-                  ${article.summary}
-                </p>
-              </div>
-            </div>
-
-            <div class="pt-5 mt-5 border-t border-borderwire/60 flex justify-between items-center text-xs">
-              <span class="text-slate-400 font-mono text-[11px]">AUTHOR: <strong class="text-slate-200">${article.author || 'Mithila Games'}</strong></span>
-              <span class="game-btn game-btn-panel px-3.5 py-1.5 rounded-lg text-white font-bold text-xs uppercase flex items-center gap-1.5 group-hover:border-purple">
-                <span>OPEN INTEL</span>
-                <span>→</span>
+        container.innerHTML = `
+          <!-- SECTION 1: TOP EDITORIAL SPREAD -->
+          <section class="space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-borderwire/60">
+              <span class="font-syne font-black text-white text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5 cursor-default">
+                <span>TOP STORIES</span>
+                <span class="text-ochre">›</span>
               </span>
             </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pb-8 border-b border-borderwire/60">
+              <!-- Lead Story Text (Left) -->
+              <div class="lg:col-span-4 flex flex-col justify-between order-2 lg:order-1">
+                <div class="space-y-3">
+                  <div class="flex items-center gap-2">
+                    <span class="game-sticker sticker-lime text-[10px] uppercase font-bold">${lead.badge || 'COVER STORY'}</span>
+                    <span class="text-slate-400 font-mono text-[11px]">// ${lead.category}</span>
+                  </div>
+                  <h2 
+                    onclick="openNewsModalById('${lead.id}')"
+                    class="font-syne font-black text-2xl sm:text-3xl text-white hover:text-ochre hover:underline leading-tight cursor-pointer transition-colors"
+                  >
+                    ${lead.title}
+                  </h2>
+                  <p class="font-sans text-sm text-slate-300 leading-relaxed line-clamp-4">
+                    ${lead.summary}
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-borderwire/40 text-xs font-mono text-slate-400 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="text-slate-200 font-semibold">${formatNewsRelativeDate(lead.date)}</span>
+                    <span>|</span>
+                    <span class="text-ochre font-bold">${lead.readTime}</span>
+                  </div>
+                  <button type="button" onclick="openNewsModalById('${lead.id}')" class="text-ochre hover:text-white font-bold text-xs uppercase flex items-center gap-1">
+                    <span>READ DOSSIER</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lead Story Panoramic Photo (Center) -->
+              <div 
+                onclick="openNewsModalById('${lead.id}')" 
+                class="lg:col-span-5 order-1 lg:order-2 aspect-[16/10] sm:aspect-[16/9] w-full bg-void rounded-xl overflow-hidden relative cursor-pointer group shadow-2xl border border-borderwire hover:border-ochre/60 transition-all"
+              >
+                <img src="${lead.image}" alt="${lead.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-void/70 via-transparent to-transparent pointer-events-none"></div>
+                <span class="absolute bottom-3 left-3 px-2 py-0.5 rounded bg-void/90 backdrop-blur-md border border-borderwire text-[10px] font-mono text-slate-300">
+                  CLICK TO EXPAND ARTICLE ⤢
+                </span>
+              </div>
+
+              <!-- Secondary Featured Story with Badge (Right) -->
+              <div 
+                onclick="openNewsModalById('${secondary.id}')" 
+                class="lg:col-span-3 order-3 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-borderwire/60 lg:pl-6 pt-4 lg:pt-0 group cursor-pointer"
+              >
+                <div>
+                  <div class="aspect-video w-full bg-void rounded-lg overflow-hidden relative mb-3 border border-borderwire group-hover:border-ochre/60 transition-all shadow-md">
+                    <img src="${secondary.image}" alt="${secondary.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-red-600/90 text-white font-mono text-[9px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
+                      <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                      <span>${secondary.badge && secondary.badge.includes('GTA') ? 'GTA 6' : 'HOT INTEL'}</span>
+                    </span>
+                  </div>
+                  <h3 class="font-syne font-black text-lg text-white group-hover:text-ochre group-hover:underline leading-snug transition-colors line-clamp-3">
+                    ${secondary.title}
+                  </h3>
+                  <p class="font-sans text-xs text-slate-300 leading-relaxed mt-2 line-clamp-3">
+                    ${secondary.summary}
+                  </p>
+                </div>
+                <div class="mt-4 pt-2 border-t border-borderwire/40 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                  <span>${formatNewsRelativeDate(secondary.date)} | ${secondary.category.split('&')[0]}</span>
+                  <span class="text-ochre group-hover:translate-x-0.5 transition-transform">→</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 2: 4-COLUMN EDITORIAL DISPATCHES + STUDIO WIRE SIDEBAR -->
+          <section class="space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-borderwire/60">
+              <span class="font-syne font-black text-white text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
+                <span>MORE DISPATCHES</span>
+                <span class="text-ochre">›</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+              <!-- 4-Column News Cards (Left 9 cols) - Clean Editorial Layout matching Reference -->
+              <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                ${cardFour.map(a => `
+                  <article 
+                    onclick="openNewsModalById('${a.id}')" 
+                    class="group cursor-pointer flex flex-col justify-between"
+                  >
+                    <div>
+                      <!-- Clean 16:9 Thumbnail (Prominent & High-Impact) -->
+                      <div class="aspect-video w-full bg-void rounded-lg overflow-hidden relative mb-3 border border-borderwire/70 group-hover:border-ochre transition-all shadow-md">
+                        <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      </div>
+                      
+                      <!-- Category Badge Tag -->
+                      <span class="text-xs font-mono font-bold text-ochre uppercase tracking-wider block mb-1">
+                        ${a.badge || a.category.split('&')[0].trim()}
+                      </span>
+
+                      <!-- Bold, Fully Visible Headline (Wraps Naturally, No Ugly 2-Word Truncation) -->
+                      <h4 class="font-syne font-bold text-base text-white group-hover:text-ochre group-hover:underline leading-snug line-clamp-3 transition-colors">
+                        ${a.title}
+                      </h4>
+
+                      <!-- Clear, Legible 2-Line Summary Preview -->
+                      <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 line-clamp-2">
+                        ${a.summary}
+                      </p>
+                    </div>
+
+                    <!-- Clean Metadata Footer -->
+                    <div class="mt-3 pt-2 border-t border-borderwire/40 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                      <span>${formatNewsRelativeDate(a.date)} | ${a.category.split('&')[0].trim()}</span>
+                      <span class="text-ochre text-xs group-hover:translate-x-0.5 transition-transform font-bold">→</span>
+                    </div>
+                  </article>
+                `).join('')}
+              </div>
+
+              <!-- Editorial Wire / Ticker (Right 3 cols) -->
+              <div class="lg:col-span-3 flex flex-col divide-y divide-borderwire/60 border-t lg:border-t-0 lg:border-l border-borderwire/60 lg:pl-6 pt-4 lg:pt-0">
+                <div class="pb-3 mb-1 flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-ochre flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-ochre animate-pulse"></span>
+                    <span>STUDIO WIRE</span>
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-500">LIVE FEED</span>
+                </div>
+                ${wireItems.map(a => `
+                  <article onclick="openNewsModalById('${a.id}')" class="py-3.5 group cursor-pointer">
+                    <h4 class="font-syne font-bold text-sm text-white group-hover:text-ochre group-hover:underline leading-snug transition-colors line-clamp-2">
+                      ${a.title}
+                    </h4>
+                    <p class="font-sans text-xs text-slate-400 leading-relaxed mt-1.5 line-clamp-2">
+                      ${a.summary}
+                    </p>
+                    <div class="mt-2 text-[10px] font-mono text-slate-500 flex items-center justify-between">
+                      <span>${formatNewsRelativeDate(a.date)} | ${a.category.split('&')[0].trim()}</span>
+                      <span class="text-ochre opacity-0 group-hover:opacity-100 transition-opacity font-bold">READ →</span>
+                    </div>
+                  </article>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 3: FEATURED SPOTLIGHT + SPACIOUS 3-COLUMN MAGAZINE ARCHIVE -->
+          ${remaining.length > 0 ? (() => {
+            const spotlight = remaining.slice(0, 2);
+            const gridCards = remaining.slice(2);
+            return `
+            <section class="pt-8 border-t border-borderwire/60 space-y-8">
+              <div class="flex items-center justify-between">
+                <span class="font-syne font-black text-white text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
+                  <span>INVESTIGATIVE REPORTS &amp; TECH GUIDES</span>
+                  <span class="text-ochre">›</span>
+                </span>
+              </div>
+
+              <!-- Two Featured Horizontal/Large Spotlight Cards -->
+              ${spotlight.length === 2 ? `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-8 border-b border-borderwire/60">
+                  ${spotlight.map(a => `
+                    <article 
+                      onclick="openNewsModalById('${a.id}')"
+                      class="group cursor-pointer flex flex-col sm:flex-row gap-5 p-4 rounded-xl bg-surface/40 border border-borderwire/70 hover:border-ochre/80 transition-all duration-300 shadow-lg hover:bg-surface/70"
+                    >
+                      <div class="aspect-video sm:aspect-square sm:w-48 flex-shrink-0 bg-void rounded-lg overflow-hidden border border-borderwire/60 group-hover:border-ochre/80 transition-colors">
+                        <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      </div>
+                      <div class="flex flex-col justify-between flex-1">
+                        <div>
+                          <div class="flex items-center gap-2 mb-1.5">
+                            <span class="game-sticker sticker-gold text-[9px] uppercase font-bold">${a.badge || 'SPOTLIGHT'}</span>
+                            <span class="text-[11px] font-mono text-slate-400">${a.category.split('&')[0]}</span>
+                          </div>
+                          <h3 class="font-syne font-black text-lg text-white group-hover:text-ochre group-hover:underline leading-snug line-clamp-2 transition-colors">
+                            ${a.title}
+                          </h3>
+                          <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 line-clamp-3">
+                            ${a.summary}
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-2.5 border-t border-borderwire/40 text-xs font-mono text-slate-400 flex items-center justify-between">
+                          <span>${formatNewsRelativeDate(a.date)} | ${a.readTime}</span>
+                          <span class="text-ochre font-bold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                            <span>READ INTEL</span>
+                            <span>→</span>
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  `).join('')}
+                </div>
+              ` : ''}
+
+              <!-- Spacious 3-Column Magazine Grid (High Width & Full Legibility) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                ${(spotlight.length === 2 ? gridCards : remaining).map(a => `
+                  <article 
+                    onclick="openNewsModalById('${a.id}')" 
+                    class="group cursor-pointer flex flex-col justify-between p-4 rounded-xl bg-surface/30 border border-borderwire/60 hover:border-ochre/80 transition-all duration-300 hover:bg-surface/60 shadow-md"
+                  >
+                    <div>
+                      <!-- Large 16:9 Thumbnail -->
+                      <div class="aspect-video w-full bg-void rounded-lg overflow-hidden relative mb-3.5 border border-borderwire/60 group-hover:border-ochre transition-all shadow-md">
+                        <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      </div>
+
+                      <!-- Category Tag & Read Time -->
+                      <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-xs font-mono font-bold text-ochre uppercase tracking-wider">
+                          ${a.badge || a.category.split('&')[0].trim()}
+                        </span>
+                        <span class="text-[11px] font-mono text-slate-400">
+                          ${a.readTime}
+                        </span>
+                      </div>
+
+                      <!-- Large Bold Title (Clear, Legible, High-Contrast) -->
+                      <h4 class="font-syne font-bold text-base sm:text-lg text-white group-hover:text-ochre group-hover:underline leading-snug line-clamp-2 transition-colors">
+                        ${a.title}
+                      </h4>
+
+                      <!-- Clean Summary Excerpt -->
+                      <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 line-clamp-2">
+                        ${a.summary}
+                      </p>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="mt-4 pt-3 border-t border-borderwire/40 text-xs font-mono text-slate-400 flex items-center justify-between">
+                      <span>${formatNewsRelativeDate(a.date)}</span>
+                      <span class="text-ochre font-bold group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+                        <span>READ INTEL</span>
+                        <span>→</span>
+                      </span>
+                    </div>
+                  </article>
+                `).join('')}
+              </div>
+            </section>
+            `;
+          })() : ''}
+        `;
+      } else {
+        // Fallback for filtered results with fewer than 6 items
+        container.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            ${items.map(a => `
+              <article 
+                onclick="openNewsModalById('${a.id}')" 
+                class="group cursor-pointer flex flex-col justify-between p-4 rounded-xl bg-surface/40 border border-borderwire/70 hover:border-ochre/80 transition-all duration-300 shadow-md hover:bg-surface/70"
+              >
+                <div>
+                  <div class="aspect-video w-full bg-void rounded-lg overflow-hidden relative mb-3.5 border border-borderwire/60 group-hover:border-ochre transition-all shadow-md">
+                    <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  </div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-xs font-mono font-bold text-ochre uppercase tracking-wider">
+                      ${a.badge || a.category.split('&')[0]}
+                    </span>
+                    <span class="text-[11px] font-mono text-slate-400">
+                      ${a.readTime}
+                    </span>
+                  </div>
+                  <h4 class="font-syne font-bold text-base sm:text-lg text-white group-hover:text-ochre group-hover:underline leading-snug line-clamp-2 transition-colors">
+                    ${a.title}
+                  </h4>
+                  <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 line-clamp-3">
+                    ${a.summary}
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-borderwire/40 text-xs font-mono text-slate-400 flex items-center justify-between">
+                  <span>${formatNewsRelativeDate(a.date)}</span>
+                  <span class="text-ochre group-hover:translate-x-0.5 transition-transform font-bold flex items-center gap-1">
+                    <span>READ INTEL</span>
+                    <span>→</span>
+                  </span>
+                </div>
+              </article>
+            `).join('')}
           </div>
-        </article>
-      `).join('');
+        `;
+      }
     }
 
     function openNewsModalById(id, updateUrl = true) {

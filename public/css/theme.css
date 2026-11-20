@@ -3,7 +3,7 @@
    Visual Identity: Deep Space, Charcoal, Subtle Borders, Warm Ochre
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap');
+/* Font preconnected directly in HTML head to prevent sequential CSS-in-CSS loading waterfall */
 
 :root {
   --color-void: #090a0f;
@@ -629,6 +629,55 @@ body {
   border-radius: 0.25rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.88em;
+}
+.article-prose pre {
+  background-color: #0c0e14;
+  border: 1px solid #232735;
+  border-left: 3px solid #E5A93C;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.article-prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #E2E8F0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.article-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.article-prose blockquote {
+  border-left: 3px solid #E5A93C;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #94A3B8;
+}
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+.article-prose th, .article-prose td {
+  border: 1px solid #232735;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.article-prose th {
+  background-color: #151821;
+  color: #E5A93C;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+}
+.article-prose tr:nth-child(even) {
+  background-color: rgba(21, 24, 33, 0.4);
 }
 
 

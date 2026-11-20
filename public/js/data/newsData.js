@@ -14,34 +14,78 @@ window.NEWS_DATA = [
     date: "2026-11-15",
     category: "GAME NEWS & TRENDS",
     badge: "TRENDING [GTA 6]",
-    image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/gta6_water_speed_boat.jpg",
+    images: ["public/assets/images/news/gta6_water_speed_boat.jpg", "public/assets/images/news/gta6_vice_city_sunset.jpg"],
     author: "Divyanshu Priyadarshi",
     readTime: "6 MIN READ",
     summary: "An in-depth analysis of Rockstar Games' proprietary RAGE 9 engine developments powering Grand Theft Auto VI, focusing on procedural physics, machine-learning crowd navigation, and ocean buoyancy.",
     tags: ["gta 6", "gta vi", "rockstar", "rage engine", "ai", "water physics", "news", "graphics"],
     content: `
-      <p class="mb-4">With anticipation reaching fever pitch for <em>Grand Theft Auto VI</em>, developers and tech enthusiasts across the industry have been scrutinizing every confirmed technical detail about Rockstar Games' upgraded <strong>RAGE 9 engine</strong>. From real-time fluid dynamics to memory-budgeted pedestrian behaviors, the leap from the previous generation is monumental.</p>
+      <p class="mb-4">With anticipation reaching fever pitch for <em>Grand Theft Auto VI</em>, developers and tech enthusiasts across the industry have been scrutinizing every confirmed technical detail about Rockstar Games' upgraded <strong>RAGE 9 engine</strong>. From real-time fluid dynamics to memory-budgeted pedestrian behaviors, the leap from the previous generation is monumental. While previous open-world titles treated water as a glorified visual plane with scrolling normal maps and basic Gerstner waves, GTA VI approaches fluid simulation as a foundational gameplay physics layer.</p>
       
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Procedural Crowd Behaviors & ML Navigation</h4>
-      <p class="mb-4">Unlike conventional pathfinding that relies exclusively on pre-baked navmeshes and static waypoints, GTA VI utilizes contextual environmental sampling. Pedestrians react to atmospheric shifts, humidity, police presence, and traffic flow in clusters. NPCs maintain spatial awareness of surrounding social groups, enabling emergent conversations and dynamic conflict de-escalation.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. GPU-Accelerated Computational Fluid Dynamics (CFD)</h3>
+      <p class="mb-4">In traditional open-world titles, water physics is typically faked using vertex displacement shaders based on Gerstner wave equations. While computationally cheap, Gerstner waves cannot naturally react to localized physical disturbances such as a speedboat hull cutting through a crest, an airboat fan blasting marshlands, or debris floating in coastal shallows. RAGE 9 bridges this gap by executing a 2D heightfield shallow-water simulation on GPU compute shaders.</p>
+      
+      <p class="mb-4">As vehicles and characters move through Leonida's coastal waterways, motion vectors are written into dynamic fluid simulation buffers. These buffers calculate wave propagation, constructive interference, and shoreline wave dissipation in real time. The resulting wave heightfield is then sampled by both the rendering pipeline (for displacement and screen-space reflections) and the CPU physics solver (to calculate instantaneous buoyant forces).</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Computational Fluid Dynamics & Water Buoyancy</h4>
-      <p class="mb-4">Water rendering in Leonida (Vice City and its wetlands) is no longer a simple tessellated plane with displacement textures. Rockstar has implemented real-time computational fluid dynamics where boat wakes, airboat turbulence, and ocean tides compute buoyancy physically for all marine assets and debris.</p>
+      <pre><code>// Pseudocode representation of RAGE 9 Buoyant Force Integration
+Vector3 CalculateBuoyancyAtPoint(Vector3 submergedPoint, float waterSurfaceHeight) {
+    float submersionDepth = waterSurfaceHeight - submergedPoint.y;
+    if (submersionDepth &lt;= 0.0f) return Vector3.Zero; // Point is above water
+    
+    // Archimedes Principle: Force proportional to submerged volume and water density
+    float buoyantMagnitude = WaterDensity * Gravity * submersionDepth * HullSectionVolume;
+    Vector3 waveNormal = SampleWaveNormalAt(submergedPoint.xz);
+    
+    // Combine vertical lift with wave-slope lateral push
+    return Vector3.Up * buoyantMagnitude + (waveNormal * (buoyantMagnitude * 0.15f));
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Next-Gen Crowd AI: Spatial Memory &amp; Social Clustering</h3>
+      <p class="mb-4">Pedestrian AI has undergone an architectural overhaul. Traditional navmesh pathfinding treats each NPC as an isolated agent executing a simple patrol-or-flee state machine. In GTA VI, NPCs exist within <strong>Social Affinity Clusters</strong>. A couple walking along Ocean Drive shares spatial memory: if an altercation erupts behind them, one NPC notices first, gestures to their companion, and both alter their trajectory in unison.</p>
+
+      <table class="my-4">
+        <thead>
+          <tr>
+            <th>Simulation Layer</th>
+            <th>Previous Generation (GTA V / RDR2)</th>
+            <th>Next-Gen RAGE 9 (GTA VI)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ocean Physics</strong></td>
+            <td>CPU-bound Gerstner wave approximation</td>
+            <td>GPU Compute 2D Shallow Water CFD with live wake interaction</td>
+          </tr>
+          <tr>
+            <td><strong>Crowd Navigation</strong></td>
+            <td>Static Navmesh + Local Collision Avoidance</td>
+            <td>Hierarchical spatial clustering with shared group awareness</td>
+          </tr>
+          <tr>
+            <td><strong>Atmosphere &amp; Clouds</strong></td>
+            <td>2D texture planes + basic raymarched fog</td>
+            <td>Full volumetric ray-marched weather simulation with humidity pressure fronts</td>
+          </tr>
+          <tr>
+            <td><strong>Interior Loading</strong></td>
+            <td>Separate level streaming zones with doorway portals</td>
+            <td>DirectStorage NVMe streaming with dynamic interior hash grids</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">3. Volumetric Clouds and Meteorological Weather Fronts</h3>
+      <p class="mb-4">Leonida’s subtropical climate demands realistic tropical squalls, hurricanes, and sudden heat rain. Instead of triggering a simple global skybox swap, the weather engine simulates barometric pressure grids. Clouds form organically as virtual humidity rises from the ocean surface, condensing into towering cumulonimbus formations that cast real-time volumetric shadows across downtown Vice City.</p>
 
       <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        <strong class="text-ochre block mb-1">Key Technical Innovations in RAGE 9:</strong>
-        • Real-Time Global Illumination utilizing hardware-accelerated ray query probes.<br>
-        • High-frequency vehicle deformation matrix preserving chassis structural integrity.<br>
-        • Memory-efficient volumetric cloud rendering tied directly to dynamic weather pressure fronts.<br>
-        • Dense interior streaming that eliminates loading pauses across commercial storefronts and high-rise venues.
+        <strong class="text-ochre block mb-1">Key Takeaways for Technical Artists:</strong>
+        • GPU compute shaders are essential for real-time fluid surfaces that need to deliver both visual fidelity and physical gameplay interaction.<br>
+        • Decoupling visual wave mesh resolution from the underlying physics buoyancy sample grid keeps CPU frame times under 3ms.<br>
+        • Clustered NPC decision trees produce emergent realism that scripted animations cannot replicate.
       </div>
 
-      <p class="text-slate-muted">As release benchmarks approach, GTA VI is poised to redefine open-world engineering expectations for the remainder of the decade.</p>
     `
   },
   {
@@ -50,24 +94,37 @@ window.NEWS_DATA = [
     date: "2026-11-08",
     category: "GAME NEWS & TRENDS",
     badge: "ANALYSIS [World Design]",
-    image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/gta6_vice_city_sunset.jpg",
+    images: ["public/assets/images/news/gta6_vice_city_sunset.jpg", "public/assets/images/news/gta6_map_scale.svg"],
     author: "Mithila Games Tech Team",
     readTime: "5 MIN READ",
     summary: "Examining the architectural challenges of streaming a map twice the size of Los Santos with unprecedented enterable interior density without loading screens.",
     tags: ["gta 6", "map design", "streaming", "level design", "open world", "tech"],
     content: `
-      <p class="mb-4">Creating vast open-world maps is no longer just about square acreage—it is about verticality, interior density, and asynchronous asset streaming. Community cartography projects mapping out Leonida indicate a territory spanning over 140 square kilometers, including urban metro centers, swamp marshlands, and offshore archipelago keys.</p>
+      <p class="mb-4">Creating vast open-world maps is no longer just about square acreage—it is about verticality, interior density, and asynchronous asset streaming. Community cartography projects mapping out Leonida indicate a territory spanning over 140 square kilometers, including urban metro centers, swamp marshlands, and offshore archipelago keys. Streaming an environment of this magnitude without stutter requires rethinking engine memory management from first principles.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Asynchronous DirectStorage & Asset Decompression</h4>
-      <p class="mb-4">To support supersonic traversal without LOD popping, modern open-world titles leverage GPU-driven asset decompression. Textures, audio banks, and physics collision hulls stream directly from fast NVMe SSD storage straight into VRAM via custom ring buffers, bypassing CPU pipeline bottlenecks.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The Death of Loading Screens: GPU DirectStorage</h3>
+      <p class="mb-4">In past console generations, streaming assets during high-speed vehicle travel was limited by 5,400 RPM mechanical hard drives capable of ~100 MB/s sequential reads. Modern platforms deliver raw NVMe throughput exceeding 5,500 MB/s. To capitalize on this, RAGE 9 routes compressed asset packages directly from NVMe storage straight into GPU VRAM via DirectStorage and hardware decompression blocks.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Enterable Interiors & Occlusion Portals</h4>
-      <p class="mb-4">Historically, open-world games sealed 95% of building interiors because keeping collision and lightmap data active drained RAM budgets. Modern spatial hash grids and dynamic occlusion portal systems now permit hundreds of concurrent enterable rooms that only exist in active memory when a player is within threshold proximity.</p>
+      <pre><code>// Traditional CPU Decompression Bottleneck:
+[NVMe SSD] -> (Read) -> [System RAM] -> (CPU Decompresses) -> [VRAM Buffer]
+Total Latency: 12-25ms | CPU Utilization: High | Bottleneck: Memory Bus
+
+// DirectStorage GPU-Driven Pipeline:
+[NVMe SSD] -> (DMA Ring Buffer) -> [GPU Hardware Decompressor] -> [VRAM Texture Tile]
+Total Latency: 1-3ms | CPU Utilization: ~0% | Bottleneck: Hardware Bandwidth</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Interior Density via Dynamic Occlusion Portals</h3>
+      <p class="mb-4">Historically, 95% of storefronts and high-rise interiors were sealed behind opaque textured windows. Keeping interior mesh geometry, furniture colliders, and point lights in active memory consumed excessive RAM. Leonida addresses this through hierarchical spatial hash grids:</p>
+      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>Dormant State:</strong> When a player is over 100 meters away, the interior exists solely as a low-res cubemap or parallax interior shader.</li>
+        <li><strong>Staging State (25-100m):</strong> Collision hulls and primary light sources load into system memory buffers.</li>
+        <li><strong>Active State (&lt;25m):</strong> High-poly furniture, physics-enabled clutter, and audio occlusion zones stream seamlessly as the player approaches the doorway.</li>
+      </ul>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">3. Managing High-Speed Traversal Without LOD Pop-in</h3>
+      <p class="mb-4">When flying a supersonic jet across Leonida, streaming engines must predict camera movement vectors. RAGE 9 dynamically expands its streaming cone based on current vehicle velocity: the faster you travel, the narrower and deeper the high-priority asset prefetch frustum becomes, guaranteeing that street furniture never pops visibly into existence.</p>
+
     `
   },
   {
@@ -76,12 +133,8 @@ window.NEWS_DATA = [
     date: "2026-10-28",
     category: "GAME NEWS & TRENDS",
     badge: "HARDWARE [Console]",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/switch2_hardware.svg",
+    images: ["public/assets/images/news/switch2_hardware.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "How modern AI upscaling algorithms and custom silicon allow portable game systems to run modern Unreal 5 and custom engine pipelines at manageable thermal envelopes.",
@@ -102,11 +155,8 @@ window.NEWS_DATA = [
     date: "2026-10-18",
     category: "GAME NEWS & TRENDS",
     badge: "ENGINE TECH",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/chaos_physics.svg",
+    images: ["public/assets/images/news/chaos_physics.svg"],
     author: "Mithila Games R&D",
     readTime: "5 MIN READ",
     summary: "Breaking down how real-time physics solvers manage thousands of colliding fractured meshes simultaneously without dropping below 60 frames per second.",
@@ -126,11 +176,8 @@ window.NEWS_DATA = [
     date: "2026-10-05",
     category: "GAME NEWS & TRENDS",
     badge: "WORLD DESIGN",
-    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/dynamic_weather_tech.svg",
+    images: ["public/assets/images/news/dynamic_weather_tech.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "How modern action titles transition dynamically from scorching sandstorms to torrential thunderstorms without loading screens or jarring terrain swaps.",
@@ -148,11 +195,8 @@ window.NEWS_DATA = [
     date: "2026-09-24",
     category: "GAME NEWS & TRENDS",
     badge: "INDUSTRY INTEL",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/steam_breakout_charts.svg",
+    images: ["public/assets/images/news/steam_breakout_charts.svg"],
     author: "Mithila Games Studio",
     readTime: "5 MIN READ",
     summary: "From Lethal Company to Helldivers and breakout extraction comedies, what makes lightweight emergent games outpace multimillion-dollar blockbusters on Steam.",
@@ -170,11 +214,8 @@ window.NEWS_DATA = [
     date: "2026-09-12",
     category: "GAME NEWS & TRENDS",
     badge: "MARKET WATCH",
-    image: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/cross_platform_play.svg",
+    images: ["public/assets/images/news/cross_platform_play.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "Why publishing on PC Day 1 is now mandatory for financial viability, and how modern studios design unified UI and controller input pipelines.",
@@ -192,11 +233,8 @@ window.NEWS_DATA = [
     date: "2026-08-30",
     category: "GAME NEWS & TRENDS",
     badge: "FUTURE TECH",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/cloud_hybrid_compute.svg",
+    images: ["public/assets/images/news/cloud_hybrid_compute.svg"],
     author: "Mithila Games R&D",
     readTime: "4 MIN READ",
     summary: "How split-rendering architectures execute heavy physics and ray-traced lighting on remote cloud servers while maintaining zero-latency local input responses.",
@@ -215,24 +253,34 @@ window.NEWS_DATA = [
     date: "2026-11-16",
     category: "SECURITY & ANTI-CHEAT",
     badge: "CASE STUDY [Security]",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/gta6_security_breach.svg",
+    images: ["public/assets/images/news/gta6_security_breach.svg"],
     author: "Mithila Games Security Team",
     readTime: "5 MIN READ",
     summary: "Analyzing the anatomy of high-profile game studio network infiltrations, Slack token compromises, and how developers can harden git repositories against social engineering.",
     tags: ["gta 6", "leaks", "security", "cybersecurity", "hacks", "source code", "rockstar"],
     content: `
-      <p class="mb-4">The unprecedented leak of early <em>Grand Theft Auto VI</em> development builds and source snippets sent shockwaves through the global gaming industry. Far from being a sophisticated cryptographic zero-day exploit, the breach highlighted the human factors and credential access patterns that menace game studios of all sizes.</p>
+      <p class="mb-4">The unprecedented leak of early <em>Grand Theft Auto VI</em> development builds and source snippets sent shockwaves through the global gaming industry. Far from being a sophisticated cryptographic zero-day exploit, the breach highlighted the human factors and credential access patterns that menace game studios of all sizes. For engineering leads, the incident serves as an essential case study in modern devops hygiene.</p>
       
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Social Engineering & Slack / Workspace Hijacking</h4>
-      <p class="mb-4">Attackers frequently bypass firewall defenses not by cracking SSH keys, but by spear-phishing contractors or spoofing IT helpdesk tickets to obtain OAuth session cookies or Slack bot credentials. Once inside internal communication channels, bad actors search for shared staging URLs, Jenkins build artifact drives, and test depot credentials.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The Attack Chain: Social Engineering &amp; Session Hijacking</h3>
+      <p class="mb-4">The intruder did not penetrate hardened firewalls using zero-day compiler exploits. Instead, the breach began with targeted social engineering of an external contractor. By deploying credential harvesting portals and session-cookie infostealers, the attacker bypassed traditional username/password authentication, gaining direct entry to internal collaboration channels including Slack.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Zero-Trust Architecture for Game Repositories</h4>
-      <p class="mb-4">Studios must treat internal networks with the same suspicion as public networks. Granular per-branch access controls, mandatory hardware FIDO2 security keys, and automated secret scanning prevent API keys or internal build depots from leaking externally.</p>
+      <pre><code>[Attacker Phishing] -> [Steals OAuth Session Token from Contractor PC]
+        -> [Bypasses 2FA via Stolen Cookie]
+        -> [Infiltrates Internal Slack Workspace]
+        -> [Searches Chat History for Keywords: 'git', 'token', 'credentials', 'build']
+        -> [Accesses Confluence &amp; Internal Jenkins Depot]
+        -> [Clones Proprietary Engine Source Code &amp; Test Clips]</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. The 5 Cardinal Rules of Studio DevOps Security</h3>
+      <ol class="list-decimal pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>Mandatory FIDO2 Hardware Keys:</strong> SMS and authenticator app push notifications are vulnerable to SIM swapping and fatigue attacks. Enforce physical YubiKeys for all staff with repository access.</li>
+        <li><strong>Automated Secret Scanning in CI/CD:</strong> Integrate pre-commit hooks (like <code>git-secrets</code> or TruffleHog) that instantly block commits containing API keys, AWS tokens, or hardcoded passwords.</li>
+        <li><strong>Granular Repository Branch Restrictions:</strong> Contractors and outsourced art teams should only receive access to specific asset branches. Core engine source code must remain segregated behind strict IP-whitelisted VPN bastions.</li>
+        <li><strong>Session Token Expiration &amp; Device Binding:</strong> Invalidate OAuth session tokens every 12 hours and bind access tokens to specific device TLS fingerprints to render stolen cookies useless.</li>
+        <li><strong>Air-Gapped Golden Builds:</strong> Release builds containing production master keys must be compiled on air-gapped internal builder agents isolated from general corporate internet traffic.</li>
+      </ol>
+
     `
   },
   {
@@ -241,11 +289,8 @@ window.NEWS_DATA = [
     date: "2026-11-13",
     category: "SECURITY & ANTI-CHEAT",
     badge: "AI & ANTI-CHEAT",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/ai_aimbot_detection.svg",
+    images: ["public/assets/images/news/ai_aimbot_detection.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "How modern cheaters use external neural networks to track player silhouettes through video feeds, and how machine learning anti-cheat models counter them.",
@@ -266,11 +311,8 @@ window.NEWS_DATA = [
     date: "2026-11-12",
     category: "SECURITY & ANTI-CHEAT",
     badge: "SECURITY DEEP-DIVE",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/anticheat_kernel.svg",
+    images: ["public/assets/images/news/anticheat_kernel.svg"],
     author: "Mithila Games Security Team",
     readTime: "6 MIN READ",
     summary: "An objective technical comparison between Ring 0 kernel anti-cheat drivers (Vanguard, Easy Anti-Cheat) and non-invasive, behavioral ML detection algorithms.",
@@ -278,18 +320,50 @@ window.NEWS_DATA = [
     content: `
       <p class="mb-4">As multiplayer competitive gaming continues to dominate the industry, cheating has evolved from simple Cheat Engine memory modifications to DMA (Direct Memory Access) PCIe hardware cards running on secondary computers. To combat this, the industry is split between two philosophies: <strong>Kernel-Level Ring 0 Drivers</strong> and <strong>Server-Side Behavioral Machine Learning</strong>.</p>
       
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Ring 0 Kernel Drivers: High Power, High Friction</h4>
-      <p class="mb-4">Kernel drivers boot alongside the operating system to prevent cheat software from hooking function calls before the game engine initializes. While exceptionally effective against unprivileged usermode injection, they introduce security surface risks, potential BSOD crashes, and compatibility frictions across Linux and Steam Deck environments.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The Architecture of Ring 0 Kernel Anti-Cheat</h3>
+      <p class="mb-4">In the x86 protection ring hierarchy, Ring 3 represents standard usermode applications, while Ring 0 is the privileged operating system kernel. Conventional cheats operate by installing custom kernel drivers to read game memory without being detected by usermode monitoring threads. To combat this, solutions like Riot Vanguard, BattlEye, and Easy Anti-Cheat install their own kernel drivers.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Server-Side ML: Zero Client Intrusion</h4>
-      <p class="mb-4">Modern ML models inspect input telemetry: angular camera velocity, micro-corrections, mouse smoothing, and reaction times measured in sub-milliseconds. Humans are physically incapable of instant instantaneous angular snaps with zero overshoot. Models flag statistical anomalies and shadow-ban cheaters without invasive client software.</p>
+      <pre><code>[Ring 3: Usermode] -> Game Client | Standard Apps | Usermode Cheat Injections
+      ------------------------------------------------------- (Protected Syscall Boundary)
+[Ring 0: Kernel]   -> OS Kernel | Anti-Cheat Driver (Vanguard / EAC) | Kernel DMA Driver</code></pre>
 
-      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        <strong class="text-terracotta block mb-1">Modern Anti-Cheat Attack Vectors:</strong>
-        • DMA Hardware Cards: Reading memory directly over PCIe bus.<br>
-        • Hypervisor Cheats: Running the host OS inside a hidden virtual machine.<br>
-        • AI Computer Vision: Reading monitor HDMI output via capture card and injecting virtual mouse inputs.
-      </div>
+      <p class="mb-4">While kernel drivers can inspect loaded driver signatures, verify process memory integrity, and block unauthorized virtual memory reading, they come with substantial drawbacks: potential operating system crashes (BSOD), security vulnerabilities in third-party drivers, and total incompatibility with Linux and SteamOS environments without specialized translation layers.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Server-Side Behavioral Machine Learning</h3>
+      <p class="mb-4">The emerging alternative relies on mathematical behavioral telemetry processed entirely on cloud match servers. Human gamers exhibit natural physical biomechanical constraints: mouse acceleration curves have micro-hesitations, angular adjustments overshoot slightly and correct, and biological reaction times rarely sustain below 120 milliseconds.</p>
+
+      <table class="my-4">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Ring 0 Kernel Driver</th>
+            <th>Server-Side Machine Learning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Client Intrusion</strong></td>
+            <td>High (Boot-time kernel driver)</td>
+            <td>Zero (Non-invasive server processing)</td>
+          </tr>
+          <tr>
+            <td><strong>DMA Hardware Resistance</strong></td>
+            <td>Moderate (Can be bypassed with custom PCIe firmware)</td>
+            <td>High (Analyzes inputs regardless of hardware injection)</td>
+          </tr>
+          <tr>
+            <td><strong>Steam Deck / Linux Compatibility</strong></td>
+            <td>Poor / Unsupported</td>
+            <td>100% Native compatibility</td>
+          </tr>
+          <tr>
+            <td><strong>Detection Latency</strong></td>
+            <td>Instantaneous process termination</td>
+            <td>Statistical evaluation across 3-5 matches</td>
+          </tr>
+        </tbody>
+      </table>
+
     `
   },
   {
@@ -298,23 +372,47 @@ window.NEWS_DATA = [
     date: "2026-11-02",
     category: "SECURITY & ANTI-CHEAT",
     badge: "REVERSE ENGINEERING",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/game_hacking_esp.svg",
+    images: ["public/assets/images/news/game_hacking_esp.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "Understanding the underlying mechanics of game memory manipulation, dynamic pointer chains, and virtual table hooking so developers can defend their code.",
     tags: ["hacks", "memory", "reverse engineering", "dll injection", "esp", "aimbot", "security"],
     content: `
-      <p class="mb-4">To effectively safeguard games against exploits, developers must understand how cheat creators analyze game processes. Most usermode cheats rely on reading and writing memory addresses assigned to character structures.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Pointer Chains and Base Offsets</h4>
-      <p class="mb-4">Every time a game launches, ASLR (Address Space Layout Randomization) allocates variables at dynamic memory offsets. Reverse engineers locate static pointer chains starting from the main module base (e.g., <code>GameAssembly.dll + 0x1A42F0</code>) to locate player coordinates, health variables, and ammunition counters.</p>
+      <p class="mb-4">To effectively safeguard multiplayer games, developers must understand the technical mechanisms behind process memory exploitation. Almost all client-side cheats—including aimbots, wallhacks (ESP), and speedhacks—depend on locating and reading entity structures in game memory.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">ESP (Extra Sensory Perception) Overlays</h4>
-      <p class="mb-4">ESP cheats read enemy world-space 3D coordinates from the client's memory table, run them through the player camera's View-Projection Matrix (World-to-Screen transformation), and draw 2D bounding boxes and health bars over transparent desktop overlays.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Reverse Engineering Dynamic Pointer Chains</h3>
+      <p class="mb-4">Because operating systems utilize Address Space Layout Randomization (ASLR), game instances load at dynamic base addresses every time they launch. Attackers use memory analysis tools (like Cheat Engine or x64dbg) to locate static base pointers and trace offsets through heap memory.</p>
+
+      <pre><code>// Example of a cheat pointer chain dereference:
+uintptr_t clientBase = (uintptr_t)GetModuleHandle("GameAssembly.dll");
+uintptr_t localPlayer = *(uintptr_t*)(clientBase + 0x1A42F0);        // Base Entity List
+uintptr_t playerHealth = *(int*)(localPlayer + 0xFC);               // Health Offset
+Vector3 playerPosition = *(Vector3*)(localPlayer + 0x110);          // World Position Offset</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. The Mathematics of Extra Sensory Perception (ESP)</h3>
+      <p class="mb-4">How does a wallhack draw 2D bounding boxes on your monitor around players standing behind concrete walls? It computes a <strong>World-to-Screen Matrix Transformation</strong>. The cheat reads the target entity's 3D coordinates (X, Y, Z), multiplies them by the local camera's 4x4 View-Projection Matrix, and maps the resulting Normalized Device Coordinates (NDC) to monitor pixels.</p>
+
+      <pre><code>// World-to-Screen Matrix Calculation (C++):
+bool WorldToScreen(Vector3 worldPos, Vector2&amp; screenPos, float matrix[16], int width, int height) {
+    float clipX = worldPos.x * matrix[0] + worldPos.y * matrix[1] + worldPos.z * matrix[2] + matrix[3];
+    float clipY = worldPos.x * matrix[4] + worldPos.y * matrix[5] + worldPos.z * matrix[6] + matrix[7];
+    float clipW = worldPos.x * matrix[12] + worldPos.y * matrix[13] + worldPos.z * matrix[14] + matrix[15];
+
+    if (clipW &lt; 0.1f) return false; // Target is behind player camera
+
+    Vector3 ndc;
+    ndc.x = clipX / clipW;
+    ndc.y = clipY / clipW;
+
+    screenPos.x = (width / 2.0f * ndc.x) + (ndc.x + width / 2.0f);
+    screenPos.y = -(height / 2.0f * ndc.y) + (ndc.y + height / 2.0f);
+    return true;
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">3. How Developers Neutralize ESP: Server-Side Occlusion Culling</h3>
+      <p class="mb-4">No client-side encryption will stop an ESP overlay if enemy coordinates exist in memory. The definitive solution is <strong>Network-Level Occlusion Culling (Fog of War)</strong>: the server runs raycast line-of-sight checks. If an enemy player is hidden behind a solid building, the server <em>does not send their network packet</em> to your client until they step within audible or visual threshold range.</p>
+
     `
   },
   {
@@ -323,23 +421,51 @@ window.NEWS_DATA = [
     date: "2026-10-22",
     category: "SECURITY & ANTI-CHEAT",
     badge: "DEVELOPER GUIDE",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/indie_security_xor.svg",
+    images: ["public/assets/images/news/indie_security_xor.svg"],
     author: "Mithila Games Tech Team",
     readTime: "5 MIN READ",
     summary: "Simple, high-impact defense patterns: memory obfuscation, time-tick validation, and anti-decompilation tricks that protect games without performance drag.",
     tags: ["anti-cheat", "indie", "security", "cheat engine", "speedhack", "obfuscation"],
     content: `
-      <p class="mb-4">Indie developers often assume robust security requires expensive third-party enterprise DRM suites. In reality, implementing a few straightforward architectural patterns can neutralize 90% of amateur Cheat Engine modifications.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Value Obfuscation (XOR / Bit-Shifted Types)</h4>
-      <p class="mb-4">Never store sensitive numeric values (coins, health, score) as plain integers or floats. If a player searches for <code>100</code>, increments it to <code>150</code>, and filters again, Cheat Engine easily pinpoints the memory address. Wrap variables in an obfuscated struct that stores <code>value ^ secret_salt</code>.</p>
+      <p class="mb-4">Indie developers often assume robust security requires six-figure enterprise contracts. In truth, over 90% of game modifications are conducted by casual users downloading Cheat Engine. Implementing fundamental software defense patterns neutralizes these attacks instantly without affecting performance.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Preventing Speedhacks via Monotonic Time</h4>
-      <p class="mb-4">Speedhack utilities intercept standard OS time functions (like <code>timeGetTime</code> or <code>QueryPerformanceCounter</code>) to artificially speed up frame deltas. Cross-validate local game time against asynchronous high-resolution thread ticks or network time protocol pings.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Value Obfuscation: Eliminating Plain-Text Numerics</h3>
+      <p class="mb-4">When a player searches for <code>100</code> gold, spends 10, and filters for <code>90</code>, Cheat Engine easily pinpoints the memory address. By wrapping sensitive variables in an obfuscated struct with XOR salts and checksum verification, raw memory searches yield nothing.</p>
+
+      <pre><code>// Safe Obfuscated Integer Struct (C# / Unity / Godot):
+public struct ObfuscatedInt {
+    private int _cryptoKey;
+    private int _hiddenValue;
+    private int _checksum;
+
+    public ObfuscatedInt(int initialValue) {
+        _cryptoKey = Random.Range(10000, 99999);
+        _hiddenValue = initialValue ^ _cryptoKey;
+        _checksum = ~initialValue;
+    }
+
+    public int Value {
+        get {
+            int decrypted = _hiddenValue ^ _cryptoKey;
+            if (decrypted != ~_checksum) {
+                // MEMORY TAMPER DETECTED!
+                SecurityManager.HandleMemoryTamperDetected();
+                return 0;
+            }
+            return decrypted;
+        }
+        set {
+            _cryptoKey = Random.Range(10000, 99999);
+            _hiddenValue = value ^ _cryptoKey;
+            _checksum = ~value;
+        }
+    }
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Neutralizing Cheat Engine Speedhacks</h3>
+      <p class="mb-4">Speedhack utilities intercept standard Windows API calls like <code>GetTickCount</code> or <code>timeGetTime</code>. Counter this by cross-referencing elapsed time against an asynchronous background thread or system performance counters (<code>System.Diagnostics.Stopwatch.GetTimestamp()</code>) that cannot be redirected by simple hooks.</p>
+
     `
   },
   {
@@ -348,20 +474,31 @@ window.NEWS_DATA = [
     date: "2026-10-14",
     category: "SECURITY & ANTI-CHEAT",
     badge: "NETCODE ARCHITECTURE",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/authoritative_server.svg",
+    images: ["public/assets/images/news/authoritative_server.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "The cardinal rule of multiplayer game design: Never trust the client. How to build server-authoritative simulations with client-side prediction.",
     tags: ["netcode", "server", "security", "exploits", "authoritative", "multiplayer"],
     content: `
-      <p class="mb-4">The fundamental reason cheats like infinite health, teleportation, and instant reload exist in multiplayer games is that the game engine allows the client application to tell the server what happened, rather than asking permission.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">The Golden Rule: The Client Sends Inputs, Not Results</h4>
-      <p class="mb-4">A client should only transmit: <em>"At tick 1240, I held forward and pressed fire while aiming at vector (x, y, z)."</em> The authoritative server advances its own headless physics simulation, validates bullet trajectory and line-of-sight, checks ammunition counters, and broadcasts hit confirmations back to all connected players.</p>
+      <p class="mb-4">The golden rule of multiplayer architecture is absolute: <strong>Never Trust the Client</strong>. The moment an engine trusts a client when it claims <em>"I shot Player B for 100 damage"</em> or <em>"I teleported to the extraction point"</em>, your game becomes an open playground for exploits.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Client-Side Prediction with Server Reconciliation</h3>
+      <p class="mb-4">If clients waited for the server to confirm every keystroke before moving, the game would feel unplayable due to latency (ping). The industry solution is <strong>Client-Side Prediction</strong>:</p>
+      <ol class="list-decimal pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>Client Step:</strong> The player presses W. The client immediately moves the local character forward and assigns a sequence tick number (e.g. Tick #500), saving the input in an unacknowledged history buffer.</li>
+        <li><strong>Server Step:</strong> The server receives the input for Tick #500, verifies player stamina and terrain boundaries, runs its own simulation, and sends back the authoritative position.</li>
+        <li><strong>Reconciliation:</strong> If the client position deviates from the server position (e.g. an enemy bumped the player), the client rewinds to the server state and re-simulates all inputs from Tick #500 to the current tick.</li>
+      </ol>
+
+      <pre><code>[Client Press 'W'] -> [Simulates locally (Tick 500)] -> [Displays instant movement]
+            |
+            v (Sends {Tick: 500, Input: Forward})
+    [Server Validates] -> [Advances headless physics] -> [Broadcasts authoritative state]
+            |
+            v (Returns {Tick: 500, Position: (10, 0, 5)})
+[Client Compares] -> Deviation &lt; 0.05m ? (Smooth) : (Snaps &amp; reconciles unacknowledged inputs)</code></pre>
+
     `
   },
   {
@@ -370,11 +507,8 @@ window.NEWS_DATA = [
     date: "2026-10-02",
     category: "SECURITY & ANTI-CHEAT",
     badge: "TECH DEBATE",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/anti_tamper_drm.svg",
+    images: ["public/assets/images/news/anti_tamper_drm.svg"],
     author: "Mithila Games Studio",
     readTime: "4 MIN READ",
     summary: "Examining how binary virtualization and code obfuscation wrappers interact with CPU branch prediction, cache misses, and frame times.",
@@ -392,11 +526,8 @@ window.NEWS_DATA = [
     date: "2026-09-18",
     category: "SECURITY & ANTI-CHEAT",
     badge: "COMMUNITY TECH",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/safe_modding_apis.svg",
+    images: ["public/assets/images/news/safe_modding_apis.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "How to open your game to player mods (custom skins, maps, lua scripts) without inadvertently exposing multiplayer matches to malicious exploits.",
@@ -414,11 +545,8 @@ window.NEWS_DATA = [
     date: "2026-09-08",
     category: "SECURITY & ANTI-CHEAT",
     badge: "HELP & SECURITY",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/securing_save_files.svg",
+    images: ["public/assets/images/news/securing_save_files.svg"],
     author: "Mithila Games Tech Team",
     readTime: "4 MIN READ",
     summary: "Stop players from editing plain-text JSON save files to unlock paid DLC or ruin competitive leaderboards with cryptographic verification.",
@@ -436,11 +564,8 @@ window.NEWS_DATA = [
     date: "2026-08-22",
     category: "SECURITY & ANTI-CHEAT",
     badge: "SERVER DEVOPS",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/ddos_mitigation.svg",
+    images: ["public/assets/images/news/ddos_mitigation.svg"],
     author: "Mithila Games Security Team",
     readTime: "5 MIN READ",
     summary: "Protecting dedicated game servers from amplification attacks, malformed packet crashes, and connection exhaustion without costly enterprise contracts.",
@@ -462,24 +587,55 @@ window.NEWS_DATA = [
     date: "2026-11-10",
     category: "GAME DEV & ENGINES",
     badge: "GODOT ENGINE",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/godot4_rendering.svg",
+    images: ["public/assets/images/news/godot4_rendering.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "Complete guide to choosing between Godot 4.3's Forward+, Mobile, and Compatibility renderers for maximum frame rates across target platforms.",
     tags: ["godot", "godot 4", "optimization", "vulkan", "rendering", "mobile", "game dev"],
     content: `
-      <p class="mb-4">Godot 4 brought cutting-edge Vulkan capabilities to the open-source community, but misconfiguring render modes remains the #1 cause of poor performance on mid-range hardware.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Forward+ vs Mobile vs Compatibility</h4>
-      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
-        <li><strong>Forward+ (Clustered):</strong> Designed for modern desktop GPUs. Supports hundreds of dynamic lights, SDFGI, and volumetric fog. Avoid on integrated Intel GPUs or mobile devices.</li>
-        <li><strong>Mobile:</strong> Streamlined Vulkan renderer limiting max lights per cluster. Ideal for Steam Deck and high-end smartphones.</li>
-        <li><strong>Compatibility (OpenGL 3.3 / WebGL 2):</strong> Maximum backwards compatibility for web exports and older laptops. Lacks complex compute shaders but delivers rock-solid frame pacing.</li>
-      </ul>
+      <p class="mb-4">Godot 4.3 has matured into a powerhouse game engine, featuring a modern Vulkan clustered forward renderer alongside lightweight mobile and compatibility backends. However, misconfiguring pipeline settings remains the primary reason indie developers experience disappointing frame rates on mid-range PCs and portable devices like the Steam Deck.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Choosing Your Renderer: Forward+ vs Mobile vs Compatibility</h3>
+      <table class="my-4">
+        <thead>
+          <tr>
+            <th>Renderer</th>
+            <th>Backend API</th>
+            <th>Best For</th>
+            <th>Key Features &amp; Tradeoffs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Forward+</strong></td>
+            <td>Vulkan Clustered</td>
+            <td>High-end Desktop PCs</td>
+            <td>Supports thousands of dynamic lights, SDFGI, volumetric fog, and Decals. High VRAM overhead.</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile</strong></td>
+            <td>Vulkan Mobile</td>
+            <td>Steam Deck, Laptops, Mobile</td>
+            <td>Restricts maximum cluster lights. Optimized for lower memory bandwidth and tile-based GPUs.</td>
+          </tr>
+          <tr>
+            <td><strong>Compatibility</strong></td>
+            <td>OpenGL 3.3 / WebGL 2</td>
+            <td>Web builds, low-end PCs</td>
+            <td>No compute shader requirement. Extremely fast compile times and rock-solid backwards support.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Essential Godot 4.3 Performance Settings in Project Settings</h3>
+      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
+        • <strong>rendering/anti_aliasing/quality/msaa_3d:</strong> Set to 2x or 4x (Avoid 8x on mid-range GPUs).<br>
+        • <strong>rendering/anti_aliasing/quality/screen_space_aa:</strong> Use FXAA (0.2ms overhead) instead of TAA on mobile.<br>
+        • <strong>rendering/lights_and_shadows/positional_shadow/atlas_size:</strong> Reduce from default 4096 to 2048 to halve shadow VRAM.<br>
+        • <strong>physics/common/physics_interpolation:</strong> Set to <code>True</code> to eliminate camera jitter on high refresh monitors.
+      </div>
+
     `
   },
   {
@@ -488,20 +644,41 @@ window.NEWS_DATA = [
     date: "2026-10-30",
     category: "GAME DEV & ENGINES",
     badge: "UNITY TECH",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/unity_dots_ecs.svg",
+    images: ["public/assets/images/news/unity_dots_ecs.svg"],
     author: "Mithila Games R&D",
     readTime: "5 MIN READ",
     summary: "Architectural comparison: Why memory cache misses kill performance in MonoBehaviour hierarchies, and how Data-Oriented Technology Stack fixes it.",
     tags: ["unity", "dots", "ecs", "c#", "monobehaviour", "performance"],
     content: `
-      <p class="mb-4">Object-Oriented Programming with traditional GameObjects and MonoBehaviours is delightfully intuitive, but scattering pointers across memory fragments the CPU L1/L2 cache when rendering thousands of simultaneous projectiles or units.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Cache Locality and Data Layout</h4>
-      <p class="mb-4">Unity DOTS organizes data linearly in chunks of homogeneous memory. When a Job iterates over 10,000 entities, the CPU fetches entire contiguous memory blocks at once, enabling SIMD vectorization and near-zero memory stalling.</p>
+      <p class="mb-4">For over a decade, Unity developers architected games around <code>GameObject</code> and <code>MonoBehaviour</code> hierarchies. While intuitive and flexible, this object-oriented pattern fragments computer memory. Unity’s Data-Oriented Technology Stack (DOTS)—comprising the C# Job System, the Burst Compiler, and the Entity Component System (ECS)—re-engineers performance from the hardware level up.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Why MonoBehaviours Kill CPU Cache Performance</h3>
+      <p class="mb-4">When a CPU executes an instruction, it takes hundreds of cycles to fetch data from main RAM, but only 1-4 cycles from the L1/L2 CPU cache. In traditional Unity, each GameObject is a reference type scattered across arbitrary heap locations. When an engine loop updates 5,000 enemy bullets, the CPU incurs a cache miss for almost every single bullet.</p>
+
+      <pre><code>// Traditional OOP Cache Miss Catastrophe:
+[RAM Memory Address 0x004A] -> Bullet #1 { Position, Velocity, AudioSource, Collider }
+[RAM Memory Address 0x8FA2] -> Bullet #2 (Located gigabytes away in heap!)
+Result: CPU L1/L2 cache is constantly flushed and stalled.
+
+// Unity ECS DOTS Linear Chunk Memory:
+[Chunk Memory: Contiguous 16KB Array]
+Positions: [P1, P2, P3, P4, P5 ... P1000]
+Velocities:[V1, V2, V3, V4, V5 ... V1000]
+Result: CPU pre-fetches entire arrays into cache; SIMD vectorizes 8 entities per clock cycle!</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Writing an IJobEntity System with Burst</h3>
+      <pre><code>// Unity DOTS Burst-Compiled Job System:
+[BurstCompile]
+public partial struct MoveEnemiesJob : IJobEntity {
+    public float DeltaTime;
+
+    public void Execute(ref LocalTransform transform, in Velocity velocity) {
+        transform.Position += velocity.Value * DeltaTime;
+    }
+}</code></pre>
+      <p class="text-slate-muted">This single Burst-compiled job can update 100,000 simultaneous units at over 120 FPS on a standard consumer CPU.</p>
+
     `
   },
   {
@@ -510,11 +687,8 @@ window.NEWS_DATA = [
     date: "2026-10-20",
     category: "GAME DEV & ENGINES",
     badge: "UNREAL ENGINE 5",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/unreal5_nanite.svg",
+    images: ["public/assets/images/news/unreal5_nanite.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "6 MIN READ",
     summary: "How indie developers can harness UE5's visual fidelity without alienating players on mid-tier GPUs like GTX 1660 and RTX 3050.",
@@ -537,11 +711,8 @@ window.NEWS_DATA = [
     date: "2026-10-10",
     category: "GAME DEV & ENGINES",
     badge: "GAME AI",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/game_ai_trees.svg",
+    images: ["public/assets/images/news/game_ai_trees.svg"],
     author: "Mithila Games Tech Team",
     readTime: "5 MIN READ",
     summary: "When to use simple state switches versus hierarchical blackboard trees for predictable, readable, and thrilling combat behaviors.",
@@ -556,20 +727,50 @@ window.NEWS_DATA = [
     date: "2026-09-28",
     category: "GAME DEV & ENGINES",
     badge: "GRAPHICS SHADERS",
-    image: "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/custom_shaders.svg",
+    images: ["public/assets/images/news/custom_shaders.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "Step-by-step introduction to writing custom shader math: UV coordinates, sin-wave vertex displacements, and screen-space chromatic aberration.",
     tags: ["shaders", "glsl", "hlsl", "graphics", "vfx", "math"],
     content: `
-      <p class="mb-4">Shaders are simply mathematical instructions executed in parallel across thousands of GPU cores. Understanding the transition from Vertex (position in space) to Fragment (color on screen) is essential for any technical artist.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Creating Water Waves with Vertex Shaders</h4>
-      <p class="mb-4">By taking the vertex position's X and Z coordinates and feeding them into periodic <code>sin()</code> and <code>cos()</code> functions multiplied by game time, a flat plane transforms instantly into undulating ocean ripples with virtually zero CPU overhead.</p>
+      <p class="mb-4">Shaders are not magic—they are simply mathematical functions executed in parallel across thousands of GPU cores. Mastering vertex and fragment shader mathematics allows technical artists to create breathtaking water ripples, forcefields, dissolving shields, and stylized post-processing effects with near-zero CPU overhead.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The Graphics Pipeline: Vertex vs Fragment</h3>
+      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>Vertex Shader:</strong> Executes once per mesh vertex. Modifies 3D positions in space (used for wave displacement, cloth flutter, and foliage bending).</li>
+        <li><strong>Rasterization:</strong> The GPU interpolates geometric vertices into screen pixels (fragments).</li>
+        <li><strong>Fragment (Pixel) Shader:</strong> Executes once per visible screen pixel. Computes final color, specular highlights, and opacity.</li>
+      </ul>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Writing a Water Vertex Wave Shader (Godot Shader Language)</h3>
+      <pre><code>shader_type spatial;
+
+uniform float wave_speed : hint_range(0.1, 5.0) = 1.5;
+uniform float wave_height : hint_range(0.0, 2.0) = 0.3;
+uniform float wave_frequency : hint_range(0.1, 10.0) = 2.0;
+
+void vertex() {
+    // Calculate wave displacement along the Y-axis using sinusoidal UV math
+    float wave = sin((VERTEX.x * wave_frequency) + (TIME * wave_speed)) 
+               * cos((VERTEX.z * wave_frequency) + (TIME * wave_speed));
+    
+    VERTEX.y += wave * wave_height;
+    
+    // Recalculate normal vectors so lighting aligns with displaced surface
+    NORMAL = normalize(vec3(
+        -cos((VERTEX.x * wave_frequency) + (TIME * wave_speed)) * wave_height,
+        1.0,
+        -sin((VERTEX.z * wave_frequency) + (TIME * wave_speed)) * wave_height
+    ));
+}
+
+void fragment() {
+    ALBEDO = vec3(0.05, 0.35, 0.65); // Deep ocean cyan
+    ROUGHNESS = 0.1;                  // Mirror-like reflections
+    METALLIC = 0.0;
+}</code></pre>
+
     `
   },
   {
@@ -578,20 +779,40 @@ window.NEWS_DATA = [
     date: "2026-09-15",
     category: "GAME DEV & ENGINES",
     badge: "ARCHITECTURE",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/atomic_save_system.svg",
+    images: ["public/assets/images/news/atomic_save_system.svg"],
     author: "Mithila Games Tech Team",
     readTime: "5 MIN READ",
     summary: "How to design atomic save systems with schema migrations so player save files never corrupt when adding new quests or items in patch updates.",
     tags: ["save system", "json", "serialization", "data", "architecture", "bugs"],
     content: `
-      <p class="mb-4">Few things destroy player reviews faster than losing a 40-hour playthrough due to a save file corruption during an automatic Steam update. Implementing atomic file writes and schema migrations guarantees stability.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">The Atomic Write Rule</h4>
-      <p class="mb-4">Never overwrite <code>save.dat</code> directly. Always write data to <code>save.dat.tmp</code>. Once the file flush and checksum validation pass, use an OS-level atomic replace command to swap the files. If the game crashes mid-write, the original save remains untouched.</p>
+      <p class="mb-4">Few events destroy player goodwill faster than losing a 50-hour RPG save file to corruption during an unexpected computer shutdown or game patch. Building an enterprise-grade save/load system requires atomic write transactions, cryptographic integrity hashing, and backward-compatible schema migrations.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The Atomic File Swap Pattern</h3>
+      <p class="mb-4">Never overwrite <code>save.json</code> directly. If the player's laptop battery dies or the OS crashes mid-write, the file will be truncated and corrupted. Always follow the <strong>3-Stage Atomic Swap</strong>:</p>
+
+      <pre><code>[Memory State] -> (1. Serializes Data) -> [save_slot_1.json.tmp]
+       |
+       v (2. Validates File Size &amp; Computes SHA256 Checksum)
+[Hash Matches?] -> YES -> (3. OS Atomic File.Replace) -> [save_slot_1.json]
+       |
+       +---------> NO  -> (Aborts &amp; Leaves Original File Untouched!)</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Schema Migrations Across Game Patches</h3>
+      <p class="mb-4">Always store a <code>schema_version</code> integer inside every save file header. When launching Game Version 1.5 with a save file created in Version 1.0, run migration handlers sequentially:</p>
+      <pre><code>// Example Migration Pipeline in GDScript:
+func load_save_file(filepath: String) -> Dictionary:
+    var data = parse_json_file(filepath)
+    var version = data.get("schema_version", 1)
+    
+    if version &lt; 2:
+        data = migrate_v1_to_v2(data) # Added secondary weapon slot
+    if version &lt; 3:
+        data = migrate_v2_to_v3(data) # Converted coin currency to multi-currency
+        
+    data["schema_version"] = CURRENT_SCHEMA_VERSION
+    return data</code></pre>
+
     `
   },
   {
@@ -600,11 +821,8 @@ window.NEWS_DATA = [
     date: "2026-09-02",
     category: "GAME DEV & ENGINES",
     badge: "AUDIO DESIGN",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/dynamic_audio_fmod.svg",
+    images: ["public/assets/images/news/dynamic_audio_fmod.svg"],
     author: "Mithila Games Audio",
     readTime: "4 MIN READ",
     summary: "Elevating game atmosphere by transitioning horizontal re-sequencing and vertical stem layering seamlessly as combat intensity ramps up.",
@@ -619,11 +837,8 @@ window.NEWS_DATA = [
     date: "2026-08-18",
     category: "GAME DEV & ENGINES",
     badge: "GAME FEEL",
-    image: "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/coyote_time_physics.svg",
+    images: ["public/assets/images/news/coyote_time_physics.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "Why mathematically accurate physics feel terrible to players, and how human-forgiving input windows create responsive, crisp controls.",
@@ -650,7 +865,7 @@ window.NEWS_DATA = [
     category: "BLENDER & 3D",
     badge: "NEW RELEASE [Update]",
     image: "content/Haircards/banner.png",
-    images: [
+    images: ["content/Haircards/banner.png", "content/Haircards/image1.png", "content/Haircards/image2.png", "public/assets/images/news/haircards_addon_release.svg"],images: [
       "content/Haircards/banner.png",
       "content/Haircards/image1.png",
       "content/Haircards/image2.png"
@@ -681,7 +896,7 @@ window.NEWS_DATA = [
     category: "BLENDER & 3D",
     badge: "RELEASE NOTE",
     image: "content/Haircards/banner.png",
-    images: [
+    images: ["content/Haircards/banner.png", "content/Haircards/image1.png", "content/Haircards/image2.png", "public/assets/images/news/haircards_addon_feature.svg"],images: [
       "content/Haircards/banner.png",
       "content/Haircards/image1.png",
       "content/Haircards/image2.png"
@@ -701,7 +916,7 @@ window.NEWS_DATA = [
     category: "BLENDER & 3D",
     badge: "STUDIO TOOL",
     image: "content/Vertex-Shadow-Painter-for-Blender/banner.png",
-    images: [
+    images: ["content/Vertex-Shadow-Painter-for-Blender/banner.png", "content/Vertex-Shadow-Painter-for-Blender/img1.png", "content/Vertex-Shadow-Painter-for-Blender/img2.png", "public/assets/images/news/vertex_shadow_painter.svg"],images: [
       "content/Vertex-Shadow-Painter-for-Blender/banner.png",
       "content/Vertex-Shadow-Painter-for-Blender/img1.png",
       "content/Vertex-Shadow-Painter-for-Blender/img2.png",
@@ -721,24 +936,24 @@ window.NEWS_DATA = [
     date: "2026-10-25",
     category: "BLENDER & 3D",
     badge: "3D MODELING",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-        "content/3D_models/lowpoly-characters/thumbnail.png"
-      ],
+    image: "public/assets/images/news/retopology_3d.svg",
+    images: ["public/assets/images/news/retopology_3d.svg"],
     author: "Mithila Games 3D Art Team",
     readTime: "5 MIN READ",
     summary: "Mastering deformation loops around shoulders, elbows, and facial zones to eliminate mesh pinching and volume collapse during skeletal animation.",
     tags: ["retopology", "blender", "character art", "edge loops", "animation"],
     content: `
-      <p class="mb-4">A magnificent 3D character sculpt will collapse into an ugly distorted mess the moment it's rigged if the underlying topology ignores deformation anatomy.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Key Topology Rules:</h4>
-      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
-        <li><strong>Shoulder Cape Loop:</strong> Run continuous loops over the collarbone and armpit to preserve shoulder volume when raising arms.</li>
-        <li><strong>Three-Segment Joints:</strong> Place three edge loops at knees and elbows—one center hinge and two bounding limits.</li>
-        <li><strong>Pole Placement:</strong> Keep 5-edge poles away from deforming muscle zones; tuck them into flat structural planes.</li>
-      </ul>
+      <p class="mb-4">A stunning 10-million polygon ZBrush character sculpt is completely useless in a game engine without clean retopology. Retopology is the art of building an optimized, low-polygon mesh over your sculpt that deforms gracefully during skeletal animation without volume collapse or ugly texture pinching.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The 5 Golden Rules of Topology</h3>
+      <ol class="list-decimal pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>The Shoulder Cape Loop:</strong> Run continuous edge loops encircling the collarbone, over the deltoid, and beneath the armpit. This prevents the shoulder from flattening like a crushed can when characters raise their arms.</li>
+        <li><strong>Joint Triad Segments:</strong> Every hinge joint (elbow, knee, finger knuckle) requires exactly three edge loops: one center bending hinge and two bounding support loops.</li>
+        <li><strong>Circular Facial Loops:</strong> Mouth and eye sockets must be surrounded by concentric radial loops matching the <em>orbicularis oris</em> and <em>orbicularis oculi</em> muscles for natural lip sync and blinking.</li>
+        <li><strong>Isolate 5-Edge Poles:</strong> Five-edge vertex poles (stars) are mathematically unavoidable when transitioning edge counts. Always guide poles away from bending hinges into flat, non-deforming anatomical planes.</li>
+        <li><strong>Conserve Silhouette Geometry:</strong> Allocate polygon density to edges that define character silhouettes (ears, noses, boots, weapons), and reduce density across flat surfaces.</li>
+      </ol>
+
     `
   },
   {
@@ -747,17 +962,26 @@ window.NEWS_DATA = [
     date: "2026-10-12",
     category: "BLENDER & 3D",
     badge: "TEXTURE PIPELINE",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-        "content/Vertex-Shadow-Painter-for-Blender/img3.png"
-      ],
+    image: "public/assets/images/news/normal_map_baking.svg",
+    images: ["public/assets/images/news/normal_map_baking.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "Eliminate dark seam artifacts, wavy bevels, and flipped green channel bugs forever with proper cage ray distances and synced tangent normals.",
     tags: ["normal map", "baking", "blender", "textures", "mikktspace"],
     content: `
-      <p class="mb-4">Normal map baking bugs are the bane of every 3D artist. Seams appear black, sharp edges look gouged, and lighting flips upside down inside game engines. Following standard MikkTSpace cage practices cures all three.</p>
+      <p class="mb-4">Normal map baking bugs are the bane of 3D game artists. Seams appear pitch-black in-engine, beveled corners look wavy, and lighting appears inverted. Following the industry-standard MikkTSpace cage workflow cures all three artifacts permanently.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Why Cage Meshes Eliminate Ray Misses</h3>
+      <p class="mb-4">When a baker projects rays from low-poly surface normals toward high-poly geometry, sharp 90-degree corners create projection gaps where rays cross over each other, creating skewed, wavy bevels. An expanded <strong>Cage Mesh</strong> (an identical copy of your low-poly with vertices pushed outwards along smooth normals) ensures rays shoot perfectly straight inward without intersecting neighbors.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Fixing Inverted Green Channels (DirectX vs OpenGL)</h3>
+      <p class="mb-4">If lighting on your 3D model looks upside-down (dents appear as bumps):</p>
+      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>OpenGL (+Y Green):</strong> Standard for Godot, Blender, Maya, WebGL.</li>
+        <li><strong>DirectX (-Y Green):</strong> Standard for Unreal Engine and 3ds Max.</li>
+      </ul>
+      <p class="text-slate-muted">If your normal map looks inverted in Unreal, simply open the texture settings and check <strong>Flip Green Channel</strong>.</p>
+
     `
   },
   {
@@ -766,11 +990,8 @@ window.NEWS_DATA = [
     date: "2026-09-22",
     category: "BLENDER & 3D",
     badge: "GEO NODES",
-    image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
-        "content/lowpoly_environment/screen1.png"
-      ],
+    image: "public/assets/images/news/geometry_nodes_scatter.svg",
+    images: ["public/assets/images/news/geometry_nodes_scatter.svg"],
     author: "Mithila Games Environment Dept",
     readTime: "5 MIN READ",
     summary: "How to generate non-destructive nature biomes using weight maps, slope constraints, and random scale distributions ready for instant engine export.",
@@ -785,11 +1006,8 @@ window.NEWS_DATA = [
     date: "2026-09-05",
     category: "BLENDER & 3D",
     badge: "RIGGING & ANIMATION",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-        "content/t-r-l/screen1.png"
-      ],
+    image: "public/assets/images/news/rigify_game_export.svg",
+    images: ["public/assets/images/news/rigify_game_export.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "How to export Blender Rigify armatures cleanly without dozens of useless control widgets cluttering your game engine skeleton tree.",
@@ -804,11 +1022,8 @@ window.NEWS_DATA = [
     date: "2026-08-25",
     category: "BLENDER & 3D",
     badge: "OPTIMIZATION",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-        "content/Haircards/image1.png"
-      ],
+    image: "public/assets/images/news/texture_atlas_drawcalls.svg",
+    images: ["public/assets/images/news/texture_atlas_drawcalls.svg"],
     author: "Mithila Games 3D Art Team",
     readTime: "4 MIN READ",
     summary: "How combining multiple prop UVs into unified 2048x2048 texture atlases reduces material batch counts from 50 to 1.",
@@ -827,11 +1042,8 @@ window.NEWS_DATA = [
     date: "2026-11-18",
     category: "HELP & TROUBLESHOOTING",
     badge: "MOST SEARCHED [Fix]",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/help_stutter_fix.svg",
+    images: ["public/assets/images/news/help_stutter_fix.svg"],
     author: "Mithila Games Support & Tech",
     readTime: "6 MIN READ",
     summary: "Your game displays 60 FPS but still feels jittery? Step-by-step diagnostic checklist to cure garbage collection spikes, GPU sync stalls, and frame pacing glitches.",
@@ -861,11 +1073,8 @@ window.NEWS_DATA = [
     date: "2026-11-14",
     category: "HELP & TROUBLESHOOTING",
     badge: "MOST SEARCHED [Blender]",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-        "content/Haircards/image2.png"
-      ],
+    image: "public/assets/images/news/help_blender_scale.svg",
+    images: ["public/assets/images/news/help_blender_scale.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "Why exported 3D models appear 100 times too small, face backwards, or have weird bone rotation offsets, and the permanent 1-click export fix.",
@@ -890,11 +1099,8 @@ window.NEWS_DATA = [
     date: "2026-11-06",
     category: "HELP & TROUBLESHOOTING",
     badge: "MOST SEARCHED [GPU]",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-        "content/lowpoly_environment/screen2.png"
-      ],
+    image: "public/assets/images/news/help_draw_calls.svg",
+    images: ["public/assets/images/news/help_draw_calls.svg"],
     author: "Mithila Games Tech Team",
     readTime: "5 MIN READ",
     summary: "Drop your draw call counter from 2,500 down to under 150. Master MultiMeshInstance in Godot, GPU Instancing in Unity, and static mesh merging.",
@@ -915,28 +1121,39 @@ window.NEWS_DATA = [
     date: "2026-10-26",
     category: "HELP & TROUBLESHOOTING",
     badge: "DEV TOOLING",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-        "content/t-r-l/banner.png"
-      ],
+    image: "public/assets/images/news/help_git_lfs.svg",
+    images: ["public/assets/images/news/help_git_lfs.svg"],
     author: "Mithila Games DevOps",
     readTime: "4 MIN READ",
     summary: "Prevent bloated 50GB Git repositories, corrupted merge conflicts on 3D models, and GitHub LFS bandwidth lockouts with this proven .gitattributes config.",
     tags: ["git", "git lfs", "github", "version control", "help", "devops"],
     content: `
-      <p class="mb-4">Committing raw 3D models (.blend, .fbx), PSD files, and uncompressed WAV audio directly to standard Git history quickly bloats repositories to tens of gigabytes, making cloning nearly impossible.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Copy-Paste Verified .gitattributes:</h4>
-      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        *.blend filter=lfs diff=lfs merge=lfs -text<br>
-        *.fbx filter=lfs diff=lfs merge=lfs -text<br>
-        *.png filter=lfs diff=lfs merge=lfs -text<br>
-        *.psd filter=lfs diff=lfs merge=lfs -text<br>
-        *.wav filter=lfs diff=lfs merge=lfs -text<br>
-        *.ogg filter=lfs diff=lfs merge=lfs -text
-      </div>
-      <p class="text-slate-muted">Always run <code>git lfs install</code> before cloning or committing large assets!</p>
+      <p class="mb-4">Committing raw 3D models (.blend, .fbx), Photoshop files (.psd), and uncompressed audio (.wav) directly into regular Git history quickly bloats repositories to 50+ Gigabytes. Cloning takes hours, and free GitHub bandwidth limits get locked out. Setting up <strong>Git Large File Storage (Git LFS)</strong> replaces binary files with lightweight 130-byte pointer files.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Production-Ready .gitattributes for Game Engines</h3>
+      <pre><code># Track all 3D Models and Raw Source Assets
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+
+# Textures and High-Res Art
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+
+# Audio Stems and Sound Banks
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.bank filter=lfs diff=lfs merge=lfs -text
+
+# Video and Pre-Rendered Cutscenes
+*.mp4 filter=lfs diff=lfs merge=lfs -text</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Lock Files to Prevent Merge Conflicts</h3>
+      <p class="mb-4">Binary 3D models cannot be merged by git. If two artists modify <code>character_hero.blend</code> simultaneously, one artist's work is lost. Enable file locking with <code>git lfs lock filename.blend</code> to signal team members that an asset is currently checked out.</p>
+
     `
   },
   {
@@ -945,11 +1162,8 @@ window.NEWS_DATA = [
     date: "2026-10-16",
     category: "HELP & TROUBLESHOOTING",
     badge: "STEAM DECK",
-    image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/help_steam_deck.svg",
+    images: ["public/assets/images/news/help_steam_deck.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "5 MIN READ",
     summary: "Valve's exact requirements to earn the coveted green 'Steam Deck Verified' badge: 1280x800 resolution, legible text, and zero launcher popups.",
@@ -973,11 +1187,8 @@ window.NEWS_DATA = [
     date: "2026-10-04",
     category: "HELP & TROUBLESHOOTING",
     badge: "MOST SEARCHED [Crash]",
-    image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/help_shader_crash.svg",
+    images: ["public/assets/images/news/help_shader_crash.svg"],
     author: "Mithila Games Support",
     readTime: "5 MIN READ",
     summary: "Fixing launch crashes and black screens caused by un-warmed DirectX 12 / Vulkan PSO shader compilation pipelines.",
@@ -995,11 +1206,8 @@ window.NEWS_DATA = [
     date: "2026-09-20",
     category: "HELP & TROUBLESHOOTING",
     badge: "ACCESSIBILITY",
-    image: "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1200&q=80",
-        "public/assets/images/inputmapper_thumb.svg"
-      ],
+    image: "public/assets/images/news/help_gamepad_remap.svg",
+    images: ["public/assets/images/news/help_gamepad_remap.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "Build an action-based input mapper that handles controller hot-plugging, duplicate keybind detection, and composite 2D vector axes.",
@@ -1014,20 +1222,36 @@ window.NEWS_DATA = [
     date: "2026-09-10",
     category: "HELP & TROUBLESHOOTING",
     badge: "MOST SEARCHED [Physics]",
-    image: "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80",
-        "content/bullet_balast/screen1.png"
-      ],
+    image: "public/assets/images/news/help_physics_tunnel.svg",
+    images: ["public/assets/images/news/help_physics_tunnel.svg"],
     author: "Mithila Games Tech Team",
     readTime: "4 MIN READ",
     summary: "Why fast-moving projectiles pass straight through colliders without triggering hit events, and how Continuous Collision Detection (CCD) solves it.",
     tags: ["physics tunneling", "collision", "ccd", "bullets", "raycast", "help"],
     content: `
-      <p class="mb-4">In discrete physics simulation, object positions update frame-by-frame. If a bullet moves 20 meters per frame and a wall is 1 meter thick, the bullet can exist in front of the wall on Frame 1 and behind the wall on Frame 2 without ever touching it.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">The Solution: Raycast Sweeping vs CCD</h4>
-      <p class="mb-4">For ultra-fast projectiles (sniper bullets, laser beams), do not use rigid bodies. Use a <strong>Raycast sweep</strong> from the projectile's previous position to its current position every frame to intercept any surface intersected along the swept vector.</p>
+      <p class="mb-4">In discrete physics engines, bullet colliders frequently pass straight through walls at high speeds without triggering a hit callback. This occurs because the physics solver samples positions at discrete intervals. If a bullet travels 25 meters per frame and a brick wall is 0.5 meters thick, the bullet teleports across the wall between frames without ever colliding.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Continuous Collision Detection (CCD) vs Raycast Sweeps</h3>
+      <p class="mb-4">For fast player movement or medium-speed cannonballs, enable <strong>Continuous Collision Detection (CCD)</strong> in your rigid body settings. Rather than checking overlapping spheres at point A and point B, the engine sweeps a convex hull along the motion trajectory.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. The Bullet Raycast Sweep Solution (Godot / Unity)</h3>
+      <p class="mb-4">For ultra-fast sniper bullets and lasers, do not use rigid body physics at all. Use a per-frame <strong>Raycast sweep</strong>:</p>
+      <pre><code>// Bullet Raycast Sweeping in GDScript:
+func _physics_process(delta: float) -&gt; void:
+    var move_step = velocity * delta
+    var next_pos = global_position + move_step
+    
+    var space_state = get_world_3d().direct_space_state
+    var query = PhysicsRayQueryParameters3D.create(global_position, next_pos)
+    var result = space_state.intersect_ray(query)
+    
+    if result:
+        # Collision guaranteed! Cannot tunnel through walls
+        spawn_hit_spark(result.position, result.normal)
+        queue_free()
+    else:
+        global_position = next_pos</code></pre>
+
     `
   },
   {
@@ -1036,17 +1260,37 @@ window.NEWS_DATA = [
     date: "2026-08-28",
     category: "HELP & TROUBLESHOOTING",
     badge: "ENGINE ARCHITECTURE",
-    image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/help_delta_time.svg",
+    images: ["public/assets/images/news/help_delta_time.svg"],
     author: "Divyanshu Priyadarshi",
     readTime: "4 MIN READ",
     summary: "Why tying physics calculations to variable frame delta time breaks character jump heights on high refresh rate displays, and how to fix it with fixed accumulators.",
     tags: ["delta time", "144hz", "physics accumulator", "high refresh", "fixed update", "help"],
     content: `
-      <p class="mb-4">If your character jumps twice as high at 30 FPS compared to 144 FPS, you are multiplying physics forces by variable delta time inside render steps. All numerical physics calculations must execute inside fixed sub-step loops.</p>
+      <p class="mb-4">If your player character jumps twice as high at 30 FPS as they do on a 144 Hz gaming monitor, you are multiplying physics forces by variable delta time inside frame render steps. Numerical integration errors compound rapidly with fluctuating frame rates.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. FixedUpdate Physics Accumulator</h3>
+      <p class="mb-4">All physical forces, gravity, and velocities must update inside a deterministic fixed-time accumulator loop. The game advances the physics simulation in strict 0.02s (50 Hz) or 0.0166s (60 Hz) steps regardless of whether the graphics card renders at 30 FPS or 240 FPS.</p>
+
+      <pre><code>// Correct Glenn Fiedler Physics Accumulator Loop:
+float accumulator = 0.0f;
+const float dt = 0.01666f; // Strict 60 Hz physics step
+
+void GameLoop() {
+    float frameTime = GetFrameDeltaTime();
+    if (frameTime &gt; 0.25f) frameTime = 0.25f; // Prevent spiral of death
+    accumulator += frameTime;
+
+    while (accumulator &gt;= dt) {
+        IntegratePhysics(dt); // Physics executes with CONSTANT dt
+        accumulator -= dt;
+    }
+
+    // Interpolate render state using remaining alpha
+    float alpha = accumulator / dt;
+    Render(alpha);
+}</code></pre>
+
     `
   },
   {
@@ -1055,23 +1299,36 @@ window.NEWS_DATA = [
     date: "2026-08-15",
     category: "HELP & TROUBLESHOOTING",
     badge: "PUBLISHING GUIDE",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-      ],
+    image: "public/assets/images/news/help_publishing_pipe.svg",
+    images: ["public/assets/images/news/help_publishing_pipe.svg"],
     author: "Mithila Games DevOps",
     readTime: "5 MIN READ",
     summary: "Automate your game deployment. Push new builds to Steam depots and Itch.io channels in 30 seconds with 1-click terminal scripts.",
     tags: ["steamcmd", "butler", "itch.io", "steam", "publishing", "build pipeline", "devops", "help"],
     content: `
-      <p class="mb-4">Manually zipping game folders, opening browser dashboards, and waiting for slow web uploads is tedious and error-prone. Industry veterans automate uploads via CLI tools.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">One-Line Itch.io Deploy via Butler:</h4>
-      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        butler push ./build/windows mithilagames/wings-of-paper:windows-64
-      </div>
-      <p class="text-slate-muted">Butler automatically computes binary diffs, uploading only modified bytes in seconds.</p>
+      <p class="mb-4">Manually zipping game folders, opening browser dashboards, and waiting for web uploads is tedious and prone to human error. Professional studios automate deployment through one-click terminal build scripts using <strong>SteamCMD</strong> and <strong>Itch.io Butler</strong>.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Fast Delta Uploads via Butler</h3>
+      <p class="mb-4">Butler generates binary diffs before uploading to Itch.io. If you fix a single line of code in a 5 GB game, Butler only transmits the modified 40 KB patch rather than re-uploading the entire package:</p>
+      <pre><code># One-line deploy to Windows, macOS, and Linux channels:
+butler push ./build/windows mithilagames/wings-of-paper:win-64 --userversion 1.4.2
+butler push ./build/linux   mithilagames/wings-of-paper:linux-64 --userversion 1.4.2</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Automated SteamCMD Depot Upload Script</h3>
+      <pre><code>// steam_app_build.vdf
+"appbuild" {
+    "appid" "1234560"
+    "desc" "Automated Studio Release"
+    "buildoutput" "./output/"
+    "contentroot" "./build/windows/"
+    "depots" {
+        "1234561" "depot_windows.vdf"
+    }
+}
+
+// Terminal execution:
+steamcmd +login studio_dev +run_app_build steam_app_build.vdf +quit</code></pre>
+
     `
   }
 ];

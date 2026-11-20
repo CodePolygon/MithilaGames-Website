@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Home / Landing Page -->
+  <!-- Core Main Pages -->
   <url>
     <loc>https://mithilagames.com/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,11 +14,9 @@
       <image:caption>Building Immersive Interactive Experiences &amp; Games</image:caption>
     </image:image>
   </url>
-
-  <!-- Games Catalog -->
   <url>
     <loc>https://mithilagames.com/games.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -31,87 +29,499 @@
       <image:title>Wings of Paper - Arcade 3D Glider Game</image:title>
       <image:caption>Take flight in a peaceful low-poly 3D world by Mithila Games</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://mithilagames.com/content/aam_chor/cover.png</image:loc>
-      <image:title>aam chor - 3D Survival Horror Game Jam Prototype</image:title>
-      <image:caption>Collect mangoes in a hungry pitch-black forest by Mithila Games</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://mithilagames.com/content/depth_drive/cover.png</image:loc>
-      <image:title>DepthDrive - Cozy Casual Driving Game</image:title>
-      <image:caption>Cozy casual driving exploration on mobile by Mithila Games</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://mithilagames.com/content/bullet_balast/cover.png</image:loc>
-      <image:title>Bullet Balast - Hypercasual Endless Reflex Game</image:title>
-      <image:caption>Hypercasual endless level loop by CodePolygon and Mithila Games</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://mithilagames.com/content/whadark/cover.png</image:loc>
-      <image:title>WhaDark - 2D Platformer Adventure</image:title>
-      <image:caption>Vertical 2D platforming summit adventure by 3dDiv and Mithila Games</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://mithilagames.com/content/off_goal/cover.png</image:loc>
-      <image:title>Off Goal - Cozy Golf Prototype</image:title>
-      <image:caption>Cozy, solitary indie golf prototype by Mithila Games</image:caption>
-    </image:image>
   </url>
-
-  <!-- Store / Asset Bazaar -->
   <url>
     <loc>https://mithilagames.com/store.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/Haircards/banner.png</image:loc>
+      <image:title>Haircards Addon for Blender</image:title>
+    </image:image>
   </url>
-
-  <!-- Studio News & Devlogs -->
   <url>
     <loc>https://mithilagames.com/news.html</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
-
-  <!-- About Us & Manifesto -->
   <url>
     <loc>https://mithilagames.com/about.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Contact Relay -->
   <url>
     <loc>https://mithilagames.com/connect.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Studio Careers -->
   <url>
     <loc>https://mithilagames.com/careers.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Privacy Policy -->
+  <url>
+    <loc>https://mithilagames.com/Div.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://mithilagames.com/privacy.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
-
-  <!-- Terms of Service & EULA -->
   <url>
     <loc>https://mithilagames.com/terms.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
+  <!-- Technical Devlogs and Articles -->
+  <url>
+    <loc>https://mithilagames.com/news/gta-6-next-gen-tech-ai-water-physics.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/gta-6-vice-city-map-scale-leak-analysis.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Dissecting the Grand Theft Auto VI Leonida Map: Scale, Interior Density, and Streaming Architecture</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/nintendo-switch-2-hardware-specs-dev-insights.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Next-Gen Handheld Gaming: NVIDIA DLSS, Ray Reconstruction, and What Devs Expect from Switch 2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/next-gen-open-world-physics-unreal-5.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Chaos Physics &amp; Volumetric Destruction: How Modern Games Handle Massive Environmental Debris</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/monster-hunter-wilds-seamless-weather-tech.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/indie-breakouts-steam-charts-analysis.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Anatomy of a Viral Steam Breakout: Why Co-op Emergent Games Dominate the Charts</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/cross-platform-play-in-2026.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>The Death of Console Exclusivity: How Simultaneous PC and Console Launches Reshaped Game Releases</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/cloud-gaming-and-hybrid-rendering.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Cloud-Assisted Compute vs Local Hardware: The Current State of Streaming Games</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/gta-6-leaks-cybersecurity-lesson.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>The GTA 6 Security Breach: Critical Cybersecurity Lessons in Source Code Protection</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/ai-aimbot-detection-computer-vision.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>AI Aimbots vs Neural Net Detection: How Games Detect External Mouse Automation in Real Time</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/anti-cheat-evolution-kernel-vs-server-ml.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>The War on Wallhacks: Kernel-Level Drivers vs Server-Side Machine Learning Anti-Cheat</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/game-hacking-methods-memory-injection-esp.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/protecting-indie-games-from-piracy-and-cheats.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering &amp; Speedhacks</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/authoritative-servers-vs-client-trust.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Stop Client-Side Exploits: Moving Health, Inventory, and Movement to Authoritative Server Models</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/anti-tamper-drm-performance-impact-myths.html</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Denuvo and Anti-Tamper Tech: Separating Frame-Pacing Myths from Developer Realities</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/modding-vs-exploiting-safe-modding-apis.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Balancing Community Modding and Game Integrity: Sandboxing Custom Scripts and Assets</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/securing-save-files-encryption-checksums.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Prevent Save File Hacking: AES-GCM Encryption and HMAC Checksums in Local Saves</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/ddos-mitigation-for-indie-multiplayer-servers.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Shielding Indie Multiplayer Servers: UDP Packet Filtering, Rate Limiting, and Matchmaking Resilience</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/godot-4-optimization-mobile-desktop.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/unity-dots-vs-classic-monobehaviour.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Unity ECS &amp; DOTS in Production: When to Transition from Classic MonoBehaviours</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/unreal-5-nanite-lumen-indie-budget.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Running Unreal Engine 5 on Indie Budgets: Practical Lumen and Nanite Optimization</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/finite-state-machines-vs-behavior-trees.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Game AI Architecture: Finite State Machines vs Behavior Trees for Boss Encounters</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/shader-programming-hlsl-glsl-basics.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Writing Custom Shaders: Demystifying Vertex, Fragment &amp; Screen-Space Distortion</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/save-system-architecture-json-binary.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Bulletproof Save Systems: Preventing Save Data Corruption Across Game Updates</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/adaptive-music-sound-design-fmod-wwise.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Dynamic Audio Systems: Implementing Adaptive Music Layers and Real-time Reverb</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/input-buffering-coyote-time-platformer-physics.html</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/news-blender-hair-cards-addon.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/Haircards/banner.png</image:loc>
+      <image:title>Introducing HairCards Suite: Automated Particle Hair to Card Mesh Converter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/blender-hair-cards-addon.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/Haircards/banner.png</image:loc>
+      <image:title>Introducing HairCards 3D: Automated Particle Hair to Card Mesh Converter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/blender-vertex-shadow-painter-guide.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/Vertex-Shadow-Painter-for-Blender/banner.png</image:loc>
+      <image:title>Stylized NPR Shading: Using Vertex Colors to Paint Permanent Ambient Occlusion in Blender</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/lowpoly-character-retopology-workflow.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/baking-clean-normal-maps-cage-workflow.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Baking Flawless 4K Normal Maps: Cage Setups, MikkTSpace, and Skew Fixing in Blender</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/blender-geometry-nodes-environment-scattering.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Procedural World Building: Blender Geometry Nodes for Foliage, Rock, and Debris Scattering</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/rigging-humanoids-rigify-game-export.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Rigify to Unreal &amp; Godot: Clean Bone Hierarchy Export Without Auxiliary Constraints</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/texture-atlas-reduction-draw-calls.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Optimizing Mobile 3D Assets: Texture Atlasing and UV Island Packing in Blender</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-fix-micro-stutter-frame-drops.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-blender-to-engine-scale-100x-fix.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Fixing Blender to Godot / Unity 100x Scale &amp; Rotation Mismatch (FBX/GLTF)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-draw-call-optimization-batching.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] How to Slash Draw Calls: Dynamic Batching, GPU Instancing, and Material Merging</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-git-lfs-game-project-setup.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-steam-deck-verification-checklist.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Steam Deck Verified: Complete 10-Step Optimization and UI Scaling Checklist</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-black-screen-shader-compilation-freeze.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Resolving Black Screens, Crash-on-Launch, and Shader Compilation Freezes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-gamepad-controller-remapping-system.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Implementing Gamepad and Keyboard Rebinding Without Conflict Errors</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-physics-tunneling-fast-projectiles.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-delta-time-physics-high-refresh-monitors.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Preventing Physics Glitches on 144Hz/240Hz Monitors: Delta Time Done Right</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mithilagames.com/news/help-publishing-indie-game-itch-steam.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD</image:title>
+    </image:image>
+  </url>
 </urlset>

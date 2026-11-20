@@ -6,11 +6,24 @@
 User-agent: *
 Allow: /
 
-# Sitemap Location for Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex
-Sitemap: https://mithilagames.com/sitemap.xml
+# Explicit AI Search Engine Directives (GEO)
+User-agent: GPTBot
+Allow: /
 
-# Crawl-delay optimization for heavy bots
-Crawl-delay: 1
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps and AI Discovery
+Sitemap: https://mithilagames.com/sitemap.xml
 
 # Host definition
 Host: mithilagames.com

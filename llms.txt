@@ -1,0 +1,44 @@
+# Mithila Games
+
+> Independent video game development studio & real-time 3D pipeline tooling laboratory.
+
+Mithila Games is an independent game development studio creating mechanics-first video games, Blender pipeline addons, CC0 shaders, and real-time graphics tools. Founded by Divyanshu Priyadarshi, the studio develops browser-playable HTML5 games, PC titles, and mobile simulations using the Godot Engine and Blender.
+
+## Official Links
+
+- Website: https://mithilagames.com/
+- Games Catalog: https://mithilagames.com/games.html
+- Developer Bazaar (Addons & Assets): https://mithilagames.com/store.html
+- Technical Devlogs & Analyses: https://mithilagames.com/news.html
+- Founder Profile: https://mithilagames.com/Div.html
+- Studio About: https://mithilagames.com/about.html
+- Studio Contact: https://mithilagames.com/connect.html
+- Studio Careers: https://mithilagames.com/careers.html
+
+## Shipped & In-Development Games
+
+- [T R L](https://mithilagames.com/games.html?item=game-t-r-l): Fast momentum 3D parkour platformer with kinetic wall-running and obstacle courses, playable in-browser via HTML5 and PC.
+- [Wings of Paper](https://mithilagames.com/games.html?item=game-wings-of-paper): Relaxing endless 3D origami plane flight simulator with aerodynamic lift mechanics across an open low-poly world (Android / PC).
+- [aam chor](https://mithilagames.com/games.html?item=game-aam-chor): 3D survival horror game jam prototype about collecting mangoes with flashlight battery management in a dark forest (HTML5, Windows, Linux).
+- [DepthDrive](https://mithilagames.com/games.html?item=game-depth-drive): Cozy casual vehicle physics driving prototype (Android).
+- [Bullet Balast](https://mithilagames.com/games.html?item=game-bullet-balast): Hypercasual reflex arcade game with an endless obstacle loop (HTML5, Mobile).
+- [WhaDark](https://mithilagames.com/games.html?item=game-whadark): Challenging vertical 2D platforming summit adventure (Android / Linux).
+- [Off Goal](https://mithilagames.com/games.html?item=game-off-goal): Solitary minimalist golf adventure in procedurally generated atmospheric worlds (HTML5).
+
+## 3D Tools & Pipeline Addons
+
+- [Haircards Addon for Blender](https://mithilagames.com/store.html?item=haircards): Procedural tool generating game-ready hair card geometry from particle strand systems in Blender.
+- [Vertex Shadow Painter for Blender](https://mithilagames.com/store.html?item=vertex-shadow-painter): Baker and custom color utility injecting stylized ambient occlusion directly into vertex channels for low-draw-call rendering.
+- [Lowpoly Characters Pack](https://mithilagames.com/store.html?item=lowpoly-character): 4 fully rigged, game-ready casual stylized 3D human models for prototyping.
+- [Lowpoly Environment Pack](https://mithilagames.com/store.html?item=lowpoly-environment): 40+ modular low-poly nature and architectural modular assets.
+
+## Technical Reports & Architecture Devlogs
+
+Comprehensive engineering deep dives and game dev tutorials published by Mithila Games:
+- GTA VI Technical Breakdown (Crowd AI, Volumetric Clouds, RAGE 9 Buoyancy): https://mithilagames.com/news/gta-6-next-gen-tech-ai-water-physics.html
+- Dissecting the Grand Theft Auto VI Leonida Map (Streaming & Interiors): https://mithilagames.com/news/gta-6-vice-city-map-scale-leak-analysis.html
+- Next-Gen Handheld Gaming (DLSS, Ray Reconstruction & Switch 2): https://mithilagames.com/news/nintendo-switch-2-hardware-specs-dev-insights.html
+- AI Aimbots vs Neural Net Detection (Real-Time Heuristics): https://mithilagames.com/news/ai-aimbots-neural-net-detection-game-security.html
+- Blender 100x Scale Fix for Godot & Unity: https://mithilagames.com/news/help-blender-scale-100x-export-godot-unity.html
+- Godot 4.3 Custom Shaders & Stutter Troubleshooting: https://mithilagames.com/news.html
+

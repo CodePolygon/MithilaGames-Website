@@ -762,13 +762,13 @@
     });
 
     // Active Tab Highlighting for Desktop, Ribbon, and Mobile Drawer
-    const currentPath = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const isHome = currentPath === '' || currentPath === 'index.html' || currentPath === 'home.html';
 
     // 1. Desktop & Tablet Nav Links (Game HUD styling)
     document.querySelectorAll('nav a[data-nav-link]').forEach((link) => {
       const href = link.getAttribute('href');
-      const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
+      const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
       link.classList.add('nav-game-tab');
       if (match) {
         link.classList.add('active-tab');
@@ -782,7 +782,7 @@
     // 2. Mobile Ribbon Links
     document.querySelectorAll('[data-mobile-ribbon-link]').forEach((link) => {
       const href = link.getAttribute('href');
-      const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
+      const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
       if (match) {
         link.className = 'px-3 py-1 bg-lime-400 text-void font-extrabold whitespace-nowrap text-xs shadow-md rounded-lg transform -rotate-1';
       } else {
@@ -793,7 +793,7 @@
     // 3. Mobile Drawer Links
     document.querySelectorAll('[data-mobile-drawer-link]').forEach((link) => {
       const href = link.getAttribute('href');
-      const match = (isHome && (href === 'home.html' || href === 'index.html')) || href === currentPath;
+      const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
       if (match) {
         link.className = 'p-3 bg-lime-400 text-void font-extrabold rounded-xl shadow-md';
       } else {

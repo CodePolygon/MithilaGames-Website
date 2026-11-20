@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_gta6_wat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180527" />
+      <stop offset="50%" stop-color="#3B0748" />
+      <stop offset="100%" stop-color="#08090C" />
+    </linearGradient>
+    <radialGradient id="glow_gta6_wat" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FF007F" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#FF007F" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid_gta6_wat" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#FF007F" stroke-width="0.5" opacity="0.12"/>
+    </pattern>
+    <pattern id="dots_gta6_wat" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="1" fill="#FF007F" opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="480" fill="url(#bg_gta6_wat)" />
+  <rect width="800" height="480" fill="url(#glow_gta6_wat)" />
+  <rect width="800" height="480" fill="url(#grid_gta6_wat)" />
+  <rect width="800" height="480" fill="url(#dots_gta6_wat)" />
+
+  <!-- Tactical Reticle HUD Corners -->
+  <path d="M 24 44 L 24 24 L 44 24" fill="none" stroke="#FF007F" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 776 44 L 776 24 L 756 24" fill="none" stroke="#FF007F" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 24 436 L 24 456 L 44 456" fill="none" stroke="#FF007F" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 776 436 L 776 456 L 756 456" fill="none" stroke="#FF007F" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Center Artwork / Technical Symbol -->
+  <g transform="translate(400, 205)">
+    
+            <path d="M 0 50 Q 20 -40 80 -100 Q 40 -80 0 -50 Q -40 -80 -80 -100 Q -20 -40 0 50" fill="#FF1493" opacity="0.5"/>
+            <path d="M -240 30 Q -120 -30 0 30 Q 120 90 240 30" fill="none" stroke="#00F0FF" stroke-width="3" opacity="0.9"/>
+            <path d="M -240 55 Q -120 -5 0 55 Q 120 115 240 55" fill="none" stroke="#E5A93C" stroke-width="2.5" opacity="0.8"/>
+            <text x="-40" y="10" font-family="'Syne', 'Impact', sans-serif" font-size="105" font-weight="900" fill="none" stroke="#FF007F" stroke-width="12" letter-spacing="2">VI</text>
+            <text x="-40" y="10" font-family="'Syne', 'Impact', sans-serif" font-size="105" font-weight="900" fill="#FFFFFF" letter-spacing="2">VI</text>
+        
+  </g>
+
+  <!-- Top Header Pill Badge -->
+  <rect x="32" y="28" width="230" height="30" rx="5" fill="#08090C" stroke="#FF007F" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="46" cy="43" r="3.5" fill="#FF007F" />
+  <text x="58" y="47" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#FF007F" letter-spacing="1.5">TRENDING [GTA 6]</text>
+
+  <!-- Top Right Studio Watermark -->
+  <text x="768" y="47" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#94A3B8" text-anchor="end" letter-spacing="1">MITHILA GAMES // ARCHIVE</text>
+
+  <!-- Bottom Title Card HUD Bar -->
+  <rect x="32" y="376" width="736" height="76" rx="8" fill="#08090C" stroke="#232735" stroke-width="1.5" opacity="0.94"/>
+  <line x1="32" y1="376" x2="768" y2="376" stroke="#FF007F" stroke-width="2.5" opacity="0.9"/>
+  
+  <text x="52" y="412" font-family="'Syne', 'Segoe UI', sans-serif" font-size="21" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">GTA VI: RAGE 9 WATER SIMULATION</text>
+  <text x="52" y="434" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#CBD5E1" letter-spacing="0.5">DYNAMIC FLUID COMPUTATION // OCEAN BUOYANCY SOLVER</text>
+  
+  <!-- Right Action Indicator -->
+  <circle cx="732" cy="414" r="16" fill="#151821" stroke="#FF007F" stroke-width="1"/>
+  <text x="732" y="420" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="bold" fill="#FF007F" text-anchor="middle">→</text>
+</svg>
