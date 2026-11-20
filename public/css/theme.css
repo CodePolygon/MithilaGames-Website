@@ -538,6 +538,100 @@ body {
   transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Full-Screen Page Modal Experience (for News Articles & Games/Products) */
+.game-modal-fullscreen {
+  padding: 0 !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  background-color: #08090C !important;
+}
+
+.game-modal-fullscreen .game-modal-dialog,
+.game-page-dialog {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  max-height: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #08090C !important;
+  transform: translateY(16px);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.game-modal-backdrop.is-open .game-page-dialog,
+.game-modal-backdrop.is-open.game-modal-fullscreen .game-modal-dialog {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.game-modal-backdrop.is-closing .game-page-dialog,
+.game-modal-backdrop.is-closing.game-modal-fullscreen .game-modal-dialog {
+  opacity: 0 !important;
+  transform: translateY(12px) !important;
+}
+
+/* Page Modal Sticky Header */
+.page-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(15, 17, 23, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #232735;
+  width: 100%;
+}
+
+/* Prose/Editorial formatting inside full-screen articles */
+.article-prose {
+  font-family: 'Work Sans', sans-serif;
+  color: #CBD5E1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.article-prose p {
+  margin-bottom: 1.5rem;
+}
+.article-prose h2, .article-prose h3, .article-prose h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.article-prose ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.article-prose li {
+  margin-bottom: 0.6rem;
+}
+.article-prose strong {
+  color: #FFFFFF;
+}
+.article-prose code {
+  background-color: #151821;
+  border: 1px solid #232735;
+  color: #E5A93C;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88em;
+}
+
+
 /* Telemetry Header Bar for Sub Windows */
 .hud-window-bar {
   display: flex;
@@ -659,10 +753,18 @@ body {
     line-height: 1.25;
   }
 
-  .game-modal-dialog {
+  .game-modal-dialog:not(.game-page-dialog) {
     max-height: calc(92dvh) !important;
     margin: 0.5rem auto;
     width: calc(100vw - 1rem) !important;
+  }
+
+  .game-modal-fullscreen .game-modal-dialog,
+  .game-page-dialog {
+    max-height: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
   }
   
   /* Ensure brush splash backgrounds scale cleanly on mobile without clipping */
@@ -711,7 +813,7 @@ body {
     min-height: 42px;
   }
 
-  .game-modal-dialog {
+  .game-modal-dialog:not(.game-page-dialog) {
     padding: 1rem !important;
     max-height: calc(94dvh) !important;
     width: calc(100vw - 0.75rem) !important;

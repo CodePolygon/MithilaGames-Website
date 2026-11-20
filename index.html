@@ -863,82 +863,204 @@
 
   </main>
 
-  <!-- REUSABLE PRODUCT DETAIL & DOWNLOAD MODAL WINDOW -->
-  <div id="product-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeProductModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-lime/40 rounded-2xl max-w-xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+  <!-- REUSABLE FULL-SCREEN DETAILS / PRODUCT PAGE VIEW -->
+  <div id="product-modal" class="fixed inset-0 bg-void z-50 hidden flex-col game-modal-backdrop game-modal-fullscreen" onclick="closeProductModal()">
+    <div class="game-page-dialog w-full min-h-screen bg-void flex flex-col cursor-default" onclick="event.stopPropagation()">
       
-      <!-- Tactical HUD Corners -->
-      <div class="hud-corner hud-corner-tl"></div>
-      <div class="hud-corner hud-corner-tr"></div>
-      <div class="hud-corner hud-corner-bl"></div>
-      <div class="hud-corner hud-corner-br"></div>
-
-      <div class="flex items-start justify-between gap-3 pb-3 border-b border-borderwire">
-        <div class="min-w-0 flex-1">
-          <span id="modal-item-category" class="game-sticker sticker-lime text-[10px] mb-1 inline-block max-w-full truncate"></span>
-          <h2 id="modal-item-title" class="font-syne font-black italic text-lg sm:text-2xl lg:text-3xl text-white uppercase mt-1 break-words"></h2>
+      <!-- Sticky Top Navigation Bar -->
+      <header class="page-modal-header py-3 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3 min-w-0">
+          <button 
+            type="button" 
+            onclick="closeProductModal()" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="game-btn game-btn-panel px-3 sm:px-4 py-2 rounded-lg text-slate-200 hover:text-lime text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm shrink-0"
+            aria-label="Back"
+          >
+            <span>←</span>
+            <span class="hidden sm:inline">BACK</span>
+            <span class="sm:hidden">BACK</span>
+          </button>
+          
+          <div class="h-4 w-[1px] bg-borderwire hidden md:block shrink-0"></div>
+          
+          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-slate-muted truncate">
+            <span class="w-2 h-2 rounded-full bg-lime animate-pulse shrink-0"></span>
+            <span class="shrink-0">MITHILA GAMES // TITLE DOSSIER:</span>
+            <span id="modal-item-nav-title" class="text-white font-bold truncate"></span>
+          </div>
         </div>
+
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
           <span id="modal-item-price" class="game-sticker sticker-ochre text-xs shrink-0"></span>
-          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold shrink-0" aria-label="Close modal">✕</button>
-        </div>
-      </div>
 
-      <!-- Interactive Main Image with Zoom Action & Multi-Image Gallery -->
-      <div class="space-y-2">
-        <div id="modal-item-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveItemImageViewer()">
-          <div class="hud-corner hud-corner-tl"></div>
-          <div class="hud-corner hud-corner-tr"></div>
-          <div class="hud-corner hud-corner-bl"></div>
-          <div class="hud-corner hud-corner-br"></div>
-
-          <img id="modal-item-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          
-          <span id="modal-item-img-counter" class="absolute top-2 left-2 px-2.5 py-1 bg-void/85 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden"></span>
-          
-          <span class="absolute bottom-2 right-2 px-3 py-1.5 bg-void/90 backdrop-blur-md rounded-lg border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
-            <span>EXPAND IMAGE</span>
-            <span class="text-xs">⤢</span>
-          </span>
+          <button 
+            id="modal-share-btn" 
+            type="button" 
+            onclick="copyItemUrl()" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="game-btn game-btn-panel px-3 sm:px-4 py-2 rounded-lg text-slate-300 hover:text-ochre text-xs font-mono font-bold uppercase transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+            title="Share link"
+          >
+            <span class="text-sm">↗</span>
+            <span class="hidden sm:inline">SHARE</span>
+          </button>
 
           <button 
             type="button" 
-            id="modal-item-prev-btn" 
-            onclick="event.stopPropagation(); stepModalItemImage(-1);" 
+            onclick="closeProductModal()" 
             onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Previous image"
-          >‹</button>
-          <button 
-            type="button" 
-            id="modal-item-next-btn" 
-            onclick="event.stopPropagation(); stepModalItemImage(1);" 
-            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Next image"
-          >›</button>
+            class="min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold font-mono text-sm shrink-0"
+            aria-label="Close page"
+            title="Close [ESC]"
+          >✕</button>
+        </div>
+      </header>
+
+      <!-- Scrollable Product/Game Page Body -->
+      <main class="w-full flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
+        
+        <!-- Header Banner Section -->
+        <div class="space-y-4 border-b border-borderwire pb-6">
+          <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+            <span id="modal-item-category" class="game-sticker sticker-lime text-[11px] inline-block uppercase tracking-wider font-bold"></span>
+            <span id="modal-item-badge" class="game-sticker sticker-ochre text-[11px] inline-block uppercase tracking-wider font-bold hidden"></span>
+            <span id="modal-item-platform" class="px-2.5 py-0.5 rounded bg-panel border border-borderwire text-slate-300 text-[11px] font-mono hidden"></span>
+            <span class="text-borderwire hidden sm:inline">•</span>
+            <span class="text-slate-muted hidden sm:inline">OFFICIAL MITHILA GAMES DOSSIER</span>
+          </div>
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <h1 id="modal-item-title" class="font-syne font-black italic text-3xl sm:text-4xl lg:text-5xl text-white uppercase break-words tracking-tight leading-tight"></h1>
+            <div class="flex items-center gap-3 shrink-0">
+              <span class="text-xs font-mono text-slate-muted uppercase">ACCESS:</span>
+              <span id="modal-item-price" class="game-sticker sticker-ochre text-sm sm:text-base px-3 py-1 font-bold"></span>
+            </div>
+          </div>
         </div>
 
-        <div id="modal-item-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
-      </div>
+        <!-- Cinema Stage Showcase Grid (Steam & Store Layout) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Column (Cinema Media Stage + Gallery + Overview) (8 cols) -->
+          <div class="lg:col-span-8 space-y-6">
+            
+            <!-- Cinema Interactive Stage Frame -->
+            <div class="space-y-3">
+              <div id="modal-item-img-container" class="aspect-video w-full bg-void/90 border-2 border-borderwire rounded-2xl overflow-hidden relative group cursor-zoom-in shadow-2xl flex items-center justify-center bg-halftone-dots" onclick="openActiveItemImageViewer()">
+                <div class="hud-corner hud-corner-tl"></div>
+                <div class="hud-corner hud-corner-tr"></div>
+                <div class="hud-corner hud-corner-bl"></div>
+                <div class="hud-corner hud-corner-br"></div>
 
-      <p id="modal-item-desc" class="font-sans text-sm text-slate-200 leading-relaxed"></p>
+                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                
+                <!-- Image Counter Badge -->
+                <span id="modal-item-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
+                
+                <!-- Expand Prompt -->
+                <span class="absolute bottom-4 right-4 px-3.5 py-1.5 bg-void/90 backdrop-blur-md rounded-lg border border-borderwire text-slate-200 group-hover:text-white group-hover:border-lime text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-xl">
+                  <span>EXPAND HIGH-RES</span>
+                  <span class="text-xs">⤢</span>
+                </span>
 
-      <div id="modal-item-specs" class="p-4 bg-panel/70 border border-borderwire rounded-xl space-y-2"></div>
+                <!-- Quick Navigation Arrows -->
+                <button 
+                  type="button" 
+                  id="modal-item-prev-btn" 
+                  onclick="event.stopPropagation(); stepModalItemImage(-1);" 
+                  onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+                  class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl bg-void/90 border border-borderwire hover:border-lime text-white hover:text-lime hidden items-center justify-center font-bold text-xl transition-all shadow-xl cursor-pointer"
+                  aria-label="Previous image"
+                >‹</button>
+                <button 
+                  type="button" 
+                  id="modal-item-next-btn" 
+                  onclick="event.stopPropagation(); stepModalItemImage(1);" 
+                  onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl bg-void/90 border border-borderwire hover:border-lime text-white hover:text-lime hidden items-center justify-center font-bold text-xl transition-all shadow-xl cursor-pointer"
+                  aria-label="Next image"
+                >›</button>
+              </div>
 
-      <div class="pt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
-        <a id="modal-item-download" href="#" target="_blank" class="game-btn game-btn-lime w-full sm:flex-1 py-3 px-4 rounded-xl text-void font-black text-xs uppercase tracking-wider text-center transition-all shadow-md flex items-center justify-center gap-2">
-          <span>LAUNCH BUILD →</span>
-        </a>
-        <div class="grid grid-cols-2 gap-2 sm:flex sm:gap-3 shrink-0">
-          <button id="modal-share-btn" type="button" onclick="copyItemUrl()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full sm:w-auto px-4 py-3 rounded-xl text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap shadow-sm text-center">
-            <span>SHARE LINK</span>
-          </button>
-          <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full sm:w-auto px-4 py-3 rounded-xl text-slate-400 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm text-center">
-            <span>CLOSE</span>
-          </button>
+              <!-- Thumbnail Strip Carousel -->
+              <div id="modal-item-gallery" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1 hidden"></div>
+            </div>
+
+            <!-- About / Synopsis Card -->
+            <div class="bg-surface/80 border border-borderwire rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+              <h2 class="font-syne font-black text-lg sm:text-xl text-white uppercase tracking-wider flex items-center gap-2.5">
+                <span class="text-lime text-xl">//</span> OVERVIEW & GAMEPLAY SYNOPSIS
+              </h2>
+              
+              <!-- Lead Short Desc / Summary if available -->
+              <p id="modal-item-short-desc" class="hidden text-base sm:text-lg text-slate-200 font-medium leading-relaxed italic border-l-4 border-lime pl-4 py-1 bg-void/40 rounded-r-lg"></p>
+
+              <!-- Full Description -->
+              <div id="modal-item-desc" class="font-sans text-base text-slate-300 leading-relaxed space-y-4 pt-1"></div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Sticky Command Deck (Action Card + Specs) (4 cols) -->
+          <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
+            
+            <!-- Primary Action Deck -->
+            <div class="bg-surface border-2 border-borderwire rounded-2xl p-6 space-y-5 shadow-2xl relative bg-halftone-dots">
+              <div class="hud-corner hud-corner-tl"></div>
+              <div class="hud-corner hud-corner-tr"></div>
+              <div class="hud-corner hud-corner-bl"></div>
+              <div class="hud-corner hud-corner-br"></div>
+
+              <div>
+                <span class="text-[10px] font-mono uppercase text-slate-muted tracking-wider">DEPLOYMENT PROTOCOL</span>
+                <div class="text-xs font-mono text-lime font-bold mt-0.5">READY FOR IMMEDIATE ACCESS</div>
+              </div>
+
+              <a id="modal-item-download" href="#" target="_blank" class="game-btn game-btn-lime w-full py-4 px-4 rounded-xl text-void font-black text-sm uppercase tracking-wider text-center transition-all shadow-xl flex items-center justify-center gap-2 cursor-pointer">
+                <span>LAUNCH BUILD →</span>
+              </a>
+
+              <div class="grid grid-cols-2 gap-2.5">
+                <button id="modal-share-btn" type="button" onclick="copyItemUrl()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full py-3 px-3 rounded-xl text-slate-200 hover:text-ochre text-xs font-mono font-bold uppercase tracking-wider transition-colors shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
+                  <span>SHARE</span>
+                  <span>↗</span>
+                </button>
+                <button type="button" onclick="closeProductModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="game-btn game-btn-panel w-full py-3 px-4 rounded-xl text-slate-400 hover:text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors shadow-sm text-center cursor-pointer">
+                  <span>← BACK</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Technical Specifications Grid -->
+            <div class="bg-surface/80 border border-borderwire rounded-2xl p-6 space-y-4 shadow-sm">
+              <h3 class="font-syne font-bold text-sm text-white uppercase tracking-wider flex items-center gap-2">
+                <span class="text-ochre">//</span> TECHNICAL SPECIFICATIONS
+              </h3>
+              <div id="modal-item-specs" class="space-y-2"></div>
+            </div>
+
+            <!-- Studio Authenticity Stamp -->
+            <div class="bg-panel/40 border border-borderwire/60 rounded-xl p-4 text-xs font-mono text-slate-muted flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-surface border border-borderwire flex items-center justify-center text-ochre font-bold shrink-0">
+                MG
+              </div>
+              <div class="text-[11px] leading-snug">
+                VERIFIED MITHILA GAMES ARCHIVE<br>
+                <span class="text-slate-400">Independent Game Studio Releases</span>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </div>
+
+        <!-- Studio Archive Footer Watermark -->
+        <div class="pt-8 pb-4 text-center text-xs font-mono text-slate-muted border-t border-borderwire/40">
+          <span>// MITHILA GAMES REPOSITORY • AUTHORIZED BUILD DISTRIBUTION //</span>
+        </div>
+
+      </main>
 
     </div>
   </div>

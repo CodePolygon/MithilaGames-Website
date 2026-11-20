@@ -11,9 +11,9 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>
-  <title>News & Devlogs // Mithila Games</title>
-  <meta name="description" content="Official developer logs, game engine updates, playtest announcements, and studio releases from Mithila Games.">
-  <meta name="keywords" content="Mithila Games devlog, indie game devlog, Godot tutorials, game release news, Wings of Paper updates">
+  <title>Game News, Tech & Help Guides // Mithila Games</title>
+  <meta name="description" content="Official devlogs, GTA 6 technical analyses, anti-cheat & security breakdowns, game engine guides, Blender 3D pipelines, and high-frequency troubleshooting help.">
+  <meta name="keywords" content="Mithila Games, GTA 6 news, game dev help, anti-cheat hacks, Godot optimization, Unity DOTS, Blender hair cards, micro-stutter fix, steam deck verified, game security">
   <meta name="author" content="Mithila Games">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://mithilagames.com/news.html">
@@ -168,20 +168,71 @@
       </div>
     </div>
 
+    <!-- Interactive Search Bar & Most-Searched Quick Tags -->
+    <div class="mb-8 space-y-4">
+      <div class="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <input 
+            type="text" 
+            id="news-search-input" 
+            placeholder="Search 44+ articles: GTA 6, anti-cheat, hacks, Godot, Blender scale fix, stutter, FPS..." 
+            class="w-full bg-surface border border-borderwire focus:border-ochre rounded-xl pl-10 pr-10 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none transition-all shadow-inner font-sans"
+            oninput="handleNewsSearch(this.value)"
+          >
+          <button 
+            type="button" 
+            id="news-search-clear" 
+            onclick="clearNewsSearch()" 
+            class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white hidden cursor-pointer"
+            title="Clear search"
+          >✕</button>
+        </div>
+        <div class="flex items-center justify-between sm:justify-end gap-2 px-1">
+          <span id="news-result-count" class="text-xs font-mono text-ochre font-bold tracking-wide">44 DISPATCHES</span>
+        </div>
+      </div>
+
+      <!-- Most Searched Quick Filter Chips -->
+      <div class="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
+        <span class="text-slate-400 font-bold uppercase text-[10px] tracking-wider shrink-0 flex items-center gap-1">
+          <span class="text-ochre">⚡</span> MOST SEARCHED:
+        </span>
+        <button type="button" onclick="quickSearchTopic('gta 6')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">GTA 6</button>
+        <button type="button" onclick="quickSearchTopic('anti-cheat')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Anti-Cheat &amp; Hacks</button>
+        <button type="button" onclick="quickSearchTopic('stutter')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Fix Stutter</button>
+        <button type="button" onclick="quickSearchTopic('blender scale')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Blender 100x Scale</button>
+        <button type="button" onclick="quickSearchTopic('steam deck')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Steam Deck Verified</button>
+        <button type="button" onclick="quickSearchTopic('draw calls')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Draw Calls &amp; LOD</button>
+        <button type="button" onclick="quickSearchTopic('godot')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Godot 4.3</button>
+        <button type="button" onclick="quickSearchTopic('save system')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Save Systems</button>
+        <button type="button" onclick="quickSearchTopic('shaders')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Custom Shaders</button>
+        <button type="button" onclick="quickSearchTopic('physics tunneling')" class="quick-tag-chip px-2.5 py-1 rounded-md bg-panel hover:bg-ochre hover:text-void border border-borderwire text-slate-300 text-[11px] transition-all cursor-pointer font-medium">Physics Tunneling</button>
+      </div>
+    </div>
+
     <!-- Category Filter Bar (Game HUD Skewed Tabs) -->
     <div class="w-full min-w-0 mb-8 pb-4 border-b border-borderwire/80 overflow-hidden">
       <div class="mobile-tab-scroll gap-2 text-xs font-syne uppercase py-1">
         <button type="button" data-news-filter="all" onclick="filterNews('all')" class="news-filter-pill nav-game-tab active-tab cursor-pointer shrink-0">
           ALL UPDATES
         </button>
+        <button type="button" data-news-filter="GAME NEWS & TRENDS" onclick="filterNews('GAME NEWS & TRENDS')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          GAME NEWS &amp; TRENDS
+        </button>
+        <button type="button" data-news-filter="SECURITY & ANTI-CHEAT" onclick="filterNews('SECURITY & ANTI-CHEAT')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          SECURITY &amp; ANTI-CHEAT
+        </button>
+        <button type="button" data-news-filter="GAME DEV & ENGINES" onclick="filterNews('GAME DEV & ENGINES')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          GAME DEV &amp; ENGINES
+        </button>
         <button type="button" data-news-filter="BLENDER & 3D" onclick="filterNews('BLENDER & 3D')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
           BLENDER &amp; 3D
         </button>
-        <button type="button" data-news-filter="ENGINE & DEVLOG" onclick="filterNews('ENGINE & DEVLOG')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
-          ENGINE &amp; DEVLOG
-        </button>
-        <button type="button" data-news-filter="ADDONS & TOOLS" onclick="filterNews('ADDONS & TOOLS')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
-          ADDONS &amp; TOOLS
+        <button type="button" data-news-filter="HELP & TROUBLESHOOTING" onclick="filterNews('HELP & TROUBLESHOOTING')" class="news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0">
+          HELP &amp; TROUBLESHOOTING
         </button>
       </div>
     </div>
@@ -257,105 +308,206 @@
     </div>
   </div>
 
-  <!-- REUSABLE ARTICLE DETAIL MODAL WINDOW WITH DIRECT URL -->
-  <div id="news-modal" class="fixed inset-0 bg-void/90 backdrop-blur-md z-50 hidden items-center justify-center p-2 sm:p-4 game-modal-backdrop" onclick="closeNewsModal()">
-    <div class="bg-surface border-2 border-borderwire hover:border-purple/50 rounded-2xl max-w-2xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl space-y-4 max-h-[92dvh] overflow-y-auto bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+  <!-- REUSABLE FULL-SCREEN ARTICLE DETAIL PAGE VIEW WITH DIRECT URL -->
+  <div id="news-modal" class="fixed inset-0 bg-void z-50 hidden flex-col game-modal-backdrop game-modal-fullscreen" onclick="closeNewsModal()">
+    <div class="game-page-dialog w-full min-h-screen bg-void flex flex-col cursor-default" onclick="event.stopPropagation()">
       
-      <!-- Tactical HUD Corners -->
-      <div class="hud-corner hud-corner-tl"></div>
-      <div class="hud-corner hud-corner-tr"></div>
-      <div class="hud-corner hud-corner-bl"></div>
-      <div class="hud-corner hud-corner-br"></div>
-
-
-      <div class="flex justify-between items-start pb-3 border-b border-borderwire/60">
-        <div>
-          <div class="flex items-center gap-2 text-xs text-ochre mb-1">
-            <span id="modal-news-category" class="font-bold uppercase tracking-wider"></span>
-            <span>•</span>
-            <span id="modal-news-date" class="text-slate-400 font-mono"></span>
+      <!-- Sticky Top Navigation Bar -->
+      <header class="page-modal-header py-3 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <button 
+            type="button" 
+            onclick="closeNewsModal()" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="game-btn game-btn-panel px-3 sm:px-4 py-2 rounded-lg text-slate-200 hover:text-ochre text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
+            aria-label="Back to news"
+          >
+            <span>←</span>
+            <span class="hidden sm:inline">BACK TO NEWS</span>
+            <span class="sm:hidden">BACK</span>
+          </button>
+          
+          <div class="h-4 w-[1px] bg-borderwire hidden md:block"></div>
+          
+          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-slate-muted">
+            <span class="w-2 h-2 rounded-full bg-ochre animate-pulse"></span>
+            <span>MITHILA GAMES // STUDIO DEVLOG ARTICLE</span>
           </div>
-          <h2 id="modal-news-title" class="font-syne font-black italic text-xl sm:text-3xl text-white leading-tight uppercase"></h2>
-        </div>
-        <button 
-          type="button" 
-          onclick="closeNewsModal()" 
-          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-          class="min-w-[40px] min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold"
-          aria-label="Close dialog"
-        >✕</button>
-      </div>
-
-      <!-- Interactive Main Article Image with Zoom Action & Gallery -->
-      <div class="space-y-2">
-        <div id="modal-news-img-container" class="aspect-video w-full bg-void border-2 border-borderwire rounded-xl overflow-hidden relative group cursor-zoom-in" onclick="openActiveNewsImageViewer()">
-          <!-- HUD Corners inside stage frame -->
-          <div class="hud-corner hud-corner-tl"></div>
-          <div class="hud-corner hud-corner-tr"></div>
-          <div class="hud-corner hud-corner-bl"></div>
-          <div class="hud-corner hud-corner-br"></div>
-
-          <img id="modal-news-img" src="" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span id="modal-news-badge" class="absolute top-3 right-3 px-2.5 py-0.5 bg-void/85 backdrop-blur-sm border border-borderwire rounded text-ochre text-xs font-mono font-bold"></span>
-          
-          <!-- Image Counter Badge -->
-          <span id="modal-news-img-counter" class="absolute top-3 left-3 px-2.5 py-0.5 bg-void/85 backdrop-blur-sm border border-borderwire rounded text-slate-300 font-mono text-xs hidden"></span>
-          
-          <!-- Expand Prompt -->
-          <span class="absolute bottom-3 right-3 px-3 py-1 bg-void/90 backdrop-blur-sm border border-borderwire rounded text-slate-200 group-hover:text-white group-hover:border-ochre text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg">
-            <span>EXPAND DOSSIER</span>
-            <span class="text-xs">⤢</span>
-          </span>
-
-          <!-- Prev/Next Quick Navigation Overlay -->
-          <button 
-            type="button" 
-            id="modal-news-prev-btn" 
-            onclick="event.stopPropagation(); stepModalNewsImage(-1);" 
-            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Previous image"
-          >‹</button>
-          <button 
-            type="button" 
-            id="modal-news-next-btn" 
-            onclick="event.stopPropagation(); stepModalNewsImage(1);" 
-            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold transition-all shadow-md cursor-pointer"
-            aria-label="Next image"
-          >›</button>
         </div>
 
-        <!-- Thumbnail Strip -->
-        <div id="modal-news-gallery" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 hidden"></div>
-      </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button 
+            id="modal-news-share-btn" 
+            type="button" 
+            onclick="copyNewsUrl()" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="game-btn game-btn-panel px-3 sm:px-4 py-2 rounded-lg text-slate-300 hover:text-ochre text-xs font-mono font-bold uppercase transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+            title="Share article"
+          >
+            <span class="text-sm">↗</span>
+            <span class="hidden sm:inline">SHARE</span>
+          </button>
 
-      <div class="flex items-center justify-between text-xs text-slate-400 font-mono pb-2 border-b border-borderwire/60">
-        <div>AUTHOR: <span id="modal-news-author" class="text-white font-bold"></span></div>
-        <div id="modal-news-readtime" class="text-ochre font-bold"></div>
-      </div>
+          <button 
+            type="button" 
+            onclick="closeNewsModal()" 
+            onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+            class="min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] rounded-lg bg-panel border border-borderwire hover:border-ochre text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer font-bold font-mono text-sm"
+            aria-label="Close page"
+            title="Close [ESC]"
+          >✕</button>
+        </div>
+      </header>
 
-      <div id="modal-news-content" class="font-sans text-sm text-slate-200 leading-relaxed space-y-4"></div>
+      <!-- Scrollable Article Page Body -->
+      <main class="w-full flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
+        
+        <!-- Article Header & Meta -->
+        <div class="space-y-4 border-b border-borderwire pb-8">
+          <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+            <span id="modal-news-category" class="game-sticker sticker-ochre text-[11px] font-bold uppercase tracking-wider"></span>
+            <span id="modal-news-badge" class="px-2.5 py-0.5 rounded bg-panel border border-borderwire text-ochre text-[11px] font-mono font-bold"></span>
+            <span class="text-borderwire">•</span>
+            <span id="modal-news-date" class="text-slate-400"></span>
+            <span class="text-borderwire">•</span>
+            <span id="modal-news-readtime" class="text-ochre font-semibold"></span>
+          </div>
 
-      <div class="pt-4 flex flex-wrap sm:flex-nowrap gap-3 border-t border-borderwire/60">
-        <button 
-          id="modal-news-share-btn" 
-          type="button" 
-          onclick="copyNewsUrl()" 
-          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-          class="game-btn game-btn-panel px-5 py-2.5 rounded-lg text-slate-200 hover:text-ochre text-xs font-bold uppercase tracking-wide transition-colors whitespace-nowrap shadow-sm"
-        >
-          <span>COPY LINK</span>
-        </button>
-        <button 
-          type="button" 
-          onclick="closeNewsModal()" 
-          onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-          class="game-btn game-btn-ochre flex-grow px-5 py-2.5 rounded-lg text-void text-xs font-black uppercase tracking-wide transition-all shadow-md"
-        >
-          <span>CLOSE DOSSIER →</span>
-        </button>
-      </div>
+          <h1 id="modal-news-title" class="font-syne font-black italic text-3xl sm:text-5xl lg:text-6xl text-white leading-tight uppercase tracking-tight"></h1>
+
+          <div class="flex items-center gap-3 pt-2 text-xs font-mono text-slate-muted">
+            <div class="w-9 h-9 rounded-full bg-panel border border-borderwire flex items-center justify-center text-ochre font-bold text-sm shadow-md">
+              MG
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm"><span id="modal-news-author"></span></div>
+              <div class="text-slate-muted text-[11px]">Mithila Games Studio Dev Dispatch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Main Article Hero Stage & Gallery -->
+        <div class="space-y-3">
+          <div id="modal-news-img-container" class="aspect-video w-full bg-void/90 border-2 border-borderwire rounded-2xl overflow-hidden relative group cursor-zoom-in shadow-2xl flex items-center justify-center bg-halftone-dots" onclick="openActiveNewsImageViewer()">
+            <div class="hud-corner hud-corner-tl"></div>
+            <div class="hud-corner hud-corner-tr"></div>
+            <div class="hud-corner hud-corner-bl"></div>
+            <div class="hud-corner hud-corner-br"></div>
+
+            <img id="modal-news-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500">
+            
+            <span id="modal-news-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
+            
+            <span class="absolute bottom-4 right-4 px-3.5 py-1.5 bg-void/90 backdrop-blur-md border border-borderwire rounded text-slate-200 group-hover:text-white group-hover:border-ochre text-xs font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-xl">
+              <span>EXPAND IMAGE</span>
+              <span class="text-xs">⤢</span>
+            </span>
+
+            <button 
+              type="button" 
+              id="modal-news-prev-btn" 
+              onclick="event.stopPropagation(); stepModalNewsImage(-1);" 
+              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold text-xl transition-all shadow-xl cursor-pointer"
+              aria-label="Previous image"
+            >‹</button>
+            <button 
+              type="button" 
+              id="modal-news-next-btn" 
+              onclick="event.stopPropagation(); stepModalNewsImage(1);" 
+              onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl bg-void/90 border border-borderwire hover:border-ochre text-white hover:text-ochre hidden items-center justify-center font-bold text-xl transition-all shadow-xl cursor-pointer"
+              aria-label="Next image"
+            >›</button>
+          </div>
+
+          <!-- Thumbnail Strip -->
+          <div id="modal-news-gallery" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1 hidden"></div>
+        </div>
+
+        <!-- Editorial Content Grid (Main Prose + Quick Sidebar) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Main Article Prose (8 cols) -->
+          <div class="lg:col-span-8 space-y-6">
+            
+            <!-- Lead Summary Quote Box -->
+            <div id="modal-news-summary" class="border-l-4 border-ochre bg-surface/80 p-5 sm:p-6 rounded-r-xl text-slate-200 font-sans text-base sm:text-lg italic leading-relaxed shadow-sm hidden"></div>
+
+            <!-- Article Content HTML -->
+            <article id="modal-news-content" class="article-prose font-sans text-base sm:text-lg text-slate-200 leading-relaxed space-y-6"></article>
+
+            <!-- Article Footer Navigation & Share Actions -->
+            <div class="pt-8 border-t border-borderwire flex flex-col sm:flex-row items-center justify-between gap-4">
+              <button 
+                type="button" 
+                onclick="closeNewsModal()" 
+                onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+                class="game-btn game-btn-ochre w-full sm:w-auto px-6 py-3.5 rounded-xl text-void font-black text-xs font-syne uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>← BACK TO ALL ARTICLES</span>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="copyNewsUrl()" 
+                onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+                class="game-btn game-btn-panel w-full sm:w-auto px-5 py-3.5 rounded-xl text-slate-200 hover:text-ochre text-xs font-mono font-bold uppercase tracking-wide transition-colors whitespace-nowrap shadow-sm text-center cursor-pointer flex items-center justify-center gap-1.5"
+              >
+                <span>SHARE THIS DISPATCH</span>
+                <span>↗</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Right Sidebar: Author & Info Deck (4 cols) -->
+          <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
+            
+            <!-- Author Card -->
+            <div class="bg-surface border-2 border-borderwire rounded-2xl p-6 space-y-4 shadow-xl">
+              <span class="text-[10px] font-mono uppercase text-ochre font-bold tracking-wider">// DISPATCH ORIGIN</span>
+              
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-panel border-2 border-ochre/40 flex items-center justify-center text-ochre font-bold text-lg">
+                  MG
+                </div>
+                <div>
+                  <div class="text-white font-bold font-syne text-sm">MITHILA GAMES</div>
+                  <div class="text-slate-muted font-mono text-xs">Official Studio Log</div>
+                </div>
+              </div>
+
+              <p class="text-xs font-mono text-slate-400 leading-relaxed border-t border-borderwire/60 pt-3">
+                Direct developer updates on game engines, Blender tooling, asset production, and indie game releases.
+              </p>
+            </div>
+
+            <!-- Share Card -->
+            <div class="bg-surface/80 border border-borderwire rounded-2xl p-6 space-y-3.5 shadow-sm">
+              <span class="text-[10px] font-mono uppercase text-slate-muted tracking-wider">SHARE TRANSMISSION</span>
+              
+              <button 
+                type="button" 
+                onclick="copyNewsUrl()" 
+                onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
+                class="game-btn game-btn-panel w-full py-2.5 px-4 rounded-xl text-slate-300 hover:text-ochre text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>COPY ARTICLE URL</span>
+                <span>📋</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Studio Dispatch Footer Watermark -->
+        <div class="pt-8 pb-4 text-center text-xs font-mono text-slate-muted border-t border-borderwire/40">
+          <span>// MITHILA GAMES OFFICIAL DISPATCH • TRANSMISSION VERIFIED //</span>
+        </div>
+
+      </main>
 
     </div>
   </div>
@@ -429,8 +581,40 @@
   <script src="public/js/data/newsData.js"></script>
   <script>
     let currentNewsFilter = 'all';
+    let newsSearchQuery = '';
 
-    function filterNews(filter) {
+    function handleNewsSearch(val) {
+      newsSearchQuery = (val || '').trim();
+      const clearBtn = document.getElementById('news-search-clear');
+      if (clearBtn) {
+        if (newsSearchQuery) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+      renderNews();
+    }
+
+    function clearNewsSearch() {
+      const input = document.getElementById('news-search-input');
+      if (input) input.value = '';
+      newsSearchQuery = '';
+      const clearBtn = document.getElementById('news-search-clear');
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderNews();
+    }
+
+    function quickSearchTopic(query) {
+      const input = document.getElementById('news-search-input');
+      if (input) input.value = query;
+      // Reset category to all so the topic search searches across everything
+      filterNews('all', false);
+      handleNewsSearch(query);
+      if (typeof window.playGameSfx === 'function') window.playGameSfx('click');
+    }
+
+    function filterNews(filter, resetSearch = false) {
       currentNewsFilter = filter;
       document.querySelectorAll('.news-filter-pill').forEach(btn => {
         if (btn.getAttribute('data-news-filter') === filter) {
@@ -439,7 +623,11 @@
           btn.className = 'news-filter-pill nav-game-tab cursor-pointer text-slate-300 shrink-0';
         }
       });
-      renderNews();
+      if (resetSearch) {
+        clearNewsSearch();
+      } else {
+        renderNews();
+      }
     }
 
     function renderNews() {
@@ -447,14 +635,41 @@
       if (!container) return;
 
       const data = window.NEWS_DATA || [];
-      const items = currentNewsFilter === 'all' 
+      let items = currentNewsFilter === 'all' 
         ? data 
         : data.filter(a => a.category === currentNewsFilter);
 
+      if (newsSearchQuery) {
+        const q = newsSearchQuery.toLowerCase();
+        items = items.filter(a => {
+          const title = (a.title || '').toLowerCase();
+          const summary = (a.summary || '').toLowerCase();
+          const cat = (a.category || '').toLowerCase();
+          const badge = (a.badge || '').toLowerCase();
+          const tags = (a.tags || []).join(' ').toLowerCase();
+          const content = (a.content || '').toLowerCase();
+          return title.includes(q) || summary.includes(q) || tags.includes(q) || cat.includes(q) || badge.includes(q) || content.includes(q);
+        });
+      }
+
+      const countEl = document.getElementById('news-result-count');
+      if (countEl) {
+        if (newsSearchQuery) {
+          countEl.textContent = `${items.length} OF ${data.length} MATCHING "${newsSearchQuery.toUpperCase()}"`;
+        } else if (currentNewsFilter !== 'all') {
+          countEl.textContent = `${items.length} IN ${currentNewsFilter}`;
+        } else {
+          countEl.textContent = `${items.length} DISPATCHES AVAILABLE`;
+        }
+      }
+
       if (items.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-400">
-            NO DISPATCHES FOUND UNDER THIS LOGBOOK CATEGORY.
+          <div class="col-span-full py-16 text-center border border-dashed border-borderwire p-8 font-mono text-xs text-slate-400 space-y-4">
+            <p>NO DISPATCHES FOUND MATCHING YOUR CURRENT SEARCH OR CATEGORY FILTER.</p>
+            <button type="button" onclick="filterNews('all'); clearNewsSearch();" class="game-btn game-btn-ochre px-4 py-2 rounded-lg text-void font-extrabold uppercase text-xs">
+              CLEAR FILTERS &amp; VIEW ALL
+            </button>
           </div>
         `;
         return;
@@ -560,9 +775,9 @@
         const thumbs = galleryContainer.querySelectorAll('[data-news-thumb-idx]');
         thumbs.forEach((th, idx) => {
           if (idx === gallery.currentIndex) {
-            th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-ochre scale-105 opacity-100 transition-all shadow-md';
+            th.className = 'w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 border-ochre scale-105 opacity-100 transition-all shadow-md';
           } else {
-            th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-borderwire opacity-60 hover:opacity-100 transition-all';
+            th.className = 'w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 border-borderwire opacity-60 hover:opacity-100 transition-all';
           }
         });
       }
@@ -645,7 +860,7 @@
               type="button" 
               data-news-thumb-idx="${idx}"
               onclick="setModalNewsImageIndex(${idx})"
-              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 transition-all ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100'}"
+              class="w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 transition-all ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100'}"
               aria-label="Dispatch thumbnail ${idx + 1}"
             >
               <img src="${src}" alt="Gallery ${idx + 1}" class="w-full h-full object-cover">
@@ -654,6 +869,16 @@
         } else {
           galleryContainer.classList.add('hidden');
           galleryContainer.innerHTML = '';
+        }
+      }
+
+      const summaryEl = document.getElementById('modal-news-summary');
+      if (summaryEl) {
+        if (article.summary) {
+          summaryEl.textContent = article.summary;
+          summaryEl.classList.remove('hidden');
+        } else {
+          summaryEl.classList.add('hidden');
         }
       }
 
@@ -702,6 +927,16 @@
 
     function checkNewsDeepLink() {
       const params = new URLSearchParams(window.location.search);
+      const query = params.get('q');
+      if (query) {
+        const input = document.getElementById('news-search-input');
+        if (input) input.value = query;
+        handleNewsSearch(query);
+      }
+      const category = params.get('category');
+      if (category) {
+        filterNews(category);
+      }
       const articleId = params.get('article');
       if (articleId && window.NEWS_DATA) {
         const item = window.NEWS_DATA.find(a => a.id === articleId);

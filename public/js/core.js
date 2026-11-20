@@ -234,6 +234,9 @@
     modal.classList.remove('is-closing');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+    modal.scrollTop = 0;
+    const scrollTarget = modal.querySelector('.game-modal-dialog') || modal.firstElementChild;
+    if (scrollTarget) scrollTarget.scrollTop = 0;
     document.body.style.overflow = 'hidden';
 
     // Force browser reflow so CSS transitions trigger cleanly
@@ -315,9 +318,9 @@
       const thumbs = galleryContainer.querySelectorAll('[data-thumb-idx]');
       thumbs.forEach((th, idx) => {
         if (idx === gallery.currentIndex) {
-          th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-ochre scale-105 opacity-100 transition-all shadow-md';
+          th.className = 'w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 border-lime scale-105 opacity-100 transition-all shadow-md';
         } else {
-          th.className = 'w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 border-borderwire opacity-60 hover:opacity-100 transition-all';
+          th.className = 'w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 border-borderwire opacity-60 hover:opacity-100 hover:border-slate-400 transition-all';
         }
       });
     }
@@ -402,7 +405,7 @@
             data-thumb-idx="${idx}"
             onclick="setModalItemImageIndex(${idx})"
             onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');"
-            class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded overflow-hidden border-2 transition-all cursor-pointer ${idx === 0 ? 'border-ochre scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100 hover:border-slate-400'}"
+            class="w-20 h-14 sm:w-24 sm:h-16 shrink-0 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${idx === 0 ? 'border-lime scale-105 opacity-100 shadow-md' : 'border-borderwire opacity-60 hover:opacity-100 hover:border-slate-400'}"
             aria-label="Thumbnail ${idx + 1}"
           >
             <img src="${src}" alt="Gallery ${idx + 1}" class="w-full h-full object-cover">
@@ -415,8 +418,42 @@
     }
 
     if (title) title.textContent = item.title || '';
+    const navTitle = document.getElementById('modal-item-nav-title');
+    if (navTitle) navTitle.textContent = item.title || '';
     if (category) category.textContent = item.categoryLabel || item.category || 'ASSET';
     if (price) price.textContent = item.price || 'FREE';
+
+    const badgeEl = document.getElementById('modal-item-badge');
+    if (badgeEl) {
+      if (item.badge) {
+        badgeEl.textContent = item.badge;
+        badgeEl.classList.remove('hidden');
+      } else {
+        badgeEl.classList.add('hidden');
+      }
+    }
+
+    const platformEl = document.getElementById('modal-item-platform');
+    if (platformEl) {
+      const platformText = item.platform || (item.engine ? `${item.engine}` : '');
+      if (platformText) {
+        platformEl.textContent = platformText;
+        platformEl.classList.remove('hidden');
+      } else {
+        platformEl.classList.add('hidden');
+      }
+    }
+
+    const shortDescEl = document.getElementById('modal-item-short-desc');
+    if (shortDescEl) {
+      if (item.shortDesc) {
+        shortDescEl.textContent = `"${item.shortDesc}"`;
+        shortDescEl.classList.remove('hidden');
+      } else {
+        shortDescEl.classList.add('hidden');
+      }
+    }
+
     if (desc) desc.textContent = item.fullDesc || item.shortDesc || item.description || '';
     
     if (specs) {
@@ -992,10 +1029,12 @@
       } else if (e.key === 'ArrowLeft') {
         if (typeof window.stepHeroSlide === 'function') window.stepHeroSlide(-1);
         if (typeof window.stepModalNewsImage === 'function') window.stepModalNewsImage(-1);
+        if (typeof window.stepModalItemImage === 'function') window.stepModalItemImage(-1);
         if (typeof window.stepImageViewer === 'function') window.stepImageViewer(-1);
       } else if (e.key === 'ArrowRight') {
         if (typeof window.stepHeroSlide === 'function') window.stepHeroSlide(1);
         if (typeof window.stepModalNewsImage === 'function') window.stepModalNewsImage(1);
+        if (typeof window.stepModalItemImage === 'function') window.stepModalItemImage(1);
         if (typeof window.stepImageViewer === 'function') window.stepImageViewer(1);
       } else if (e.key === '1') {
         window.location.href = 'home.html';

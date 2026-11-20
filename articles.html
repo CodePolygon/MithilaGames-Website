@@ -15,7 +15,10 @@
     <link rel="icon" href="/public/assets/logo/favicon.svg" type="image/svg+xml">
     <meta http-equiv="refresh" content="0; url=news.html">
     <link rel="canonical" href="news.html">
-    <script>window.location.replace("news.html");</script>
+    <script>
+      const target = "news.html" + (window.location.search || '');
+      window.location.replace(target);
+    </script>
 </head>
 <body>    <!-- Header -->
     <header class="header">
