@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/input-buffering-coyote-time-platformer-physics.html">
   <meta property="og:title" content="Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats">
   <meta property="og:description" content="Why mathematically accurate physics feel terrible to players, and how human-forgiving input windows create responsive, crisp controls.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/coyote_time_physics.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-08-18">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats">
   <meta name="twitter:description" content="Why mathematically accurate physics feel terrible to players, and how human-forgiving input windows create responsive, crisp controls.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/coyote_time_physics.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats",
       "description": "Why mathematically accurate physics feel terrible to players, and how human-forgiving input windows create responsive, crisp controls.",
-      "image": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/coyote_time_physics.svg",
       "datePublished": "2026-08-18",
       "dateModified": "2026-08-18",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?auto=format&fit=crop&w=1200&q=80" alt="Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/coyote_time_physics.svg" alt="Juicy Platformer Feel: Implementing Coyote Time, Jump Buffering, and Apex Floats" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->

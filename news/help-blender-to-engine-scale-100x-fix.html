@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/help-blender-to-engine-scale-100x-fix.html">
   <meta property="og:title" content="[HELP] Fixing Blender to Godot / Unity 100x Scale &amp; Rotation Mismatch (FBX/GLTF)">
   <meta property="og:description" content="Why exported 3D models appear 100 times too small, face backwards, or have weird bone rotation offsets, and the permanent 1-click export fix.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/help_blender_scale.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-11-14">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="[HELP] Fixing Blender to Godot / Unity 100x Scale &amp; Rotation Mismatch (FBX/GLTF)">
   <meta name="twitter:description" content="Why exported 3D models appear 100 times too small, face backwards, or have weird bone rotation offsets, and the permanent 1-click export fix.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/help_blender_scale.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "[HELP] Fixing Blender to Godot / Unity 100x Scale & Rotation Mismatch (FBX/GLTF)",
       "description": "Why exported 3D models appear 100 times too small, face backwards, or have weird bone rotation offsets, and the permanent 1-click export fix.",
-      "image": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/help_blender_scale.svg",
       "datePublished": "2026-11-14",
       "dateModified": "2026-11-14",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80" alt="[HELP] Fixing Blender to Godot / Unity 100x Scale &amp; Rotation Mismatch (FBX/GLTF)" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/help_blender_scale.svg" alt="[HELP] Fixing Blender to Godot / Unity 100x Scale &amp; Rotation Mismatch (FBX/GLTF)" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
 <head>
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/games.html">
   <meta property="og:title" content="Games Catalog // T R L, Wings of Paper & Studio Releases | Mithila Games">
   <meta property="og:description" content="Explore playable titles, prototypes, and releases developed by Mithila Games, including T R L, Wings of Paper, aam chor, DepthDrive, and more.">
-  <meta property="og:image" content="https://mithilagames.com/content/t-r-l/cover.png">
+  <meta property="og:image" content="https://mithilagames.com/content/t-r-l/cover.webp">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="og:locale" content="en_US">
 
@@ -42,7 +46,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Games Catalog // T R L, Wings of Paper & Studio Releases | Mithila Games">
   <meta name="twitter:description" content="Explore playable titles, prototypes, and releases developed by Mithila Games, including T R L, Wings of Paper, aam chor, DepthDrive, and more.">
-  <meta name="twitter:image" content="https://mithilagames.com/content/t-r-l/cover.png">
+  <meta name="twitter:image" content="https://mithilagames.com/content/t-r-l/cover.webp">
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -65,7 +69,7 @@
           "position": 1,
           "name": "T R L",
           "url": "https://mithilagames.itch.io/t-r-l",
-          "image": "https://mithilagames.com/content/t-r-l/cover.png",
+          "image": "https://mithilagames.com/content/t-r-l/cover.webp",
           "description": "A non-ordinary 3D parkour platformer with momentum physics and wall-running, playable in your browser.",
           "genre": "3D Parkour Platformer",
           "gamePlatform": ["HTML5", "PC", "Web Browser"],
@@ -95,7 +99,7 @@
           "position": 3,
           "name": "aam chor",
           "url": "https://3dsdiv.itch.io/aam-chor",
-          "image": "https://mithilagames.com/content/aam_chor/cover.png",
+          "image": "https://mithilagames.com/content/aam_chor/cover.webp",
           "description": "A 3D survival horror game jam prototype about collecting mangoes in a pitch-black forest before the pack hunts.",
           "genre": "Survival Horror / Action",
           "gamePlatform": ["HTML5", "Windows", "Linux"],
@@ -110,7 +114,7 @@
           "position": 4,
           "name": "DepthDrive",
           "url": "https://mithilagames.itch.io/depthdriveearly-devlopment",
-          "image": "https://mithilagames.com/content/depth_drive/cover.png",
+          "image": "https://mithilagames.com/content/depth_drive/cover.webp",
           "description": "A cozy casual mobile driving game exploring vehicle physics and relaxed cruising.",
           "genre": "Casual Driving Simulator",
           "gamePlatform": ["Android"],
@@ -125,7 +129,7 @@
           "position": 5,
           "name": "Bullet Balast",
           "url": "https://codepolygon.itch.io/bullet-balast",
-          "image": "https://mithilagames.com/content/bullet_balast/cover.png",
+          "image": "https://mithilagames.com/content/bullet_balast/cover.webp",
           "description": "A hypercasual arcade reflex game with an endless loop of obstacles.",
           "genre": "Hypercasual Arcade",
           "gamePlatform": ["HTML5", "PC", "Mobile"],
@@ -140,7 +144,7 @@
           "position": 6,
           "name": "WhaDark",
           "url": "https://divto.itch.io/whadark",
-          "image": "https://mithilagames.com/content/whadark/cover.png",
+          "image": "https://mithilagames.com/content/whadark/cover.webp",
           "description": "A vertical 2D platforming adventure climbing to the summit.",
           "genre": "2D Platformer / Adventure",
           "gamePlatform": ["Linux", "Android"],
@@ -155,7 +159,7 @@
           "position": 7,
           "name": "Off Goal",
           "url": "https://mithilagames.itch.io/off-goal",
-          "image": "https://mithilagames.com/content/off_goal/cover.png",
+          "image": "https://mithilagames.com/content/off_goal/cover.webp",
           "description": "A cozy, solitary indie golf prototype exploring random procedural worlds.",
           "genre": "Casual / Cozy Adventure",
           "gamePlatform": ["HTML5"],
@@ -204,7 +208,7 @@
       
       <!-- Brand Logo with Arcade Skew -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
       </a>
 
       <!-- Desktop Game HUD Navigation Menu -->
@@ -244,7 +248,7 @@
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
-      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto" loading="lazy" decoding="async">
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
@@ -379,7 +383,7 @@
                 <div class="hud-corner hud-corner-bl"></div>
                 <div class="hud-corner hud-corner-br"></div>
 
-                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
                 
                 <!-- Image Counter Badge -->
                 <span id="modal-item-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
@@ -548,7 +552,7 @@
         <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="/" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
           <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
@@ -630,7 +634,7 @@
                   alt="${game.title}" 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onerror="this.src='public/assets/images/project_x_hero.jpg'"
-                >
+                 loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent pointer-events-none"></div>
                 
                 <!-- Corner Game Badges & Stickers -->

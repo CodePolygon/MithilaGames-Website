@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/monster-hunter-wilds-seamless-weather-tech.html">
   <meta property="og:title" content="Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games">
   <meta property="og:description" content="How modern action titles transition dynamically from scorching sandstorms to torrential thunderstorms without loading screens or jarring terrain swaps.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/dynamic_weather_tech.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-10-05">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games">
   <meta name="twitter:description" content="How modern action titles transition dynamically from scorching sandstorms to torrential thunderstorms without loading screens or jarring terrain swaps.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/dynamic_weather_tech.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games",
       "description": "How modern action titles transition dynamically from scorching sandstorms to torrential thunderstorms without loading screens or jarring terrain swaps.",
-      "image": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/dynamic_weather_tech.svg",
       "datePublished": "2026-10-05",
       "dateModified": "2026-10-05",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=80" alt="Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/dynamic_weather_tech.svg" alt="Seamless Ecosystems: Dynamic Climate Shifts and Weather Transitions in Modern AAA Action Games" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->

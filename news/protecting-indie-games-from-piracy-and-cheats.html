@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/protecting-indie-games-from-piracy-and-cheats.html">
   <meta property="og:title" content="Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering &amp; Speedhacks">
   <meta property="og:description" content="Simple, high-impact defense patterns: memory obfuscation, time-tick validation, and anti-decompilation tricks that protect games without performance drag.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/indie_security_xor.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-10-22">
   <meta property="article:author" content="Mithila Games Tech Team">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering &amp; Speedhacks">
   <meta name="twitter:description" content="Simple, high-impact defense patterns: memory obfuscation, time-tick validation, and anti-decompilation tricks that protect games without performance drag.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/indie_security_xor.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering & Speedhacks",
       "description": "Simple, high-impact defense patterns: memory obfuscation, time-tick validation, and anti-decompilation tricks that protect games without performance drag.",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/indie_security_xor.svg",
       "datePublished": "2026-10-22",
       "dateModified": "2026-10-22",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering &amp; Speedhacks" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/indie_security_xor.svg" alt="Practical Indie Game Security: Simple Ways Developers Can Prevent Memory Tampering &amp; Speedhacks" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,13 +210,43 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">Indie developers often assume robust security requires expensive third-party enterprise DRM suites. In reality, implementing a few straightforward architectural patterns can neutralize 90% of amateur Cheat Engine modifications.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Value Obfuscation (XOR / Bit-Shifted Types)</h4>
-      <p class="mb-4">Never store sensitive numeric values (coins, health, score) as plain integers or floats. If a player searches for <code>100</code>, increments it to <code>150</code>, and filters again, Cheat Engine easily pinpoints the memory address. Wrap variables in an obfuscated struct that stores <code>value ^ secret_salt</code>.</p>
+      <p class="mb-4">Indie developers often assume robust security requires six-figure enterprise contracts. In truth, over 90% of game modifications are conducted by casual users downloading Cheat Engine. Implementing fundamental software defense patterns neutralizes these attacks instantly without affecting performance.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Preventing Speedhacks via Monotonic Time</h4>
-      <p class="mb-4">Speedhack utilities intercept standard OS time functions (like <code>timeGetTime</code> or <code>QueryPerformanceCounter</code>) to artificially speed up frame deltas. Cross-validate local game time against asynchronous high-resolution thread ticks or network time protocol pings.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Value Obfuscation: Eliminating Plain-Text Numerics</h3>
+      <p class="mb-4">When a player searches for <code>100</code> gold, spends 10, and filters for <code>90</code>, Cheat Engine easily pinpoints the memory address. By wrapping sensitive variables in an obfuscated struct with XOR salts and checksum verification, raw memory searches yield nothing.</p>
+
+      <pre><code>// Safe Obfuscated Integer Struct (C# / Unity / Godot):
+public struct ObfuscatedInt {
+    private int _cryptoKey;
+    private int _hiddenValue;
+    private int _checksum;
+
+    public ObfuscatedInt(int initialValue) {
+        _cryptoKey = Random.Range(10000, 99999);
+        _hiddenValue = initialValue ^ _cryptoKey;
+        _checksum = ~initialValue;
+    }
+
+    public int Value {
+        get {
+            int decrypted = _hiddenValue ^ _cryptoKey;
+            if (decrypted != ~_checksum) {
+                // MEMORY TAMPER DETECTED!
+                SecurityManager.HandleMemoryTamperDetected();
+                return 0;
+            }
+            return decrypted;
+        }
+        set {
+            _cryptoKey = Random.Range(10000, 99999);
+            _hiddenValue = value ^ _cryptoKey;
+            _checksum = ~value;
+        }
+    }
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Neutralizing Cheat Engine Speedhacks</h3>
+      <p class="mb-4">Speedhack utilities intercept standard Windows API calls like <code>GetTickCount</code> or <code>timeGetTime</code>. Counter this by cross-referencing elapsed time against an asynchronous background thread or system performance counters (<code>System.Diagnostics.Stopwatch.GetTimestamp()</code>) that cannot be redirected by simple hooks.</p>
     </article>
 
     <!-- Tags Section -->

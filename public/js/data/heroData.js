@@ -15,33 +15,33 @@ window.HERO_DATA = [
 
   {
     id: "hero-off-goal",
-    image: "content/off_goal/cover.png",
-    src: "content/off_goal/cover.png",
+    image: "content/off_goal/cover.webp",
+    src: "content/off_goal/cover.webp",
     alt: "Off Goal - Cozy Stylized Golf Adventure"
   },
   {
     id: "hero-trl",
-    image: "content/t-r-l/cover.png",
-    src: "content/t-r-l/cover.png",
+    image: "content/t-r-l/cover.webp",
+    src: "content/t-r-l/cover.webp",
     alt: "T R L - Kinetic 3D Momentum Parkour"
   },
   {
-    id: "hero-trl",
-    image: "content/t-r-l/cover.png",
-    src: "content/t-r-l/cover.png",
-    alt: "T R L - Kinetic 3D Momentum Parkour"
+    id: "hero-wings",
+    image: "public/assets/images/wings_paper_hero.jpg",
+    src: "public/assets/images/wings_paper_hero.jpg",
+    alt: "Wings of Paper - Endless Flight Simulation"
   },
   {
-    id: "hero-whydark",
-    image: "content/whadark/cover.png",
-    src: "content/whadark/cover.png",
-    alt: "whydark - a platformer"
+    id: "hero-whadark",
+    image: "content/whadark/cover.webp",
+    src: "content/whadark/cover.webp",
+    alt: "WhaDark - 2D Platformer Summit"
   },
   {
     id: "hero-aam-chor",
-    image: "content/aam_chor/cover.png",
-    src: "content/aam_chor/cover.png",
-    alt: "aamchor"
+    image: "content/aam_chor/cover.webp",
+    src: "content/aam_chor/cover.webp",
+    alt: "aam chor - Survival Horror"
   }
 ];
 

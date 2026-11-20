@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/game-hacking-methods-memory-injection-esp.html">
   <meta property="og:title" content="How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained">
   <meta property="og:description" content="Understanding the underlying mechanics of game memory manipulation, dynamic pointer chains, and virtual table hooking so developers can defend their code.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/game_hacking_esp.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-11-02">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained">
   <meta name="twitter:description" content="Understanding the underlying mechanics of game memory manipulation, dynamic pointer chains, and virtual table hooking so developers can defend their code.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/game_hacking_esp.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained",
       "description": "Understanding the underlying mechanics of game memory manipulation, dynamic pointer chains, and virtual table hooking so developers can defend their code.",
-      "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/game_hacking_esp.svg",
       "datePublished": "2026-11-02",
       "dateModified": "2026-11-02",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/game_hacking_esp.svg" alt="How Cheaters Exploit Games: Memory Pointers, DLL Hooking, and ESP Overlays Explained" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,13 +210,39 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">To effectively safeguard games against exploits, developers must understand how cheat creators analyze game processes. Most usermode cheats rely on reading and writing memory addresses assigned to character structures.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Pointer Chains and Base Offsets</h4>
-      <p class="mb-4">Every time a game launches, ASLR (Address Space Layout Randomization) allocates variables at dynamic memory offsets. Reverse engineers locate static pointer chains starting from the main module base (e.g., <code>GameAssembly.dll + 0x1A42F0</code>) to locate player coordinates, health variables, and ammunition counters.</p>
+      <p class="mb-4">To effectively safeguard multiplayer games, developers must understand the technical mechanisms behind process memory exploitation. Almost all client-side cheats—including aimbots, wallhacks (ESP), and speedhacks—depend on locating and reading entity structures in game memory.</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">ESP (Extra Sensory Perception) Overlays</h4>
-      <p class="mb-4">ESP cheats read enemy world-space 3D coordinates from the client's memory table, run them through the player camera's View-Projection Matrix (World-to-Screen transformation), and draw 2D bounding boxes and health bars over transparent desktop overlays.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Reverse Engineering Dynamic Pointer Chains</h3>
+      <p class="mb-4">Because operating systems utilize Address Space Layout Randomization (ASLR), game instances load at dynamic base addresses every time they launch. Attackers use memory analysis tools (like Cheat Engine or x64dbg) to locate static base pointers and trace offsets through heap memory.</p>
+
+      <pre><code>// Example of a cheat pointer chain dereference:
+uintptr_t clientBase = (uintptr_t)GetModuleHandle("GameAssembly.dll");
+uintptr_t localPlayer = *(uintptr_t*)(clientBase + 0x1A42F0);        // Base Entity List
+uintptr_t playerHealth = *(int*)(localPlayer + 0xFC);               // Health Offset
+Vector3 playerPosition = *(Vector3*)(localPlayer + 0x110);          // World Position Offset</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. The Mathematics of Extra Sensory Perception (ESP)</h3>
+      <p class="mb-4">How does a wallhack draw 2D bounding boxes on your monitor around players standing behind concrete walls? It computes a <strong>World-to-Screen Matrix Transformation</strong>. The cheat reads the target entity's 3D coordinates (X, Y, Z), multiplies them by the local camera's 4x4 View-Projection Matrix, and maps the resulting Normalized Device Coordinates (NDC) to monitor pixels.</p>
+
+      <pre><code>// World-to-Screen Matrix Calculation (C++):
+bool WorldToScreen(Vector3 worldPos, Vector2&amp; screenPos, float matrix[16], int width, int height) {
+    float clipX = worldPos.x * matrix[0] + worldPos.y * matrix[1] + worldPos.z * matrix[2] + matrix[3];
+    float clipY = worldPos.x * matrix[4] + worldPos.y * matrix[5] + worldPos.z * matrix[6] + matrix[7];
+    float clipW = worldPos.x * matrix[12] + worldPos.y * matrix[13] + worldPos.z * matrix[14] + matrix[15];
+
+    if (clipW &lt; 0.1f) return false; // Target is behind player camera
+
+    Vector3 ndc;
+    ndc.x = clipX / clipW;
+    ndc.y = clipY / clipW;
+
+    screenPos.x = (width / 2.0f * ndc.x) + (ndc.x + width / 2.0f);
+    screenPos.y = -(height / 2.0f * ndc.y) + (ndc.y + height / 2.0f);
+    return true;
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">3. How Developers Neutralize ESP: Server-Side Occlusion Culling</h3>
+      <p class="mb-4">No client-side encryption will stop an ESP overlay if enemy coordinates exist in memory. The definitive solution is <strong>Network-Level Occlusion Culling (Fog of War)</strong>: the server runs raycast line-of-sight checks. If an enemy player is hidden behind a solid building, the server <em>does not send their network packet</em> to your client until they step within audible or visual threshold range.</p>
     </article>
 
     <!-- Tags Section -->

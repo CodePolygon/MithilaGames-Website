@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/godot-4-optimization-mobile-desktop.html">
   <meta property="og:title" content="Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning">
   <meta property="og:description" content="Complete guide to choosing between Godot 4.3&#x27;s Forward+, Mobile, and Compatibility renderers for maximum frame rates across target platforms.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/godot4_rendering.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-11-10">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning">
   <meta name="twitter:description" content="Complete guide to choosing between Godot 4.3&#x27;s Forward+, Mobile, and Compatibility renderers for maximum frame rates across target platforms.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/godot4_rendering.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning",
       "description": "Complete guide to choosing between Godot 4.3's Forward+, Mobile, and Compatibility renderers for maximum frame rates across target platforms.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/godot4_rendering.svg",
       "datePublished": "2026-11-10",
       "dateModified": "2026-11-10",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/godot4_rendering.svg" alt="Mastering Godot 4.3 Rendering Pipelines: Mobile vs Forward+ Performance Tuning" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,14 +210,47 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">Godot 4 brought cutting-edge Vulkan capabilities to the open-source community, but misconfiguring render modes remains the #1 cause of poor performance on mid-range hardware.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Forward+ vs Mobile vs Compatibility</h4>
-      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
-        <li><strong>Forward+ (Clustered):</strong> Designed for modern desktop GPUs. Supports hundreds of dynamic lights, SDFGI, and volumetric fog. Avoid on integrated Intel GPUs or mobile devices.</li>
-        <li><strong>Mobile:</strong> Streamlined Vulkan renderer limiting max lights per cluster. Ideal for Steam Deck and high-end smartphones.</li>
-        <li><strong>Compatibility (OpenGL 3.3 / WebGL 2):</strong> Maximum backwards compatibility for web exports and older laptops. Lacks complex compute shaders but delivers rock-solid frame pacing.</li>
-      </ul>
+      <p class="mb-4">Godot 4.3 has matured into a powerhouse game engine, featuring a modern Vulkan clustered forward renderer alongside lightweight mobile and compatibility backends. However, misconfiguring pipeline settings remains the primary reason indie developers experience disappointing frame rates on mid-range PCs and portable devices like the Steam Deck.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Choosing Your Renderer: Forward+ vs Mobile vs Compatibility</h3>
+      <table class="my-4">
+        <thead>
+          <tr>
+            <th>Renderer</th>
+            <th>Backend API</th>
+            <th>Best For</th>
+            <th>Key Features &amp; Tradeoffs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Forward+</strong></td>
+            <td>Vulkan Clustered</td>
+            <td>High-end Desktop PCs</td>
+            <td>Supports thousands of dynamic lights, SDFGI, volumetric fog, and Decals. High VRAM overhead.</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile</strong></td>
+            <td>Vulkan Mobile</td>
+            <td>Steam Deck, Laptops, Mobile</td>
+            <td>Restricts maximum cluster lights. Optimized for lower memory bandwidth and tile-based GPUs.</td>
+          </tr>
+          <tr>
+            <td><strong>Compatibility</strong></td>
+            <td>OpenGL 3.3 / WebGL 2</td>
+            <td>Web builds, low-end PCs</td>
+            <td>No compute shader requirement. Extremely fast compile times and rock-solid backwards support.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Essential Godot 4.3 Performance Settings in Project Settings</h3>
+      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
+        • <strong>rendering/anti_aliasing/quality/msaa_3d:</strong> Set to 2x or 4x (Avoid 8x on mid-range GPUs).<br>
+        • <strong>rendering/anti_aliasing/quality/screen_space_aa:</strong> Use FXAA (0.2ms overhead) instead of TAA on mobile.<br>
+        • <strong>rendering/lights_and_shadows/positional_shadow/atlas_size:</strong> Reduce from default 4096 to 2048 to halve shadow VRAM.<br>
+        • <strong>physics/common/physics_interpolation:</strong> Set to <code>True</code> to eliminate camera jitter on high refresh monitors.
+      </div>
     </article>
 
     <!-- Tags Section -->

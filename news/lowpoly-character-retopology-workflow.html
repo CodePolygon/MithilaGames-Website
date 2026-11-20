@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/lowpoly-character-retopology-workflow.html">
   <meta property="og:title" content="From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops">
   <meta property="og:description" content="Mastering deformation loops around shoulders, elbows, and facial zones to eliminate mesh pinching and volume collapse during skeletal animation.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/retopology_3d.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-10-25">
   <meta property="article:author" content="Mithila Games 3D Art Team">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops">
   <meta name="twitter:description" content="Mastering deformation loops around shoulders, elbows, and facial zones to eliminate mesh pinching and volume collapse during skeletal animation.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/retopology_3d.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops",
       "description": "Mastering deformation loops around shoulders, elbows, and facial zones to eliminate mesh pinching and volume collapse during skeletal animation.",
-      "image": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/retopology_3d.svg",
       "datePublished": "2026-10-25",
       "dateModified": "2026-10-25",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80" alt="From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/retopology_3d.svg" alt="From High-Poly Sculpt to Game Mesh: 5 Golden Rules of Character Topology and Edge Loops" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,14 +210,16 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">A magnificent 3D character sculpt will collapse into an ugly distorted mess the moment it's rigged if the underlying topology ignores deformation anatomy.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Key Topology Rules:</h4>
-      <ul class="list-disc pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
-        <li><strong>Shoulder Cape Loop:</strong> Run continuous loops over the collarbone and armpit to preserve shoulder volume when raising arms.</li>
-        <li><strong>Three-Segment Joints:</strong> Place three edge loops at knees and elbows—one center hinge and two bounding limits.</li>
-        <li><strong>Pole Placement:</strong> Keep 5-edge poles away from deforming muscle zones; tuck them into flat structural planes.</li>
-      </ul>
+      <p class="mb-4">A stunning 10-million polygon ZBrush character sculpt is completely useless in a game engine without clean retopology. Retopology is the art of building an optimized, low-polygon mesh over your sculpt that deforms gracefully during skeletal animation without volume collapse or ugly texture pinching.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. The 5 Golden Rules of Topology</h3>
+      <ol class="list-decimal pl-5 space-y-2 text-slate-300 font-mono text-xs mb-4">
+        <li><strong>The Shoulder Cape Loop:</strong> Run continuous edge loops encircling the collarbone, over the deltoid, and beneath the armpit. This prevents the shoulder from flattening like a crushed can when characters raise their arms.</li>
+        <li><strong>Joint Triad Segments:</strong> Every hinge joint (elbow, knee, finger knuckle) requires exactly three edge loops: one center bending hinge and two bounding support loops.</li>
+        <li><strong>Circular Facial Loops:</strong> Mouth and eye sockets must be surrounded by concentric radial loops matching the <em>orbicularis oris</em> and <em>orbicularis oculi</em> muscles for natural lip sync and blinking.</li>
+        <li><strong>Isolate 5-Edge Poles:</strong> Five-edge vertex poles (stars) are mathematically unavoidable when transitioning edge counts. Always guide poles away from bending hinges into flat, non-deforming anatomical planes.</li>
+        <li><strong>Conserve Silhouette Geometry:</strong> Allocate polygon density to edges that define character silhouettes (ears, noses, boots, weapons), and reduce density across flat surfaces.</li>
+      </ol>
     </article>
 
     <!-- Tags Section -->

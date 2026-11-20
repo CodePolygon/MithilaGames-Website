@@ -70,9 +70,9 @@ window.SHOP_DATA = [
     category: "tools",
     categoryLabel: "Blender addons",
     price: "FREE",
-    image: "content/Haircards/banner.png",
+    image: "content/Haircards/banner.webp",
     images: [
-      "content/Haircards/banner.png",
+      "content/Haircards/banner.webp",
       "content/Haircards/image1.png",
       "content/Haircards/image2.png"
     ],
@@ -94,9 +94,9 @@ window.SHOP_DATA = [
     category: "3d",
     categoryLabel: "3D Models",
     price: "FREE",
-    image: "content/3D_models/lowpoly-characters/thumbnail.png",
+    image: "content/3D_models/lowpoly-characters/thumbnail.webp",
     images: [
-      "content/3D_models/lowpoly-characters/thumbnail.png"
+      "content/3D_models/lowpoly-characters/thumbnail.webp"
     ],
     badge: "3D Model",
     shortDesc: "A versatile, rigged low-poly character model ready for game engines.",

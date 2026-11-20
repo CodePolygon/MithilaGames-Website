@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/help-git-lfs-game-project-setup.html">
   <meta property="og:title" content="[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas">
   <meta property="og:description" content="Prevent bloated 50GB Git repositories, corrupted merge conflicts on 3D models, and GitHub LFS bandwidth lockouts with this proven .gitattributes config.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/help_git_lfs.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-10-26">
   <meta property="article:author" content="Mithila Games DevOps">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas">
   <meta name="twitter:description" content="Prevent bloated 50GB Git repositories, corrupted merge conflicts on 3D models, and GitHub LFS bandwidth lockouts with this proven .gitattributes config.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/help_git_lfs.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas",
       "description": "Prevent bloated 50GB Git repositories, corrupted merge conflicts on 3D models, and GitHub LFS bandwidth lockouts with this proven .gitattributes config.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/help_git_lfs.svg",
       "datePublished": "2026-10-26",
       "dateModified": "2026-10-26",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/help_git_lfs.svg" alt="[HELP] Setting Up Git LFS for Game Projects Without Exceeding Bandwidth Quotas" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,18 +210,31 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">Committing raw 3D models (.blend, .fbx), PSD files, and uncompressed WAV audio directly to standard Git history quickly bloats repositories to tens of gigabytes, making cloning nearly impossible.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">Copy-Paste Verified .gitattributes:</h4>
-      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        *.blend filter=lfs diff=lfs merge=lfs -text<br>
-        *.fbx filter=lfs diff=lfs merge=lfs -text<br>
-        *.png filter=lfs diff=lfs merge=lfs -text<br>
-        *.psd filter=lfs diff=lfs merge=lfs -text<br>
-        *.wav filter=lfs diff=lfs merge=lfs -text<br>
-        *.ogg filter=lfs diff=lfs merge=lfs -text
-      </div>
-      <p class="text-slate-muted">Always run <code>git lfs install</code> before cloning or committing large assets!</p>
+      <p class="mb-4">Committing raw 3D models (.blend, .fbx), Photoshop files (.psd), and uncompressed audio (.wav) directly into regular Git history quickly bloats repositories to 50+ Gigabytes. Cloning takes hours, and free GitHub bandwidth limits get locked out. Setting up <strong>Git Large File Storage (Git LFS)</strong> replaces binary files with lightweight 130-byte pointer files.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Production-Ready .gitattributes for Game Engines</h3>
+      <pre><code># Track all 3D Models and Raw Source Assets
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+
+# Textures and High-Res Art
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+
+# Audio Stems and Sound Banks
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.bank filter=lfs diff=lfs merge=lfs -text
+
+# Video and Pre-Rendered Cutscenes
+*.mp4 filter=lfs diff=lfs merge=lfs -text</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Lock Files to Prevent Merge Conflicts</h3>
+      <p class="mb-4">Binary 3D models cannot be merged by git. If two artists modify <code>character_hero.blend</code> simultaneously, one artist's work is lost. Enable file locking with <code>git lfs lock filename.blend</code> to signal team members that an asset is currently checked out.</p>
     </article>
 
     <!-- Tags Section -->

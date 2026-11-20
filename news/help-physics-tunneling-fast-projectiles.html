@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/help-physics-tunneling-fast-projectiles.html">
   <meta property="og:title" content="[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds">
   <meta property="og:description" content="Why fast-moving projectiles pass straight through colliders without triggering hit events, and how Continuous Collision Detection (CCD) solves it.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/help_physics_tunnel.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-09-10">
   <meta property="article:author" content="Mithila Games Tech Team">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds">
   <meta name="twitter:description" content="Why fast-moving projectiles pass straight through colliders without triggering hit events, and how Continuous Collision Detection (CCD) solves it.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/help_physics_tunnel.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds",
       "description": "Why fast-moving projectiles pass straight through colliders without triggering hit events, and how Continuous Collision Detection (CCD) solves it.",
-      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/help_physics_tunnel.svg",
       "datePublished": "2026-09-10",
       "dateModified": "2026-09-10",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=1200&q=80" alt="[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/help_physics_tunnel.svg" alt="[HELP] Fixing Physics Tunneling: Fast Bullets Passing Through Walls at High Speeds" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,10 +210,28 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">In discrete physics simulation, object positions update frame-by-frame. If a bullet moves 20 meters per frame and a wall is 1 meter thick, the bullet can exist in front of the wall on Frame 1 and behind the wall on Frame 2 without ever touching it.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">The Solution: Raycast Sweeping vs CCD</h4>
-      <p class="mb-4">For ultra-fast projectiles (sniper bullets, laser beams), do not use rigid bodies. Use a <strong>Raycast sweep</strong> from the projectile's previous position to its current position every frame to intercept any surface intersected along the swept vector.</p>
+      <p class="mb-4">In discrete physics engines, bullet colliders frequently pass straight through walls at high speeds without triggering a hit callback. This occurs because the physics solver samples positions at discrete intervals. If a bullet travels 25 meters per frame and a brick wall is 0.5 meters thick, the bullet teleports across the wall between frames without ever colliding.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Continuous Collision Detection (CCD) vs Raycast Sweeps</h3>
+      <p class="mb-4">For fast player movement or medium-speed cannonballs, enable <strong>Continuous Collision Detection (CCD)</strong> in your rigid body settings. Rather than checking overlapping spheres at point A and point B, the engine sweeps a convex hull along the motion trajectory.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. The Bullet Raycast Sweep Solution (Godot / Unity)</h3>
+      <p class="mb-4">For ultra-fast sniper bullets and lasers, do not use rigid body physics at all. Use a per-frame <strong>Raycast sweep</strong>:</p>
+      <pre><code>// Bullet Raycast Sweeping in GDScript:
+func _physics_process(delta: float) -&gt; void:
+    var move_step = velocity * delta
+    var next_pos = global_position + move_step
+    
+    var space_state = get_world_3d().direct_space_state
+    var query = PhysicsRayQueryParameters3D.create(global_position, next_pos)
+    var result = space_state.intersect_ray(query)
+    
+    if result:
+        # Collision guaranteed! Cannot tunnel through walls
+        spawn_hit_spark(result.position, result.normal)
+        queue_free()
+    else:
+        global_position = next_pos</code></pre>
     </article>
 
     <!-- Tags Section -->

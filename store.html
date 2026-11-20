@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-void text-slate-100 selection:bg-ochre selection:text-void">
 <head>
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/store.html">
   <meta property="og:title" content="Asset Bazaar & Tools // Mithila Games">
   <meta property="og:description" content="In-house developer addons, CC0 shaders, 3D kits, and game development assets.">
-  <meta property="og:image" content="https://mithilagames.com/content/Haircards/banner.png">
+  <meta property="og:image" content="https://mithilagames.com/content/Haircards/banner.webp">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="og:locale" content="en_US">
 
@@ -42,7 +46,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="Asset Bazaar & Tools // Mithila Games">
   <meta name="twitter:description" content="In-house developer addons, CC0 shaders, 3D kits, and game development assets.">
-  <meta name="twitter:image" content="https://mithilagames.com/content/Haircards/banner.png">
+  <meta name="twitter:image" content="https://mithilagames.com/content/Haircards/banner.webp">
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -94,7 +98,7 @@
       
       <!-- Brand Logo with Arcade Skew -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
       </a>
 
       <!-- Desktop Game HUD Navigation Menu -->
@@ -134,7 +138,7 @@
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
-      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto" loading="lazy" decoding="async">
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
@@ -288,7 +292,7 @@
                 <div class="hud-corner hud-corner-bl"></div>
                 <div class="hud-corner hud-corner-br"></div>
 
-                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
                 
                 <!-- Image Counter Badge -->
                 <span id="modal-item-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
@@ -457,7 +461,7 @@
         <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="/" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
           <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
@@ -573,7 +577,7 @@
 
               <div>
                 <div class="aspect-video w-full bg-void border-b border-borderwire overflow-hidden relative rounded-t-[14px]">
-                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent pointer-events-none"></div>
                   
                   <div class="absolute top-3 left-3">

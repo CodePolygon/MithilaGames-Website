@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/gta-6-next-gen-tech-ai-water-physics.html">
   <meta property="og:title" content="GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation">
   <meta property="og:description" content="An in-depth analysis of Rockstar Games&#x27; proprietary RAGE 9 engine developments powering Grand Theft Auto VI, focusing on procedural physics, machine-learning crowd navigation, and ocean buoyancy.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/gta6_water_speed_boat.jpg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-11-15">
   <meta property="article:author" content="Divyanshu Priyadarshi">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation">
   <meta name="twitter:description" content="An in-depth analysis of Rockstar Games&#x27; proprietary RAGE 9 engine developments powering Grand Theft Auto VI, focusing on procedural physics, machine-learning crowd navigation, and ocean buoyancy.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/gta6_water_speed_boat.jpg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation",
       "description": "An in-depth analysis of Rockstar Games' proprietary RAGE 9 engine developments powering Grand Theft Auto VI, focusing on procedural physics, machine-learning crowd navigation, and ocean buoyancy.",
-      "image": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/gta6_water_speed_boat.jpg",
       "datePublished": "2026-11-15",
       "dateModified": "2026-11-15",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80" alt="GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/gta6_water_speed_boat.jpg" alt="GTA VI Technical Breakdown: Next-Gen Crowd AI, Volumetric Clouds, and Dynamic Water Simulation" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,23 +210,70 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">With anticipation reaching fever pitch for <em>Grand Theft Auto VI</em>, developers and tech enthusiasts across the industry have been scrutinizing every confirmed technical detail about Rockstar Games' upgraded <strong>RAGE 9 engine</strong>. From real-time fluid dynamics to memory-budgeted pedestrian behaviors, the leap from the previous generation is monumental.</p>
+      <p class="mb-4">With anticipation reaching fever pitch for <em>Grand Theft Auto VI</em>, developers and tech enthusiasts across the industry have been scrutinizing every confirmed technical detail about Rockstar Games' upgraded <strong>RAGE 9 engine</strong>. From real-time fluid dynamics to memory-budgeted pedestrian behaviors, the leap from the previous generation is monumental. While previous open-world titles treated water as a glorified visual plane with scrolling normal maps and basic Gerstner waves, GTA VI approaches fluid simulation as a foundational gameplay physics layer.</p>
       
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">1. Procedural Crowd Behaviors & ML Navigation</h4>
-      <p class="mb-4">Unlike conventional pathfinding that relies exclusively on pre-baked navmeshes and static waypoints, GTA VI utilizes contextual environmental sampling. Pedestrians react to atmospheric shifts, humidity, police presence, and traffic flow in clusters. NPCs maintain spatial awareness of surrounding social groups, enabling emergent conversations and dynamic conflict de-escalation.</p>
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. GPU-Accelerated Computational Fluid Dynamics (CFD)</h3>
+      <p class="mb-4">In traditional open-world titles, water physics is typically faked using vertex displacement shaders based on Gerstner wave equations. While computationally cheap, Gerstner waves cannot naturally react to localized physical disturbances such as a speedboat hull cutting through a crest, an airboat fan blasting marshlands, or debris floating in coastal shallows. RAGE 9 bridges this gap by executing a 2D heightfield shallow-water simulation on GPU compute shaders.</p>
+      
+      <p class="mb-4">As vehicles and characters move through Leonida's coastal waterways, motion vectors are written into dynamic fluid simulation buffers. These buffers calculate wave propagation, constructive interference, and shoreline wave dissipation in real time. The resulting wave heightfield is then sampled by both the rendering pipeline (for displacement and screen-space reflections) and the CPU physics solver (to calculate instantaneous buoyant forces).</p>
 
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">2. Computational Fluid Dynamics & Water Buoyancy</h4>
-      <p class="mb-4">Water rendering in Leonida (Vice City and its wetlands) is no longer a simple tessellated plane with displacement textures. Rockstar has implemented real-time computational fluid dynamics where boat wakes, airboat turbulence, and ocean tides compute buoyancy physically for all marine assets and debris.</p>
+      <pre><code>// Pseudocode representation of RAGE 9 Buoyant Force Integration
+Vector3 CalculateBuoyancyAtPoint(Vector3 submergedPoint, float waterSurfaceHeight) {
+    float submersionDepth = waterSurfaceHeight - submergedPoint.y;
+    if (submersionDepth &lt;= 0.0f) return Vector3.Zero; // Point is above water
+    
+    // Archimedes Principle: Force proportional to submerged volume and water density
+    float buoyantMagnitude = WaterDensity * Gravity * submersionDepth * HullSectionVolume;
+    Vector3 waveNormal = SampleWaveNormalAt(submergedPoint.xz);
+    
+    // Combine vertical lift with wave-slope lateral push
+    return Vector3.Up * buoyantMagnitude + (waveNormal * (buoyantMagnitude * 0.15f));
+}</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Next-Gen Crowd AI: Spatial Memory &amp; Social Clustering</h3>
+      <p class="mb-4">Pedestrian AI has undergone an architectural overhaul. Traditional navmesh pathfinding treats each NPC as an isolated agent executing a simple patrol-or-flee state machine. In GTA VI, NPCs exist within <strong>Social Affinity Clusters</strong>. A couple walking along Ocean Drive shares spatial memory: if an altercation erupts behind them, one NPC notices first, gestures to their companion, and both alter their trajectory in unison.</p>
+
+      <table class="my-4">
+        <thead>
+          <tr>
+            <th>Simulation Layer</th>
+            <th>Previous Generation (GTA V / RDR2)</th>
+            <th>Next-Gen RAGE 9 (GTA VI)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ocean Physics</strong></td>
+            <td>CPU-bound Gerstner wave approximation</td>
+            <td>GPU Compute 2D Shallow Water CFD with live wake interaction</td>
+          </tr>
+          <tr>
+            <td><strong>Crowd Navigation</strong></td>
+            <td>Static Navmesh + Local Collision Avoidance</td>
+            <td>Hierarchical spatial clustering with shared group awareness</td>
+          </tr>
+          <tr>
+            <td><strong>Atmosphere &amp; Clouds</strong></td>
+            <td>2D texture planes + basic raymarched fog</td>
+            <td>Full volumetric ray-marched weather simulation with humidity pressure fronts</td>
+          </tr>
+          <tr>
+            <td><strong>Interior Loading</strong></td>
+            <td>Separate level streaming zones with doorway portals</td>
+            <td>DirectStorage NVMe streaming with dynamic interior hash grids</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">3. Volumetric Clouds and Meteorological Weather Fronts</h3>
+      <p class="mb-4">Leonida’s subtropical climate demands realistic tropical squalls, hurricanes, and sudden heat rain. Instead of triggering a simple global skybox swap, the weather engine simulates barometric pressure grids. Clouds form organically as virtual humidity rises from the ocean surface, condensing into towering cumulonimbus formations that cast real-time volumetric shadows across downtown Vice City.</p>
 
       <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        <strong class="text-ochre block mb-1">Key Technical Innovations in RAGE 9:</strong>
-        • Real-Time Global Illumination utilizing hardware-accelerated ray query probes.<br>
-        • High-frequency vehicle deformation matrix preserving chassis structural integrity.<br>
-        • Memory-efficient volumetric cloud rendering tied directly to dynamic weather pressure fronts.<br>
-        • Dense interior streaming that eliminates loading pauses across commercial storefronts and high-rise venues.
+        <strong class="text-ochre block mb-1">Key Takeaways for Technical Artists:</strong>
+        • GPU compute shaders are essential for real-time fluid surfaces that need to deliver both visual fidelity and physical gameplay interaction.<br>
+        • Decoupling visual wave mesh resolution from the underlying physics buoyancy sample grid keeps CPU frame times under 3ms.<br>
+        • Clustered NPC decision trees produce emergent realism that scripted animations cannot replicate.
       </div>
-
-      <p class="text-slate-muted">As release benchmarks approach, GTA VI is poised to redefine open-world engineering expectations for the remainder of the decade.</p>
     </article>
 
     <!-- Tags Section -->

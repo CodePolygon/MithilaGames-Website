@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/help-fix-micro-stutter-frame-drops.html">
   <meta property="og:title" content="[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines">
   <meta property="og:description" content="Your game displays 60 FPS but still feels jittery? Step-by-step diagnostic checklist to cure garbage collection spikes, GPU sync stalls, and frame pacing glitches.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/help_stutter_fix.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-11-18">
   <meta property="article:author" content="Mithila Games Support & Tech">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines">
   <meta name="twitter:description" content="Your game displays 60 FPS but still feels jittery? Step-by-step diagnostic checklist to cure garbage collection spikes, GPU sync stalls, and frame pacing glitches.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/help_stutter_fix.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines",
       "description": "Your game displays 60 FPS but still feels jittery? Step-by-step diagnostic checklist to cure garbage collection spikes, GPU sync stalls, and frame pacing glitches.",
-      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/help_stutter_fix.svg",
       "datePublished": "2026-11-18",
       "dateModified": "2026-11-18",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/help_stutter_fix.svg" alt="[HELP] How to Diagnose and Fix Micro-Stutter and Frame Pacing Issues in Real-Time Engines" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->

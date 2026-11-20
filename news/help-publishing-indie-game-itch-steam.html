@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect Fonts -->
+  <!-- Fonts: Preconnect & Non-Render-Blocking Stylesheet Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:ital,wght@0,500;0,700;0,800;1,700;1,800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+  </noscript>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
   <!-- Google Tag Manager / Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
@@ -31,7 +36,7 @@
   <meta property="og:url" content="https://mithilagames.com/news/help-publishing-indie-game-itch-steam.html">
   <meta property="og:title" content="[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD">
   <meta property="og:description" content="Automate your game deployment. Push new builds to Steam depots and Itch.io channels in 30 seconds with 1-click terminal scripts.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://mithilagames.com/public/assets/images/news/help_publishing_pipe.svg">
   <meta property="og:site_name" content="Mithila Games">
   <meta property="article:published_time" content="2026-08-15">
   <meta property="article:author" content="Mithila Games DevOps">
@@ -43,7 +48,7 @@
   <meta name="twitter:creator" content="@mithilagames">
   <meta name="twitter:title" content="[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD">
   <meta name="twitter:description" content="Automate your game deployment. Push new builds to Steam depots and Itch.io channels in 30 seconds with 1-click terminal scripts.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://mithilagames.com/public/assets/images/news/help_publishing_pipe.svg">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -61,7 +66,7 @@
       },
       "headline": "[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD",
       "description": "Automate your game deployment. Push new builds to Steam depots and Itch.io channels in 30 seconds with 1-click terminal scripts.",
-      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://mithilagames.com/public/assets/images/news/help_publishing_pipe.svg",
       "datePublished": "2026-08-15",
       "dateModified": "2026-08-15",
       "author": {
@@ -195,7 +200,7 @@
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80" alt="[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD" class="w-full h-full object-cover">
+      <img src="../public/assets/images/news/help_publishing_pipe.svg" alt="[HELP] Step-by-Step Build Pipeline: Packaging and Uploading Builds with Butler and SteamCMD" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -205,13 +210,28 @@
 
     <!-- Article Content -->
     <article class="prose prose-invert max-w-none font-sans text-sm sm:text-base text-slate-300 leading-relaxed space-y-6">
-      <p class="mb-4">Manually zipping game folders, opening browser dashboards, and waiting for slow web uploads is tedious and error-prone. Industry veterans automate uploads via CLI tools.</p>
-      
-      <h4 class="font-syne font-bold text-white text-base mt-6 mb-2">One-Line Itch.io Deploy via Butler:</h4>
-      <div class="p-4 rounded-xl bg-panel border border-borderwire my-4 font-mono text-xs text-slate-300">
-        butler push ./build/windows mithilagames/wings-of-paper:windows-64
-      </div>
-      <p class="text-slate-muted">Butler automatically computes binary diffs, uploading only modified bytes in seconds.</p>
+      <p class="mb-4">Manually zipping game folders, opening browser dashboards, and waiting for web uploads is tedious and prone to human error. Professional studios automate deployment through one-click terminal build scripts using <strong>SteamCMD</strong> and <strong>Itch.io Butler</strong>.</p>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">1. Fast Delta Uploads via Butler</h3>
+      <p class="mb-4">Butler generates binary diffs before uploading to Itch.io. If you fix a single line of code in a 5 GB game, Butler only transmits the modified 40 KB patch rather than re-uploading the entire package:</p>
+      <pre><code># One-line deploy to Windows, macOS, and Linux channels:
+butler push ./build/windows mithilagames/wings-of-paper:win-64 --userversion 1.4.2
+butler push ./build/linux   mithilagames/wings-of-paper:linux-64 --userversion 1.4.2</code></pre>
+
+      <h3 class="font-syne font-black text-white text-xl mt-6 mb-3">2. Automated SteamCMD Depot Upload Script</h3>
+      <pre><code>// steam_app_build.vdf
+"appbuild" {
+    "appid" "1234560"
+    "desc" "Automated Studio Release"
+    "buildoutput" "./output/"
+    "contentroot" "./build/windows/"
+    "depots" {
+        "1234561" "depot_windows.vdf"
+    }
+}
+
+// Terminal execution:
+steamcmd +login studio_dev +run_app_build steam_app_build.vdf +quit</code></pre>
     </article>
 
     <!-- Tags Section -->

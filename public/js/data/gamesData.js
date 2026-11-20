@@ -10,9 +10,9 @@ window.GAMES_DATA = [
     title: "T R L",
     category: "3D PARKOUR // PLAYABLE BUILD",
     price: "FREE",
-    image: "content/t-r-l/cover.png",
+    image: "content/t-r-l/cover.webp",
     images: [
-      "content/t-r-l/cover.png",
+      "content/t-r-l/cover.webp",
       "content/t-r-l/banner.png",
       "content/t-r-l/screen1.png",
       "content/t-r-l/screen2.png",
@@ -68,9 +68,9 @@ window.GAMES_DATA = [
     title: "aam chor",
     category: "3D SURVIVAL HORROR // GAME JAM",
     price: "FREE",
-    image: "content/aam_chor/cover.png",
+    image: "content/aam_chor/cover.webp",
     images: [
-      "content/aam_chor/cover.png",
+      "content/aam_chor/cover.webp",
       "content/aam_chor/banner.png",
       "content/aam_chor/screen1.png",
       "content/aam_chor/screen2.png",
@@ -101,9 +101,9 @@ window.GAMES_DATA = [
     title: "DepthDrive [early development]",
     category: "CASUAL DRIVING // PROTOTYPE",
     price: "FREE",
-    image: "content/depth_drive/cover.png",
+    image: "content/depth_drive/cover.webp",
     images: [
-      "content/depth_drive/cover.png",
+      "content/depth_drive/cover.webp",
       "content/depth_drive/banner.png",
       "content/depth_drive/screen1.png",
       "content/depth_drive/screen2.png",
@@ -132,9 +132,9 @@ window.GAMES_DATA = [
     title: "Bullet Balast - Endless level loop",
     category: "HYPERCASUAL // PLAYABLE BUILD",
     price: "FREE",
-    image: "content/bullet_balast/cover.png",
+    image: "content/bullet_balast/cover.webp",
     images: [
-      "content/bullet_balast/cover.png",
+      "content/bullet_balast/cover.webp",
       "content/bullet_balast/screen1.png"
     ],
     badge: "PLAY IN BROWSER",
@@ -161,9 +161,9 @@ window.GAMES_DATA = [
     title: "WhaDark",
     category: "2D PLATFORMER // ADVENTURE",
     price: "FREE",
-    image: "content/whadark/cover.png",
+    image: "content/whadark/cover.webp",
     images: [
-      "content/whadark/cover.png",
+      "content/whadark/cover.webp",
       "content/whadark/screen1.png",
       "content/whadark/screen2.png"
     ],
@@ -190,9 +190,9 @@ window.GAMES_DATA = [
     title: "Off Goal",
     category: "COZY ADVENTURE // PROTOTYPE",
     price: "FREE",
-    image: "content/off_goal/cover.png",
+    image: "content/off_goal/cover.webp",
     images: [
-      "content/off_goal/cover.png",
+      "content/off_goal/cover.webp",
       "content/off_goal/screen1.png",
       "content/off_goal/screen2.png",
       "content/off_goal/screen3.png",
