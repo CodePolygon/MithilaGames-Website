@@ -282,33 +282,36 @@
     <!-- ================================================================= -->
     <section class="relative w-full h-[calc(100vh-4rem)] min-h-[520px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-void select-none">
       
-      <!-- Studio Atmospheric Backdrop -->
-      <div class="absolute inset-0 z-0">
+      <!-- Studio Atmospheric Backdrop (Multi-Image Slideshow Driven by heroData.js) -->
+      <div id="hero-backdrop" class="absolute inset-0 z-0 overflow-hidden bg-void">
         <img 
+          id="hero-fallback-img"
           src="public/assets/images/wings_paper_hero.jpg" 
           alt="Mithila Games" 
           class="w-full h-full object-cover object-center scale-100"
         >
-        <!-- Gradients for High Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/55 to-void/30"></div>
-        <div class="absolute inset-0 bg-radial-vignette opacity-70"></div>
+        <!-- Gradients for High Legibility (Z-Index 2 ensures text is always crisp) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/55 to-void/30 z-[2]"></div>
+        <div class="absolute inset-0 bg-radial-vignette opacity-70 z-[2]"></div>
       </div>
 
       <!-- Center Billboard: Clean, Iconic, Minimal -->
       <div class="relative z-10 max-w-4xl mx-auto px-4 text-center my-auto space-y-4">
         
-        <h1 class="font-syne font-black italic text-6xl sm:text-8xl lg:text-9xl text-white tracking-tighter uppercase leading-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)]">
-          MITHILA GAMES
+        <h1 class="font-syne font-black italic text-[clamp(1.75rem,6.8vw,7.5rem)] text-white tracking-tight sm:tracking-tighter uppercase leading-tight sm:leading-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)] flex flex-wrap justify-center items-center gap-x-3 sm:gap-x-5">
+          <span class="whitespace-nowrap">MITHILA</span>
+          <span class="whitespace-nowrap">GAMES</span>
         </h1>
 
-        <p class="font-syne font-bold text-sm sm:text-lg md:text-xl text-ochre uppercase tracking-widest max-w-xl mx-auto drop-shadow-md">
+        <p class="font-syne font-bold text-xs sm:text-base md:text-lg lg:text-xl text-ochre uppercase tracking-wider sm:tracking-widest max-w-xl mx-auto drop-shadow-md mt-2 sm:mt-4">
           BUILDING INTERACTIVE EXPERIENCES
         </p>
 
       </div>
 
-      <!-- Bottom Jump Indicator -->
-      <div class="relative z-10 pb-6 text-center">
+      <!-- Bottom Jump Indicator & Hero Slide Dots -->
+      <div class="relative z-10 pb-6 text-center space-y-3">
+        <div id="hero-indicators" class="flex items-center justify-center gap-2"></div>
         <a href="#games" class="inline-flex flex-col items-center gap-1.5 text-xs font-mono uppercase text-slate-400 hover:text-ochre transition-colors group">
           <span>EXPLORE PRODUCTIONS</span>
           <span class="text-sm font-bold group-hover:translate-y-1 transition-transform">↓</span>
@@ -322,20 +325,20 @@
     <!-- ================================================================= -->
     <section id="games" class="py-16 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
       
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-borderwire">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 sm:pb-6 border-b border-borderwire">
         <div>
-          <div class="flex items-center gap-2 mb-2">
-            <span class="game-sticker sticker-lime text-[10px]">PRODUCTION HANGAR</span>
-            <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// PLAYABLE BUILDS</span>
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="game-sticker sticker-lime text-[10px] shrink-0">PRODUCTION HANGAR</span>
+            <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">// PLAYABLE BUILDS</span>
           </div>
-          <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase flex items-baseline gap-2">
-            <span class="brush-splash brush-splash-ochre px-2 py-0.5 rounded text-white font-black">GAMES</span>
-            <span>CATALOG</span>
+          <h2 class="font-syne font-black italic text-2xl sm:text-4xl text-white tracking-tight uppercase flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span class="brush-splash brush-splash-ochre px-2.5 py-0.5 rounded text-white font-black shrink-0">GAMES</span>
+            <span class="shrink-0 whitespace-nowrap">CATALOG</span>
           </h2>
         </div>
 
         <!-- Scroll Controls & View All Link -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
           <div class="flex items-center gap-2" onmouseenter="pauseGamesScroll()" onmouseleave="resumeGamesScroll(1000)">
             <button 
               type="button" 
@@ -361,7 +364,7 @@
             </button>
           </div>
           <a href="games.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors group">
-            <span>VIEW ALL 6</span>
+            <span>VIEW ALL 7</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
@@ -374,10 +377,54 @@
         style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;"
       >
         
-        <!-- GAME 1: T R L -->
+        <!-- GAME 1: OFF GOAL -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[0])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-off-goal') || window.GAMES_DATA[0])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img 
+                src="content/off_goal/cover.png" 
+                alt="Off Goal" 
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-lime text-[10px]">NEW RELEASE</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-lime">
+                  GODOT
+                </span>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">HTML5 / MOBILE</span>
+                <span>// COZY ADVENTURE</span>
+              </div>
+              <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+                Off Goal
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Play golf alone with a ball in a calming, procedural minimalist world with serene atmospheric landscapes.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY IN BROWSER →</span>
+          </div>
+        </article>
+
+        <!-- GAME 2: T R L -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-t-r-l'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -398,12 +445,12 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">HTML5 / PC</span>
                 <span>// 3D PARKOUR</span>
               </div>
-              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+              <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
                 T R L
               </h3>
               <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
@@ -412,16 +459,16 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
           </div>
         </article>
 
-        <!-- GAME 2: WINGS OF PAPER -->
+        <!-- GAME 3: WINGS OF PAPER -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[1])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-wings-of-paper'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -442,12 +489,12 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">ANDROID / PC</span>
                 <span>// ARCADE GLIDER</span>
               </div>
-              <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+              <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
                 WINGS OF PAPER
               </h3>
               <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
@@ -456,16 +503,16 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-lime text-[10px]">FREE TO PLAY</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">GET GAME →</span>
           </div>
         </article>
 
-        <!-- GAME 3: aam chor -->
+        <!-- GAME 4: aam chor -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[2])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-aam-chor'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -482,8 +529,8 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">HTML5 / WIN / LINUX</span>
                 <span>// SURVIVAL</span>
               </div>
@@ -496,16 +543,16 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
           </div>
         </article>
 
-        <!-- GAME 4: DepthDrive -->
+        <!-- GAME 5: DepthDrive -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[3])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-depth-drive'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -522,8 +569,8 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">MOBILE SIMULATOR</span>
                 <span>// RELAXING</span>
               </div>
@@ -536,16 +583,16 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">GET APK →</span>
           </div>
         </article>
 
-        <!-- GAME 5: Bullet Balast -->
+        <!-- GAME 6: Bullet Balast -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[4])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-bullet-balast'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -562,8 +609,8 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">HTML5 / MOBILE WEB</span>
                 <span>// ARCADE</span>
               </div>
@@ -576,16 +623,16 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY BUILD →</span>
           </div>
         </article>
 
-        <!-- GAME 6: WhaDark -->
+        <!-- GAME 7: WhaDark -->
         <article 
-          onclick="openProductModal(window.GAMES_DATA[5])"
-          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] sm:w-[320px] md:w-[350px]"
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-whadark'))"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
@@ -602,8 +649,8 @@
               </div>
             </div>
 
-            <div class="p-5 sm:p-6 space-y-2">
-              <div class="flex items-baseline justify-between gap-2 text-xs font-mono text-slate-400">
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">LINUX / ANDROID</span>
                 <span>// 2D PLATFORMER</span>
               </div>
@@ -616,7 +663,7 @@
             </div>
           </div>
 
-          <div class="p-5 sm:p-6 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
             <span class="game-sticker sticker-ochre text-[10px]">FREE</span>
             <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">DOWNLOAD →</span>
           </div>
@@ -632,21 +679,22 @@
     <section id="tools-assets" class="py-16 sm:py-20 bg-surface/40 border-y border-borderwire relative z-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8 scroll-reveal">
         
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-borderwire">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 sm:pb-6 border-b border-borderwire">
           <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class="game-sticker sticker-purple text-[10px]">CREATIVE PIPELINE</span>
-              <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// 3D KITS &amp; ADDONS</span>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="game-sticker sticker-purple text-[10px] shrink-0">CREATIVE PIPELINE</span>
+              <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">// 3D KITS &amp; ADDONS</span>
             </div>
-            <h2 class="font-syne font-black italic text-3xl sm:text-4xl text-white tracking-tight uppercase">
-              TOOLS &amp; <span class="text-ochre">3D ASSETS</span>
+            <h2 class="font-syne font-black italic text-2xl sm:text-4xl text-white tracking-tight uppercase flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="shrink-0 whitespace-nowrap">TOOLS &amp;</span>
+              <span class="text-ochre shrink-0 whitespace-nowrap">3D ASSETS</span>
             </h2>
-            <p class="font-sans text-xs sm:text-sm text-slate-400 mt-1 max-w-lg">
+            <p class="font-sans text-xs sm:text-sm text-slate-400 mt-1 max-w-lg leading-relaxed">
               Procedural Blender tools, vertex shader bakers, and stylized low-poly kits engineered to speed up game development.
             </p>
           </div>
 
-          <div class="flex items-center gap-3">
+          <div class="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
             <div class="flex lg:hidden items-center gap-1.5">
               <button 
                 type="button" 
@@ -678,7 +726,7 @@
           <!-- ITEM 1: Haircards -->
           <div 
             onclick="openProductModal(window.SHOP_DATA[0])"
-            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] max-w-[290px] sm:w-[280px] lg:w-auto"
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
@@ -690,7 +738,7 @@
                   <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">PYTHON</span>
                 </div>
               </div>
-              <div class="p-5 space-y-2">
+              <div class="p-4 sm:p-5 space-y-2">
                 <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // ADDON</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Haircards
@@ -700,7 +748,7 @@
                 </p>
               </div>
             </div>
-            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <div class="p-4 sm:p-5 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
               <span class="game-sticker sticker-lime text-[10px]">FREE</span>
               <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
             </div>
@@ -709,7 +757,7 @@
           <!-- ITEM 2: Lowpoly Character -->
           <div 
             onclick="openProductModal(window.SHOP_DATA[1])"
-            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] max-w-[290px] sm:w-[280px] lg:w-auto"
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
@@ -721,7 +769,7 @@
                   <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">RIGGED</span>
                 </div>
               </div>
-              <div class="p-5 space-y-2">
+              <div class="p-4 sm:p-5 space-y-2">
                 <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // CHARACTERS</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Lowpoly Character
@@ -731,7 +779,7 @@
                 </p>
               </div>
             </div>
-            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <div class="p-4 sm:p-5 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
               <span class="game-sticker sticker-lime text-[10px]">FREE</span>
               <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
             </div>
@@ -740,7 +788,7 @@
           <!-- ITEM 3: VertShade -->
           <div 
             onclick="openProductModal(window.SHOP_DATA[2])"
-            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] max-w-[290px] sm:w-[280px] lg:w-auto"
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
@@ -752,7 +800,7 @@
                   <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">AO BAKE</span>
                 </div>
               </div>
-              <div class="p-5 space-y-2">
+              <div class="p-4 sm:p-5 space-y-2">
                 <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // SHADING</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   VertShade
@@ -762,7 +810,7 @@
                 </p>
               </div>
             </div>
-            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <div class="p-4 sm:p-5 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
               <span class="game-sticker sticker-lime text-[10px]">FREE</span>
               <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
             </div>
@@ -771,7 +819,7 @@
           <!-- ITEM 4: Low Poly Environment Pack -->
           <div 
             onclick="openProductModal(window.SHOP_DATA[3])"
-            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] sm:w-[280px] lg:w-auto"
+            class="studio-card studio-card-ochre cursor-pointer group flex flex-col justify-between shrink-0 w-[84vw] max-w-[290px] sm:w-[280px] lg:w-auto"
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
@@ -783,7 +831,7 @@
                   <span class="px-2 py-0.5 rounded bg-void/90 border border-borderwire text-[10px] font-mono text-ochre font-bold">MODULAR</span>
                 </div>
               </div>
-              <div class="p-5 space-y-2">
+              <div class="p-4 sm:p-5 space-y-2">
                 <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // TERRAIN</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Environment Pack
@@ -793,7 +841,7 @@
                 </p>
               </div>
             </div>
-            <div class="p-5 pt-0 flex justify-between items-center text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <div class="p-4 sm:p-5 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
               <span class="game-sticker sticker-lime text-[10px]">FREE</span>
               <span class="text-slate-400 font-mono text-[11px] group-hover:text-ochre flex items-center gap-1">SPECS →</span>
             </div>
@@ -947,6 +995,7 @@
 
   <!-- Scripts -->
   <script src="public/js/core.js"></script>
+  <script src="public/js/data/heroData.js"></script>
   <script src="public/js/data/gamesData.js"></script>
   <script src="public/js/data/shopData.js"></script>
   <script src="public/js/data/newsData.js"></script>
@@ -964,12 +1013,125 @@
       document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
     }
 
+    // --- HERO BACKGROUND MULTI-IMAGE SLIDESHOW ENGINE ---
+    function initHeroSlideshow() {
+      const container = document.getElementById('hero-backdrop');
+      if (!container) return;
+
+      const rawImages = window.HERO_DATA || window.HERO_IMAGES || [];
+      if (!rawImages.length) return;
+
+      // Normalize images array (supports strings, objects with image or src)
+      const images = rawImages.map(item => {
+        if (typeof item === 'string') return { src: item, alt: 'Mithila Games Studio' };
+        return { src: item.image || item.src, alt: item.alt || 'Mithila Games Studio' };
+      }).filter(item => Boolean(item.src));
+
+      if (!images.length) return;
+
+      // Remove single fallback img
+      const fallback = document.getElementById('hero-fallback-img');
+      if (fallback) fallback.remove();
+
+      // Create two cross-fade image layers
+      const layerA = document.createElement('img');
+      layerA.className = 'absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out z-[1]';
+      layerA.src = images[0].src;
+      layerA.alt = images[0].alt;
+      layerA.style.opacity = '1';
+
+      const layerB = document.createElement('img');
+      layerB.className = 'absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out z-[1]';
+      layerB.style.opacity = '0';
+
+      container.insertBefore(layerB, container.firstChild);
+      container.insertBefore(layerA, container.firstChild);
+
+      if (images.length === 1) return;
+
+      let currentIndex = 0;
+      let activeLayer = layerA;
+      let nextLayer = layerB;
+      const slideDurationMs = 6000;
+      let slideTimer = null;
+
+      // Interactive Slide Indicator Dots
+      const indicatorsContainer = document.getElementById('hero-indicators');
+      const dots = [];
+
+      function updateActiveDot(index) {
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.className = 'w-7 h-1.5 rounded-full bg-ochre transition-all duration-300 shadow-sm cursor-pointer';
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.className = 'w-2.5 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300 cursor-pointer';
+            dot.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      function goToSlide(targetIdx) {
+        if (targetIdx === currentIndex) return;
+        currentIndex = targetIdx;
+        const nextImage = images[currentIndex];
+
+        nextLayer.src = nextImage.src;
+        nextLayer.alt = nextImage.alt;
+        nextLayer.style.opacity = '1';
+        activeLayer.style.opacity = '0';
+
+        const temp = activeLayer;
+        activeLayer = nextLayer;
+        nextLayer = temp;
+
+        updateActiveDot(currentIndex);
+        resetTimer();
+      }
+
+      function advanceSlide() {
+        const nextIdx = (currentIndex + 1) % images.length;
+        goToSlide(nextIdx);
+      }
+
+      function resetTimer() {
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(advanceSlide, slideDurationMs);
+      }
+
+      if (indicatorsContainer && images.length > 1) {
+        indicatorsContainer.innerHTML = '';
+        images.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Jump to hero slide ' + (idx + 1));
+          dot.className = idx === 0
+            ? 'w-7 h-1.5 rounded-full bg-ochre transition-all duration-300 shadow-sm cursor-pointer'
+            : 'w-2.5 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300 cursor-pointer';
+          dot.onclick = () => goToSlide(idx);
+          indicatorsContainer.appendChild(dot);
+          dots.push(dot);
+        });
+      }
+
+      resetTimer();
+
+      // Pause when tab is hidden to conserve GPU/battery
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          if (slideTimer) clearInterval(slideTimer);
+        } else {
+          resetTimer();
+        }
+      });
+    }
+
     // --- HIGH-PERFORMANCE DELTA-TIME INFINITE AUTO-SCROLL & STEP CONTROLLER ---
     let gamesScrollPos = 0;
     let isGamesPaused = false;
     let isManualInteracting = false;
     let gamesPauseTimer = null;
-    let originalCardCount = 6;
+    let originalCardCount = 7;
     let gamesStepSize = 374;
     let gamesLoopDistance = 2244;
     let lastFrameTime = performance.now();
@@ -1127,8 +1289,9 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initScrollAnimations();
+      initHeroSlideshow();
       // Start continuous smooth infinite auto-scroll on Games Catalog
-      initSmoothInfiniteScroll('games-scroll-track', 0.75);
+      initSmoothInfiniteScroll('games-scroll-track');
     });
   </script>
 </body>

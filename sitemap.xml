@@ -51,6 +51,11 @@
       <image:title>WhaDark - 2D Platformer Adventure</image:title>
       <image:caption>Vertical 2D platforming summit adventure by 3dDiv and Mithila Games</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/off_goal/cover.png</image:loc>
+      <image:title>Off Goal - Cozy Golf Prototype</image:title>
+      <image:caption>Cozy, solitary indie golf prototype by Mithila Games</image:caption>
+    </image:image>
   </url>
 
   <!-- Store / Asset Bazaar -->

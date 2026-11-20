@@ -183,6 +183,38 @@ window.GAMES_DATA = [
     ],
     downloadText: "DOWNLOAD ON ITCH.IO ↗",
     downloadUrl: "https://divto.itch.io/whadark"
+  },
+
+  {
+    id: "game-off-goal",
+    title: "Off Goal",
+    category: "COZY ADVENTURE // PROTOTYPE",
+    price: "FREE",
+    image: "content/off_goal/cover.png",
+    images: [
+      "content/off_goal/cover.png",
+      "content/off_goal/screen1.png",
+      "content/off_goal/screen2.png",
+      "content/off_goal/screen3.png",
+      "content/off_goal/screen4.png"
+    ],
+    badge: "PLAY IN BROWSER",
+    platform: "HTML5 / BROWSER",
+    engine: "GODOT",
+    genre: "CASUAL / COZY ADVENTURE",
+    statusText: "PROTOTYPE",
+    shortDesc: "Play golf alone with a ball in a solitary, stylized random world. Cozy physics exploration and serene low-poly atmosphere.",
+    fullDesc: "Off Goal is a relaxing, atmospheric indie golf prototype created in Godot. Explore a peaceful and solitary stylized world, striking a ball across randomized open terrain with gentle mechanics and a contemplative mood.",
+    specs: [
+      { label: "PLATFORMS", value: "HTML5 (Browser) / WebGL" },
+      { label: "ENGINE", value: "Godot" },
+      { label: "GENRE", value: "Casual / Cozy Adventure" },
+      { label: "CONTROLS", value: "Mouse / Touch" },
+      { label: "STATUS", value: "Active Prototype" },
+      { label: "PUBLISHER", value: "Mithila Games" }
+    ],
+    downloadText: "PLAY ON ITCH.IO ↗",
+    downloadUrl: "https://mithilagames.itch.io/off-goal"
   }
 
 ];

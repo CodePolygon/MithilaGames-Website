@@ -89,6 +89,7 @@ body {
   z-index: 1;
   color: #000000 !important;
   font-weight: 900 !important;
+  vertical-align: middle;
 }
 .brush-splash *,
 .brush-splash span {
@@ -637,23 +638,42 @@ body {
 
 /* Small screen adjustments for phones (< 640px) */
 @media (max-width: 640px) {
+  /* Prevent awkward word splitting across all headings while ensuring overflow safety */
+  h1, h2, h3, h4, .font-syne {
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: manual;
+  }
+
+  /* Responsive fluid typography scaling for titles on small screens */
+  h1 {
+    font-size: clamp(1.65rem, 6.2vw, 2.25rem);
+    line-height: 1.15;
+  }
+  h2 {
+    font-size: clamp(1.35rem, 5.2vw, 1.85rem);
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: clamp(1.1rem, 4.2vw, 1.45rem);
+    line-height: 1.25;
+  }
+
   .game-modal-dialog {
     max-height: calc(92dvh) !important;
     margin: 0.5rem auto;
     width: calc(100vw - 1rem) !important;
   }
   
-  /* Ensure brush splash backgrounds have padding so text doesn't overflow */
+  /* Ensure brush splash backgrounds scale cleanly on mobile without clipping */
   .brush-splash {
     display: inline-block;
     max-width: 100%;
-    word-break: break-word;
+    vertical-align: middle;
   }
-
-  /* Prevent tight titles from clipping italicized ascenders / descenders */
-  .font-syne {
-    overflow-wrap: break-word;
-    word-break: break-word;
+  .brush-splash::before {
+    inset: -2px -6px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7);
   }
 
   /* Ensure card inner containers prevent unwanted overflow */
@@ -665,38 +685,37 @@ body {
 
 /* Ultra-small screen adjustments for compact phones (< 480px, e.g. iPhone SE, 320px) */
 @media (max-width: 480px) {
+  .studio-card {
+    border-radius: 0.875rem;
+  }
+
   .game-sticker {
-    font-size: 10px;
-    padding: 2.5px 6px;
+    font-size: 9.5px;
+    padding: 2px 6px;
     letter-spacing: 0.02em;
     max-width: 100%;
-    white-space: normal;
+    white-space: nowrap;
     text-align: center;
     box-sizing: border-box;
   }
   
   .hud-corner {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   .game-btn {
     touch-action: manipulation;
     white-space: normal;
     text-align: center;
+    min-height: 42px;
   }
 
   .game-modal-dialog {
     padding: 1rem !important;
     max-height: calc(94dvh) !important;
     width: calc(100vw - 0.75rem) !important;
-  }
-
-  /* Avoid title clipping on ultra narrow viewports */
-  h1, h2, h3, h4 {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
+    border-radius: 1rem !important;
   }
 
   /* Tape top scaling on ultra narrow screens */
@@ -706,3 +725,4 @@ body {
     top: -7px;
   }
 }
+
