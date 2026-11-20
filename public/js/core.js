@@ -1,24 +1,14 @@
-/**
- * MITHILA GAMES // CORE RUNTIME SYSTEM
- * Clean, lightweight navigation, modal window controllers, and UI utilities
- */
-
 (function () {
   'use strict';
-
-  // --- GLOBAL FULL-SCREEN IMAGE VIEWER SYSTEM ---
   window.imageViewerState = {
     images: [],
     currentIndex: 0,
     title: ''
   };
-
   window.ensureImageViewer = function () {
     if (document.getElementById('image-viewer-modal')) return;
-
     const viewerHtml = `
       <div id="image-viewer-modal" class="fixed inset-0 z-[100] bg-void/95 backdrop-blur-xl hidden flex-col justify-between select-none" onclick="closeImageViewer()">
-        
         <!-- Top Navigation Header -->
         <div class="px-4 sm:px-6 py-4 border-b border-borderwire bg-surface/90 flex items-center justify-between gap-4 shrink-0" onclick="event.stopPropagation()">
           <div class="flex items-center gap-3 text-xs overflow-hidden">
@@ -26,7 +16,6 @@
             <span class="text-borderwire hidden sm:inline">|</span>
             <span id="iv-title" class="text-white truncate font-medium"></span>
           </div>
-
           <div class="flex items-center gap-3 shrink-0 font-mono text-xs">
             <span id="iv-counter" class="px-2.5 py-1 bg-panel border border-borderwire text-slate-muted text-[11px] tracking-wider font-semibold">
               01 / 01
@@ -43,10 +32,8 @@
             </button>
           </div>
         </div>
-
         <!-- Center Stage with Main Image & Prev/Next Chevrons -->
         <div class="relative flex-grow flex items-center justify-center p-4 sm:p-8 overflow-hidden" onclick="event.stopPropagation()">
-          
           <button 
             type="button" 
             id="iv-prev-btn" 
@@ -55,7 +42,6 @@
             aria-label="Previous image"
             title="Previous (←)"
           >‹</button>
-
           <div class="max-w-full max-h-full flex items-center justify-center cursor-zoom-out" onclick="closeImageViewer()">
             <img 
               id="iv-main-img" 
@@ -65,7 +51,6 @@
               onclick="event.stopPropagation()"
             >
           </div>
-
           <button 
             type="button" 
             id="iv-next-btn" 
@@ -74,9 +59,7 @@
             aria-label="Next image"
             title="Next (→)"
           >›</button>
-
         </div>
-
         <!-- Bottom Bar: Thumbnails & Keyboard Guide -->
         <div class="px-4 sm:px-6 py-3 border-t border-borderwire bg-surface/90 shrink-0 space-y-2" onclick="event.stopPropagation()">
           <div id="iv-thumbnails" class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar py-1"></div>
@@ -86,23 +69,16 @@
             <span>CLICK OUTSIDE OR PRESS [ESC] TO DISMISS</span>
           </div>
         </div>
-
       </div>
     `;
-
     document.body.insertAdjacentHTML('beforeend', viewerHtml);
-
-    // Touch swipe support for mobile
     const stage = document.getElementById('iv-main-img');
     if (stage && typeof window.addSwipeListener === 'function') {
       window.addSwipeListener(document.getElementById('image-viewer-modal'), window.nextImageViewer, window.prevImageViewer);
     }
-
-    // Keyboard support: Escape, Left Arrow, Right Arrow
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('image-viewer-modal');
       if (!modal || modal.classList.contains('hidden')) return;
-
       if (e.key === 'Escape') {
         window.closeImageViewer();
       } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
@@ -112,10 +88,8 @@
       }
     });
   };
-
   window.openImageViewer = function (images, startIndex = 0, title = '') {
     window.ensureImageViewer();
-
     let list = [];
     if (Array.isArray(images)) {
       list = images.filter(Boolean);
@@ -123,19 +97,15 @@
       list = [images];
     }
     if (list.length === 0) return;
-
     window.imageViewerState.images = list;
     window.imageViewerState.currentIndex = Math.max(0, Math.min(startIndex, list.length - 1));
     window.imageViewerState.title = title || 'Media Showcase';
-
     window.updateImageViewerDOM();
     window.showGameModal('image-viewer-modal');
   };
-
   window.closeImageViewer = function () {
     window.hideGameModal('image-viewer-modal');
   };
-
   window.setImageViewerIndex = function (index) {
     const total = window.imageViewerState.images.length;
     if (total === 0) return;
@@ -154,26 +124,21 @@
       window.updateImageViewerDOM();
     }
   };
-
   window.nextImageViewer = function () {
     window.setImageViewerIndex(window.imageViewerState.currentIndex + 1);
   };
-
   window.prevImageViewer = function () {
     window.setImageViewerIndex(window.imageViewerState.currentIndex - 1);
   };
-
   window.updateImageViewerDOM = function () {
     const { images, currentIndex, title } = window.imageViewerState;
     if (images.length === 0) return;
-
     const mainImg = document.getElementById('iv-main-img');
     const titleEl = document.getElementById('iv-title');
     const counterEl = document.getElementById('iv-counter');
     const thumbsContainer = document.getElementById('iv-thumbnails');
     const prevBtn = document.getElementById('iv-prev-btn');
     const nextBtn = document.getElementById('iv-next-btn');
-
     if (mainImg) {
       mainImg.src = images[currentIndex];
       mainImg.alt = `${title} - Image ${currentIndex + 1}`;
@@ -186,10 +151,8 @@
       const padTotal = String(images.length).padStart(2, '0');
       counterEl.textContent = `${padCurr} / ${padTotal}`;
     }
-
     if (prevBtn) prevBtn.disabled = images.length <= 1;
     if (nextBtn) nextBtn.disabled = images.length <= 1;
-
     if (thumbsContainer) {
       if (images.length > 1) {
         thumbsContainer.classList.remove('hidden');
@@ -212,12 +175,9 @@
       }
     }
   };
-
-  // --- UNIFIED GAME SUB WINDOW / MODAL TRANSITIONS & SOUND ENGINE ---
   window.showGameModal = function (modalOrId, callback) {
     const modal = typeof modalOrId === 'string' ? document.getElementById(modalOrId) : modalOrId;
     if (!modal) return;
-
     modal.classList.add('game-modal-backdrop');
     if (modal.id !== 'image-viewer-modal') {
       const dialog = modal.querySelector('.game-modal-dialog') || modal.firstElementChild;
@@ -225,12 +185,10 @@
         dialog.classList.add('game-modal-dialog');
       }
     }
-
     if (modal._closeTimer) {
       clearTimeout(modal._closeTimer);
       modal._closeTimer = null;
     }
-
     modal.classList.remove('is-closing');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
@@ -238,68 +196,50 @@
     const scrollTarget = modal.querySelector('.game-modal-dialog') || modal.firstElementChild;
     if (scrollTarget) scrollTarget.scrollTop = 0;
     document.body.style.overflow = 'hidden';
-
-    // Force browser reflow so CSS transitions trigger cleanly
     void modal.offsetWidth;
-
     modal.classList.add('is-open');
-
     if (typeof window.playGameSfx === 'function') {
       window.playGameSfx('modal-open');
     }
-
     if (typeof callback === 'function') {
       callback();
     }
   };
-
   window.hideGameModal = function (modalOrId, callback) {
     const modal = typeof modalOrId === 'string' ? document.getElementById(modalOrId) : modalOrId;
     if (!modal || modal.classList.contains('hidden')) return;
-
     if (typeof window.playGameSfx === 'function') {
       window.playGameSfx('modal-close');
     }
-
     modal.classList.remove('is-open');
     modal.classList.add('is-closing');
-
     if (modal._closeTimer) clearTimeout(modal._closeTimer);
-
     modal._closeTimer = setTimeout(() => {
       modal.classList.remove('is-closing');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       modal._closeTimer = null;
-
-      // Only restore scroll if no other modal is currently open
       const otherOpen = document.querySelector('.game-modal-backdrop.is-open:not(.hidden)');
       if (!otherOpen) {
         document.body.style.overflow = '';
       }
-
       if (typeof callback === 'function') {
         callback();
       }
     }, 220);
   };
-
-  // --- ACTIVE PRODUCT MODAL GALLERY CONTROLLER ---
   window.activeModalItemGallery = {
     images: [],
     currentIndex: 0,
     title: ''
   };
-
   window.setModalItemImageIndex = function (index) {
     const gallery = window.activeModalItemGallery;
     if (!gallery || gallery.images.length === 0) return;
-
     gallery.currentIndex = ((index % gallery.images.length) + gallery.images.length) % gallery.images.length;
     const imgEl = document.getElementById('modal-item-img');
     const counterEl = document.getElementById('modal-item-img-counter');
     const galleryContainer = document.getElementById('modal-item-gallery');
-
     if (imgEl) {
       if (typeof window.playGameSfx === 'function') window.playGameSfx('hover');
       imgEl.classList.add('modal-image-swap');
@@ -313,7 +253,6 @@
     if (counterEl) {
       counterEl.textContent = `${gallery.currentIndex + 1} / ${gallery.images.length}`;
     }
-
     if (galleryContainer) {
       const thumbs = galleryContainer.querySelectorAll('[data-thumb-idx]');
       thumbs.forEach((th, idx) => {
@@ -325,22 +264,17 @@
       });
     }
   };
-
   window.stepModalItemImage = function (step) {
     window.setModalItemImageIndex(window.activeModalItemGallery.currentIndex + step);
   };
-
   window.openActiveItemImageViewer = function () {
     const gallery = window.activeModalItemGallery;
     if (!gallery || gallery.images.length === 0) return;
     window.openImageViewer(gallery.images, gallery.currentIndex, gallery.title);
   };
-
-  // --- PRODUCT / ITEM DETAILS MODAL WITH DEEP-LINKING URL & MULTI-IMAGE SUPPORT ---
   window.openProductModal = function (item, updateUrl = true) {
     let modal = document.getElementById('product-modal');
     if (!modal) return;
-
     const img = document.getElementById('modal-item-img');
     const title = document.getElementById('modal-item-title');
     const category = document.getElementById('modal-item-category');
@@ -348,31 +282,25 @@
     const desc = document.getElementById('modal-item-desc');
     const specs = document.getElementById('modal-item-specs');
     const downloadBtn = document.getElementById('modal-item-download');
-
-    // Multi-Image Gallery Setup
     let images = [];
     if (item.images && Array.isArray(item.images) && item.images.length > 0) {
       images = item.images.filter(Boolean);
     } else if (item.image) {
       images = [item.image];
     }
-
     window.activeModalItemGallery = {
       images: images,
       currentIndex: 0,
       title: item.title || 'Product Showcase'
     };
-
     if (img) {
       img.src = images[0] || '';
       img.alt = item.title || 'Product Image';
     }
-
     const counterEl = document.getElementById('modal-item-img-counter');
     const prevBtn = document.getElementById('modal-item-prev-btn');
     const nextBtn = document.getElementById('modal-item-next-btn');
     const galleryContainer = document.getElementById('modal-item-gallery');
-
     if (counterEl) {
       if (images.length > 1) {
         counterEl.classList.remove('hidden');
@@ -381,7 +309,6 @@
         counterEl.classList.add('hidden');
       }
     }
-
     if (prevBtn && nextBtn) {
       if (images.length > 1) {
         prevBtn.classList.remove('hidden');
@@ -395,7 +322,6 @@
         nextBtn.classList.remove('flex');
       }
     }
-
     if (galleryContainer) {
       if (images.length > 1) {
         galleryContainer.classList.remove('hidden');
@@ -416,13 +342,11 @@
         galleryContainer.innerHTML = '';
       }
     }
-
     if (title) title.textContent = item.title || '';
     const navTitle = document.getElementById('modal-item-nav-title');
     if (navTitle) navTitle.textContent = item.title || '';
     if (category) category.textContent = item.categoryLabel || item.category || 'ASSET';
     if (price) price.textContent = item.price || 'FREE';
-
     const badgeEl = document.getElementById('modal-item-badge');
     if (badgeEl) {
       if (item.badge) {
@@ -432,7 +356,6 @@
         badgeEl.classList.add('hidden');
       }
     }
-
     const platformEl = document.getElementById('modal-item-platform');
     if (platformEl) {
       const platformText = item.platform || (item.engine ? `${item.engine}` : '');
@@ -443,7 +366,6 @@
         platformEl.classList.add('hidden');
       }
     }
-
     const shortDescEl = document.getElementById('modal-item-short-desc');
     if (shortDescEl) {
       if (item.shortDesc) {
@@ -453,9 +375,7 @@
         shortDescEl.classList.add('hidden');
       }
     }
-
     if (desc) desc.textContent = item.fullDesc || item.shortDesc || item.description || '';
-    
     if (specs) {
       if (item.specs && item.specs.length > 0) {
         specs.innerHTML = item.specs.map(s => `
@@ -469,7 +389,6 @@
         specs.classList.add('hidden');
       }
     }
-
     if (downloadBtn) {
       downloadBtn.href = item.downloadUrl || '#';
       const labelText = item.downloadText || 'DOWNLOAD PRODUCT';
@@ -480,26 +399,20 @@
         downloadBtn.removeAttribute('target');
       }
     }
-
-    // Set item's unique URL query parameter
     if (updateUrl && item.id) {
       const url = new URL(window.location);
       url.searchParams.set('item', item.id);
       window.history.pushState({ modalOpen: true, itemId: item.id }, '', url);
     }
-
     const itemImgContainer = document.getElementById('modal-item-img-container');
     if (itemImgContainer && !itemImgContainer._hasSwipe && typeof window.addSwipeListener === 'function') {
       itemImgContainer._hasSwipe = true;
       window.addSwipeListener(itemImgContainer, () => window.stepModalItemImage(1), () => window.stepModalItemImage(-1));
     }
-
     window.showGameModal(modal);
   };
-
   window.closeProductModal = function (updateUrl = true) {
     window.hideGameModal('product-modal');
-
     if (updateUrl) {
       const url = new URL(window.location);
       if (url.searchParams.has('item')) {
@@ -508,8 +421,6 @@
       }
     }
   };
-
-  // Helper function to copy item link
   window.copyItemUrl = function () {
     const currentUrl = window.location.href;
     navigator.clipboard.writeText(currentUrl).then(() => {
@@ -521,13 +432,10 @@
       }
     });
   };
-
-  // Automatically check URL on page load for ?item=
   window.checkDeepLinkItem = function () {
     const params = new URLSearchParams(window.location.search);
     const itemId = params.get('item');
     if (!itemId) return;
-
     let matchedItem = null;
     if (window.GAMES_DATA) {
       matchedItem = window.GAMES_DATA.find(g => g.id === itemId);
@@ -535,29 +443,22 @@
     if (!matchedItem && window.SHOP_DATA) {
       matchedItem = window.SHOP_DATA.find(p => p.id === itemId);
     }
-
     if (matchedItem) {
       setTimeout(() => {
         window.openProductModal(matchedItem, false);
       }, 150);
     }
   };
-
-  // --- GLOBAL UPDATE LETTER & NEWSLETTER MODAL CONTROLLER ---
   window.ensureNewsletterModal = function () {
     if (document.getElementById('newsletter-modal')) return;
-
     const modalHtml = `
       <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
         <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
-          
           <!-- Tactical HUD Corners -->
           <div class="hud-corner hud-corner-tl"></div>
           <div class="hud-corner hud-corner-tr"></div>
           <div class="hud-corner hud-corner-bl"></div>
           <div class="hud-corner hud-corner-br"></div>
-
-
           <div class="flex justify-between items-start pb-3 border-b border-borderwire">
             <div>
               <span class="text-xs font-semibold text-ochre uppercase tracking-wider">Mithila Games</span>
@@ -565,11 +466,9 @@
             </div>
             <button type="button" onclick="closeNewsletterModal()" onmouseenter="if(window.playGameSfx) window.playGameSfx('hover');" class="w-8 h-8 rounded-lg bg-panel border border-borderwire hover:border-ochre flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer font-bold" aria-label="Close modal">✕</button>
           </div>
-
           <p class="font-sans text-xs text-slate-300 leading-relaxed">
             Stay connected with our studio. Receive updates on new interactive experiences, game releases, devlogs, and creative tools.
           </p>
-
           <form id="google-newsletter-form" onsubmit="submitGoogleNewsletter(event)" class="space-y-4 pt-1">
             <div>
               <label for="subscriber-email" class="text-slate-300 block text-xs font-medium mb-1.5">Email Address</label>
@@ -581,7 +480,6 @@
                 class="w-full bg-void border border-borderwire rounded-lg px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:border-ochre transition-colors text-sm"
               >
             </div>
-
             <button 
               type="submit" 
               id="subscriber-submit-btn" 
@@ -589,7 +487,6 @@
             >
               <span>TRANSMIT SUBSCRIPTION →</span>
             </button>
-
             <div id="subscriber-status" class="hidden p-3 rounded-lg bg-void border border-ochre/40 text-ochre text-xs"></div>
           </form>
         </div>
@@ -599,7 +496,6 @@
     temp.innerHTML = modalHtml;
     document.body.appendChild(temp.firstElementChild);
   };
-
   window.openNewsletterModal = function () {
     window.ensureNewsletterModal();
     const input = document.getElementById('subscriber-email');
@@ -609,34 +505,27 @@
       if (input) setTimeout(() => input.focus(), 120);
     });
   };
-
   window.closeNewsletterModal = function () {
     window.hideGameModal('newsletter-modal');
   };
-
   window.submitGoogleNewsletter = function (e) {
     e.preventDefault();
     const emailInput = document.getElementById('subscriber-email');
     const email = emailInput ? emailInput.value.trim() : '';
     const status = document.getElementById('subscriber-status');
     const btn = document.getElementById('subscriber-submit-btn');
-
     if (!email) return;
-
     btn.disabled = true;
     btn.textContent = 'SUBMITTING...';
     if (status) {
       status.classList.remove('hidden');
       status.textContent = 'Subscribing to News & Update Letter...';
     }
-
     const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScxfDsAnnoPtq8w5GdNVhzHdrxUqe1Py5c-AyfqCFbnNlOrlA/formResponse';
-    
     const payload = new URLSearchParams();
     payload.append('entry.1884408784', 'News & Updates Subscriber');
     payload.append('entry.1819151916', email);
     payload.append('entry.195861844', '[NEWSLETTER] Subscribed to Studio News & Update Letter.');
-
     let completed = false;
     const finalizeSuccess = () => {
       if (completed) return;
@@ -653,7 +542,6 @@
         window.closeNewsletterModal();
       }, 1000);
     };
-
     try {
       fetch(formUrl, {
         method: 'POST',
@@ -664,24 +552,19 @@
     } catch (err) {
       finalizeSuccess();
     }
-
     setTimeout(finalizeSuccess, 1200);
   };
-
-  // --- MOBILE TOUCH GESTURE DETECTOR ---
   window.addSwipeListener = function (element, onSwipeLeft, onSwipeRight, threshold = 40) {
     if (!element) return;
     let startX = 0;
     let startY = 0;
     let isTouch = false;
-
     element.addEventListener('touchstart', (e) => {
       if (e.touches.length !== 1) return;
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
       isTouch = true;
     }, { passive: true });
-
     element.addEventListener('touchend', (e) => {
       if (!isTouch || e.changedTouches.length !== 1) return;
       isTouch = false;
@@ -689,8 +572,6 @@
       const endY = e.changedTouches[0].clientY;
       const diffX = endX - startX;
       const diffY = endY - startY;
-
-      // Only trigger if horizontal swipe exceeds threshold and is significantly greater than vertical movement
       if (Math.abs(diffX) > threshold && Math.abs(diffX) > Math.abs(diffY) * 1.25) {
         if (diffX < 0 && typeof onSwipeLeft === 'function') {
           onSwipeLeft();
@@ -700,8 +581,6 @@
       }
     }, { passive: true });
   };
-
-  // --- MOBILE MENU CONTROLLER WITH SCROLL LOCK ---
   window.openMobileMenu = function () {
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu) return;
@@ -710,7 +589,6 @@
     document.body.style.overflow = 'hidden';
     if (typeof window.playGameSfx === 'function') window.playGameSfx('modal-open');
   };
-
   window.closeMobileMenu = function () {
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu || mobileMenu.classList.contains('hidden')) return;
@@ -719,14 +597,10 @@
     document.body.style.overflow = '';
     if (typeof window.playGameSfx === 'function') window.playGameSfx('modal-close');
   };
-
-  // --- INITIALIZE NAVIGATION LISTENERS ---
   document.addEventListener('DOMContentLoaded', function () {
-    // Mobile Menu Toggle
     const mobileToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-menu-close');
-
     if (mobileToggle) {
       mobileToggle.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -739,8 +613,6 @@
         window.closeMobileMenu();
       });
     }
-
-    // Dismiss mobile drawer when clicking backdrop or on any navigation link
     if (mobileMenu) {
       mobileMenu.addEventListener('click', (e) => {
         if (e.target === mobileMenu) {
@@ -753,19 +625,13 @@
         });
       });
     }
-
-    // Dismiss mobile menu on Escape key
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         window.closeMobileMenu();
       }
     });
-
-    // Active Tab Highlighting for Desktop, Ribbon, and Mobile Drawer
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const isHome = currentPath === '' || currentPath === 'index.html' || currentPath === 'home.html';
-
-    // 1. Desktop & Tablet Nav Links (Game HUD styling)
     document.querySelectorAll('nav a[data-nav-link]').forEach((link) => {
       const href = link.getAttribute('href');
       const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
@@ -778,8 +644,6 @@
         link.classList.add('text-slate-muted');
       }
     });
-
-    // 2. Mobile Ribbon Links
     document.querySelectorAll('[data-mobile-ribbon-link]').forEach((link) => {
       const href = link.getAttribute('href');
       const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
@@ -789,8 +653,6 @@
         link.className = 'px-3 py-1 bg-surface border border-borderwire text-slate-muted hover:text-white whitespace-nowrap text-xs transition-colors rounded-lg';
       }
     });
-
-    // 3. Mobile Drawer Links
     document.querySelectorAll('[data-mobile-drawer-link]').forEach((link) => {
       const href = link.getAttribute('href');
       const match = (isHome && (href === '/' || href === 'home.html' || href === 'index.html')) || href === currentPath;
@@ -800,8 +662,6 @@
         link.className = 'p-3 bg-surface border border-borderwire text-slate-muted hover:text-white rounded-xl transition-colors';
       }
     });
-
-    // Handle browser Back / Forward buttons for modal state
     window.addEventListener('popstate', (e) => {
       const params = new URLSearchParams(window.location.search);
       if (params.has('item')) {
@@ -810,24 +670,15 @@
         window.closeProductModal(false);
       }
     });
-
-    // Pre-cache image viewer and check deep linking on load
     window.ensureImageViewer();
     window.checkDeepLinkItem();
-
-    // Initialize Game UI Engine
     initCardTiltPhysics();
     initGameKeyboardBindings();
     initSfxBindings();
     updateSfxButtonUI();
   });
-
-  // =========================================================================
-  // KINETIC GAME UI CONTROLLER (3D TILT PHYSICS, AUDIO SYNTH & HOTKEYS)
-  // =========================================================================
   let audioCtx = null;
   let isMuted = false;
-
   function getAudioContext() {
     if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -837,7 +688,6 @@
     }
     return audioCtx;
   }
-
   window.playGameSfx = function (type) {
     if (isMuted) return;
     try {
@@ -847,7 +697,6 @@
       const gain = ctx.createGain();
       osc.connect(gain);
       gain.connect(ctx.destination);
-
       const now = ctx.currentTime;
       if (type === 'hover') {
         osc.type = 'sine';
@@ -883,17 +732,14 @@
         osc.stop(now + 0.07);
       }
     } catch (e) {
-      // Audio policy safe
     }
   };
-
   window.toggleGameSfx = function () {
     isMuted = !isMuted;
     localStorage.setItem('game_sfx_muted', isMuted);
     updateSfxButtonUI();
     if (!isMuted) window.playGameSfx('click');
   };
-
   function updateSfxButtonUI() {
     const btn = document.getElementById('sfx-toggle-btn');
     if (btn) {
@@ -902,10 +748,8 @@
         : `<span class="text-lime-400 font-bold text-xs">🔊 SFX ON</span>`;
     }
   }
-
   function initCardTiltPhysics() {
     if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768) return;
-
     let activeCard = null;
     let targetRotX = 0;
     let targetRotY = 0;
@@ -917,23 +761,17 @@
     let currentScale = 1.0;
     let isHovered = false;
     let animId = null;
-
     function updateTilt() {
       if (!activeCard) return;
-
-      // Smooth dampening / spring interpolation (0.10 factor for buttery glide)
       currentRotX += (targetRotX - currentRotX) * 0.10;
       currentRotY += (targetRotY - currentRotY) * 0.10;
       currentTranslateY += (targetTranslateY - currentTranslateY) * 0.10;
       currentScale += (targetScale - currentScale) * 0.10;
-
       activeCard.style.transform = `perspective(900px) rotateX(${currentRotX.toFixed(3)}deg) rotateY(${currentRotY.toFixed(3)}deg) translateY(${currentTranslateY.toFixed(3)}px) scale(${currentScale.toFixed(4)})`;
-
       const diffX = Math.abs(targetRotX - currentRotX);
       const diffY = Math.abs(targetRotY - currentRotY);
       const diffYPos = Math.abs(targetTranslateY - currentTranslateY);
       const diffScale = Math.abs(targetScale - currentScale);
-
       if (isHovered || diffX > 0.01 || diffY > 0.01 || diffYPos > 0.05 || diffScale > 0.001) {
         animId = requestAnimationFrame(updateTilt);
       } else {
@@ -943,7 +781,6 @@
         animId = null;
       }
     }
-
     document.addEventListener('mousemove', (e) => {
       if (window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(hover: none)').matches)) {
         return;
@@ -960,7 +797,6 @@
         }
         return;
       }
-
       if (activeCard !== card) {
         if (activeCard) {
           activeCard.style.transform = '';
@@ -972,29 +808,23 @@
         currentTranslateY = 0;
         currentScale = 1.0;
       }
-
       isHovered = true;
       targetTranslateY = -4;
       targetScale = 1.015;
-
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       targetRotX = -(y / (rect.height / 2)) * 6.0;
       targetRotY = (x / (rect.width / 2)) * 6.0;
-
-      // Dynamic holographic specular sheen tracking
       const pctX = Math.round(((e.clientX - rect.left) / rect.width) * 100);
       const pctY = Math.round(((e.clientY - rect.top) / rect.height) * 100);
       card.style.setProperty('--glare-x', `${pctX}%`);
       card.style.setProperty('--glare-y', `${pctY}%`);
       card.style.setProperty('--glare-opacity', '1');
-
       if (!animId) {
         animId = requestAnimationFrame(updateTilt);
       }
     });
-
     document.addEventListener('mouseout', (e) => {
       const card = e.target.closest('.game-tilt-card, .studio-card');
       if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
@@ -1010,11 +840,9 @@
       }
     });
   }
-
   function initGameKeyboardBindings() {
     window.addEventListener('keydown', (e) => {
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
-
       if (e.key === 'Escape') {
         if (typeof window.closeNewsModal === 'function') window.closeNewsModal();
         if (typeof window.closeNewsletterModal === 'function') window.closeNewsletterModal();
@@ -1051,14 +879,12 @@
       }
     });
   }
-
   function initSfxBindings() {
     document.addEventListener('mouseenter', (e) => {
       if (e.target.closest('button, a, .game-btn, .studio-card, .news-filter-pill, .shop-filter-pill')) {
         window.playGameSfx('hover');
       }
     }, true);
-
     document.addEventListener('click', (e) => {
       if (e.target.closest('button, a, .game-btn, .news-filter-pill, .shop-filter-pill')) {
         window.playGameSfx('click');

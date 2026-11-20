@@ -41,7 +41,7 @@ window.GAMES_DATA = [
     title: "Wings of Paper",
     category: "ARCADE GLIDER // SHIPPED",
     price: "FREE",
-    image: "public/assets/images/wings_paper_hero.jpg",
+    image: "public/assets/images/wings_paper_hero.webp",
     images: [
       "content/wings_of_paper/unnamed (1).webp",
       "content/wings_of_paper/unnamed (2).webp",

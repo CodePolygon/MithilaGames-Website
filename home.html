@@ -13,12 +13,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Tag Manager / Analytics -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
+  <!-- Google Tag Manager / Analytics (Deferred for Core Web Vitals) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP';
+        document.head.appendChild(s);
+      }
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGTM, { once: true, passive: true });
+      });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 3500);
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGTM, 3500); });
+      }
+    })();
   </script>
   <title>Mithila Games | Building Interactive Experiences, Games &amp; 3D Tools</title>
   <meta name="description" content="Mithila Games is an independent studio crafting mechanics-first video games, Blender addons, and 3D tools. Creators of T R L, Wings of Paper, and Haircards.">
@@ -158,25 +177,23 @@
   <link rel="stylesheet" href="public/css/theme.css">
 
   <style>
-    /* Sleek Keyframe Animations */
+    /* Sleek Composited Keyframe Animations */
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-6px); }
     }
     @keyframes pulseGlow {
-      0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 6px rgba(187, 244, 81, 0.4)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(187, 244, 81, 0.8)); }
-    }
-    @keyframes subtleGlowOchre {
-      0%, 100% { box-shadow: 0 0 15px rgba(229, 169, 60, 0.1); }
-      50% { box-shadow: 0 0 30px rgba(229, 169, 60, 0.3); }
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
     }
 
     .animate-float-slow {
       animation: floatSlow 4s ease-in-out infinite;
+      will-change: transform;
     }
     .animate-pulse-glow {
       animation: pulseGlow 2.5s ease-in-out infinite;
+      will-change: opacity;
     }
 
     /* Modern Glass Card with Smooth Hover Elevation & Glow */
@@ -185,7 +202,8 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 1rem;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
       position: relative;
       overflow: hidden;
     }
@@ -241,7 +259,7 @@
       
       <!-- Brand Logo with Arcade Skew -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
       </a>
 
       <!-- Desktop Game HUD Navigation Menu -->
@@ -281,7 +299,7 @@
   <!-- Mobile Navigation Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
-      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto" loading="lazy" decoding="async">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" width="123" height="41" class="h-6 w-auto" loading="lazy" decoding="async">
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
@@ -314,6 +332,8 @@
           id="hero-fallback-img"
           src="content/off_goal/cover.webp" 
           alt="Mithila Games Studio Productions" 
+          width="1281"
+          height="1080"
           fetchpriority="high"
           loading="eager"
           decoding="async"
@@ -416,6 +436,8 @@
               <img 
                 src="content/off_goal/cover.webp" 
                 alt="Off Goal" 
+                width="1281"
+                height="1080"
                 class="w-full h-full object-cover"
                loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
@@ -460,6 +482,8 @@
               <img 
                 src="content/t-r-l/cover.webp" 
                 alt="T R L 3D Parkour" 
+                width="1912"
+                height="1067"
                 class="w-full h-full object-cover"
                loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
@@ -502,8 +526,10 @@
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
               <img 
-                src="public/assets/images/wings_paper_hero.jpg" 
+                src="public/assets/images/wings_paper_hero.webp" 
                 alt="Wings of Paper" 
+                width="1376"
+                height="768"
                 class="w-full h-full object-cover"
                loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
@@ -545,7 +571,7 @@
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
-              <img src="content/aam_chor/cover.webp" alt="aam chor" class="w-full h-full object-cover" loading="lazy" decoding="async">
+              <img src="content/aam_chor/cover.webp" alt="aam chor" width="1014" height="521" class="w-full h-full object-cover" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
               
               <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -585,7 +611,7 @@
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
-              <img src="content/depth_drive/cover.webp" alt="DepthDrive" class="w-full h-full object-cover" loading="lazy" decoding="async">
+              <img src="content/depth_drive/cover.webp" alt="DepthDrive" width="631" height="500" class="w-full h-full object-cover" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
               
               <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -625,7 +651,7 @@
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
-              <img src="content/bullet_balast/cover.webp" alt="Bullet Balast" class="w-full h-full object-cover" loading="lazy" decoding="async">
+              <img src="content/bullet_balast/cover.webp" alt="Bullet Balast" width="1071" height="509" class="w-full h-full object-cover" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
               
               <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -665,7 +691,7 @@
         >
           <div>
             <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
-              <img src="content/whadark/cover.webp" alt="WhaDark" class="w-full h-full object-cover" loading="lazy" decoding="async">
+              <img src="content/whadark/cover.webp" alt="WhaDark" width="416" height="246" class="w-full h-full object-cover" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
               
               <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -759,7 +785,7 @@
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
-                <img src="content/Haircards/banner.webp" alt="Haircards Addon" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <img src="content/Haircards/banner.webp" alt="Haircards Addon" width="868" height="488" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute top-2.5 left-2.5">
                   <span class="game-sticker sticker-purple text-[9px]">BLENDER ADDON</span>
                 </div>
@@ -790,7 +816,7 @@
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
-                <img src="content/3D_models/lowpoly-characters/thumbnail.webp" alt="Lowpoly Character" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <img src="content/3D_models/lowpoly-characters/thumbnail.webp" alt="Lowpoly Character" width="1244" height="1055" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute top-2.5 left-2.5">
                   <span class="game-sticker sticker-ochre text-[9px]">3D MODEL</span>
                 </div>
@@ -821,7 +847,7 @@
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
-                <img src="content/Vertex-Shadow-Painter-for-Blender/banner.png" alt="VertShade" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <img src="content/Vertex-Shadow-Painter-for-Blender/banner.webp" alt="VertShade" width="982" height="528" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute top-2.5 left-2.5">
                   <span class="game-sticker sticker-purple text-[9px]">BLENDER ADDON</span>
                 </div>
@@ -852,7 +878,7 @@
           >
             <div>
               <div class="aspect-video w-full overflow-hidden bg-void border-b border-borderwire relative">
-                <img src="content/lowpoly_environment/cover.png" alt="Low Poly Environment Pack" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <img src="content/lowpoly_environment/cover.webp" alt="Low Poly Environment Pack" width="1708" height="965" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute top-2.5 left-2.5">
                   <span class="game-sticker sticker-ochre text-[9px]">3D ASSET KIT</span>
                 </div>
@@ -974,7 +1000,7 @@
                 <div class="hud-corner hud-corner-bl"></div>
                 <div class="hud-corner hud-corner-br"></div>
 
-                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
+                <img id="modal-item-img" src="" alt="" width="800" height="450" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
                 
                 <!-- Image Counter Badge -->
                 <span id="modal-item-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
@@ -1094,7 +1120,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="/" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
           <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
@@ -1149,7 +1175,6 @@
   <script src="public/js/data/heroData.js"></script>
   <script src="public/js/data/gamesData.js"></script>
   <script src="public/js/data/shopData.js"></script>
-  <script src="public/js/data/newsData.js"></script>
   <script>
     // --- SCROLL REVEAL OBSERVER WITH STAGGER ---
     function initScrollAnimations() {

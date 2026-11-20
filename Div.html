@@ -12,14 +12,32 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager / Analytics (Deferred for Core Web Vitals) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <!-- Google Tag Manager / Analytics -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    </script>
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP';
+        document.head.appendChild(s);
+      }
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGTM, { once: true, passive: true });
+      });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 3500);
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGTM, 3500); });
+      }
+    })();
+  </script>
     <title>Divyanshu Priyadarshi — Profile & Links | Mithila Games</title>
     <meta name="description" content="Divyanshu Priyadarshi — Indie Game Developer, Technical Artist & Founder of Mithila Games.">
     <link rel="canonical" href="https://mithilagames.com/Div.html">

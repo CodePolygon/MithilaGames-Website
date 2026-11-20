@@ -8,13 +8,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Tag Manager / Analytics -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
+  <!-- Google Tag Manager / Analytics (Deferred for Core Web Vitals) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP';
+        document.head.appendChild(s);
+      }
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGTM, { once: true, passive: true });
+      });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 3500);
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGTM, 3500); });
+      }
+    })();
   </script>
   <title>Privacy Policy | Mithila Games</title>
   <meta name="description" content="Universal Privacy Policy for Mithila Games and its distributed games, mobile applications, plugins, developer tools, and web services.">
@@ -65,7 +83,7 @@
       
       <!-- Brand Logo -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
 
       <!-- Desktop Game HUD Navigation Menu -->
@@ -105,7 +123,7 @@
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
-      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" width="123" height="41" class="h-6 w-auto">
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
@@ -532,7 +550,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-borderwire/60">
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="/" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
           <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>

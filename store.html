@@ -13,12 +13,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Tag Manager / Analytics -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
+  <!-- Google Tag Manager / Analytics (Deferred for Core Web Vitals) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP';
+        document.head.appendChild(s);
+      }
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGTM, { once: true, passive: true });
+      });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 3500);
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGTM, 3500); });
+      }
+    })();
   </script>
   <title>Asset Bazaar & Tools // Mithila Games</title>
   <meta name="description" content="Official game developer addons, CC0 shaders, stylized 3D hair cards, textures, and studio assets created by Mithila Games.">
@@ -98,9 +117,9 @@
       
       <!-- Brand Logo with Arcade Skew -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
+        <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform" loading="lazy" decoding="async">
       </a>
-
+ 
       <!-- Desktop Game HUD Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
         <a href="/" data-nav-link class="nav-game-tab">HOME</a>
@@ -138,7 +157,7 @@
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-void/95 backdrop-blur-lg z-50 hidden flex-col p-6 font-sans text-sm overflow-y-auto">
     <div class="flex justify-between items-center pb-4 border-b border-borderwire shrink-0">
-      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" class="h-6 w-auto" loading="lazy" decoding="async">
+      <img src="public/assets/logo/sidebar_logo.svg" alt="Mithila Games" width="123" height="41" class="h-6 w-auto" loading="lazy" decoding="async">
       <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white text-xl min-w-[40px] min-h-[40px] flex items-center justify-center" aria-label="Close menu">✕</button>
     </div>
     <div class="flex flex-col gap-2 py-6 font-syne uppercase">
@@ -292,7 +311,7 @@
                 <div class="hud-corner hud-corner-bl"></div>
                 <div class="hud-corner hud-corner-br"></div>
 
-                <img id="modal-item-img" src="" alt="" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
+                <img id="modal-item-img" src="" alt="" width="800" height="450" class="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy" decoding="async">
                 
                 <!-- Image Counter Badge -->
                 <span id="modal-item-img-counter" class="absolute top-4 left-4 px-3 py-1 bg-void/90 backdrop-blur-md rounded border border-borderwire text-slate-300 font-mono text-xs hidden shadow-lg"></span>
@@ -461,7 +480,7 @@
         <!-- Brand & Studio Copyright -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
           <a href="/" class="flex items-center gap-2">
-            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
+            <img src="public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
           </a>
           <span class="text-borderwire hidden sm:inline">|</span>
           <span class="text-[11px] text-slate-muted">&copy; 2026 MITHILA GAMES. ALL RIGHTS RESERVED.</span>
@@ -577,7 +596,7 @@
 
               <div>
                 <div class="aspect-video w-full bg-void border-b border-borderwire overflow-hidden relative rounded-t-[14px]">
-                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+                  <img src="${item.image}" alt="${item.title}" width="640" height="360" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent pointer-events-none"></div>
                   
                   <div class="absolute top-3 left-3">

@@ -160,12 +160,31 @@ def generate_article_html(a):
   </noscript>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
-  <!-- Google Tag Manager / Analytics -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP"></script>
+  <!-- Google Tag Manager / Analytics (Deferred for Core Web Vitals) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
+
+    (function() {{
+      var gtmLoaded = false;
+      function loadGTM() {{
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TH89W6CP';
+        document.head.appendChild(s);
+      }}
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {{
+        window.addEventListener(evt, loadGTM, {{ once: true, passive: true }});
+      }});
+      if (document.readyState === 'complete') {{
+        setTimeout(loadGTM, 3500);
+      }} else {{
+        window.addEventListener('load', function() {{ setTimeout(loadGTM, 3500); }});
+      }}
+    }})();
   </script>
   <title>{title} // Devlogs &amp; News | Mithila Games</title>
   <meta name="description" content="{summary_escaped}">
@@ -234,7 +253,7 @@ def generate_article_html(a):
   <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderwire">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <img src="../public/assets/logo/logo_wide.svg" alt="Mithila Games" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
+        <img src="../public/assets/logo/logo_wide.svg" alt="Mithila Games" width="164" height="30" class="h-6 sm:h-7 lg:h-8 w-auto group-hover:scale-105 transition-transform">
       </a>
       <nav class="hidden md:flex items-center gap-1 font-syne uppercase text-xs tracking-wider shrink-0">
         <a href="/" class="nav-game-tab">HOME</a>
@@ -290,7 +309,7 @@ def generate_article_html(a):
 
     <!-- Hero Article Image -->
     <div class="rounded-2xl overflow-hidden border border-borderwire mb-10 shadow-2xl bg-surface aspect-video max-h-[480px]">
-      <img src="{display_image}" alt="{title_escaped}" class="w-full h-full object-cover">
+      <img src="{display_image}" alt="{title_escaped}" width="800" height="450" class="w-full h-full object-cover">
     </div>
 
     <!-- Summary Box -->
@@ -327,7 +346,7 @@ def generate_article_html(a):
   <footer class="bg-surface/80 border-t border-borderwire py-10 text-xs font-mono text-slate-400">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-3">
-        <img src="../public/assets/logo/favicon.svg" alt="Mithila Games" class="w-5 h-5">
+        <img src="../public/assets/logo/favicon.svg" alt="Mithila Games" width="20" height="20" class="w-5 h-5">
         <span>© 2026 Mithila Games. Independent Game Studio.</span>
       </div>
       <div class="flex flex-wrap gap-4 uppercase font-bold text-[11px]">
@@ -360,7 +379,7 @@ def update_sitemap(articles):
         '    <changefreq>weekly</changefreq>',
         '    <priority>1.0</priority>',
         '    <image:image>',
-        '      <image:loc>https://mithilagames.com/public/assets/images/wings_paper_hero.jpg</image:loc>',
+        '      <image:loc>https://mithilagames.com/public/assets/images/wings_paper_hero.webp</image:loc>',
         '      <image:title>Mithila Games Studio Showcase</image:title>',
         '      <image:caption>Building Immersive Interactive Experiences &amp; Games</image:caption>',
         '    </image:image>',
