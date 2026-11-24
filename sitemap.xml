@@ -29,6 +29,11 @@
       <image:title>Wings of Paper - Arcade 3D Glider Game</image:title>
       <image:caption>Take flight in a peaceful low-poly 3D world by Mithila Games</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://mithilagames.com/content/post_bounce/cover.webp</image:loc>
+      <image:title>Post Bounce - Physics Arcade Bouncer</image:title>
+      <image:caption>Web-based physics arcade game created for Haven Muzaffarpur by Mithila Games</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://mithilagames.com/store.html</loc>

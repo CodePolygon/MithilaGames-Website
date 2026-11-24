@@ -378,7 +378,7 @@
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-2">
             <span class="game-sticker sticker-lime text-[10px] shrink-0">PRODUCTION HANGAR</span>
-            <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">// PLAYABLE BUILDS</span>
+            <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">PLAYABLE BUILDS</span>
           </div>
           <h2 class="font-syne font-black italic text-2xl sm:text-4xl text-white tracking-tight uppercase flex flex-wrap items-center gap-x-3 gap-y-1">
             <span class="brush-splash brush-splash-ochre px-2.5 py-0.5 rounded text-white font-black shrink-0">GAMES</span>
@@ -413,20 +413,66 @@
             </button>
           </div>
           <a href="games.html" class="text-xs font-mono text-slate-400 hover:text-ochre uppercase flex items-center gap-1.5 transition-colors group">
-            <span>VIEW ALL 7</span>
+            <span>VIEW ALL 8</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
       </div>
 
-      <!-- Single Scrollable Row for All 6 Games -->
+      <!-- Single Scrollable Row for All Games -->
       <div 
         id="games-scroll-track" 
         class="flex gap-5 sm:gap-6 overflow-x-auto pb-4 pt-1 no-scrollbar select-none will-change-scroll"
         style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;"
       >
         
-        <!-- GAME 1: OFF GOAL -->
+        <!-- GAME 1: POST BOUNCE -->
+        <article 
+          onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-post-bounce') || window.GAMES_DATA[0])"
+          class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
+        >
+          <div>
+            <div class="relative w-full aspect-video overflow-hidden bg-void border-b border-borderwire">
+              <img 
+                src="content/post_bounce/cover.webp" 
+                alt="Post Bounce" 
+                width="1010"
+                height="500"
+                class="w-full h-full object-cover"
+               loading="lazy" decoding="async">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-85"></div>
+              
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="game-sticker sticker-lime text-[10px]">NEW RELEASE</span>
+              </div>
+              <div class="absolute bottom-3 right-3">
+                <span class="px-2.5 py-1 rounded-md bg-void/90 backdrop-blur-md border border-borderwire text-[11px] font-mono font-bold text-lime">
+                  GODOT
+                </span>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-6 space-y-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
+                <span class="text-ochre font-bold uppercase">HTML5, Web</span>
+                <span>PHYSICS BOUNCER</span>
+              </div>
+              <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
+                Post Bounce
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
+                Slingshot physics bouncer for Haven Muzaffarpur. Pull the ball, calculate trajectories, and collect diamonds.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-6 pt-0 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-borderwire/60 mt-2 pt-3">
+            <span class="game-sticker sticker-ochre text-[10px]">FREE TO PLAY</span>
+            <span class="text-slate-400 font-mono text-[11px] group-hover:text-lime flex items-center gap-1 font-bold">PLAY IN BROWSER →</span>
+          </div>
+        </article>
+
+        <!-- GAME 2: OFF GOAL -->
         <article 
           onclick="openProductModal(window.GAMES_DATA.find(g => g.id === 'game-off-goal') || window.GAMES_DATA[0])"
           class="studio-card studio-card-lime cursor-pointer group flex flex-col justify-between shadow-2xl shrink-0 w-[84vw] max-w-[340px] sm:w-[320px] md:w-[350px]"
@@ -454,8 +500,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">HTML5 / MOBILE</span>
-                <span>// COZY ADVENTURE</span>
+                <span class="text-ochre font-bold uppercase">HTML5, Mobile</span>
+                <span>COZY ADVENTURE</span>
               </div>
               <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
                 Off Goal
@@ -500,8 +546,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">HTML5 / PC</span>
-                <span>// 3D PARKOUR</span>
+                <span class="text-ochre font-bold uppercase">HTML5, PC</span>
+                <span>3D PARKOUR</span>
               </div>
               <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
                 T R L
@@ -546,8 +592,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">ANDROID / PC</span>
-                <span>// ARCADE GLIDER</span>
+                <span class="text-ochre font-bold uppercase">Android, PC</span>
+                <span>ARCADE GLIDER</span>
               </div>
               <h3 class="font-syne font-black italic text-lg sm:text-2xl text-white tracking-tight uppercase group-hover:text-lime transition-colors">
                 WINGS OF PAPER
@@ -586,8 +632,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">HTML5 / WIN / LINUX</span>
-                <span>// SURVIVAL</span>
+                <span class="text-ochre font-bold uppercase">HTML5, Windows, Linux</span>
+                <span>SURVIVAL</span>
               </div>
               <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
                 aam chor
@@ -627,7 +673,7 @@
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
                 <span class="text-ochre font-bold uppercase">MOBILE SIMULATOR</span>
-                <span>// RELAXING</span>
+                <span>RELAXING</span>
               </div>
               <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
                 DepthDrive
@@ -666,8 +712,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">HTML5 / MOBILE WEB</span>
-                <span>// ARCADE</span>
+                <span class="text-ochre font-bold uppercase">HTML5, Mobile Web</span>
+                <span>ARCADE</span>
               </div>
               <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
                 Bullet Balast
@@ -706,8 +752,8 @@
 
             <div class="p-4 sm:p-6 space-y-2">
               <div class="flex flex-wrap items-baseline justify-between gap-1 text-[11px] sm:text-xs font-mono text-slate-400">
-                <span class="text-ochre font-bold uppercase">LINUX / ANDROID</span>
-                <span>// 2D PLATFORMER</span>
+                <span class="text-ochre font-bold uppercase">Linux, Android</span>
+                <span>2D PLATFORMER</span>
               </div>
               <h3 class="font-syne font-black italic text-xl sm:text-2xl text-white uppercase group-hover:text-lime transition-colors">
                 WhaDark
@@ -738,7 +784,7 @@
           <div>
             <div class="flex flex-wrap items-center gap-2 mb-2">
               <span class="game-sticker sticker-purple text-[10px] shrink-0">CREATIVE PIPELINE</span>
-              <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">// 3D KITS &amp; ADDONS</span>
+              <span class="text-[11px] sm:text-xs font-mono text-slate-400 font-bold uppercase tracking-wider shrink-0">3D KITS &amp; ADDONS</span>
             </div>
             <h2 class="font-syne font-black italic text-2xl sm:text-4xl text-white tracking-tight uppercase flex flex-wrap items-center gap-x-3 gap-y-1">
               <span class="shrink-0 whitespace-nowrap">TOOLS &amp;</span>
@@ -794,7 +840,7 @@
                 </div>
               </div>
               <div class="p-4 sm:p-5 space-y-2">
-                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // ADDON</span>
+                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS • ADDON</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Haircards
                 </h3>
@@ -825,7 +871,7 @@
                 </div>
               </div>
               <div class="p-4 sm:p-5 space-y-2">
-                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // CHARACTERS</span>
+                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS • CHARACTERS</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Lowpoly Character
                 </h3>
@@ -856,7 +902,7 @@
                 </div>
               </div>
               <div class="p-4 sm:p-5 space-y-2">
-                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS // SHADING</span>
+                <span class="text-[11px] font-mono text-slate-400 uppercase">DEV TOOLS • SHADING</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   VertShade
                 </h3>
@@ -887,7 +933,7 @@
                 </div>
               </div>
               <div class="p-4 sm:p-5 space-y-2">
-                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS // TERRAIN</span>
+                <span class="text-[11px] font-mono text-slate-400 uppercase">3D KITS • TERRAIN</span>
                 <h3 class="font-syne font-black text-base sm:text-lg text-white uppercase group-hover:text-ochre transition-colors">
                   Environment Pack
                 </h3>
@@ -933,7 +979,7 @@
           
           <div class="hidden md:flex items-center gap-2 text-xs font-mono text-slate-muted truncate">
             <span class="w-2 h-2 rounded-full bg-lime animate-pulse shrink-0"></span>
-            <span class="shrink-0">MITHILA GAMES // TITLE DOSSIER:</span>
+            <span class="shrink-0">MITHILA GAMES • TITLE DOSSIER:</span>
             <span id="modal-item-nav-title" class="text-white font-bold truncate"></span>
           </div>
         </div>
@@ -994,7 +1040,7 @@
             
             <!-- Cinema Interactive Stage Frame -->
             <div class="space-y-3">
-              <div id="modal-item-img-container" class="aspect-video w-full bg-void/90 border-2 border-borderwire rounded-2xl overflow-hidden relative group cursor-zoom-in shadow-2xl flex items-center justify-center bg-halftone-dots" onclick="openActiveItemImageViewer()">
+              <div id="modal-item-img-container" class="aspect-video w-full bg-void/90 border-2 border-borderwire rounded-2xl overflow-hidden relative group cursor-zoom-in shadow-2xl flex items-center justify-center" onclick="openActiveItemImageViewer()">
                 <div class="hud-corner hud-corner-tl"></div>
                 <div class="hud-corner hud-corner-tr"></div>
                 <div class="hud-corner hud-corner-bl"></div>
@@ -1037,7 +1083,7 @@
             <!-- About / Synopsis Card -->
             <div class="bg-surface/80 border border-borderwire rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
               <h2 class="font-syne font-black text-lg sm:text-xl text-white uppercase tracking-wider flex items-center gap-2.5">
-                <span class="text-lime text-xl">//</span> OVERVIEW & GAMEPLAY SYNOPSIS
+                <span class="text-lime text-xl"></span> OVERVIEW & GAMEPLAY SYNOPSIS
               </h2>
               
               <!-- Lead Short Desc / Summary if available -->
@@ -1053,7 +1099,7 @@
           <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
             
             <!-- Primary Action Deck -->
-            <div class="bg-surface border-2 border-borderwire rounded-2xl p-6 space-y-5 shadow-2xl relative bg-halftone-dots">
+            <div class="bg-surface border-2 border-borderwire rounded-2xl p-6 space-y-5 shadow-2xl relative">
               <div class="hud-corner hud-corner-tl"></div>
               <div class="hud-corner hud-corner-tr"></div>
               <div class="hud-corner hud-corner-bl"></div>
@@ -1082,7 +1128,7 @@
             <!-- Technical Specifications Grid -->
             <div class="bg-surface/80 border border-borderwire rounded-2xl p-6 space-y-4 shadow-sm">
               <h3 class="font-syne font-bold text-sm text-white uppercase tracking-wider flex items-center gap-2">
-                <span class="text-ochre">//</span> TECHNICAL SPECIFICATIONS
+                <span class="text-ochre"></span> TECHNICAL SPECIFICATIONS
               </h3>
               <div id="modal-item-specs" class="space-y-2"></div>
             </div>
@@ -1104,7 +1150,7 @@
 
         <!-- Studio Archive Footer Watermark -->
         <div class="pt-8 pb-4 text-center text-xs font-mono text-slate-muted border-t border-borderwire/40">
-          <span>// MITHILA GAMES REPOSITORY • AUTHORIZED BUILD DISTRIBUTION //</span>
+          <span>MITHILA GAMES REPOSITORY • AUTHORIZED BUILD DISTRIBUTION</span>
         </div>
 
       </main>
@@ -1175,6 +1221,7 @@
   <script src="public/js/data/heroData.js"></script>
   <script src="public/js/data/gamesData.js"></script>
   <script src="public/js/data/shopData.js"></script>
+  <script src="public/js/data/newsData.js"></script>
   <script>
     // --- SCROLL REVEAL OBSERVER WITH STAGGER ---
     function initScrollAnimations() {
@@ -1307,7 +1354,7 @@
     let isGamesPaused = false;
     let isManualInteracting = false;
     let gamesPauseTimer = null;
-    let originalCardCount = 7;
+    let originalCardCount = 8;
     let gamesStepSize = 374;
     let gamesLoopDistance = 2244;
     let lastFrameTime = performance.now();

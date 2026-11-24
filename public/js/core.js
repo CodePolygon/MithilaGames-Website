@@ -375,7 +375,14 @@
         shortDescEl.classList.add('hidden');
       }
     }
-    if (desc) desc.textContent = item.fullDesc || item.shortDesc || item.description || '';
+    if (desc) {
+      const fullText = item.fullDesc || item.shortDesc || item.description || '';
+      if (fullText.includes('<') && fullText.includes('>')) {
+        desc.innerHTML = fullText;
+      } else {
+        desc.innerHTML = fullText.split('\n\n').map(p => `<p>${p}</p>`).join('');
+      }
+    }
     if (specs) {
       if (item.specs && item.specs.length > 0) {
         specs.innerHTML = item.specs.map(s => `
@@ -453,7 +460,7 @@
     if (document.getElementById('newsletter-modal')) return;
     const modalHtml = `
       <div id="newsletter-modal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden items-center justify-center p-4 game-modal-backdrop" onclick="closeNewsletterModal()">
-        <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 bg-halftone-dots game-modal-dialog" onclick="event.stopPropagation()">
+        <div class="bg-surface border-2 border-borderwire hover:border-ochre/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl space-y-4 game-modal-dialog" onclick="event.stopPropagation()">
           <!-- Tactical HUD Corners -->
           <div class="hud-corner hud-corner-tl"></div>
           <div class="hud-corner hud-corner-tr"></div>

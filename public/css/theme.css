@@ -54,14 +54,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.bg-halftone-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
-  background-size: 16px 16px;
-}
-
+.bg-halftone-dots,
 .bg-halftone-ochre {
-  background-image: radial-gradient(rgba(229, 169, 60, 0.15) 1.5px, transparent 1.5px);
-  background-size: 14px 14px;
+  background-image: none !important;
 }
 
 /* Asymmetric / Diagonal Game Angular Cuts */
